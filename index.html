@@ -90,33 +90,15 @@
 <p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
 <p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
 <p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
-<p><strong>示例：</strong></p>
-<p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题是刷leetcode会遇到的第一道medium题，在很多公司面试时可能会遇到（不是我说的），考的是关于链表的知识，题目应该不算太难，偏向于基础题。</p>
-<hr>
-<p>首先看题目的输入输出，可以发现都是把一个数的各位的数字 逆序 插入到链表中，比如数字342，在本题中链表的表示形式就是2-&gt;4-&gt;3，这样做其实是降低了难度，因为我们平常做数字计算的时候，也是从低位到高位进行运算，运算产生的进位放到高位一起计算。<br>本题也是一样，由于输入的两个链表已经是对数字进行逆序处理了，我们只要按顺序从前往后将两个链表对应位置的数值加起来作为答案链表对应位置节点的数值即可，另外，需定义一个变量来保存计算产生的进位，计算时，带上进位一起计算。</p>
-<hr>
-<p>①. 定义变量<br>定义一个int变量，用以保存当前位运算产生的进位，默认为0，如有进位则置1，没有则置0；<br>定义了一个答案链表saveAns，在每次运算时将结果保存到该链表中，运算完毕，该链表就是结果链表；<br>但由于这是单向链表，在计算完成后，saveAns的指针指向的是答案的最后一位，为了可以返回答案链表的全部，需要另外设置一个链表变量realAns，默认作为指针指向答案的头结点，无论后面saveAns的指针怎么变，我最后只要返回realAns就行了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">int addBit&#x3D;0;&#x2F;&#x2F;两数相加的进位，默认为0</span><br><span class="line">ListNode saveAns&#x3D;new ListNode(0);&#x2F;&#x2F;答案链表，用来保存每一步的答案</span><br><span class="line">ListNode realAns&#x3D;new ListNode(0);&#x2F;&#x2F;返回链表，用来返回最终答案</span><br><span class="line">realAns&#x3D;saveAns;&#x2F;&#x2F;一开始他们是相等的，理解为realAns作为指针指向了saveAns的头结点</span><br></pre></td></tr></table></figure>
-<p>②. 循环计算<br>程序需要将两个数字链表对应位相加，显然需要使用循环，所以就要设置循环的条件：当两个加数的指针都为空且进位为0时，停止循环。<br>考虑到两个输入数可能位数不同，所以运算时，一个加数的指针处有值，而另一个加数的指针已经为空了，例如：一个加数是5-&gt;3-&gt;null，另一个是2-&gt;null，执行完5+2后，第一个加数的指针处为3，第二个加数指针处已经是null，所以遇到这种情况时，我们可以将那个null的值变成0进行运算。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;程序循环运行的条件：两个链表至少有一个不为空或者有进位不为0的时候</span><br><span class="line">		while(l1!&#x3D;null||l2!&#x3D;null||addBit!&#x3D;0) &#123;</span><br><span class="line">			saveAns.next&#x3D;new ListNode(0);&#x2F;&#x2F;创建一个节点，为计算做准备</span><br><span class="line">			saveAns&#x3D;saveAns.next;&#x2F;&#x2F;答案链表指针移动到下一节点</span><br><span class="line">			</span><br><span class="line">			int val1&#x3D;l1&#x3D;&#x3D;null?0:l1.val;</span><br><span class="line">			int val2&#x3D;l2&#x3D;&#x3D;null?0:l2.val;&#x2F;&#x2F;当前相加的两个数，在其对应链表中是否为空，为空则视为0进行运算，不为空则取出该数进行运算</span><br><span class="line">			int sum&#x3D;val1+val2+addBit;&#x2F;&#x2F;当前运算结果</span><br><span class="line">			saveAns.val&#x3D;sum%10;&#x2F;&#x2F;答案位（不带进位）</span><br><span class="line">			addBit&#x3D;sum&#x2F;10;&#x2F;&#x2F;进位</span><br><span class="line">			if(l1!&#x3D;null)&#x2F;&#x2F;因为如果此时l1为null，则他不存在l1.next，所以需要判断一下，不然会报NullPointerException的错</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			if(l2!&#x3D;null)</span><br><span class="line">				l2&#x3D;l2.next;&#x2F;&#x2F;两加数向后移动一位</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p>③. 答案返回<br>计算过程可以发现，答案是从saveAns的第二位开始的，而realAns指向的是saveAns的第一位，所以需要返回realAns的next即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">return realAns.next;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">class ListNode&#123;</span><br><span class="line">	int val;</span><br><span class="line">	ListNode next;</span><br><span class="line">	ListNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">	</span><br><span class="line">	public static  void print(ListNode l) &#123;&#x2F;&#x2F;自己加的，用来输出链表的各节点值</span><br><span class="line">		while(l!&#x3D;null) &#123;</span><br><span class="line">			System.out.println(l.val);</span><br><span class="line">			l&#x3D;l.next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class AddTwoNumbers &#123;</span><br><span class="line">	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		int addBit&#x3D;0;&#x2F;&#x2F;两数相加的进位，默认为0</span><br><span class="line">		ListNode saveAns&#x3D;new ListNode(0);&#x2F;&#x2F;答案链表，用来保存每一步的答案</span><br><span class="line">		ListNode realAns&#x3D;new ListNode(0);&#x2F;&#x2F;返回链表，用来返回最终答案</span><br><span class="line">		realAns&#x3D;saveAns;&#x2F;&#x2F;一开始他们是相等的，理解为realAns作为指针指向了saveAns的头结点</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;程序循环运行的条件：两个链表至少有一个不为空或者有进位不为0的时候</span><br><span class="line">		while(l1!&#x3D;null||l2!&#x3D;null||addBit!&#x3D;0) &#123;</span><br><span class="line">			saveAns.next&#x3D;new ListNode(0);&#x2F;&#x2F;创建一个节点，为计算做准备</span><br><span class="line">			saveAns&#x3D;saveAns.next;&#x2F;&#x2F;移动到下一节点</span><br><span class="line">			</span><br><span class="line">			int val1&#x3D;l1&#x3D;&#x3D;null?0:l1.val;</span><br><span class="line">			int val2&#x3D;l2&#x3D;&#x3D;null?0:l2.val;&#x2F;&#x2F;当前相加的两个数，在其对应链表中是否为空，为空则视为0进行运算</span><br><span class="line">			int sum&#x3D;val1+val2+addBit;&#x2F;&#x2F;当前运算结果</span><br><span class="line">			saveAns.val&#x3D;sum%10;&#x2F;&#x2F;答案位</span><br><span class="line">			addBit&#x3D;sum&#x2F;10;&#x2F;&#x2F;进位</span><br><span class="line">			if(l1!&#x3D;null)</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			if(l2!&#x3D;null)</span><br><span class="line">				l2&#x3D;l2.next;&#x2F;&#x2F;两加数向后移动一位</span><br><span class="line">		&#125;</span><br><span class="line">		return realAns.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;2-&gt;4-&gt;3,l2&#x3D;5-&gt;6-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(2);</span><br><span class="line">		l1.next&#x3D;new ListNode(4);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(3);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(5);</span><br><span class="line">		l2.next&#x3D;new ListNode(6);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode.print(addTwoNumbers(l1, l2));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<img src="/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
-<p>答案正确。<br>leetcode提交记录：</p>
-<img src="/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
-
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/" data-id="ckc6due6i00005svbgjdwf68q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/" data-id="ckc6e3iso0001a8vb2skj3z6b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -152,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/03/hello-world/" data-id="ckc6due6p00015svbbf8rb1lj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/03/hello-world/" data-id="ckc6e3isi0000a8vbbwgq4433" class="article-share-link">Share</a>
       
       
     </footer>
@@ -192,7 +174,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="ckc6due6r00025svb13vpgqx0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="ckc6e3isq0002a8vb3ka31fsp" class="article-share-link">Share</a>
       
       
     </footer>
