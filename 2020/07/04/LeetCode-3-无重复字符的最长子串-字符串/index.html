@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>LeetCode 3.无重复字符的最长子串[字符串] | 阿伟，yyds</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="##1. 题目描述标签：[字符串][哈希表][Sliding Window] 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 3.无重复字符的最长子串[字符串]">
+<meta property="og:url" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
+<meta property="og:site_name" content="阿伟，yyds">
+<meta property="og:description" content="##1. 题目描述标签：[字符串][哈希表][Sliding Window] 给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/result1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/6.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/7.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/result2.jpg">
+<meta property="article:published_time" content="2020-07-04T03:13:54.000Z">
+<meta property="article:modified_time" content="2020-07-04T04:38:53.124Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/result1.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="阿伟，yyds" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">阿伟，yyds</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-LeetCode-3-无重复字符的最长子串-字符串" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="article-date">
+  <time datetime="2020-07-04T03:13:54.000Z" itemprop="datePublished">2020-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      LeetCode 3.无重复字符的最长子串[字符串]
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][哈希表][Sliding Window]</em></p>
+<p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
+<a id="more"></a>
+
+<p><strong>示例 1:</strong></p>
+<p>输入: “abcabcbb”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “abc”，所以其长度为 3。</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: “bbbbb”<br>输出: 1<br>解释: 因为无重复字符的最长子串是 “b”，所以其长度为 1。</p>
+<p><strong>示例 3:</strong></p>
+<p>输入: “pwwkew”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>     请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
+<hr>
+<h2 id="2-我的做法"><a href="#2-我的做法" class="headerlink" title="##2. 我的做法"></a>##2. 我的做法</h2><p>###2.1. 我的思路<br>①. 输入一个字符串s，函数中创建一个StringBuilder sb（方便增删），在程序中动态地保存s的子串。还需要定义一个count（int），来保存每个子串的长度，最后取长度最大值作为答案输出。<br>②. 对字符串s一个字符一个字符进行判断，判断当前字符是否在sb中已出现。<br>③. 如果s当前位置的字符未在sb中出现（显然程序一开始sb是空，必定未出现），则sb中加上该字符，并且count+1.<br>//判断Stringbuilder s中是否存在字符c的函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public static boolean isExist(StringBuilder s,char c) &#123;&#x2F;&#x2F;判断StringBuilder s中是否存在字符c</span><br><span class="line">		for(int i&#x3D;0;i&lt;s.length();i++) &#123;</span><br><span class="line">			if(c&#x3D;&#x3D;s.charAt(i))</span><br><span class="line">				return true;</span><br><span class="line">		&#125;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>④. 如果s当前位置的字符已在sb中出现，从头开始删除sb中的字符，直到遇见了那个重复的字符停止（重复的字符也要删除），举个例子：s=”wabcab”，某一时刻sb=”wabc”，s的下一个字符是a，显然在sb中已出现，则将sb从头开始删除，直到遇到那个相同的字符（a），同时那个相同的字符也要删除，即删除后sb=”bc”。count的值也要变成sb的长度，即count=2.<br>//从头开始删除StringBuilder s直到遇到字符c为止（c也要删除）的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public static StringBuilder delete(StringBuilder s,char c) &#123;&#x2F;&#x2F;删除Stringbuilder中的字符直到出现第一个c为止（c也要删除）</span><br><span class="line">		int index&#x3D;0;</span><br><span class="line">		for(int i&#x3D;0;i&lt;s.length();i++) &#123;</span><br><span class="line">			if(s.charAt(i)&#x3D;&#x3D;c)</span><br><span class="line">				break;</span><br><span class="line">			else </span><br><span class="line">				index++;</span><br><span class="line">		&#125;</span><br><span class="line">		&#x2F;&#x2F;由于题目限制，s中必存在一个字符c，所以才能这样直接delete而不用考虑不存在字符c时会删除整个s的情况</span><br><span class="line">		return s.delete(0, index+1);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>⑤. 重复②直到s的每个字符都判断完成。<br>⑥. 最后输出在运行过程中count的最大值。</p>
+<p>###2.2. 完整代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">public class LengthOfLongestSubstring &#123;</span><br><span class="line">	public static boolean isExist(StringBuilder s,char c) &#123;&#x2F;&#x2F;判断StringBuilder s中是否存在字符c</span><br><span class="line">		for(int i&#x3D;0;i&lt;s.length();i++) &#123;</span><br><span class="line">			if(c&#x3D;&#x3D;s.charAt(i))</span><br><span class="line">				return true;</span><br><span class="line">		&#125;</span><br><span class="line">		return false;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static StringBuilder delete(StringBuilder s,char c) &#123;&#x2F;&#x2F;删除Stringbuilder中的字符直到出现第一个c为止（c也要删除）</span><br><span class="line">		int index&#x3D;0;</span><br><span class="line">		for(int i&#x3D;0;i&lt;s.length();i++) &#123;</span><br><span class="line">			if(s.charAt(i)&#x3D;&#x3D;c)</span><br><span class="line">				break;</span><br><span class="line">			else </span><br><span class="line">				index++;</span><br><span class="line">		&#125;</span><br><span class="line">		&#x2F;&#x2F;由于题目限制，s中必存在一个字符c，所以才能这样直接delete而不用考虑不存在字符c时会删除整个s的情况</span><br><span class="line">		return s.delete(0, index+1);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public int lengthOfLongestSubstring(String s) &#123;</span><br><span class="line">		StringBuilder sb&#x3D;new StringBuilder();</span><br><span class="line">		int count&#x3D;0;&#x2F;&#x2F;字符计数器</span><br><span class="line">		int ans&#x3D;0;&#x2F;&#x2F;答案</span><br><span class="line">		for(int i&#x3D;0;i&lt;s.length();i++) &#123;&#x2F;&#x2F;一个一个字符比较</span><br><span class="line">			if(isExist(sb,s.charAt(i))) &#123;&#x2F;&#x2F;如果存在相同的字符</span><br><span class="line">				ans&#x3D;count&gt;ans?count:ans;</span><br><span class="line">				sb&#x3D;delete(sb,s.charAt(i));</span><br><span class="line">				sb.append(s.charAt(i));</span><br><span class="line">				count&#x3D;sb.length();</span><br><span class="line">			&#125; else &#123;&#x2F;&#x2F;不存在相同字符</span><br><span class="line">				sb.append(s.charAt(i));</span><br><span class="line">				count++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		ans&#x3D;count&gt;ans?count:ans;&#x2F;&#x2F;获得最终答案</span><br><span class="line">		return ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;pwwkew&quot;</span><br><span class="line">		String s&#x3D;&quot;pwwkew&quot;;</span><br><span class="line">		LengthOfLongestSubstring len&#x3D;new LengthOfLongestSubstring();</span><br><span class="line">		System.out.println(len.lengthOfLongestSubstring(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：s=”pwwkew”<br>输出结果：3</p>
+<p>###2.3. LeetCode提交结果</p>
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/result1.jpg" class title="提交记录">
+
+<hr>
+<h2 id="3-优化做法"><a href="#3-优化做法" class="headerlink" title="##3. 优化做法"></a>##3. 优化做法</h2><p>###3.1. 思路<br>由于在挨个字符的比较过程中，我们需要一直判断新的字符在当前子串中是否出现，我们就容易想到一种数据结构：哈希集合（Java中为HashSet）。<br>而由于题目要求的是子串（母串中的连续子字符串）而不是子序列（母串中的非连续子字符串），对于子串，我们可以考虑使用“滑动窗口”（Sliding Window）。<br>思路和我的想法差不多，举例字符串s=”pwwkew”，过程如下：</p>
+<p>①. 首先挨个字符看，第一个字符显然是没重复的，放入集合中。</p>
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/1.jpg" class width="1">
+
+<p>②. 看第二个字符，很显然没重复，放入集合。</p>
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/2.jpg" class width="2">
+
+<p>③. 再看第三个字符，是w，在集合中有重复。</p>
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/3.jpg" class width="3">
+<p>有重复怎么办，从左侧开始删除集合的内容，每删除一个字符，判断一次是否仍有重复。</p>
+<p>④. 删掉第一个字符p，显然仍有重复。</p>
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/4.jpg" class width="4">
+
+<p>⑤. 删掉第二个字符w，显然此时没有重复了。</p>
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/5.jpg" class width="5">
+
+<p>⑥. 继续滑动窗口，将没有重复的k和e加入到集合。</p>
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/6.jpg" class width="6">
+
+<p>⑦. 加入w到集合中，发现有重复，从集合左侧开始删除元素。</p>
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/7.jpg" class width="7">
+
+<p>⑧. 删除第一个字符w，发现无重复。算法完成。</p>
+
+
+<p>⑨. 最后将执行过程中出现的子串长度最大值输出作为结果。</p>
+<hr>
+<p>###3.2. 完整代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">public class LengthOfLongestSubstring &#123;</span><br><span class="line">	public int lengthOfLongestSubstring(String s) &#123;</span><br><span class="line">		Set&lt;Character&gt; sc&#x3D;new HashSet&lt;Character&gt;();</span><br><span class="line">		int n&#x3D;s.length();</span><br><span class="line">		&#x2F;&#x2F;右指针，默认为-1，代表未开始滑动</span><br><span class="line">		int right&#x3D;-1;</span><br><span class="line">		int ans&#x3D;0;&#x2F;&#x2F;答案</span><br><span class="line">		for(int i&#x3D;0;i&lt;n;i++) &#123;</span><br><span class="line">			if(i!&#x3D;0) &#123;&#x2F;&#x2F;如果存在字符重复，删除最左侧字符，第一次循环不删除</span><br><span class="line">				sc.remove(s.charAt(i-1));</span><br><span class="line">			&#125;</span><br><span class="line">				</span><br><span class="line">			while(right&lt;n-1&amp;&amp;!sc.contains(s.charAt(right+1))) &#123;&#x2F;&#x2F;当右指针未到达边界且不存在字符重复</span><br><span class="line">				sc.add(s.charAt(right+1));&#x2F;&#x2F;加入新字符</span><br><span class="line">				right++;&#x2F;&#x2F;右指针右移一位</span><br><span class="line">			&#125;</span><br><span class="line">			&#x2F;&#x2F;获取现有所有子串的最大长度</span><br><span class="line">			ans &#x3D; Math.max(ans, right - i + 1);</span><br><span class="line">			&#125;</span><br><span class="line">		return ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;pwwkew&quot;</span><br><span class="line">		String s&#x3D;&quot;pwwkew&quot;;</span><br><span class="line">		LengthOfLongestSubstring len&#x3D;new LengthOfLongestSubstring();</span><br><span class="line">		System.out.println(len.lengthOfLongestSubstring(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：s=”pwwkew”<br>测试结果：3</p>
+<p>###3.3. LeetCode提交结果</p>
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/result2.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误欢迎联系QQ：965299766</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-id="ckc75qmro0001movb6pq25331" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">LeetCode 2.两数相加[链表]</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">July 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/">LeetCode 3.无重复字符的最长子串[字符串]</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/">LeetCode 2.两数相加[链表]</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/03/hello-world/">hello world</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">大家好辣</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
