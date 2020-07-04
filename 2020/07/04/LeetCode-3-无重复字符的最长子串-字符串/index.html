@@ -24,7 +24,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/7.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/result2.jpg">
 <meta property="article:published_time" content="2020-07-04T03:13:54.000Z">
-<meta property="article:modified_time" content="2020-07-04T04:38:53.124Z">
+<meta property="article:modified_time" content="2020-07-04T04:44:13.882Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/result1.jpg">
@@ -123,29 +123,27 @@
 <hr>
 <h2 id="3-优化做法"><a href="#3-优化做法" class="headerlink" title="##3. 优化做法"></a>##3. 优化做法</h2><p>###3.1. 思路<br>由于在挨个字符的比较过程中，我们需要一直判断新的字符在当前子串中是否出现，我们就容易想到一种数据结构：哈希集合（Java中为HashSet）。<br>而由于题目要求的是子串（母串中的连续子字符串）而不是子序列（母串中的非连续子字符串），对于子串，我们可以考虑使用“滑动窗口”（Sliding Window）。<br>思路和我的想法差不多，举例字符串s=”pwwkew”，过程如下：</p>
 <p>①. 首先挨个字符看，第一个字符显然是没重复的，放入集合中。</p>
-<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/1.jpg" class width="1">
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/1.jpg" class title="图一">
 
 <p>②. 看第二个字符，很显然没重复，放入集合。</p>
-<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/2.jpg" class width="2">
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/2.jpg" class title="图二">
 
 <p>③. 再看第三个字符，是w，在集合中有重复。</p>
-<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/3.jpg" class width="3">
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/3.jpg" class title="图三">
 <p>有重复怎么办，从左侧开始删除集合的内容，每删除一个字符，判断一次是否仍有重复。</p>
 <p>④. 删掉第一个字符p，显然仍有重复。</p>
-<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/4.jpg" class width="4">
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/4.jpg" class title="图四">
 
 <p>⑤. 删掉第二个字符w，显然此时没有重复了。</p>
-<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/5.jpg" class width="5">
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/5.jpg" class title="图五">
 
 <p>⑥. 继续滑动窗口，将没有重复的k和e加入到集合。</p>
-<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/6.jpg" class width="6">
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/6.jpg" class title="图六">
 
 <p>⑦. 加入w到集合中，发现有重复，从集合左侧开始删除元素。</p>
-<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/7.jpg" class width="7">
+<img src="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/7.jpg" class title="图七">
 
-<p>⑧. 删除第一个字符w，发现无重复。算法完成。</p>
-
-
+<p>⑧. 删除第一个字符w，发现已经无重复。算法完成。</p>
 <p>⑨. 最后将执行过程中出现的子串长度最大值输出作为结果。</p>
 <hr>
 <p>###3.2. 完整代码</p>
@@ -160,7 +158,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-id="ckc75qmro0001movb6pq25331" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-id="ckc75y2ri0002s0vbcq7iflzg" class="article-share-link">Share</a>
       
       
     </footer>
