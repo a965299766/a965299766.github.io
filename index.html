@@ -247,6 +247,188 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿伟就这">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="url">LeetCode 174.地下城游戏[动态规划]</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T21:56:37+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
+<p>一些恶魔抓住了公主（P）并将她关在了地下城的右下角。地下城是由 M x N 个房间组成的二维网格。我们英勇的骑士（K）最初被安置在左上角的房间里，他必须穿过地下城并通过对抗恶魔来拯救公主。</p>
+<p>骑士的初始健康点数为一个正整数。如果他的健康点数在某一时刻降至 0 或以下，他会立即死亡。</p>
+<p>有些房间由恶魔守卫，因此骑士在进入这些房间时会失去健康点数（若房间里的值为负整数，则表示骑士将损失健康点数）；其他房间要么是空的（房间里的值为 0），要么包含增加骑士健康点数的魔法球（若房间里的值为正整数，则表示骑士将增加健康点数）。</p>
+<p>为了尽快到达公主，骑士决定每次只向右或向下移动一步。</p>
+<p>编写一个函数来计算确保骑士能够拯救到公主所需的最低初始健康点数。</p>
+<p>例如，考虑到如下布局的地下城，如果骑士遵循最佳路径 右 -&gt; 右 -&gt; 下 -&gt; 下，则骑士的初始健康点数至少为 7。</p>
+<p>|-2(K)|-3|3|<br>|—-|—-|<br>|-5|-10|1|<br>|10|30|-5 (P)|</p>
+<p>说明:</p>
+<pre><code>骑士的健康点数没有上限。
+任何房间都可能对骑士的健康点数造成威胁，
+也可能增加骑士的健康点数，包括骑士进入的左上角房间以及公主被监禁的右下角房间。</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题虽然在力扣上是困难标签，但实际上是一道中规中矩的动态规划题，只是看能不能想到怎么构建动态规划数组，想到就比较容易，想不到就感觉无从下手（比如我）。</p>
+<p>①. 构造一个规模与给定的地下城地图规模一样大的动态规划数组dp[][]，<strong>dp[i][j]代表：骑士如果想走到这个房间前，他至少得有多少健康点数，才能保证他走入这个房间后，不会因为扣血至零而死，dp[i][j]记录的是走入该房间前至少需要的健康点数。</strong><br>注意：如果该房间是给骑士加血的，我们仍要保证骑士能够活着走入该房间，也就是说进入该房间前，他至少得拥有1点健康点数，<strong>也就是说，dp[i][j]的值必须是大于0的数，若程序计算过程中，dp[i][j]值小于1了，我们需要把他变为1。</strong></p>
+<p>②. 我们就拿题目给的例子来举例吧，由于骑士一开始在左上角，公主在右下角，而骑士只能往右或下走，所以我们构造dp数组时，从右下往左上构造。<br><strong>1）看最右下角，进入该房间骑士会扣除5点健康点数，所以进入该房间前，骑士至少得有6点健康点数，才能保证他进入后，能够留下1点来存活下来，所以dp最右下角填6；</strong></p>
+<img src="/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.jpg" class title="图一">
+
+<p><strong>2）我们已经知道了进入最后一间房间前需要的最小健康点数，那骑士是如何进入该房间的呢，根据题意，骑士只会从该房间的上方或左方进入</strong>。<br>2.1）先看骑士走上方这条路的情况，我们从地图看出，上方这间房间，进入后会给骑士回复1点健康点数，我们已知进入终点房间前至少需要6点，而终点上面那个房间又会给骑士回复1点，所以骑士进入上方那个房间前至少需要(6-1)=5点健康点数；</p>
+<p>2.2）再看骑士走左方这条路的情况，从地图得知，左方这个房间，进入后会回复30点健康点数，同样地，我们使用(6-30)=-24得到进入左方房间前需要的最小点数，但实际上进入前点数为-24的话，骑士早就挂了，也就是最小点数不能小于1，所以我们直接将该房间进入前的最小点数置为1；</p>
+<img src="/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2.jpg" class title="图二">
+
+<p><strong>3）用同样的方法，我们填完dp数组的最后一行和最后一列，结果是这样的</strong></p>
+<img src="/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/3.jpg" class title="图三">
+
+<p><strong>4）这时候我们看dp数组中间这个格子，看他的右方和下方的数值是否已经确定，因为从这个格子出发，骑士只能走到右方或下方的格子，我们必须知道右方和下方格子进入前的最小点数要求，我们才能计算出中间这个格子的最小点数要求。</strong><br>看地图数组，我们发现中间这个格子进入后会扣10点健康点数，我们再看dp数组，如果从中间这个格子往右走，我们至少需要5点点数，如果往下走，我们至少需要1点点数，我们直接挑较小的那一个数对应的房间，作为骑士接下来要进入的房间，此时可以得到进入中间这个房间前，骑士至少得有(1-(-10))=11点健康点数。</p>
+<img src="/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/4.jpg" class title="图四">
+
+<p><strong>5）接下来用同样的方法，填完dp数组即可</strong></p>
+<img src="/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/5.jpg" class title="图五">
+
+<p><strong>显然，dp[0][0]就是我们最后要找的答案。</strong></p>
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">public class CalculateMinimumHP &#123;</span><br><span class="line">	public static int calculateMinimumHP(int[][] dungeon) &#123;</span><br><span class="line">		int row&#x3D;dungeon.length;&#x2F;&#x2F;行</span><br><span class="line">		int col&#x3D;dungeon[0].length;&#x2F;&#x2F;列</span><br><span class="line">		int[][] dp&#x3D;new int[row][col];&#x2F;&#x2F;dp数组</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;row-1;i&gt;&#x3D;0;i--) &#123;</span><br><span class="line">			for(int j&#x3D;col-1;j&gt;&#x3D;0;j--) &#123;&#x2F;&#x2F;从右下往左上</span><br><span class="line">				</span><br><span class="line">				if(i&#x3D;&#x3D;row-1&amp;&amp;j&#x3D;&#x3D;col-1) &#123;	&#x2F;&#x2F;如果是最右下那个房间</span><br><span class="line">					dp[i][j]&#x3D;1-dungeon[i][j];	&#x2F;&#x2F;最低生命值为1，减掉房间扣除的，就是进入前应该有的最低健康点数</span><br><span class="line">					if(dp[i][j]&lt;&#x3D;0)	&#x2F;&#x2F;判断如果减了之后小于1了</span><br><span class="line">						dp[i][j]&#x3D;1;	&#x2F;&#x2F;强行改为1</span><br><span class="line">				&#125;</span><br><span class="line">				else if(i&#x3D;&#x3D;row-1) &#123;	&#x2F;&#x2F;填完最后一行</span><br><span class="line">					dp[i][j]&#x3D;dp[i][j+1]-dungeon[i][j];</span><br><span class="line">					if(dp[i][j]&lt;&#x3D;0)</span><br><span class="line">						dp[i][j]&#x3D;1;</span><br><span class="line">				&#125;</span><br><span class="line">				else if(j&#x3D;&#x3D;col-1) &#123;	&#x2F;&#x2F;填完最后一列</span><br><span class="line">					dp[i][j]&#x3D;dp[i+1][j]-dungeon[i][j];</span><br><span class="line">					if(dp[i][j]&lt;&#x3D;0)</span><br><span class="line">						dp[i][j]&#x3D;1;</span><br><span class="line">				&#125;</span><br><span class="line">				else &#123;	&#x2F;&#x2F;填完其他格子</span><br><span class="line">					dp[i][j]&#x3D;(dp[i+1][j]-dungeon[i][j]&gt;dp[i][j+1]-dungeon[i][j])?dp[i][j+1]-dungeon[i][j]:dp[i+1][j]-dungeon[i][j];</span><br><span class="line">					if(dp[i][j]&lt;&#x3D;0)</span><br><span class="line">						dp[i][j]&#x3D;1;</span><br><span class="line">				&#125;</span><br><span class="line">						</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return dp[0][0];	&#x2F;&#x2F;返回答案</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;*测试用例：地下城地图数组：</span><br><span class="line">		 * -2(K) -3 3</span><br><span class="line">		 * -5 -10 1</span><br><span class="line">		 * 10 30 -5(P)</span><br><span class="line">		 *&#x2F;</span><br><span class="line">		int[][] dungeon&#x3D;new int[][] &#123;&#123;-2,-3,3&#125;,&#123;-5,-10,1&#125;,&#123;10,30,-5&#125;&#125;;</span><br><span class="line">		int ans&#x3D;calculateMinimumHP(dungeon);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：地下城地图：</p>
+<p>|-2(K)|-3|3|<br>|—-|—-|<br>|-5|-10|1|<br>|10|30|-5 (P)|</p>
+<p>测试结果：进入地下城前骑士应具有的最低健康点数：7<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/12/LeetCode-146-LRU%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6-%E8%AE%BE%E8%AE%A1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1575,153 +1757,6 @@ getMin() —— 检索栈中的最小元素。</code></pre>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿伟就这">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="url">LeetCode 53.最大子序和[数组][动态规划]</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-05T16:38:59+08:00">
-                2020-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][动态规划]</em></p>
-<p>给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1772,7 +1807,7 @@ getMin() —— 检索栈中的最小元素。</code></pre>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
