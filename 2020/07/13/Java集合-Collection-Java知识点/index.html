@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="栈,字符串," />
+  <meta name="keywords" content="Java,Collection,集合," />
 
 
 
@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="##1. 题目描述标签：[栈][字符串]给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。 有效字符串需满足： 左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串。">
+<meta name="description" content="Collection接口统一定义了一系列单列集合">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 20.有效的括号[栈]">
-<meta property="og:url" content="http://yoursite.com/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/index.html">
+<meta property="og:title" content="Java集合-Collection[Java知识点]">
+<meta property="og:url" content="http://yoursite.com/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
 <meta property="og:site_name" content="阿伟就这">
-<meta property="og:description" content="##1. 题目描述标签：[栈][字符串]给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。 有效字符串需满足： 左括号必须用相同类型的右括号闭合。 左括号必须以正确的顺序闭合。注意空字符串可被认为是有效字符串。">
-<meta property="og:image" content="http://yoursite.com/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/result.jpg">
-<meta property="article:published_time" content="2020-07-04T15:23:32.000Z">
-<meta property="article:modified_time" content="2020-07-11T15:49:09.390Z">
-<meta property="article:tag" content="栈">
-<meta property="article:tag" content="字符串">
+<meta property="og:description" content="Collection接口统一定义了一系列单列集合">
+<meta property="og:image" content="http://yoursite.com/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg">
+<meta property="article:published_time" content="2020-07-13T14:02:33.000Z">
+<meta property="article:modified_time" content="2020-07-13T14:33:14.986Z">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Collection">
+<meta property="article:tag" content="集合">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/result.jpg">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg">
 
 
 
@@ -121,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/07/04/LeetCode-20-有效的括号-栈/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/07/13/Java集合-Collection-Java知识点/"/>
 
 
 
 
 
-  <title>LeetCode 20.有效的括号[栈] | 阿伟就这</title>
+  <title>Java集合-Collection[Java知识点] | 阿伟就这</title>
   
 
 
@@ -254,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -271,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">LeetCode 20.有效的括号[栈]</h1>
+          <h1 class="post-title" itemprop="name headline">Java集合-Collection[Java知识点]</h1>
         
 
         <div class="post-meta">
@@ -283,8 +284,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-04T23:23:32+08:00">
-                2020-07-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-13T22:02:33+08:00">
+                2020-07-13
               </time>
             
 
@@ -306,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/Java%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url" rel="index">
+                    <span itemprop="name">Java知识点</span>
                   </a>
                 </span>
 
@@ -343,35 +344,31 @@
       
 
       
-        <h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][字符串]</em><br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
-<pre><code>左括号必须用相同类型的右括号闭合。
-左括号必须以正确的顺序闭合。</code></pre><p>注意空字符串可被认为是有效字符串。</p>
+        <p>Collection接口统一定义了一系列单列集合</p>
 <a id="more"></a>
 
-<p><strong>示例 1:</strong></p>
-<p>输入: “()”<br>输出: true</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: “()[]{}”<br>输出: true</p>
-<p><strong>示例 3:</strong></p>
-<p>输入: “(]”<br>输出: false</p>
-<p><strong>示例 4:</strong></p>
-<p>输入: “([)]”<br>输出: false</p>
-<p><strong>示例 5:</strong></p>
-<p>输入: “{[]}”<br>输出: true</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>###2.1. 介绍<br>本题是一道简单题，但是如果单纯地使用字符串方法做，很难做出来，因为本题对字符串挨个研究时，还需要考虑整个字符串的结构，这是难以做到的，比如输入s=“([)]”，显然小括号和中括号在这里是可以被匹配到的，即每个左括号都对应一个右括号，但这个的结果是false，因为他整体不满足正确的闭合顺序。<br>针对这种情况，使用“栈”这种数据结构就能帮助我们掌握字符串的整体结构，从而容易地解决问题。</p>
-<pre><code>在表示问题的递归结构时，栈数据结构可以派上用场。
-我们无法真正地从内到外处理这个问题，因为我们对整体结构一无所知。
-但是，栈可以帮助我们递归地处理这种情况，即从外部到内部。</code></pre><p>###2.2. 算法<br>①. 创建一个字符类型的栈stack，置为空；<br>②. 对于输入字符串s，挨个字符判断入栈；<br>③. 如果栈为空，则s的当前字符入栈，不进行任何判断；<br>④. 如果s的当前字符是右括号（右括号指 “)”,”]”或”}”），且栈不为空，则判断栈顶元素，如果是与当前字符匹配的左括号，这对匹配成功的括号抵消，表示为向栈中插入该字符，再把栈顶的两个元素删除，实际操作时可简化为不插入元素，只删除栈顶一个元素即可达到同样效果。<br>⑤. 如果插入的不是右括号，则直接入栈即可。<br>⑥. 最后判断栈是否为空，为空则表示所有括号全部匹配成功，都被抵消了，返回true；不为空则表示该字符串不符合题目要求，返回false。</p>
-<p>###2.3. 完整程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Stack;</span><br><span class="line">public class IsValid &#123;</span><br><span class="line">	public boolean isValid(String s) &#123;</span><br><span class="line">        if(s.equals(&quot;&quot;))</span><br><span class="line">            return true;</span><br><span class="line">        else&#123;</span><br><span class="line">            Stack&lt;Character&gt; stack&#x3D;new Stack&lt;Character&gt;();&#x2F;&#x2F;字符类型的栈</span><br><span class="line">        	for(int i&#x3D;0;i&lt;s.length();i++) &#123;</span><br><span class="line">        		if(stack.isEmpty()) &#123;&#x2F;&#x2F;如果当前栈为空，直接插入，不执行下面的判断了</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        			continue;</span><br><span class="line">        		&#125;</span><br><span class="line">        		if(s.charAt(i)&#x3D;&#x3D;&#39;)&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;(&#39;)&#123;&#x2F;&#x2F;如果匹配成功，则这对括号同时抵消，即取出栈顶元素</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;]&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;[&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;&#125;&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;&#123;&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else &#123;&#x2F;&#x2F;如匹配失败，直接在栈中插入元素</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        		&#125;</span><br><span class="line">        	&#125;</span><br><span class="line">        	if(stack.isEmpty())&#x2F;&#x2F;如果最后栈为空，表示括号全部匹配成功，抵消成功</span><br><span class="line">        		return true;</span><br><span class="line">        &#125;</span><br><span class="line">		return false;&#x2F;&#x2F;不然就返回false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s&#x3D;&quot;[])&quot;;</span><br><span class="line">		IsValid i&#x3D;new IsValid();</span><br><span class="line">		System.out.println(i.isValid(s));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：s=”[])”<br>测试结果：false</p>
-<p>###2.4. LeetCode提交结果</p>
-<img src="/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/result.jpg" class title="提交记录">
+<p>##1. Collection集合的继承树</p>
+<img src="/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Collection集合的继承树">
 
 <hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
+<h2 id="2-Collection的常用方法"><a href="#2-Collection的常用方法" class="headerlink" title="##2. Collection的常用方法"></a>##2. Collection的常用方法</h2><p><strong>boolean add(E e)</strong></p>
+<pre><code>在集合中添加一个元素e
+添加成功则返回true</code></pre><p><strong>boolean addAll(Collection&lt;? extends E&gt; c)</strong></p>
+<pre><code>在集合中添加一组元素c
+添加成功则返回true</code></pre><p><strong>boolean contains(Object o)</strong></p>
+<pre><code>集合中是否存在元素o
+存在则返回true，否则返回false</code></pre><p><strong>boolean isEmpty()</strong></p>
+<pre><code>集合是否为空（没有元素）
+为空则返回true，否则返回false</code></pre><p><strong>boolean remove(Object o)</strong></p>
+<pre><code>删除集合中第一次出现值等于元素o的元素
+删除成功则返回true</code></pre><p><strong>int size()</strong></p>
+<pre><code>获得集合的大小
+即集合中元素的个数</code></pre><p><strong><E> E[] toArray(E[] a)</E></strong></p>
+<pre><code>将集合转换为数组
+如将Integer类型的集合转换为Integer类型的数组</code></pre><p><strong>boolean retainAll(Collection&lt;?&gt; c)</strong></p>
+<pre><code>保留原集合中，值等于给定集合c中出现过的值，删掉其他的</code></pre><p><strong>void clear()</strong></p>
+<pre><code>清空集合元素</code></pre><hr>
+<h2 id="3-测试代码"><a href="#3-测试代码" class="headerlink" title="##3. 测试代码"></a>##3. 测试代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line"></span><br><span class="line">public class TestCollection &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Collection&lt;Integer&gt; coll&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		coll.add(1);</span><br><span class="line">		coll.add(5);</span><br><span class="line">		coll.add(-5);</span><br><span class="line">		System.out.println(coll);&#x2F;&#x2F;添加元素</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, -5]</span><br><span class="line">		</span><br><span class="line">		coll.addAll(coll);</span><br><span class="line">		System.out.println(coll);&#x2F;&#x2F;添加一组元素</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, -5, 1, 5, -5]</span><br><span class="line">		</span><br><span class="line">		System.out.println(coll.contains(5));&#x2F;&#x2F;集合中是否存在元素</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		</span><br><span class="line">		System.out.println(coll.isEmpty());&#x2F;&#x2F;集合是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		coll.remove(1);&#x2F;&#x2F;删除集合中第一次出现的该值，不存在则不删除</span><br><span class="line">		System.out.println(coll);</span><br><span class="line">		&#x2F;&#x2F;输出：[5, -5, 1, 5, -5]</span><br><span class="line"></span><br><span class="line">		System.out.println(coll.size());&#x2F;&#x2F;返回集合的大小，即元素的个数</span><br><span class="line">		&#x2F;&#x2F;输出：5</span><br><span class="line">		</span><br><span class="line">		Integer[] a&#x3D;coll.toArray(new Integer[coll.size()]);&#x2F;&#x2F;集合转数组</span><br><span class="line">		for(int k:a)</span><br><span class="line">			System.out.print(k+&quot; &quot;);</span><br><span class="line">		System.out.println();</span><br><span class="line">		&#x2F;&#x2F;输出：5 -5 1 5 -5 </span><br><span class="line">		</span><br><span class="line">		Collection&lt;Integer&gt; ls&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		ls.add(5);</span><br><span class="line">		ls.add(-5);</span><br><span class="line">		coll.retainAll(ls);&#x2F;&#x2F;集合中保留给定集合中的值，删掉其他值</span><br><span class="line">		System.out.println(coll);</span><br><span class="line">		&#x2F;&#x2F;输出：[5, -5, 5, -5]</span><br><span class="line">		</span><br><span class="line">		coll.clear();&#x2F;&#x2F;清空集合</span><br><span class="line">		System.out.println(coll);</span><br><span class="line">		&#x2F;&#x2F;输出：[]</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -389,9 +386,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E6%A0%88/" rel="tag"># 栈</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
-            <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="tag"># 字符串</a>
+            <a href="/tags/Collection/" rel="tag"># Collection</a>
+          
+            <a href="/tags/%E9%9B%86%E5%90%88/" rel="tag"># 集合</a>
           
         </div>
       
@@ -404,8 +403,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/" rel="next" title="LeetCode 3.无重复字符的最长子串[字符串]">
-                <i class="fa fa-chevron-left"></i> LeetCode 3.无重复字符的最长子串[字符串]
+              <a href="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="next" title="Java集合框架[Java知识点]">
+                <i class="fa fa-chevron-left"></i> Java集合框架[Java知识点]
               </a>
             
           </div>
@@ -413,10 +412,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/" rel="prev" title="LeetCode 21.合并两个有序链表[链表]">
-                LeetCode 21.合并两个有序链表[链表] <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -548,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-题目描述"><span class="nav-number">1.</span> <span class="nav-text">##1. 题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-题解"><span class="nav-number">2.</span> <span class="nav-text">##2. 题解</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Collection的常用方法"><span class="nav-number">1.</span> <span class="nav-text">##2. Collection的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-测试代码"><span class="nav-number">2.</span> <span class="nav-text">##3. 测试代码</span></a></li></ol></div>
             
 
           </div>
