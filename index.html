@@ -341,7 +341,7 @@
         
           <p><strong>Queue接口是我们平常所说的队列（数据先进先出），LinkedList是他的一个实现类</strong><br><strong>如果我们想定义一个队列，以下两种方法都是可以的：</strong></p>
 <pre><code>Queue&lt;E&gt; queue=new LinkedList&lt;E&gt;();
-LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>但必须注意：如果把他定义为Queue，其中的remove(E e)方法作用是：删除队列中遇到的第一个值等于e的元素；</em></strong><br><strong><em>而如果定义成LinkedList，其中的remove(int index)方法作用是：删除队列中下标为index的元素。</em></strong></p>
+LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>但必须注意：如果把他定义为Queue，那它就是一个纯粹的队列；</em></strong><br><strong><em>而如果定义成LinkedList，它除了实现Queue的方法外，还实现了List的许多方法，我们既可以把他当队列，还可以当做双向队列、数组、集合、栈来使用他。</em></strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/#more" rel="contents">
