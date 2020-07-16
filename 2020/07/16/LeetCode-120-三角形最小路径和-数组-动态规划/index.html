@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="数组,动态规划," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="##1. 题目描述标签：[数组][动态规划] 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。 相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode 120.三角形最小路径和[数组][动态规划]">
+<meta property="og:url" content="http://yoursite.com/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.html">
+<meta property="og:site_name" content="阿伟就这">
+<meta property="og:description" content="##1. 题目描述标签：[数组][动态规划] 给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。 相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。">
+<meta property="og:image" content="http://yoursite.com/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg">
+<meta property="article:published_time" content="2020-07-16T09:28:29.000Z">
+<meta property="article:modified_time" content="2020-07-16T10:32:18.685Z">
+<meta property="article:tag" content="数组">
+<meta property="article:tag" content="动态规划">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/07/16/LeetCode-120-三角形最小路径和-数组-动态规划/"/>
+
+
+
+
+
+  <title>LeetCode 120.三角形最小路径和[数组][动态规划] | 阿伟就这</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿伟就这</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            统计
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿伟就这">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LeetCode 120.三角形最小路径和[数组][动态规划]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-16T17:28:29+08:00">
+                2020-07-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
+                    <span itemprop="name">LeetCode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][动态规划]</em></p>
+<p>给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。</p>
+<p>相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。</p>
+<a id="more"></a>
+
+<p><strong>例如，给定三角形：</strong></p>
+<p>[<br>     [2],<br>    [3,4],<br>   [6,5,7],<br>  [4,1,8,3]<br>]</p>
+<p>自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>仍然是一道经典的动态规划题，貌似我还在学校的OJ上做过^^，只是当时我还不知道啥是动态规划，也忘了当时咋做的了。</p>
+<p><strong>①. 构建dp数组</strong><br>为了说明方便，我们将题目给定的三角形数组（triangle）列都一一对应好，这样看起来好看点，再创建一个规模和三角形数组一样的dp数组：</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.jpg" class title="图一">
+
+<hr>
+<p><strong>②. 这题的dp数组应该代表什么意思呢？</strong><br><strong>dp[i][j]代表：当从上至下走到这里的时候，我们可获得的最短路径。</strong><br>当然，前提是按规则走，且走到的地方，都必须有值（因为题目是三角形数组，而我们使用的是二维矩形数组，必然有右上方的部分格子没有值，我们不能走到没有值的地方去）。</p>
+<hr>
+<p><strong>③. 那我们是如何走的呢</strong><br><strong>那我们是如何走的呢？</strong><br>对于三角形数组，最上方的那一个格子，是我们的出发点，我们必须从出发点出发，所以对应dp数组的最上方那个格子的值，毫无疑问，就是三角形数组出发点的路径长度值。</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2.jpg" class title="图二">
+
+<p>对于其他的格子，我们可以分为两种情况：<br><strong>3.1. 边缘格子</strong><br>什么是边缘格子呢，就像这样：</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/3.jpg" class title="图三">
+
+<p>显然，边缘格子就是指处于三角形数组的边缘了，我们又可以分为左边缘格子和右边缘格子。<br>左边缘格子就是：除第一行外，每一行中列号为0的格子，也就是顶在数组最左边的那些格子；<br>右边缘格子就是：除第一行外，每一行中列号最大的格子，也就是顶在数组最右边的那些格子。</p>
+<p><strong>我们如何走到一个左边缘格子？</strong><br>显然，要走到一个左边缘格子，我们首先必须得在上一行的左边缘格子上，才能保证下一步能走到这一行的左边缘格子。<br><strong>即，要想走到triangle[i][0]，我们首先必须得在triangle[i-1][0]的位置上。</strong></p>
+<p><strong>dp数组也一样，即dp[i][0]=dp[i-1][0]+triangle[i][0]</strong></p>
+<p><strong>我们如何走到一个右边缘格子？</strong><br>一样的，要走到一个右边缘格子，首先得处在上一行的右边缘格子上。<br><strong>也就是说，要想走到triangle[i][i]，首先我们得处于triangle[i-1][i-1]上。</strong></p>
+<p><strong>dp数组也一样，即dp[i][i]=dp[i-1][i-1]+triangle[i][i]</strong></p>
+<p><strong>3.2. 普通格子</strong><br>除了第一行的格子和边缘格子，其他的就叫普通格子了。</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/4.jpg" class title="图四">
+
+<p><strong>我们如何走到一个普通格子上呢？</strong><br>根据规则，我们可以知道，从该格子的上一行同一列或者前一列的格子，可以走到该普通格子上，比如我们要走到5这个格子上：</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/5.jpg" class title="图五">
+
+<p>我们只有处在3或4的位置上，才能让下一步走到5.</p>
+<p>而dp数组要求的是最短路径，我们将这两种走法的路径最小值填入dp数组：<br><strong>即dp[i][j]=min(dp[i-1][j]+triangle[i][j],dp[i-1][j-1]+triangle[i][j])</strong></p>
+<hr>
+<p><strong>④. 此时，我们可以写出dp数组的递推公式了</strong></p>
+<pre><code>dp[i][j] =    triangle[i][j]，当i=j=0时（第一格）
+            dp[i-1][0]，当i!=0，j=0时（左边缘）
+            dp[i-1][j-1]，当i!=0，j=i时（右边缘）
+            min(dp[i-1][j]+triangle[i][j],dp[i-1][j-1]+triangle[i][j])，当i!=0，j!=i时（普通格）</code></pre><hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class MinimumTotal &#123;</span><br><span class="line">	public static int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) &#123;</span><br><span class="line">		int len&#x3D;triangle.size();&#x2F;&#x2F;len代表这个三角形共有几行</span><br><span class="line">		int[][] dp&#x3D;new int[len][len];&#x2F;&#x2F;动态规划数组，dp[i][j]代表走到第i行第j列时的最小路径长度</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i+1;j++) &#123;&#x2F;&#x2F;逐行逐个数判断</span><br><span class="line">				</span><br><span class="line">				if(i&#x3D;&#x3D;0&amp;&amp;j&#x3D;&#x3D;0) &#123;&#x2F;&#x2F;如果是第一行</span><br><span class="line">					dp[i][j]&#x3D;triangle.get(0).get(0);&#x2F;&#x2F;最小路径就是当前路径数组值</span><br><span class="line">				&#125;</span><br><span class="line">				else if(j&#x3D;&#x3D;0&amp;&amp;i!&#x3D;0) &#123;&#x2F;&#x2F;如果是第一列但不是第一行</span><br><span class="line">					dp[i][j]&#x3D;dp[i-1][j]+triangle.get(i).get(j);&#x2F;&#x2F;最小路径就是dp数组的上一行同列的值+路径数组当前值</span><br><span class="line">				&#125;</span><br><span class="line">				else if(j&#x3D;&#x3D;i&amp;&amp;i!&#x3D;0)&#123;&#x2F;&#x2F;如果是最后一列但不是第一行</span><br><span class="line">					dp[i][j]&#x3D;dp[i-1][j-1]+triangle.get(i).get(j);&#x2F;&#x2F;最小路径就是dp数组的上一行上一列的值+路径数组当前值</span><br><span class="line">				&#125;</span><br><span class="line">				else &#123;&#x2F;&#x2F;以上都不满足</span><br><span class="line">					dp[i][j]&#x3D;Math.min(dp[i-1][j]+triangle.get(i).get(j), dp[i-1][j-1]+triangle.get(i).get(j));&#x2F;&#x2F;最小路径就是两者的较小值</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(dp[len-1]);&#x2F;&#x2F;对dp数组最后一行排序</span><br><span class="line">		return dp[len-1][0];&#x2F;&#x2F;返回dp数组最后一行的最小值即为答案</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;*测试用例：[2],</span><br><span class="line">	    *						[3,4],</span><br><span class="line">	    *						[6,5,7],</span><br><span class="line">	   *						[4,1,8,3]</span><br><span class="line">	   *&#x2F;</span><br><span class="line">		List&lt;List&lt;Integer&gt;&gt; triangle&#x3D;new ArrayList&lt;List&lt;Integer&gt;&gt;() ;</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; one&#x3D;new ArrayList&lt;Integer&gt;() ;</span><br><span class="line">		one.add(2);</span><br><span class="line">		triangle.add(one);</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; two&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		two.add(3);</span><br><span class="line">		two.add(4);</span><br><span class="line">		triangle.add(two);</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; three&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		three.add(6);</span><br><span class="line">		three.add(5);</span><br><span class="line">		three.add(7);</span><br><span class="line">		triangle.add(three);</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; four&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		four.add(4);</span><br><span class="line">		four.add(1);</span><br><span class="line">		four.add(8);</span><br><span class="line">		four.add(3);</span><br><span class="line">		triangle.add(four);</span><br><span class="line">		</span><br><span class="line">		int ans&#x3D;minimumTotal(triangle);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：<br>[2],<br>[3,4],<br>[6,5,7],<br>[4,1,8,3]</p>
+<p>测试结果：最短路径=11<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%95%B0%E7%BB%84/" rel="tag"># 数组</a>
+          
+            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"># 动态规划</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="next" title="Java集合-各种集合的使用场景[Java知识点]">
+                <i class="fa fa-chevron-left"></i> Java集合-各种集合的使用场景[Java知识点]
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-题目描述"><span class="nav-number">1.</span> <span class="nav-text">##1. 题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-题解"><span class="nav-number">2.</span> <span class="nav-text">##2. 题解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-完整代码"><span class="nav-number">3.</span> <span class="nav-text">##3. 完整代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
