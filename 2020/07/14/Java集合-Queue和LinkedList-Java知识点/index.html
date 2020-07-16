@@ -87,7 +87,7 @@
 <meta property="og:description" content="Queue接口是我们平常所说的队列（数据先进先出），LinkedList是他的一个实现类如果我们想定义一个队列，以下两种方法都是可以的： Queue&lt;E&gt; queue&#x3D;new LinkedList&lt;E&gt;(); LinkedList&lt;E&gt; queue&#x3D;new LinkedList&lt;E&gt;();但必须注意：如果把他定义为Queue，那它就是一个纯粹的队列；">
 <meta property="og:image" content="http://yoursite.com/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg">
 <meta property="article:published_time" content="2020-07-14T08:50:02.000Z">
-<meta property="article:modified_time" content="2020-07-14T09:32:46.542Z">
+<meta property="article:modified_time" content="2020-07-14T10:02:13.885Z">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="集合">
 <meta property="article:tag" content="Queue">
@@ -347,7 +347,7 @@
       
         <p><strong>Queue接口是我们平常所说的队列（数据先进先出），LinkedList是他的一个实现类</strong><br><strong>如果我们想定义一个队列，以下两种方法都是可以的：</strong></p>
 <pre><code>Queue&lt;E&gt; queue=new LinkedList&lt;E&gt;();
-LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>但必须注意：如果把他定义为Queue，那它就是一个纯粹的队列；</em></strong><br><strong><em>而如果定义成LinkedList，它除了实现Queue的方法外，还实现了List的许多方法，我们既可以把他当队列，还可以当做双向队列、数组、集合、栈来使用他。</em></strong></p>
+LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>但必须注意：如果把他定义为Queue，那它就是一个纯粹的队列；</em></strong><br><strong><em>而如果定义成LinkedList，它除了实现Queue的方法外，还实现了List的许多方法，我们既可以把他当队列，还可以当做双向队列、链表、栈来使用他。</em></strong></p>
 <a id="more"></a>
 
 <hr>
@@ -376,7 +376,7 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
 <h2 id="3-Queue测试代码"><a href="#3-Queue测试代码" class="headerlink" title="##3. Queue测试代码"></a>##3. Queue测试代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">import java.util.LinkedList;</span><br><span class="line">import java.util.Queue;</span><br><span class="line"></span><br><span class="line">public class TestQueue &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Queue&lt;Integer&gt; queue&#x3D;new LinkedList&lt;Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		queue.add(1);</span><br><span class="line">		queue.add(2);</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;在队列中增加数据</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2]</span><br><span class="line">		</span><br><span class="line">		queue.offer(3);</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;在队列中增加数据</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2,3]</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.element());&#x2F;&#x2F;获取队列头元素，不删除</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.peek());&#x2F;&#x2F;获取队列头元素，不删除</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		queue.poll();</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;删除队列头元素</span><br><span class="line">		&#x2F;&#x2F;输出：[2, 3]</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.contains(3));&#x2F;&#x2F;队列中是否存在该元素</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.isEmpty());&#x2F;&#x2F;队列是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		queue.remove(2);</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;删除队列中第一个值等于给定值的元素</span><br><span class="line">		&#x2F;&#x2F;输出：[3]</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.size());&#x2F;&#x2F;获取队列长度，即元素个数</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		queue.clear();</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;清空队列</span><br><span class="line">		&#x2F;&#x2F;输出：[]</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="4-除了使用Queue定义的方法之外，LinkedList还能像数组和栈一样操作数据，常用方法如下"><a href="#4-除了使用Queue定义的方法之外，LinkedList还能像数组和栈一样操作数据，常用方法如下" class="headerlink" title="##4. 除了使用Queue定义的方法之外，LinkedList还能像数组和栈一样操作数据，常用方法如下"></a>##4. 除了使用Queue定义的方法之外，LinkedList还能像数组和栈一样操作数据，常用方法如下</h2><p><strong>void addFirst(E e)</strong></p>
+<h2 id="4-除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下"><a href="#4-除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下" class="headerlink" title="##4. 除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下"></a>##4. 除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下</h2><p><strong>void addFirst(E e)</strong></p>
 <pre><code>从集合的头部插入元素</code></pre><p><strong>void addLast(E e)</strong></p>
 <pre><code>从集合的尾部插入元素</code></pre><p><strong>E get(int index)</strong></p>
 <pre><code>获取集合中给定下标处的值</code></pre><p><strong>E getFirst()</strong></p>
@@ -436,6 +436,10 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" rel="prev" title="Java集合-Map和HashMap[Java知识点]">
+                Java集合-Map和HashMap[Java知识点] <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -512,7 +516,7 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -534,7 +538,7 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -567,7 +571,7 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Collection集合的继承树"><span class="nav-number">1.</span> <span class="nav-text">##1. Collection集合的继承树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Queue的常用方法"><span class="nav-number">2.</span> <span class="nav-text">##2. Queue的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Queue测试代码"><span class="nav-number">3.</span> <span class="nav-text">##3. Queue测试代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-除了使用Queue定义的方法之外，LinkedList还能像数组和栈一样操作数据，常用方法如下"><span class="nav-number">4.</span> <span class="nav-text">##4. 除了使用Queue定义的方法之外，LinkedList还能像数组和栈一样操作数据，常用方法如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-LinkedList测试代码"><span class="nav-number">5.</span> <span class="nav-text">##5. LinkedList测试代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-相关链接"><span class="nav-number">6.</span> <span class="nav-text">##6. 相关链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Collection集合的继承树"><span class="nav-number">1.</span> <span class="nav-text">##1. Collection集合的继承树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Queue的常用方法"><span class="nav-number">2.</span> <span class="nav-text">##2. Queue的常用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Queue测试代码"><span class="nav-number">3.</span> <span class="nav-text">##3. Queue测试代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下"><span class="nav-number">4.</span> <span class="nav-text">##4. 除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-LinkedList测试代码"><span class="nav-number">5.</span> <span class="nav-text">##5. LinkedList测试代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-相关链接"><span class="nav-number">6.</span> <span class="nav-text">##6. 相关链接</span></a></li></ol></div>
             
 
           </div>
