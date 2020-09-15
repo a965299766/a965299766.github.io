@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="编译原理," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这篇记录了我2020.9.1至2020.9.15日上的编译原理课的知识点。本文部分图片来源于 [编译原理].Alfred.V.Aho.扫描版（pdf）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编译原理[9.1-9.15]">
+<meta property="og:url" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/index.html">
+<meta property="og:site_name" content="阿伟就这">
+<meta property="og:description" content="这篇记录了我2020.9.1至2020.9.15日上的编译原理课的知识点。本文部分图片来源于 [编译原理].Alfred.V.Aho.扫描版（pdf）">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/6.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/7.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/8.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/9.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/10.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/11.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/12.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/13.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/14.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/15.jpg">
+<meta property="article:published_time" content="2020-09-15T12:01:19.000Z">
+<meta property="article:modified_time" content="2020-09-15T14:55:25.026Z">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/09/15/编译原理-9-1-9-15/"/>
+
+
+
+
+
+  <title>编译原理[9.1-9.15] | 阿伟就这</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">阿伟就这</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            主页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            统计
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿伟就这">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">编译原理[9.1-9.15]</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-15T20:01:19+08:00">
+                2020-09-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" itemprop="url" rel="index">
+                    <span itemprop="name">编译原理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>这篇记录了我2020.9.1至2020.9.15日上的编译原理课的知识点。</strong><br><em>本文部分图片来源于 [编译原理].Alfred.V.Aho.扫描版（pdf）</em></p>
+<a id="more"></a>
+<p>##1. 一个语言处理系统</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/1.jpg" class title="一个语言处理系统">
+
+<p>此处“<strong>可重定位机器代码</strong>”，指在编程中引用了现有文件中的方法或成员，生成的代码将会在引用的地方做一个标记，通过<strong>链接器/加载器</strong>，可以从库文件中将对应代码插入到程序对应位置处。</p>
+<p>如在C语言中，我们通过<strong>include&lt;stdio.h&gt;</strong>来使用其中的<strong>printf()</strong>函数和<strong>scanf()</strong>函数。在写程序时，我们并没有去实现这两个函数，但程序依然能够运行。正是因为这些函数处于库文件中，我们引用他的时候就会按上一段说的方法执行。</p>
+<p>##2. 一个编译器的结构<br>我们把编译器看做一个黑盒子，它<strong>能够把源程序映射在语义上等价的目标程序</strong>（如C语言程序通过编译生成机器能够执行的汇编语言程序，该C语言程序和汇编程序在语义上是等价的）。</p>
+<p>上述的映射过程（即编译的过程）由两部分组成：<strong>分析部分</strong>和<strong>综合部分</strong>。</p>
+<p><strong>分析部分</strong>：把源程序分解成多个组成要素，并在这些要素上加上语法结构。经常称为编译器的<strong>前端（front end）</strong>。前端包括：<strong>词法分析器，语法分析，语义分析，中间代码生成器</strong>。</p>
+<p><strong>综合部分</strong>：根据中间表示和符号表中的信息来构造用户期待的目标程序。称为编译器的<strong>后端（back end</strong>）。后端包括：<strong>机器无关代码优化器，代码生成器，机器相关代码优化器</strong>。</p>
+<p>以后将一一介绍这些部分。</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/2.jpg" class title="一个编译器的各个步骤">
+
+<p>一个例子较为直观的看编译器翻译过程：</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/4.jpg" class title="一个赋值语句的翻译">
+
+<hr>
+<p>##3. 词法分析<br>是编译器的第一个步骤。</p>
+<p>词法分析器读入组成源程序的字符流，并将它们组织成有意义的<strong>词素的序列</strong>。对于每个词素，词法分析器产生<strong>词法单元</strong>，保存在<strong>符号表中</strong>。<br>*解释：符号表：是如下结构的表：</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/3.jpg" class title="符号表结构">
+
+<p>第一列表示<strong>词的名字</strong>，第二列是<strong>该词对应的真正值</strong>，第二列又称为“<strong>词素</strong>”，第一列和第二列加来<strong>合称为“词法单元”</strong>。</p>
+<p>词共有5个种类：<br><strong>①. 关键字，</strong>如if、else、for等；<br><strong>②. 标识符，</strong>如int a = 4;中的 a；<br><strong>③. 操作符，</strong>如&lt;、&gt;、&lt;=、&gt;=这些运算符；<br><strong>④. 常数，</strong>如PI = 3.14159；<br><strong>⑤. 界符，</strong>如(、)、{、}、[、]这些分割界限的符号。</p>
+<p>那么编译器如何知道每个词是属于什么种类的，并把对应的值（词素）写入符号表呢？<br>通过<strong>模式</strong>：<strong>模式</strong>描述了一个词法单元的词素可能具有的形式。</p>
+<p>如分析一个词，是“for”，通过对应的模式得知他是个<strong>关键字</strong>，那编译器就对其使用<strong>关键字</strong>的分析方法，分析出其对应的词素（对于一个关键字，模式分析方法就是把组成他的所有字符，合起来作为其词素），计入符号表。</p>
+<p>符号表的<strong>每一行称为一个“词法单元”</strong>。形式为：<br><strong>&lt;name， value&gt;</strong><br>如&lt;for， f,o,r&gt;、&lt;number， 5.2&gt;<br>（ASCII码表也是一种符号表）</p>
+<p>顺带一提，符号表中保存的某些词素，保存的不一定是他的真实值，很多时候保存的是他的<strong>*真实值的地址</strong>，即“<strong>指针</strong>”。</p>
+<hr>
+<p>有时，词法分析器可以分为两个级联的处理阶段：<br>1）<strong>扫描阶段：</strong>完成一些不需要生成词法单元的简单处理，如删除注释和将多个连续的空白压缩成一个字符等；<br>2）<strong>词法分析阶段：</strong>处理扫描阶段的输出并生成词法单元。</p>
+<hr>
+<h2 id="4-正则表达式"><a href="#4-正则表达式" class="headerlink" title="##4. 正则表达式"></a>##4. 正则表达式</h2><p><strong>1. 串：某个字母表上的一个串（string）是该字母表中符号的一个有穷序列。</strong><br><strong>串s的长度我们记作|s|。</strong><br>如：s = banana，|s| = 6</p>
+<p><strong>空串：是长度为0的串，记为ε</strong></p>
+<p><strong>注意：ε是空串，他不是字符，他是字符串！！</strong><br>如，字符集E = {a, b, c, ε}是错误的，ε不是字符。<br>字符串集s = {a, aab, ε}是正确的。</p>
+<hr>
+<p><strong>2. 语言：是某个给定字母表上的一个任意的可数的串的集合。</strong><br><strong>根据定义，空集∅和仅包含空串的集合{ε} 都属于语言。</strong></p>
+<hr>
+<p><strong>3. 串的术语：</strong><br><strong>①. 串s的前缀（prefix）：从s的尾部删除0或多个符号后得到的串。</strong>如，ban、banana、ε是banana的前缀。</p>
+<p><strong>②. 串s的后缀（suffix）：从s的开始处删除0或多个符号后得到的串。</strong>如nana、banana、ε是banana的后缀。</p>
+<p><strong>③. 串s的子串（substring）：删除s的某个前缀和某个后缀之后得到的串。</strong>如bnana、nan、ε是banana的子串。</p>
+<p><strong>④. 串s的真前缀、真后缀、真子串：分别是s的既不等于s，也不等于ε的前缀、后缀和子串。</strong></p>
+<p><strong>⑤. 串s的子序列：从s中删除0或多个符号后得到的串，这些删除的字符可能并不相邻。</strong>如baan是banana的一个子序列。</p>
+<hr>
+<p><strong>4. 串的连接与指数运算</strong><br>x = dog， y = house<br>我们<strong>将 xy = doghouse 称为x和y的连接。</strong></p>
+<p>可知：<strong>εs = sε = s</strong></p>
+<p>还能定义<strong>串的指数运算</strong>（^为指数运算符）：定义s ^ 0 = ε， 并且对于i &gt; 0， s ^ i = s ^ (i - 1) * s， 可知：<br><strong>s ^ 1 = s, s ^ 2 = ss, s ^ 3 = sss</strong></p>
+<hr>
+<p><strong>5. 语言上的运算</strong><br>对于语言，我们也有运算方法：</p>
+<p><strong>①. 并：</strong>L ∪ M = {s | s属于L或者s属于M}<br>如：L = {a, aa, ab, ε}, M = {a, c}<br>则L ∪ M = {a, aa, ab, c, ε}</p>
+<p><strong>②. 连接：</strong>LM = {st | s属于L且 t属于M}<br>如：L = {a, aa, ab, ε}, M = {a, c}<br>则LM = {aa, aaa, aba, a, ac, aac, abc, c}</p>
+<p><strong>③. 闭包：</strong>将语言L连接0次或多次后得到的串集合，记作L*<br>如：L = {a, b}<br>则L* = {ε, a, b, aa, ab, bb, aaa, ……}</p>
+<p><strong>④. 正闭包：</strong>将语言L连接0次或多次后得到的串集合，记作L+<br>L+就是L*减去ε的情况。</p>
+<hr>
+<p><strong>6. 正则表达式的运算</strong><br>假定r和s是语言L(r)和L(s)的正则表达式。那么：<br>1）(r) | (s)是一个正则表达式，表示语言L(r) ∪ L(s)；<br>2）(r)(s)是一个正则表达式，表示语言L(r)L(s)；<br>3）(r)<strong><strong><em>是一个正则表达式，表示语言L（(r)）</em></strong></strong>；<br>4）(r)是一个正则表达式，表示语言L(r)。</p>
+<p><strong>优先级：</strong><br>1）*有最高的优先级，是左结合的（从左往右算）。<br>2）连接有次高的优先级，左结合。<br>3）|的优先级最低，左结合。</p>
+<p><strong>例题：</strong><br>E = {a, b}<br>1）<strong>a|b</strong>表示语言{<strong>a, b</strong>}。<br>2）<strong>(a|b)(a|b)</strong>表示语言{<strong>aa, ab, ba, bb</strong>}。<br>3）<strong>a*</strong>表示语言{<strong>ε, a, aa, aaa…</strong>}。<br>4）<strong>(a|b)*</strong>表示语言{<strong>ε, a, b, aa, ab, ba, bb, aaa, …</strong>}。</p>
+<p><strong>*表示0个或多个出现。</strong><br><strong>+表示1个或多个出现。</strong></p>
+<hr>
+<h2 id="5-状态转换图"><a href="#5-状态转换图" class="headerlink" title="##5. 状态转换图"></a>##5. 状态转换图</h2><p><strong>状态转换图有一组称为“状态”的结点或圆圈。</strong><br><strong>状态图的边从图的一个状态指向另一个状态。</strong></p>
+<p>词法分析时，通过状态转换图进行逐个字符判断，较为直观。</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/5.jpg" class title="一个判断关键字he、she、his、hers的状态图">
+
+<p>图中，数字加圈代表状态或结点，直线上标字母代表状态转移条件的边。<br>两个圈代表结束状态。</p>
+<hr>
+<p><strong>状态图转换为正则表达式</strong></p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/6.jpg" class title="状态转换图">
+
+<p>将图中的分支化为或运算，循环化为闭包运算即可。</p>
+<hr>
+<h2 id="6-有穷自动机"><a href="#6-有穷自动机" class="headerlink" title="##6. 有穷自动机"></a>##6. 有穷自动机</h2><p><strong>本质上是和状态转换图类似的图。</strong></p>
+<p><strong>有穷的含义：状态是有穷的。</strong></p>
+<hr>
+<h2 id="6-1-不确定的有穷自动机"><a href="#6-1-不确定的有穷自动机" class="headerlink" title="###6.1. 不确定的有穷自动机"></a>###6.1. 不确定的有穷自动机</h2><p>表达式：M = (S, Σ, δ, s0, F)<br>其中，<br><strong>S是有穷的状态集合。</strong><br><strong>Σ是一个串，即弧上的标识符是串（包含ε）。</strong><br><strong>转换函数δ，他规定了一个状态S0，经过串e，转换为后继状态s1这个映射过程。</strong><br><strong>s0为状态图的开始状态。不止一个。</strong><br><strong>F是一个子集，代表一系列终止状态。</strong></p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/7.jpg" class title="一个不确定的有穷自动机">
+<p>图中可以看到，结点0经过串a，状态可以转化为0，还可以转化为1，这是不确定的，所以他是不确定的有穷自动机。</p>
+<hr>
+<h2 id="6-2-确定的有穷自动机"><a href="#6-2-确定的有穷自动机" class="headerlink" title="###6.2. 确定的有穷自动机"></a>###6.2. 确定的有穷自动机</h2><p>表达式：M = (S, Σ, δ, s0, F)</p>
+<p>与确定的有穷自动机类似，不同的地方：<br><strong>弧上的标识符是字母，不是串。</strong><br><strong>起始节点只有一个。</strong></p>
+<p><strong>不确定的有穷自动机</strong>可以转化成<strong>确定的有穷自动机</strong>。</p>
+<hr>
+<h2 id="7-不确定的有穷自动转化成确定的有穷自动机"><a href="#7-不确定的有穷自动转化成确定的有穷自动机" class="headerlink" title="##7. 不确定的有穷自动转化成确定的有穷自动机"></a>##7. 不确定的有穷自动转化成确定的有穷自动机</h2><p><strong>ε闭包：</strong><br>对于不确定的有穷自动机，从某状态出发，经过ε的弧，能够到达所有状态的集合。</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/8.jpg" class title="一个不确定的有穷自动机">
+<p>例如，本图的3结点，他的ε闭包就是{3, 2, 1, 0}。</p>
+<hr>
+<p><strong>从正则表达式到自动机</strong></p>
+<hr>
+<p>例题：<br>对于正则表达式 1(0|1)<em>101。<br>转化步骤：<br>*</em>①. 画出状态转换图**</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/9.jpg" class title="状态转换图">
+
+<p><strong>②. 列出状态转换矩阵</strong><br>2.1. 由于本题的正则表达式只有0和1组成，我们从起点状态a开始，列出a经过0和ε的弧能到达的状态集合，和经过1和ε能到达的状态集合。</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/10.jpg" class title="从起点出发">
+
+<p>2.2. 然后将得到的两个后继状态集合作为当前的出发状态，再依次执行2.1所示步骤。</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/11.jpg" class title="下一步">
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/12.jpg" class title="下一步">
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/13.jpg" class title="下一步">
+
+<p><strong>直到没有新的状态集合出现，因为是有穷状态机，状态集合是有限的</strong>。</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/14.jpg" class title="这步完成后没有新的状态出现">
+
+<p>2.3. 将每种状态集合标记为新的状态：</p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/15.jpg" class title="标记出现的每种状态集合">
+
+<p><strong>将每种状态集合用新的状态标记：</strong><br>% asset_img 16.jpg 将每种状态集合用新的状态标记 %}</p>
+<p><strong>③. 根据新的状态矩阵画出状态图</strong><br>% asset_img 17.jpg 转换后的确定的有穷自动机 %}</p>
+<hr>
+<h2 id="8-相关链接"><a href="#8-相关链接" class="headerlink" title="##8. 相关链接"></a>##8. 相关链接</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag"># 编译原理</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/08/07/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" rel="next" title="Java中的反射机制">
+                <i class="fa fa-chevron-left"></i> Java中的反射机制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name"></p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-正则表达式"><span class="nav-number">1.</span> <span class="nav-text">##4. 正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-状态转换图"><span class="nav-number">2.</span> <span class="nav-text">##5. 状态转换图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-有穷自动机"><span class="nav-number">3.</span> <span class="nav-text">##6. 有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-不确定的有穷自动机"><span class="nav-number">4.</span> <span class="nav-text">###6.1. 不确定的有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-确定的有穷自动机"><span class="nav-number">5.</span> <span class="nav-text">###6.2. 确定的有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-不确定的有穷自动转化成确定的有穷自动机"><span class="nav-number">6.</span> <span class="nav-text">##7. 不确定的有穷自动转化成确定的有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-相关链接"><span class="nav-number">7.</span> <span class="nav-text">##8. 相关链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder"></span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
