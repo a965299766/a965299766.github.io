@@ -100,8 +100,10 @@
 <meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/13.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/14.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/15.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/16.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/17.jpg">
 <meta property="article:published_time" content="2020-09-15T12:01:19.000Z">
-<meta property="article:modified_time" content="2020-09-15T14:55:25.026Z">
+<meta property="article:modified_time" content="2020-09-15T15:06:34.742Z">
 <meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/1.jpg">
@@ -358,12 +360,14 @@
       
         <p><strong>这篇记录了我2020.9.1至2020.9.15日上的编译原理课的知识点。</strong><br><em>本文部分图片来源于 [编译原理].Alfred.V.Aho.扫描版（pdf）</em></p>
 <a id="more"></a>
-<p>##1. 一个语言处理系统</p>
-<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/1.jpg" class title="一个语言处理系统">
+
+<hr>
+<h2 id="1-一个语言处理系统"><a href="#1-一个语言处理系统" class="headerlink" title="##1. 一个语言处理系统"></a>##1. 一个语言处理系统</h2><img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/1.jpg" class title="一个语言处理系统">
 
 <p>此处“<strong>可重定位机器代码</strong>”，指在编程中引用了现有文件中的方法或成员，生成的代码将会在引用的地方做一个标记，通过<strong>链接器/加载器</strong>，可以从库文件中将对应代码插入到程序对应位置处。</p>
 <p>如在C语言中，我们通过<strong>include&lt;stdio.h&gt;</strong>来使用其中的<strong>printf()</strong>函数和<strong>scanf()</strong>函数。在写程序时，我们并没有去实现这两个函数，但程序依然能够运行。正是因为这些函数处于库文件中，我们引用他的时候就会按上一段说的方法执行。</p>
-<p>##2. 一个编译器的结构<br>我们把编译器看做一个黑盒子，它<strong>能够把源程序映射在语义上等价的目标程序</strong>（如C语言程序通过编译生成机器能够执行的汇编语言程序，该C语言程序和汇编程序在语义上是等价的）。</p>
+<hr>
+<h2 id="2-一个编译器的结构"><a href="#2-一个编译器的结构" class="headerlink" title="##2. 一个编译器的结构"></a>##2. 一个编译器的结构</h2><p>我们把编译器看做一个黑盒子，它<strong>能够把源程序映射在语义上等价的目标程序</strong>（如C语言程序通过编译生成机器能够执行的汇编语言程序，该C语言程序和汇编程序在语义上是等价的）。</p>
 <p>上述的映射过程（即编译的过程）由两部分组成：<strong>分析部分</strong>和<strong>综合部分</strong>。</p>
 <p><strong>分析部分</strong>：把源程序分解成多个组成要素，并在这些要素上加上语法结构。经常称为编译器的<strong>前端（front end）</strong>。前端包括：<strong>词法分析器，语法分析，语义分析，中间代码生成器</strong>。</p>
 <p><strong>综合部分</strong>：根据中间表示和符号表中的信息来构造用户期待的目标程序。称为编译器的<strong>后端（back end</strong>）。后端包括：<strong>机器无关代码优化器，代码生成器，机器相关代码优化器</strong>。</p>
@@ -374,7 +378,7 @@
 <img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/4.jpg" class title="一个赋值语句的翻译">
 
 <hr>
-<p>##3. 词法分析<br>是编译器的第一个步骤。</p>
+<h2 id="3-词法分析"><a href="#3-词法分析" class="headerlink" title="##3. 词法分析"></a>##3. 词法分析</h2><p>是编译器的第一个步骤。</p>
 <p>词法分析器读入组成源程序的字符流，并将它们组织成有意义的<strong>词素的序列</strong>。对于每个词素，词法分析器产生<strong>词法单元</strong>，保存在<strong>符号表中</strong>。<br>*解释：符号表：是如下结构的表：</p>
 <img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/3.jpg" class title="符号表结构">
 
@@ -428,11 +432,13 @@
 <h2 id="6-有穷自动机"><a href="#6-有穷自动机" class="headerlink" title="##6. 有穷自动机"></a>##6. 有穷自动机</h2><p><strong>本质上是和状态转换图类似的图。</strong></p>
 <p><strong>有穷的含义：状态是有穷的。</strong></p>
 <hr>
-<h2 id="6-1-不确定的有穷自动机"><a href="#6-1-不确定的有穷自动机" class="headerlink" title="###6.1. 不确定的有穷自动机"></a>###6.1. 不确定的有穷自动机</h2><p>表达式：M = (S, Σ, δ, s0, F)<br>其中，<br><strong>S是有穷的状态集合。</strong><br><strong>Σ是一个串，即弧上的标识符是串（包含ε）。</strong><br><strong>转换函数δ，他规定了一个状态S0，经过串e，转换为后继状态s1这个映射过程。</strong><br><strong>s0为状态图的开始状态。不止一个。</strong><br><strong>F是一个子集，代表一系列终止状态。</strong></p>
+<p>###6.1. 不确定的有穷自动机</p>
+<p>表达式：M = (S, Σ, δ, s0, F)<br>其中，<br><strong>S是有穷的状态集合。</strong><br><strong>Σ是一个串，即弧上的标识符是串（包含ε）。</strong><br><strong>转换函数δ，他规定了一个状态S0，经过串e，转换为后继状态s1这个映射过程。</strong><br><strong>s0为状态图的开始状态。不止一个。</strong><br><strong>F是一个子集，代表一系列终止状态。</strong></p>
 <img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/7.jpg" class title="一个不确定的有穷自动机">
 <p>图中可以看到，结点0经过串a，状态可以转化为0，还可以转化为1，这是不确定的，所以他是不确定的有穷自动机。</p>
 <hr>
-<h2 id="6-2-确定的有穷自动机"><a href="#6-2-确定的有穷自动机" class="headerlink" title="###6.2. 确定的有穷自动机"></a>###6.2. 确定的有穷自动机</h2><p>表达式：M = (S, Σ, δ, s0, F)</p>
+<p>###6.2. 确定的有穷自动机</p>
+<p>表达式：M = (S, Σ, δ, s0, F)</p>
 <p>与确定的有穷自动机类似，不同的地方：<br><strong>弧上的标识符是字母，不是串。</strong><br><strong>起始节点只有一个。</strong></p>
 <p><strong>不确定的有穷自动机</strong>可以转化成<strong>确定的有穷自动机</strong>。</p>
 <hr>
@@ -459,8 +465,12 @@
 <p>2.3. 将每种状态集合标记为新的状态：</p>
 <img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/15.jpg" class title="标记出现的每种状态集合">
 
-<p><strong>将每种状态集合用新的状态标记：</strong><br>% asset_img 16.jpg 将每种状态集合用新的状态标记 %}</p>
-<p><strong>③. 根据新的状态矩阵画出状态图</strong><br>% asset_img 17.jpg 转换后的确定的有穷自动机 %}</p>
+<p><strong>将每种状态集合用新的状态标记：</strong></p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/16.jpg" class title="将每种状态集合用新的状态标记">
+
+<p><strong>③. 根据新的状态矩阵画出状态图</strong></p>
+<img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/17.jpg" class title="转换后的确定的有穷自动机">
+
 <hr>
 <h2 id="8-相关链接"><a href="#8-相关链接" class="headerlink" title="##8. 相关链接"></a>##8. 相关链接</h2>
       
@@ -632,7 +642,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-正则表达式"><span class="nav-number">1.</span> <span class="nav-text">##4. 正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-状态转换图"><span class="nav-number">2.</span> <span class="nav-text">##5. 状态转换图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-有穷自动机"><span class="nav-number">3.</span> <span class="nav-text">##6. 有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-不确定的有穷自动机"><span class="nav-number">4.</span> <span class="nav-text">###6.1. 不确定的有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-确定的有穷自动机"><span class="nav-number">5.</span> <span class="nav-text">###6.2. 确定的有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-不确定的有穷自动转化成确定的有穷自动机"><span class="nav-number">6.</span> <span class="nav-text">##7. 不确定的有穷自动转化成确定的有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-相关链接"><span class="nav-number">7.</span> <span class="nav-text">##8. 相关链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-一个语言处理系统"><span class="nav-number">1.</span> <span class="nav-text">##1. 一个语言处理系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-一个编译器的结构"><span class="nav-number">2.</span> <span class="nav-text">##2. 一个编译器的结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-词法分析"><span class="nav-number">3.</span> <span class="nav-text">##3. 词法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-正则表达式"><span class="nav-number">4.</span> <span class="nav-text">##4. 正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-状态转换图"><span class="nav-number">5.</span> <span class="nav-text">##5. 状态转换图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-有穷自动机"><span class="nav-number">6.</span> <span class="nav-text">##6. 有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-不确定的有穷自动转化成确定的有穷自动机"><span class="nav-number">7.</span> <span class="nav-text">##7. 不确定的有穷自动转化成确定的有穷自动机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-相关链接"><span class="nav-number">8.</span> <span class="nav-text">##8. 相关链接</span></a></li></ol></div>
             
 
           </div>
