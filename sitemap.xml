@@ -277,7 +277,14 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/Collection/</loc>
+    <loc>http://yoursite.com/tags/List/</loc>
+    <lastmod>2020-09-20</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/ArrayList/</loc>
     <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -291,14 +298,7 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/List/</loc>
-    <lastmod>2020-09-20</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/ArrayList/</loc>
+    <loc>http://yoursite.com/tags/Collection/</loc>
     <lastmod>2020-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
