@@ -245,6 +245,47 @@ index超过集合下标返回则会报错
       </tags>
   </entry>
   <entry>
+    <title>Java集合-各种集合的使用场景[Java知识点]</title>
+    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
+<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
+即可以较为快捷地使用下标来直接访问数组中间的某个数据。
+但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
+此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
+<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
+但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
+<pre><code>栈和队列，大家应该都不陌生，
+Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
+Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
+<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
+<pre><code>都是Set的实现类。
+HashSet的性能总比TreeSet好，但不能保持数据的顺序。
+如果需要频繁地添加、查找元素时，建议使用HashSet。
+而如果需要一个保持排序的Set，用TreeSet。
+如果需要遍历集合元素，用LinkedHashSet。
+
+HashSet：通过散列法储存数据，查询很快。
+LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
+TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
+<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
+Map中键不能重复。
+数据呈现的是对应关系，如 学号-姓名 这种对应关系。
+HashMap是Map的具体实现类。</code></pre><hr>
+<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java集合-Queue和LinkedList[Java知识点]</title>
     <url>/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>Queue接口是我们平常所说的队列（数据先进先出），LinkedList是他的一个实现类</strong><br><strong>如果我们想定义一个队列，以下两种方法都是可以的：</strong></p>
@@ -302,47 +343,6 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
         <tag>集合</tag>
         <tag>Queue</tag>
         <tag>LinkedList</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合-各种集合的使用场景[Java知识点]</title>
-    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
-<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
-即可以较为快捷地使用下标来直接访问数组中间的某个数据。
-但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
-此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
-<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
-但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
-<pre><code>栈和队列，大家应该都不陌生，
-Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
-Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
-<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
-<pre><code>都是Set的实现类。
-HashSet的性能总比TreeSet好，但不能保持数据的顺序。
-如果需要频繁地添加、查找元素时，建议使用HashSet。
-而如果需要一个保持排序的Set，用TreeSet。
-如果需要遍历集合元素，用LinkedHashSet。
-
-HashSet：通过散列法储存数据，查询很快。
-LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
-TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
-<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
-Map中键不能重复。
-数据呈现的是对应关系，如 学号-姓名 这种对应关系。
-HashMap是Map的具体实现类。</code></pre><hr>
-<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
       </tags>
   </entry>
   <entry>
@@ -485,47 +485,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 101.对称二叉树[二叉树]</title>
-    <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
-<p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<a id="more"></a>
-
-
-<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
-<pre><code>    1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
-<pre><code>  1
- / \
-2   2
- \   \
- 3    3</code></pre><hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>我们可以使用两个指针，开始时均指向根节点，然后让他们同时行动，进行深度优先搜索或广度优先搜索，当一个指针p指向了当前树节点的左子树节点时，我们让另一个指针q同时指向当前节点的右子树节点，然后比较p和q所指节点的值是否相等。<br>如果遇到p和q节点的值不等或者p和q不同时为空的情况下，返回false。<br>如果搜索完成后没有发现以上情况，返回true。</p>
-<p><strong>###2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 TreeNode left;</span><br><span class="line">	 TreeNode right;</span><br><span class="line">	 TreeNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class IsSymmetric &#123;</span><br><span class="line">	public static boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root,root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">		if(p&#x3D;&#x3D;null&amp;&amp;q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果两节点都为空，返回true</span><br><span class="line">			return true;</span><br><span class="line">		if(p&#x3D;&#x3D;null||q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果只有一节点为空，返回false</span><br><span class="line">			return false;</span><br><span class="line">		</span><br><span class="line">		return p.val&#x3D;&#x3D;q.val&amp;&amp;check(p.right,q.left)&amp;&amp;check(p.left,q.right);&#x2F;&#x2F;两节点都不为空，递归进行比较</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：二叉树 [1,2,2,3,4,4,3]</span><br><span class="line">		TreeNode tree&#x3D;new TreeNode(1);</span><br><span class="line">		tree.left&#x3D;new TreeNode(2);</span><br><span class="line">		tree.left.left&#x3D;new TreeNode(3);</span><br><span class="line">		tree.left.right&#x3D;new TreeNode(4);</span><br><span class="line">		</span><br><span class="line">		tree.right&#x3D;new TreeNode(2);</span><br><span class="line">		tree.right.left&#x3D;new TreeNode(4);</span><br><span class="line">		tree.right.right&#x3D;new TreeNode(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(isSymmetric(tree));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：<br>二叉树 [1,2,2,3,4,4,3]</p>
-<pre><code>    1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre><p>测试结果：true<br>显然该树是对称的。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>二叉树</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Lambda表达式-进阶部分[Java知识点]</title>
     <url>/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>本文在 <a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式基础部分</a>的基础上介绍了一些Lambda表达式的进阶用法。</strong></p>
@@ -591,6 +550,47 @@ HashMap是Map的具体实现类。</code></pre><hr>
       <tags>
         <tag>Java</tag>
         <tag>Lambda表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 101.对称二叉树[二叉树]</title>
+    <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
+<p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<a id="more"></a>
+
+
+<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
+<pre><code>    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
+<pre><code>  1
+ / \
+2   2
+ \   \
+ 3    3</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>我们可以使用两个指针，开始时均指向根节点，然后让他们同时行动，进行深度优先搜索或广度优先搜索，当一个指针p指向了当前树节点的左子树节点时，我们让另一个指针q同时指向当前节点的右子树节点，然后比较p和q所指节点的值是否相等。<br>如果遇到p和q节点的值不等或者p和q不同时为空的情况下，返回false。<br>如果搜索完成后没有发现以上情况，返回true。</p>
+<p><strong>###2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 TreeNode left;</span><br><span class="line">	 TreeNode right;</span><br><span class="line">	 TreeNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class IsSymmetric &#123;</span><br><span class="line">	public static boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root,root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">		if(p&#x3D;&#x3D;null&amp;&amp;q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果两节点都为空，返回true</span><br><span class="line">			return true;</span><br><span class="line">		if(p&#x3D;&#x3D;null||q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果只有一节点为空，返回false</span><br><span class="line">			return false;</span><br><span class="line">		</span><br><span class="line">		return p.val&#x3D;&#x3D;q.val&amp;&amp;check(p.right,q.left)&amp;&amp;check(p.left,q.right);&#x2F;&#x2F;两节点都不为空，递归进行比较</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：二叉树 [1,2,2,3,4,4,3]</span><br><span class="line">		TreeNode tree&#x3D;new TreeNode(1);</span><br><span class="line">		tree.left&#x3D;new TreeNode(2);</span><br><span class="line">		tree.left.left&#x3D;new TreeNode(3);</span><br><span class="line">		tree.left.right&#x3D;new TreeNode(4);</span><br><span class="line">		</span><br><span class="line">		tree.right&#x3D;new TreeNode(2);</span><br><span class="line">		tree.right.left&#x3D;new TreeNode(4);</span><br><span class="line">		tree.right.right&#x3D;new TreeNode(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(isSymmetric(tree));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：<br>二叉树 [1,2,2,3,4,4,3]</p>
+<pre><code>    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3</code></pre><p>测试结果：true<br>显然该树是对称的。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -757,37 +757,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 169.多数元素[数组]</title>
-    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
-<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
-<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
-<a id="more"></a>
-
-
-<p><strong>示例 1:</strong></p>
-<p>输入: [3,2,3]<br>输出: 3</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
-<p><strong>###2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
-<p><strong>###2.3. LeetCode提交记录</strong></p>
-<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 155.最小栈[栈][设计]</title>
     <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
@@ -827,6 +796,37 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       <tags>
         <tag>设计</tag>
         <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 169.多数元素[数组]</title>
+    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
+<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
+<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
+<a id="more"></a>
+
+
+<p><strong>示例 1:</strong></p>
+<p>输入: [3,2,3]<br>输出: 3</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
+<p><strong>###2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
+<p><strong>###2.3. LeetCode提交记录</strong></p>
+<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -884,6 +884,72 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </categories>
       <tags>
         <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 19.删除链表的倒数第N个节点[链表][双指针]</title>
+    <url>/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][双指针]</em></p>
+<p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
+<p><strong>示例：</strong></p>
+<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</p>
+<p>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p>
+<p><strong>说明：</strong></p>
+<p>给定的 n 保证是有效的。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 常规解法</strong><br>看到这题最容易想到的解法就是遍历两次链表。<br><strong>第一次遍历可以获取到链表的长度len。</strong><br><strong>第二次遍历，当遍历到第 (len - n) 个结点时，删除该结点的下一结点。最后返回head即可。</strong></p>
+<hr>
+<p><strong>2.2. 双指针解法</strong><br>题目告知我们n必定是有效的，不会出现<strong>n大于链表长度</strong>的情况。<br>我们可以采用<strong>双指针</strong>的方法来解决本问题。</p>
+<p><strong>①. 定义两个指针p和q，同时指向head结点；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/1.jpg" class title="图一">
+
+<p><strong>②. 让p指针先往后移动n个结点，q指针不动；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/2.jpg" class title="图二">
+
+<p><strong>③. 然后p，q指针同时向后移动，直到p指针的下一结点为null时停止；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/3.jpg" class title="图三">
+
+<p><strong>④. 此时发现q的下一结点正是我们要删除的结点；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/4.jpg" class title="图四">
+
+<p><strong>⑤. 删除成功后返回head结点作为答案。</strong></p>
+<hr>
+<p><strong>2.3. 存在的问题</strong><br>这种方法在极端情况下有潜在的问题：</p>
+<p><strong>当我们要删除的结点正好是head结点</strong>时，怎么办？</p>
+<p>举个例子：<br>给定链表 = [1,2]，n = 2，</p>
+<p><strong>p结点从head结点出发，移动n = 2位后，已经指向了null了，此时我们无法判断null的下一结点是不是null，就会报找不到指针的错误。</strong></p>
+<hr>
+<p><strong>2.4. 解决方案</strong><br>解决方法也很简单，<br><strong>设置一个 “哑结点” d，他指向的下一个结点是head结点，此时就不会出现上述错误。</strong></p>
+<p><strong>①. 设置“哑结点”d，他的下一个结点指向的是head；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/5.jpg" class title="图五">
+
+<p><strong>②. p结点向后移动n位；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/6.jpg" class title="图六">
+
+<p><strong>③. p，q结点同时移动，直到p结点的下一结点为null；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/7.jpg" class title="图七">
+
+<p><strong>④. 删除q结点的下一结点，也就是head结点；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/8.jpg" class title="图八">
+
+<p><strong>⑤. 注意：此时返回的答案就不是哑结点d了，而是d.next。</strong></p>
+<hr>
+<h2 id="3-具体代码"><a href="#3-具体代码" class="headerlink" title="##3. 具体代码"></a>##3. 具体代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> *&#x2F;</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode removeNthFromEnd(ListNode head, int n) &#123;</span><br><span class="line">        ListNode d &#x3D; new ListNode(0);</span><br><span class="line">        d.next &#x3D; head;&#x2F;&#x2F;哑结点d</span><br><span class="line"></span><br><span class="line">        ListNode p &#x3D; d;</span><br><span class="line">        ListNode q &#x3D; null;</span><br><span class="line"></span><br><span class="line">        while(n !&#x3D; 0)&#123;&#x2F;&#x2F;p向后移动n位</span><br><span class="line">            p &#x3D; p.next;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        q &#x3D; d;</span><br><span class="line">        while(p.next !&#x3D; null)&#123;&#x2F;&#x2F;p，q同时移动直到p的下一结点为null</span><br><span class="line">            p &#x3D; p.next;</span><br><span class="line">            q &#x3D; q.next;</span><br><span class="line">        &#125;</span><br><span class="line">        q.next &#x3D; q.next.next;&#x2F;&#x2F;删除q的下一结点</span><br><span class="line">        return d.next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：链表 = 1-&gt;2-&gt;3-&gt;4-&gt;5，n = 2<br>测试结果：1-&gt;2-&gt;3-&gt;5<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -958,72 +1024,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       <tags>
         <tag>链表</tag>
         <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 19.删除链表的倒数第N个节点[链表][双指针]</title>
-    <url>/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][双指针]</em></p>
-<p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
-<p><strong>示例：</strong></p>
-<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</p>
-<p>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p>
-<p><strong>说明：</strong></p>
-<p>给定的 n 保证是有效的。</p>
-<a id="more"></a>
-
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 常规解法</strong><br>看到这题最容易想到的解法就是遍历两次链表。<br><strong>第一次遍历可以获取到链表的长度len。</strong><br><strong>第二次遍历，当遍历到第 (len - n) 个结点时，删除该结点的下一结点。最后返回head即可。</strong></p>
-<hr>
-<p><strong>2.2. 双指针解法</strong><br>题目告知我们n必定是有效的，不会出现<strong>n大于链表长度</strong>的情况。<br>我们可以采用<strong>双指针</strong>的方法来解决本问题。</p>
-<p><strong>①. 定义两个指针p和q，同时指向head结点；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/1.jpg" class title="图一">
-
-<p><strong>②. 让p指针先往后移动n个结点，q指针不动；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/2.jpg" class title="图二">
-
-<p><strong>③. 然后p，q指针同时向后移动，直到p指针的下一结点为null时停止；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/3.jpg" class title="图三">
-
-<p><strong>④. 此时发现q的下一结点正是我们要删除的结点；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/4.jpg" class title="图四">
-
-<p><strong>⑤. 删除成功后返回head结点作为答案。</strong></p>
-<hr>
-<p><strong>2.3. 存在的问题</strong><br>这种方法在极端情况下有潜在的问题：</p>
-<p><strong>当我们要删除的结点正好是head结点</strong>时，怎么办？</p>
-<p>举个例子：<br>给定链表 = [1,2]，n = 2，</p>
-<p><strong>p结点从head结点出发，移动n = 2位后，已经指向了null了，此时我们无法判断null的下一结点是不是null，就会报找不到指针的错误。</strong></p>
-<hr>
-<p><strong>2.4. 解决方案</strong><br>解决方法也很简单，<br><strong>设置一个 “哑结点” d，他指向的下一个结点是head结点，此时就不会出现上述错误。</strong></p>
-<p><strong>①. 设置“哑结点”d，他的下一个结点指向的是head；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/5.jpg" class title="图五">
-
-<p><strong>②. p结点向后移动n位；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/6.jpg" class title="图六">
-
-<p><strong>③. p，q结点同时移动，直到p结点的下一结点为null；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/7.jpg" class title="图七">
-
-<p><strong>④. 删除q结点的下一结点，也就是head结点；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/8.jpg" class title="图八">
-
-<p><strong>⑤. 注意：此时返回的答案就不是哑结点d了，而是d.next。</strong></p>
-<hr>
-<h2 id="3-具体代码"><a href="#3-具体代码" class="headerlink" title="##3. 具体代码"></a>##3. 具体代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> *&#x2F;</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode removeNthFromEnd(ListNode head, int n) &#123;</span><br><span class="line">        ListNode d &#x3D; new ListNode(0);</span><br><span class="line">        d.next &#x3D; head;&#x2F;&#x2F;哑结点d</span><br><span class="line"></span><br><span class="line">        ListNode p &#x3D; d;</span><br><span class="line">        ListNode q &#x3D; null;</span><br><span class="line"></span><br><span class="line">        while(n !&#x3D; 0)&#123;&#x2F;&#x2F;p向后移动n位</span><br><span class="line">            p &#x3D; p.next;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        q &#x3D; d;</span><br><span class="line">        while(p.next !&#x3D; null)&#123;&#x2F;&#x2F;p，q同时移动直到p的下一结点为null</span><br><span class="line">            p &#x3D; p.next;</span><br><span class="line">            q &#x3D; q.next;</span><br><span class="line">        &#125;</span><br><span class="line">        q.next &#x3D; q.next.next;&#x2F;&#x2F;删除q的下一结点</span><br><span class="line">        return d.next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：链表 = 1-&gt;2-&gt;3-&gt;4-&gt;5，n = 2<br>测试结果：1-&gt;2-&gt;3-&gt;5<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1102,53 +1102,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 21.合并两个有序链表[链表]</title>
-    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
-<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<a id="more"></a>
-
-
-<p><strong>示例：</strong></p>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
-<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
-<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
-<p>①. 两链表指针均从头开始。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
-
-<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
-
-<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
-
-<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
-
-<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
-<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
-<p><strong>###2.3. 完整代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
-
-<p>LeetCode提交记录：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 3.无重复字符的最长子串[字符串]</title>
     <url>/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][哈希表][Sliding Window]</em></p>
@@ -1215,6 +1168,53 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
         <tag>哈希表</tag>
         <tag>字符串</tag>
         <tag>Sliding Window</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 21.合并两个有序链表[链表]</title>
+    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
+<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
+<a id="more"></a>
+
+
+<p><strong>示例：</strong></p>
+<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
+<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
+<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
+<p>①. 两链表指针均从头开始。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
+
+<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
+
+<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
+
+<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
+
+<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
+<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
+<p><strong>###2.3. 完整代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
+
+<p>LeetCode提交记录：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1496,6 +1496,28 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       </tags>
   </entry>
   <entry>
+    <title>hello world</title>
+    <url>/2020/07/03/hello-world/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;Hello World!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This is a test file.<br>YYY<br>BBB</p>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>大家好辣</title>
+    <url>/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
+<img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
+
+<hr>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+  <entry>
     <title>剑指 Offer 03. 数组中重复的数字[数组]</title>
     <url>/2020/07/29/%E5%89%91%E6%8C%87-Offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97-%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
@@ -1562,28 +1584,6 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       <tags>
         <tag>数组</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hello world</title>
-    <url>/2020/07/03/hello-world/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;Hello World!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This is a test file.<br>YYY<br>BBB</p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>大家好辣</title>
-    <url>/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
-<img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
-
-<hr>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
   </entry>
   <entry>
     <title>编译原理[9.1-9.15]</title>
