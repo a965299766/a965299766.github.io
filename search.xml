@@ -485,47 +485,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 101.对称二叉树[二叉树]</title>
-    <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
-<p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<a id="more"></a>
-
-
-<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
-<pre><code>    1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
-<pre><code>  1
- / \
-2   2
- \   \
- 3    3</code></pre><hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>我们可以使用两个指针，开始时均指向根节点，然后让他们同时行动，进行深度优先搜索或广度优先搜索，当一个指针p指向了当前树节点的左子树节点时，我们让另一个指针q同时指向当前节点的右子树节点，然后比较p和q所指节点的值是否相等。<br>如果遇到p和q节点的值不等或者p和q不同时为空的情况下，返回false。<br>如果搜索完成后没有发现以上情况，返回true。</p>
-<p><strong>###2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 TreeNode left;</span><br><span class="line">	 TreeNode right;</span><br><span class="line">	 TreeNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class IsSymmetric &#123;</span><br><span class="line">	public static boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root,root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">		if(p&#x3D;&#x3D;null&amp;&amp;q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果两节点都为空，返回true</span><br><span class="line">			return true;</span><br><span class="line">		if(p&#x3D;&#x3D;null||q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果只有一节点为空，返回false</span><br><span class="line">			return false;</span><br><span class="line">		</span><br><span class="line">		return p.val&#x3D;&#x3D;q.val&amp;&amp;check(p.right,q.left)&amp;&amp;check(p.left,q.right);&#x2F;&#x2F;两节点都不为空，递归进行比较</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：二叉树 [1,2,2,3,4,4,3]</span><br><span class="line">		TreeNode tree&#x3D;new TreeNode(1);</span><br><span class="line">		tree.left&#x3D;new TreeNode(2);</span><br><span class="line">		tree.left.left&#x3D;new TreeNode(3);</span><br><span class="line">		tree.left.right&#x3D;new TreeNode(4);</span><br><span class="line">		</span><br><span class="line">		tree.right&#x3D;new TreeNode(2);</span><br><span class="line">		tree.right.left&#x3D;new TreeNode(4);</span><br><span class="line">		tree.right.right&#x3D;new TreeNode(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(isSymmetric(tree));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：<br>二叉树 [1,2,2,3,4,4,3]</p>
-<pre><code>    1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre><p>测试结果：true<br>显然该树是对称的。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>二叉树</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Lambda表达式-进阶部分[Java知识点]</title>
     <url>/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>本文在 <a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式基础部分</a>的基础上介绍了一些Lambda表达式的进阶用法。</strong></p>
@@ -591,6 +550,47 @@ HashMap是Map的具体实现类。</code></pre><hr>
       <tags>
         <tag>Java</tag>
         <tag>Lambda表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 101.对称二叉树[二叉树]</title>
+    <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
+<p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<a id="more"></a>
+
+
+<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
+<pre><code>    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
+<pre><code>  1
+ / \
+2   2
+ \   \
+ 3    3</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>我们可以使用两个指针，开始时均指向根节点，然后让他们同时行动，进行深度优先搜索或广度优先搜索，当一个指针p指向了当前树节点的左子树节点时，我们让另一个指针q同时指向当前节点的右子树节点，然后比较p和q所指节点的值是否相等。<br>如果遇到p和q节点的值不等或者p和q不同时为空的情况下，返回false。<br>如果搜索完成后没有发现以上情况，返回true。</p>
+<p><strong>###2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 TreeNode left;</span><br><span class="line">	 TreeNode right;</span><br><span class="line">	 TreeNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class IsSymmetric &#123;</span><br><span class="line">	public static boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root,root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">		if(p&#x3D;&#x3D;null&amp;&amp;q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果两节点都为空，返回true</span><br><span class="line">			return true;</span><br><span class="line">		if(p&#x3D;&#x3D;null||q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果只有一节点为空，返回false</span><br><span class="line">			return false;</span><br><span class="line">		</span><br><span class="line">		return p.val&#x3D;&#x3D;q.val&amp;&amp;check(p.right,q.left)&amp;&amp;check(p.left,q.right);&#x2F;&#x2F;两节点都不为空，递归进行比较</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：二叉树 [1,2,2,3,4,4,3]</span><br><span class="line">		TreeNode tree&#x3D;new TreeNode(1);</span><br><span class="line">		tree.left&#x3D;new TreeNode(2);</span><br><span class="line">		tree.left.left&#x3D;new TreeNode(3);</span><br><span class="line">		tree.left.right&#x3D;new TreeNode(4);</span><br><span class="line">		</span><br><span class="line">		tree.right&#x3D;new TreeNode(2);</span><br><span class="line">		tree.right.left&#x3D;new TreeNode(4);</span><br><span class="line">		tree.right.right&#x3D;new TreeNode(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(isSymmetric(tree));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：<br>二叉树 [1,2,2,3,4,4,3]</p>
+<pre><code>    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3</code></pre><p>测试结果：true<br>显然该树是对称的。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -1415,6 +1415,38 @@ f(i)=max(f[i-1]+nums[i],nums[i])，0&lt;i&lt;=nums.length时.</code></pre><p>实
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
+    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
+<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
+<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
+<a id="more"></a>
+
+<p><strong>示例 1:</strong></p>
+<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
+<p><strong>注意:</strong></p>
+<p>   输入的字符串长度不会超过1000。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 70.爬楼梯[动态规划]</title>
     <url>/2020/07/05/LeetCode-70-%E7%88%AC%E6%A5%BC%E6%A2%AF-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="1-题目描述："><a href="#1-题目描述：" class="headerlink" title="##1. 题目描述："></a>##1. 题目描述：</h2><p><em>标签：[动态规划][递归]</em></p>
@@ -1472,38 +1504,6 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       <categories>
         <category>其他</category>
       </categories>
-  </entry>
-  <entry>
-    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
-    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
-<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
-<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
-<a id="more"></a>
-
-<p><strong>示例 1:</strong></p>
-<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
-<p><strong>注意:</strong></p>
-<p>   输入的字符串长度不会超过1000。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>字符串</tag>
-      </tags>
   </entry>
   <entry>
     <title>剑指 Offer 03. 数组中重复的数字[数组]</title>
