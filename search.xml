@@ -137,57 +137,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java集合-Map和HashMap[Java知识点]</title>
-    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>相较于线性的集合如List，Queue，LinkedList之类的集合，Map和HashMap则是另一种完全不同的数据存储方式：键-值对。</strong></p>
-<p><strong>也就是说，在Map中，数据并不是List中那样单个出现，互相不关联，而是成对出现，比如在一个Map中，我们这样记录数据：{1=5,2=10}，注意：这里的1=5,2=10并非数学上的等号关系，而是“对应”的关系，1和5是一对，2和10是一对。</strong></p>
-<p><strong>在Map中，一对数据a=b，其中我们称a为“关键字（key）”或“键”，b为“值（value）”，键在Map中是唯一的，我们可以通过键来查找他对应的值。</strong><br>在应用中，我们常常使用Map来保存一些数据，如：统计每种商品的数量时，我们就可以使用Map，其中key为商品编号，对应的value为商品出现数量。这样做可以减少程序员的工作量。</p>
-<p><strong>HashMap使用哈希算法对键去重复，效率高，但是无序。</strong><br><strong>Map是接口，HashMap是Map的主要实现类。定义方式：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;定义一个键和值类型都是Integer类型的map和hashmap</span><br><span class="line">Map&lt;Integer,Integer&gt; map&#x3D;new HashMap&lt;Integer,Integer&gt;();</span><br><span class="line">&#x2F;&#x2F;或者</span><br><span class="line">HashMap&lt;Integer,Integer&gt; hashmap&#x3D;new HashMap&lt;Integer,Integer&gt;();</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-Map的常用方法"><a href="#1-Map的常用方法" class="headerlink" title="##1. Map的常用方法"></a>##1. Map的常用方法</h2><p><strong>E put(E key, E value)</strong></p>
-<pre><code>在map中插入键-值对，key为关键字，value为对应值
-如果map中已存在该关键字，则修改其对应值为value
-如果是新插入的键值对，返回值为null
-如果是修改了原关键字的对应值，返回值为被修改的value值</code></pre><p><strong>E putIfAbsent(E key, E value)</strong></p>
-<pre><code>如果map中不存在关键字key，则插入该键值对，并返回null
-如果已存在，什么也不做，返回-1</code></pre><p><strong>boolean containsKey(Object key)</strong></p>
-<pre><code>判断map中是否存在关键字为key的键值对
-存在则返回true，否则false</code></pre><p><strong>boolean containsValue(Object value)</strong></p>
-<pre><code>判断map中是否存在对应值为value的键值对
-存在则返回true，否则false</code></pre><p><strong>E get(Object key)</strong></p>
-<pre><code>获取map中关键字为key的对应值
-未找到则返回null</code></pre><p><strong>boolean isEmpty()</strong></p>
-<pre><code>判断map是否为空</code></pre><p><strong>int size()</strong></p>
-<pre><code>返回map中的元素个数</code></pre><p><strong>E remove(Object key)</strong></p>
-<pre><code>删除map中关键字为key的元素
-返回被删除的key的对应值
-未找到则返回null</code></pre><p><strong>boolean remove(Object key, Object value)</strong></p>
-<pre><code>删除map中关键字为key且值为value的元素
-成功则返回true，失败返回false</code></pre><p><strong>E replace(E key, E value)</strong></p>
-<pre><code>将map中，关键字为key的对应值改为value
-返回被修改的值，未找到则返回null</code></pre><p><strong>boolean replace(E key, E oldValue, E newValue)</strong></p>
-<pre><code>将map中，关键字为key且值为oldValue的元素的值修改为newValue
-修改成功返回true，失败返回false</code></pre><p><strong>void clear()</strong></p>
-<pre><code>清空map数据</code></pre><hr>
-<h2 id="2-测试代码"><a href="#2-测试代码" class="headerlink" title="##2. 测试代码"></a>##2. 测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class TestMap &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Map&lt;Integer, Integer&gt; map&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		map.put(1, -1);</span><br><span class="line">		map.put(5, -5);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;在map中插入键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.containsKey(1));&#x2F;&#x2F;map中是否存在关键字</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		System.out.println(map.containsValue(-5));&#x2F;&#x2F;map中是否存在值</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line"></span><br><span class="line">		map.putIfAbsent(1, -2);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;如果存在关键字，则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.putIfAbsent(3, -3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;如果不存在关键字，则插入键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 3&#x3D;-3, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.get(3));&#x2F;&#x2F;返回关键字对应的值</span><br><span class="line">		&#x2F;&#x2F;输出：-3</span><br><span class="line">		System.out.println(map.get(7));&#x2F;&#x2F;不存在就返回null</span><br><span class="line">		&#x2F;&#x2F;输出：null</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.isEmpty());&#x2F;&#x2F;判断是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.size());&#x2F;&#x2F;返回元素个数</span><br><span class="line">		&#x2F;&#x2F;输出：3</span><br><span class="line">		</span><br><span class="line">		map.remove(3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;移除map中关键字为3的键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.remove(1, -5);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;移除map中关键字为1且值为-5的键-值对，不存在则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.replace(1, 2);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;修改map中的键-值关系</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;2, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.replace(1, 1, 3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;修改map中的键值关系，不存在则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;2, 5&#x3D;-5&#125;</span><br><span class="line">				</span><br><span class="line">		map.clear();</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;清空map</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="3-相关链接"><a href="#3-相关链接" class="headerlink" title="##3. 相关链接"></a>##3. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
-        <tag>Map</tag>
-        <tag>HashMap</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java集合-List和ArrayList[Java知识点]</title>
     <url>/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>Collection不支持下标操作，只提供了一些基本的集合操作，而List更像是数组，可以进行下标操作。</strong><br><strong>List是一个接口，而ArrayList是List的一个实现类</strong><br><strong>如果我们需要定义一个ArrayList变量，那以下两种方法都是可以的：</strong></p>
@@ -242,6 +191,57 @@ index超过集合下标返回则会报错
         <tag>集合</tag>
         <tag>List</tag>
         <tag>ArrayList</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合-Map和HashMap[Java知识点]</title>
+    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>相较于线性的集合如List，Queue，LinkedList之类的集合，Map和HashMap则是另一种完全不同的数据存储方式：键-值对。</strong></p>
+<p><strong>也就是说，在Map中，数据并不是List中那样单个出现，互相不关联，而是成对出现，比如在一个Map中，我们这样记录数据：{1=5,2=10}，注意：这里的1=5,2=10并非数学上的等号关系，而是“对应”的关系，1和5是一对，2和10是一对。</strong></p>
+<p><strong>在Map中，一对数据a=b，其中我们称a为“关键字（key）”或“键”，b为“值（value）”，键在Map中是唯一的，我们可以通过键来查找他对应的值。</strong><br>在应用中，我们常常使用Map来保存一些数据，如：统计每种商品的数量时，我们就可以使用Map，其中key为商品编号，对应的value为商品出现数量。这样做可以减少程序员的工作量。</p>
+<p><strong>HashMap使用哈希算法对键去重复，效率高，但是无序。</strong><br><strong>Map是接口，HashMap是Map的主要实现类。定义方式：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;定义一个键和值类型都是Integer类型的map和hashmap</span><br><span class="line">Map&lt;Integer,Integer&gt; map&#x3D;new HashMap&lt;Integer,Integer&gt;();</span><br><span class="line">&#x2F;&#x2F;或者</span><br><span class="line">HashMap&lt;Integer,Integer&gt; hashmap&#x3D;new HashMap&lt;Integer,Integer&gt;();</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-Map的常用方法"><a href="#1-Map的常用方法" class="headerlink" title="##1. Map的常用方法"></a>##1. Map的常用方法</h2><p><strong>E put(E key, E value)</strong></p>
+<pre><code>在map中插入键-值对，key为关键字，value为对应值
+如果map中已存在该关键字，则修改其对应值为value
+如果是新插入的键值对，返回值为null
+如果是修改了原关键字的对应值，返回值为被修改的value值</code></pre><p><strong>E putIfAbsent(E key, E value)</strong></p>
+<pre><code>如果map中不存在关键字key，则插入该键值对，并返回null
+如果已存在，什么也不做，返回-1</code></pre><p><strong>boolean containsKey(Object key)</strong></p>
+<pre><code>判断map中是否存在关键字为key的键值对
+存在则返回true，否则false</code></pre><p><strong>boolean containsValue(Object value)</strong></p>
+<pre><code>判断map中是否存在对应值为value的键值对
+存在则返回true，否则false</code></pre><p><strong>E get(Object key)</strong></p>
+<pre><code>获取map中关键字为key的对应值
+未找到则返回null</code></pre><p><strong>boolean isEmpty()</strong></p>
+<pre><code>判断map是否为空</code></pre><p><strong>int size()</strong></p>
+<pre><code>返回map中的元素个数</code></pre><p><strong>E remove(Object key)</strong></p>
+<pre><code>删除map中关键字为key的元素
+返回被删除的key的对应值
+未找到则返回null</code></pre><p><strong>boolean remove(Object key, Object value)</strong></p>
+<pre><code>删除map中关键字为key且值为value的元素
+成功则返回true，失败返回false</code></pre><p><strong>E replace(E key, E value)</strong></p>
+<pre><code>将map中，关键字为key的对应值改为value
+返回被修改的值，未找到则返回null</code></pre><p><strong>boolean replace(E key, E oldValue, E newValue)</strong></p>
+<pre><code>将map中，关键字为key且值为oldValue的元素的值修改为newValue
+修改成功返回true，失败返回false</code></pre><p><strong>void clear()</strong></p>
+<pre><code>清空map数据</code></pre><hr>
+<h2 id="2-测试代码"><a href="#2-测试代码" class="headerlink" title="##2. 测试代码"></a>##2. 测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class TestMap &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Map&lt;Integer, Integer&gt; map&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		map.put(1, -1);</span><br><span class="line">		map.put(5, -5);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;在map中插入键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.containsKey(1));&#x2F;&#x2F;map中是否存在关键字</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		System.out.println(map.containsValue(-5));&#x2F;&#x2F;map中是否存在值</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line"></span><br><span class="line">		map.putIfAbsent(1, -2);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;如果存在关键字，则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.putIfAbsent(3, -3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;如果不存在关键字，则插入键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 3&#x3D;-3, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.get(3));&#x2F;&#x2F;返回关键字对应的值</span><br><span class="line">		&#x2F;&#x2F;输出：-3</span><br><span class="line">		System.out.println(map.get(7));&#x2F;&#x2F;不存在就返回null</span><br><span class="line">		&#x2F;&#x2F;输出：null</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.isEmpty());&#x2F;&#x2F;判断是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.size());&#x2F;&#x2F;返回元素个数</span><br><span class="line">		&#x2F;&#x2F;输出：3</span><br><span class="line">		</span><br><span class="line">		map.remove(3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;移除map中关键字为3的键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.remove(1, -5);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;移除map中关键字为1且值为-5的键-值对，不存在则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.replace(1, 2);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;修改map中的键-值关系</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;2, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.replace(1, 1, 3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;修改map中的键值关系，不存在则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;2, 5&#x3D;-5&#125;</span><br><span class="line">				</span><br><span class="line">		map.clear();</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;清空map</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-相关链接"><a href="#3-相关链接" class="headerlink" title="##3. 相关链接"></a>##3. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+        <tag>Map</tag>
+        <tag>HashMap</tag>
       </tags>
   </entry>
   <entry>
@@ -799,6 +799,37 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 169.多数元素[数组]</title>
+    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
+<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
+<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
+<a id="more"></a>
+
+
+<p><strong>示例 1:</strong></p>
+<p>输入: [3,2,3]<br>输出: 3</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
+<p><strong>###2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
+<p><strong>###2.3. LeetCode提交记录</strong></p>
+<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 174.地下城游戏[动态规划]</title>
     <url>/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
@@ -853,37 +884,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </categories>
       <tags>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 169.多数元素[数组]</title>
-    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
-<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
-<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
-<a id="more"></a>
-
-
-<p><strong>示例 1:</strong></p>
-<p>输入: [3,2,3]<br>输出: 3</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
-<p><strong>###2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
-<p><strong>###2.3. LeetCode提交记录</strong></p>
-<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -1415,6 +1415,38 @@ f(i)=max(f[i-1]+nums[i],nums[i])，0&lt;i&lt;=nums.length时.</code></pre><p>实
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
+    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
+<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
+<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
+<a id="more"></a>
+
+<p><strong>示例 1:</strong></p>
+<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
+<p><strong>注意:</strong></p>
+<p>   输入的字符串长度不会超过1000。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 70.爬楼梯[动态规划]</title>
     <url>/2020/07/05/LeetCode-70-%E7%88%AC%E6%A5%BC%E6%A2%AF-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="1-题目描述："><a href="#1-题目描述：" class="headerlink" title="##1. 题目描述："></a>##1. 题目描述：</h2><p><em>标签：[动态规划][递归]</em></p>
@@ -1461,38 +1493,6 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       <tags>
         <tag>动态规划</tag>
         <tag>递归</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
-    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
-<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
-<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
-<a id="more"></a>
-
-<p><strong>示例 1:</strong></p>
-<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
-<p><strong>注意:</strong></p>
-<p>   输入的字符串长度不会超过1000。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
