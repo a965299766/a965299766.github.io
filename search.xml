@@ -346,6 +346,49 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
+    <title>Java集合框架[Java知识点]</title>
+    <url>/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>声明：本文内容来自于菜鸟教程(<a href="https://www.runoob.com/java/java-collections.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-collections.html</a>)<br>我仅作部分修改。万分感谢，如有侵权，联系我QQ：965299766删除。</strong></p>
+<hr>
+<p>Java提供了一系列集合类供我们使用，可以帮我们实现一些数据的操作。<br><strong>为什么要有集合？</strong><br>在Java中，我们平常使用的数组，如int[]，是定长的，即定义时就已经确定了他的长度。而很多时候我们需要对数组元素进行增删改查，定长数组就不方便了，于是就有了集合。</p>
+<a id="more"></a>
+
+<p> 集合框架被设计成要满足以下几个目标。</p>
+<pre><code>该框架必须是高性能的。基本集合（动态数组，链表，树，哈希表）的实现也必须是高效的。
+
+该框架允许不同类型的集合，以类似的方式工作，具有高度的互操作性。
+
+对一个集合的扩展和适应必须是简单的。</code></pre><p>为此，整个集合框架就围绕一组标准接口而设计。你可以直接使用这些接口的标准实现，诸如： LinkedList, HashSet, 和 TreeSet 等,除此之外你也可以通过这些接口实现自己的集合。</p>
+<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Java集合框架图">
+
+<p>从上面的集合框架图可以看到，Java 集合框架主要包括两种类型的容器，一种是集合（Collection），存储一个元素集合，另一种是图（Map），存储键/值对映射。Collection 接口又有 3 种子类型，List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。</p>
+<p>集合框架是一个用来代表和操纵集合的统一架构。所有的集合框架都包含如下内容：</p>
+<pre><code>接口：是代表集合的抽象数据类型。
+例如 Collection、List、Set、Map 等。
+之所以定义多个接口，是为了以不同的方式操作集合对象
+
+实现（类）：是集合接口的具体实现。
+从本质上讲，它们是可重复使用的数据结构，
+例如：ArrayList、LinkedList、HashSet、HashMap。
+
+算法：是实现集合接口的对象里的方法执行的一些有用的计算，
+例如：搜索和排序。这些算法被称为多态，那是因为相同的方法可以在相似的接口上有着不同的实现。</code></pre><p>除了集合，该框架也定义了几个 Map 接口和类。Map 里存储的是键/值对。尽管 Map 不是集合，但是它们完全整合在集合中。</p>
+<p><strong>集合框架体系如图所示</strong></p>
+<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="集合框架体系图">
+<p>Java 集合框架提供了一套性能优良，使用方便的接口和类，java集合框架位于java.util包中， 所以当使用集合框架的时候需要进行导包。</p>
+<hr>
+<p><strong>相关链接</strong></p>
+<p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Lambda表达式-基础部分[Java知识点]</title>
     <url>/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。</strong></p>
@@ -439,49 +482,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       <tags>
         <tag>Java</tag>
         <tag>Lambda表达式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架[Java知识点]</title>
-    <url>/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>声明：本文内容来自于菜鸟教程(<a href="https://www.runoob.com/java/java-collections.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-collections.html</a>)<br>我仅作部分修改。万分感谢，如有侵权，联系我QQ：965299766删除。</strong></p>
-<hr>
-<p>Java提供了一系列集合类供我们使用，可以帮我们实现一些数据的操作。<br><strong>为什么要有集合？</strong><br>在Java中，我们平常使用的数组，如int[]，是定长的，即定义时就已经确定了他的长度。而很多时候我们需要对数组元素进行增删改查，定长数组就不方便了，于是就有了集合。</p>
-<a id="more"></a>
-
-<p> 集合框架被设计成要满足以下几个目标。</p>
-<pre><code>该框架必须是高性能的。基本集合（动态数组，链表，树，哈希表）的实现也必须是高效的。
-
-该框架允许不同类型的集合，以类似的方式工作，具有高度的互操作性。
-
-对一个集合的扩展和适应必须是简单的。</code></pre><p>为此，整个集合框架就围绕一组标准接口而设计。你可以直接使用这些接口的标准实现，诸如： LinkedList, HashSet, 和 TreeSet 等,除此之外你也可以通过这些接口实现自己的集合。</p>
-<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Java集合框架图">
-
-<p>从上面的集合框架图可以看到，Java 集合框架主要包括两种类型的容器，一种是集合（Collection），存储一个元素集合，另一种是图（Map），存储键/值对映射。Collection 接口又有 3 种子类型，List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。</p>
-<p>集合框架是一个用来代表和操纵集合的统一架构。所有的集合框架都包含如下内容：</p>
-<pre><code>接口：是代表集合的抽象数据类型。
-例如 Collection、List、Set、Map 等。
-之所以定义多个接口，是为了以不同的方式操作集合对象
-
-实现（类）：是集合接口的具体实现。
-从本质上讲，它们是可重复使用的数据结构，
-例如：ArrayList、LinkedList、HashSet、HashMap。
-
-算法：是实现集合接口的对象里的方法执行的一些有用的计算，
-例如：搜索和排序。这些算法被称为多态，那是因为相同的方法可以在相似的接口上有着不同的实现。</code></pre><p>除了集合，该框架也定义了几个 Map 接口和类。Map 里存储的是键/值对。尽管 Map 不是集合，但是它们完全整合在集合中。</p>
-<p><strong>集合框架体系如图所示</strong></p>
-<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="集合框架体系图">
-<p>Java 集合框架提供了一套性能优良，使用方便的接口和类，java集合框架位于java.util包中， 所以当使用集合框架的时候需要进行导包。</p>
-<hr>
-<p><strong>相关链接</strong></p>
-<p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
       </tags>
   </entry>
   <entry>
@@ -987,6 +987,46 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 2.两数相加[链表]</title>
+    <url>/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][数学]</em></p>
+<p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
+<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
+<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+<a id="more"></a>
+
+<p><strong>示例：</strong></p>
+<p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题是刷leetcode会遇到的第一道medium题，在很多公司面试时可能会遇到（不是我说的），考的是关于链表的知识，题目应该不算太难，偏向于基础题。</p>
+<hr>
+<p>首先看题目的输入输出，可以发现都是把一个数的各位的数字 逆序 插入到链表中，比如数字342，在本题中链表的表示形式就是2-&gt;4-&gt;3，这样做其实是降低了难度，因为我们平常做数字计算的时候，也是从低位到高位进行运算，运算产生的进位放到高位一起计算。<br>本题也是一样，由于输入的两个链表已经是对数字进行逆序处理了，我们只要按顺序从前往后将两个链表对应位置的数值加起来作为答案链表对应位置节点的数值即可，另外，需定义一个变量来保存计算产生的进位，计算时，带上进位一起计算。</p>
+<hr>
+<p>①. 定义变量<br>定义一个int变量，用以保存当前位运算产生的进位，默认为0，如有进位则置1，没有则置0；<br>定义了一个答案链表saveAns，在每次运算时将结果保存到该链表中，运算完毕，该链表就是结果链表；<br>但由于这是单向链表，在计算完成后，saveAns的指针指向的是答案的最后一位，为了可以返回答案链表的全部，需要另外设置一个链表变量realAns，默认作为指针指向答案的头结点，无论后面saveAns的指针怎么变，我最后只要返回realAns就行了。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int addBit&#x3D;0;&#x2F;&#x2F;两数相加的进位，默认为0</span><br><span class="line">ListNode saveAns&#x3D;new ListNode(0);&#x2F;&#x2F;答案链表，用来保存每一步的答案</span><br><span class="line">ListNode realAns&#x3D;new ListNode(0);&#x2F;&#x2F;返回链表，用来返回最终答案</span><br><span class="line">realAns&#x3D;saveAns;&#x2F;&#x2F;一开始他们是相等的，理解为realAns作为指针指向了saveAns的头结点</span><br></pre></td></tr></table></figure>
+<p>②. 循环计算<br>程序需要将两个数字链表对应位相加，显然需要使用循环，所以就要设置循环的条件：当两个加数的指针都为空且进位为0时，停止循环。<br>考虑到两个输入数可能位数不同，所以运算时，一个加数的指针处有值，而另一个加数的指针已经为空了，例如：一个加数是5-&gt;3-&gt;null，另一个是2-&gt;null，执行完5+2后，第一个加数的指针处为3，第二个加数指针处已经是null，所以遇到这种情况时，我们可以将那个null的值变成0进行运算。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;程序循环运行的条件：两个链表至少有一个不为空或者有进位不为0的时候</span><br><span class="line">		while(l1!&#x3D;null||l2!&#x3D;null||addBit!&#x3D;0) &#123;</span><br><span class="line">			saveAns.next&#x3D;new ListNode(0);&#x2F;&#x2F;创建一个节点，为计算做准备</span><br><span class="line">			saveAns&#x3D;saveAns.next;&#x2F;&#x2F;答案链表指针移动到下一节点</span><br><span class="line">			</span><br><span class="line">			int val1&#x3D;l1&#x3D;&#x3D;null?0:l1.val;</span><br><span class="line">			int val2&#x3D;l2&#x3D;&#x3D;null?0:l2.val;&#x2F;&#x2F;当前相加的两个数，在其对应链表中是否为空，为空则视为0进行运算，不为空则取出该数进行运算</span><br><span class="line">			int sum&#x3D;val1+val2+addBit;&#x2F;&#x2F;当前运算结果</span><br><span class="line">			saveAns.val&#x3D;sum%10;&#x2F;&#x2F;答案位（不带进位）</span><br><span class="line">			addBit&#x3D;sum&#x2F;10;&#x2F;&#x2F;进位</span><br><span class="line">			if(l1!&#x3D;null)&#x2F;&#x2F;因为如果此时l1为null，则他不存在l1.next，所以需要判断一下，不然会报NullPointerException的错</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			if(l2!&#x3D;null)</span><br><span class="line">				l2&#x3D;l2.next;&#x2F;&#x2F;两加数向后移动一位</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>③. 答案返回<br>计算过程可以发现，答案是从saveAns的第二位开始的，而realAns指向的是saveAns的第一位，所以需要返回realAns的next即可。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">return realAns.next;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode&#123;</span><br><span class="line">	int val;</span><br><span class="line">	ListNode next;</span><br><span class="line">	ListNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">	</span><br><span class="line">	public static  void print(ListNode l) &#123;&#x2F;&#x2F;自己加的，用来输出链表的各节点值</span><br><span class="line">		while(l!&#x3D;null) &#123;</span><br><span class="line">			System.out.println(l.val);</span><br><span class="line">			l&#x3D;l.next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class AddTwoNumbers &#123;</span><br><span class="line">	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		int addBit&#x3D;0;&#x2F;&#x2F;两数相加的进位，默认为0</span><br><span class="line">		ListNode saveAns&#x3D;new ListNode(0);&#x2F;&#x2F;答案链表，用来保存每一步的答案</span><br><span class="line">		ListNode realAns&#x3D;new ListNode(0);&#x2F;&#x2F;返回链表，用来返回最终答案</span><br><span class="line">		realAns&#x3D;saveAns;&#x2F;&#x2F;一开始他们是相等的，理解为realAns作为指针指向了saveAns的头结点</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;程序循环运行的条件：两个链表至少有一个不为空或者有进位不为0的时候</span><br><span class="line">		while(l1!&#x3D;null||l2!&#x3D;null||addBit!&#x3D;0) &#123;</span><br><span class="line">			saveAns.next&#x3D;new ListNode(0);&#x2F;&#x2F;创建一个节点，为计算做准备</span><br><span class="line">			saveAns&#x3D;saveAns.next;&#x2F;&#x2F;移动到下一节点</span><br><span class="line">			</span><br><span class="line">			int val1&#x3D;l1&#x3D;&#x3D;null?0:l1.val;</span><br><span class="line">			int val2&#x3D;l2&#x3D;&#x3D;null?0:l2.val;&#x2F;&#x2F;当前相加的两个数，在其对应链表中是否为空，为空则视为0进行运算</span><br><span class="line">			int sum&#x3D;val1+val2+addBit;&#x2F;&#x2F;当前运算结果</span><br><span class="line">			saveAns.val&#x3D;sum%10;&#x2F;&#x2F;答案位</span><br><span class="line">			addBit&#x3D;sum&#x2F;10;&#x2F;&#x2F;进位</span><br><span class="line">			if(l1!&#x3D;null)</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			if(l2!&#x3D;null)</span><br><span class="line">				l2&#x3D;l2.next;&#x2F;&#x2F;两加数向后移动一位</span><br><span class="line">		&#125;</span><br><span class="line">		return realAns.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;2-&gt;4-&gt;3,l2&#x3D;5-&gt;6-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(2);</span><br><span class="line">		l1.next&#x3D;new ListNode(4);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(3);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(5);</span><br><span class="line">		l2.next&#x3D;new ListNode(6);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode.print(addTwoNumbers(l1, l2));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<img src="/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
+<p>答案正确。<br>leetcode提交记录：</p>
+<img src="/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
+
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+        <tag>数学</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 20.有效的括号[栈]</title>
     <url>/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][字符串]</em><br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
@@ -1062,35 +1102,43 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 2.两数相加[链表]</title>
-    <url>/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][数学]</em></p>
-<p>给出两个 非空 的链表用来表示两个非负的整数。其中，它们各自的位数是按照 逆序 的方式存储的，并且它们的每个节点只能存储 一位 数字。</p>
-<p>如果，我们将这两个数相加起来，则会返回一个新的链表来表示它们的和。</p>
-<p>您可以假设除了数字 0 之外，这两个数都不会以 0 开头。</p>
+    <title>LeetCode 21.合并两个有序链表[链表]</title>
+    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
+<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
 <a id="more"></a>
 
+
 <p><strong>示例：</strong></p>
-<p>输入：(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)<br>输出：7 -&gt; 0 -&gt; 8<br>原因：342 + 465 = 807</p>
+<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
 <hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题是刷leetcode会遇到的第一道medium题，在很多公司面试时可能会遇到（不是我说的），考的是关于链表的知识，题目应该不算太难，偏向于基础题。</p>
-<hr>
-<p>首先看题目的输入输出，可以发现都是把一个数的各位的数字 逆序 插入到链表中，比如数字342，在本题中链表的表示形式就是2-&gt;4-&gt;3，这样做其实是降低了难度，因为我们平常做数字计算的时候，也是从低位到高位进行运算，运算产生的进位放到高位一起计算。<br>本题也是一样，由于输入的两个链表已经是对数字进行逆序处理了，我们只要按顺序从前往后将两个链表对应位置的数值加起来作为答案链表对应位置节点的数值即可，另外，需定义一个变量来保存计算产生的进位，计算时，带上进位一起计算。</p>
-<hr>
-<p>①. 定义变量<br>定义一个int变量，用以保存当前位运算产生的进位，默认为0，如有进位则置1，没有则置0；<br>定义了一个答案链表saveAns，在每次运算时将结果保存到该链表中，运算完毕，该链表就是结果链表；<br>但由于这是单向链表，在计算完成后，saveAns的指针指向的是答案的最后一位，为了可以返回答案链表的全部，需要另外设置一个链表变量realAns，默认作为指针指向答案的头结点，无论后面saveAns的指针怎么变，我最后只要返回realAns就行了。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int addBit&#x3D;0;&#x2F;&#x2F;两数相加的进位，默认为0</span><br><span class="line">ListNode saveAns&#x3D;new ListNode(0);&#x2F;&#x2F;答案链表，用来保存每一步的答案</span><br><span class="line">ListNode realAns&#x3D;new ListNode(0);&#x2F;&#x2F;返回链表，用来返回最终答案</span><br><span class="line">realAns&#x3D;saveAns;&#x2F;&#x2F;一开始他们是相等的，理解为realAns作为指针指向了saveAns的头结点</span><br></pre></td></tr></table></figure>
-<p>②. 循环计算<br>程序需要将两个数字链表对应位相加，显然需要使用循环，所以就要设置循环的条件：当两个加数的指针都为空且进位为0时，停止循环。<br>考虑到两个输入数可能位数不同，所以运算时，一个加数的指针处有值，而另一个加数的指针已经为空了，例如：一个加数是5-&gt;3-&gt;null，另一个是2-&gt;null，执行完5+2后，第一个加数的指针处为3，第二个加数指针处已经是null，所以遇到这种情况时，我们可以将那个null的值变成0进行运算。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;程序循环运行的条件：两个链表至少有一个不为空或者有进位不为0的时候</span><br><span class="line">		while(l1!&#x3D;null||l2!&#x3D;null||addBit!&#x3D;0) &#123;</span><br><span class="line">			saveAns.next&#x3D;new ListNode(0);&#x2F;&#x2F;创建一个节点，为计算做准备</span><br><span class="line">			saveAns&#x3D;saveAns.next;&#x2F;&#x2F;答案链表指针移动到下一节点</span><br><span class="line">			</span><br><span class="line">			int val1&#x3D;l1&#x3D;&#x3D;null?0:l1.val;</span><br><span class="line">			int val2&#x3D;l2&#x3D;&#x3D;null?0:l2.val;&#x2F;&#x2F;当前相加的两个数，在其对应链表中是否为空，为空则视为0进行运算，不为空则取出该数进行运算</span><br><span class="line">			int sum&#x3D;val1+val2+addBit;&#x2F;&#x2F;当前运算结果</span><br><span class="line">			saveAns.val&#x3D;sum%10;&#x2F;&#x2F;答案位（不带进位）</span><br><span class="line">			addBit&#x3D;sum&#x2F;10;&#x2F;&#x2F;进位</span><br><span class="line">			if(l1!&#x3D;null)&#x2F;&#x2F;因为如果此时l1为null，则他不存在l1.next，所以需要判断一下，不然会报NullPointerException的错</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			if(l2!&#x3D;null)</span><br><span class="line">				l2&#x3D;l2.next;&#x2F;&#x2F;两加数向后移动一位</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
-<p>③. 答案返回<br>计算过程可以发现，答案是从saveAns的第二位开始的，而realAns指向的是saveAns的第一位，所以需要返回realAns的next即可。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">return realAns.next;</span><br></pre></td></tr></table></figure>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
+<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
+<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
+<p>①. 两链表指针均从头开始。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
+
+<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
+
+<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
+
+<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
+
+<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
+<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
+<p><strong>###2.3. 完整代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
+
+<p>LeetCode提交记录：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
 
 <hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode&#123;</span><br><span class="line">	int val;</span><br><span class="line">	ListNode next;</span><br><span class="line">	ListNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">	</span><br><span class="line">	public static  void print(ListNode l) &#123;&#x2F;&#x2F;自己加的，用来输出链表的各节点值</span><br><span class="line">		while(l!&#x3D;null) &#123;</span><br><span class="line">			System.out.println(l.val);</span><br><span class="line">			l&#x3D;l.next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class AddTwoNumbers &#123;</span><br><span class="line">	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		int addBit&#x3D;0;&#x2F;&#x2F;两数相加的进位，默认为0</span><br><span class="line">		ListNode saveAns&#x3D;new ListNode(0);&#x2F;&#x2F;答案链表，用来保存每一步的答案</span><br><span class="line">		ListNode realAns&#x3D;new ListNode(0);&#x2F;&#x2F;返回链表，用来返回最终答案</span><br><span class="line">		realAns&#x3D;saveAns;&#x2F;&#x2F;一开始他们是相等的，理解为realAns作为指针指向了saveAns的头结点</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;程序循环运行的条件：两个链表至少有一个不为空或者有进位不为0的时候</span><br><span class="line">		while(l1!&#x3D;null||l2!&#x3D;null||addBit!&#x3D;0) &#123;</span><br><span class="line">			saveAns.next&#x3D;new ListNode(0);&#x2F;&#x2F;创建一个节点，为计算做准备</span><br><span class="line">			saveAns&#x3D;saveAns.next;&#x2F;&#x2F;移动到下一节点</span><br><span class="line">			</span><br><span class="line">			int val1&#x3D;l1&#x3D;&#x3D;null?0:l1.val;</span><br><span class="line">			int val2&#x3D;l2&#x3D;&#x3D;null?0:l2.val;&#x2F;&#x2F;当前相加的两个数，在其对应链表中是否为空，为空则视为0进行运算</span><br><span class="line">			int sum&#x3D;val1+val2+addBit;&#x2F;&#x2F;当前运算结果</span><br><span class="line">			saveAns.val&#x3D;sum%10;&#x2F;&#x2F;答案位</span><br><span class="line">			addBit&#x3D;sum&#x2F;10;&#x2F;&#x2F;进位</span><br><span class="line">			if(l1!&#x3D;null)</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			if(l2!&#x3D;null)</span><br><span class="line">				l2&#x3D;l2.next;&#x2F;&#x2F;两加数向后移动一位</span><br><span class="line">		&#125;</span><br><span class="line">		return realAns.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;2-&gt;4-&gt;3,l2&#x3D;5-&gt;6-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(2);</span><br><span class="line">		l1.next&#x3D;new ListNode(4);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(3);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(5);</span><br><span class="line">		l2.next&#x3D;new ListNode(6);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode.print(addTwoNumbers(l1, l2));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>运行结果：</p>
-<img src="/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
-<p>答案正确。<br>leetcode提交记录：</p>
-<img src="/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
-
 <p>如有错误，欢迎联系本人QQ：965299766</p>
 ]]></content>
       <categories>
@@ -1098,7 +1146,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </categories>
       <tags>
         <tag>链表</tag>
-        <tag>数学</tag>
       </tags>
   </entry>
   <entry>
@@ -1168,93 +1215,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
         <tag>哈希表</tag>
         <tag>字符串</tag>
         <tag>Sliding Window</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 21.合并两个有序链表[链表]</title>
-    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
-<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<a id="more"></a>
-
-
-<p><strong>示例：</strong></p>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
-<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
-<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
-<p>①. 两链表指针均从头开始。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
-
-<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
-
-<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
-
-<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
-
-<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
-<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
-<p><strong>###2.3. 完整代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
-
-<p>LeetCode提交记录：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 309.最佳买卖股票时机含冷冻期[动态规划]</title>
-    <url>/2020/07/10/LeetCode-309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
-<p>给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。​</p>
-<p>设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:</p>
-<pre><code>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
-卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。</code></pre><a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<p>输入: [1,2,3,0,2]<br>输出: 3<br>解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>我们由题目可以了解到：对于本题，我们每天的状态可分为三种：<br>①. 买入股票<br>②. 卖出股票<br>③. 冷冻期或不操作</p>
-<p><strong>1. 我们首先定义动态规划数组</strong><br>当最后一次操作分别是：买入、卖出、冷冻期或不操作时，当日可获得的最大收益分别保存在数组buy、sell、cold中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int[] buy&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是买入的收益</span><br><span class="line">   int[] sell&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是卖出的收益</span><br><span class="line">   int[] cold&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是冷冻期的收益</span><br></pre></td></tr></table></figure>
-<p><strong>2. 初始化数组</strong><br>当第一天是买入时，当天收益就是第一天股票价值的负数；<br>当第一天是卖出或冷冻期（不操作）时，收益就是0。即：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">buy[0]&#x3D;-prices[0];&#x2F;&#x2F;第一天就买入的话，收益是当天股票价格的负数</span><br><span class="line">sell[0]&#x3D;cold[0]&#x3D;0;&#x2F;&#x2F;第一天不能卖出或进入冷冻期，默认为0</span><br></pre></td></tr></table></figure>
-
-<p>然后从第二天开始，获得递推公式：</p>
-<pre><code>buy[i]=max(cold[i-1]-prices[i],buy[i-1]);
-sell[i]=max(buy[i-1]+prices[i],sell[i-1]);
-cold[i]=max(sell[i-1],cold[i-1]);
-(i&gt;0时)</code></pre><p>解释：<br>①. 若最后一次操作是买入时，那只有两种情况：<br>    1）. 前一天是冷冻期，今天买入；<br>    2）. 前一天就是买入，今天就不操作。<br>②. 若最后一次操作是卖出时，那有两种情况：<br>    1）. 前一天是买入，今天卖出；<br>    2）. 前一天卖出，今天不操作（也就是冷冻期）。<br>③. 若最后一次操作是冷冻期，那有两种情况：<br>    1）. 前一天卖出，今天就是冷冻期；<br>    2）. 前一天就是冷冻期，今天不操作。</p>
-<p><strong>3. 答案获取</strong><br>我们容易看出，如果最后一次操作是买入的话，那显然是亏钱的，因为这样收益还不如直接不买，啥也不干来的多。<br>所以我们最后从卖出数组sell和冷冻数组cold中获取最大收益。</p>
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxProfit &#123;</span><br><span class="line">    public static int maxProfit (int[] prices) &#123;</span><br><span class="line">    	if(prices.length&#x3D;&#x3D;0||prices.length&#x3D;&#x3D;1)</span><br><span class="line">    		return 0;&#x2F;&#x2F;价格数组长度为0或1时，利润直接返回0</span><br><span class="line">    	</span><br><span class="line">    	int[] buy&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是买入的收益</span><br><span class="line">    	int[] sell&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是卖出的收益</span><br><span class="line">    	int[] cold&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是冷冻期的收益</span><br><span class="line">    	</span><br><span class="line">    	buy[0]&#x3D;-prices[0];&#x2F;&#x2F;第一天就买入的话，收益是当天股票价格的负数</span><br><span class="line">    	sell[0]&#x3D;cold[0]&#x3D;0;&#x2F;&#x2F;第一天不能卖出或进入冷冻期，默认为0</span><br><span class="line">    	</span><br><span class="line">    	for(int i&#x3D;1;i&lt;prices.length;i++) &#123;</span><br><span class="line">    		buy[i]&#x3D;Math.max(cold[i-1]-prices[i], buy[i-1]);&#x2F;&#x2F;只有两种情况：①.前一天是冷冻期，那今天买入；②.前一天已经买入，今天不操作</span><br><span class="line">    		sell[i]&#x3D;Math.max(buy[i-1]+prices[i], sell[i-1]);&#x2F;&#x2F;只有两种情况：①.前一天买入，今天卖出；②.前一天已经卖出，今天不操作（冷冻期）</span><br><span class="line">    		cold[i]&#x3D;Math.max(sell[i-1], cold[i-1]);	&#x2F;&#x2F;有两种情况：①.前一天卖出，今天就是冷冻期；②.前一天是冷冻期，今天不操作</span><br><span class="line">    	&#125;</span><br><span class="line">    	&#x2F;&#x2F;因为最后一次操作是买入的话必定亏钱，所以只要获得最后操作是卖出或冷冻期的最大收益即可</span><br><span class="line">		return Math.max(sell[prices.length-1], cold[prices.length-1]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：股票价格为：&#123;1,2,3,0,2&#125;</span><br><span class="line">		int[] test &#x3D; new int[] &#123;1,2,3,0,2&#125;;</span><br><span class="line">		int ans&#x3D;maxProfit(test);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：价格数组为：{1,2,3,0,2}<br>测试结果：最大收益：3<br>结果正确。</p>
-<hr>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/10/LeetCode-309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -1334,6 +1294,46 @@ cold[i]=max(sell[i-1],cold[i-1]);
       <tags>
         <tag>哈希表</tag>
         <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 309.最佳买卖股票时机含冷冻期[动态规划]</title>
+    <url>/2020/07/10/LeetCode-309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
+<p>给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。​</p>
+<p>设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:</p>
+<pre><code>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。</code></pre><a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<p>输入: [1,2,3,0,2]<br>输出: 3<br>解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>我们由题目可以了解到：对于本题，我们每天的状态可分为三种：<br>①. 买入股票<br>②. 卖出股票<br>③. 冷冻期或不操作</p>
+<p><strong>1. 我们首先定义动态规划数组</strong><br>当最后一次操作分别是：买入、卖出、冷冻期或不操作时，当日可获得的最大收益分别保存在数组buy、sell、cold中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int[] buy&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是买入的收益</span><br><span class="line">   int[] sell&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是卖出的收益</span><br><span class="line">   int[] cold&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是冷冻期的收益</span><br></pre></td></tr></table></figure>
+<p><strong>2. 初始化数组</strong><br>当第一天是买入时，当天收益就是第一天股票价值的负数；<br>当第一天是卖出或冷冻期（不操作）时，收益就是0。即：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">buy[0]&#x3D;-prices[0];&#x2F;&#x2F;第一天就买入的话，收益是当天股票价格的负数</span><br><span class="line">sell[0]&#x3D;cold[0]&#x3D;0;&#x2F;&#x2F;第一天不能卖出或进入冷冻期，默认为0</span><br></pre></td></tr></table></figure>
+
+<p>然后从第二天开始，获得递推公式：</p>
+<pre><code>buy[i]=max(cold[i-1]-prices[i],buy[i-1]);
+sell[i]=max(buy[i-1]+prices[i],sell[i-1]);
+cold[i]=max(sell[i-1],cold[i-1]);
+(i&gt;0时)</code></pre><p>解释：<br>①. 若最后一次操作是买入时，那只有两种情况：<br>    1）. 前一天是冷冻期，今天买入；<br>    2）. 前一天就是买入，今天就不操作。<br>②. 若最后一次操作是卖出时，那有两种情况：<br>    1）. 前一天是买入，今天卖出；<br>    2）. 前一天卖出，今天不操作（也就是冷冻期）。<br>③. 若最后一次操作是冷冻期，那有两种情况：<br>    1）. 前一天卖出，今天就是冷冻期；<br>    2）. 前一天就是冷冻期，今天不操作。</p>
+<p><strong>3. 答案获取</strong><br>我们容易看出，如果最后一次操作是买入的话，那显然是亏钱的，因为这样收益还不如直接不买，啥也不干来的多。<br>所以我们最后从卖出数组sell和冷冻数组cold中获取最大收益。</p>
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxProfit &#123;</span><br><span class="line">    public static int maxProfit (int[] prices) &#123;</span><br><span class="line">    	if(prices.length&#x3D;&#x3D;0||prices.length&#x3D;&#x3D;1)</span><br><span class="line">    		return 0;&#x2F;&#x2F;价格数组长度为0或1时，利润直接返回0</span><br><span class="line">    	</span><br><span class="line">    	int[] buy&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是买入的收益</span><br><span class="line">    	int[] sell&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是卖出的收益</span><br><span class="line">    	int[] cold&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是冷冻期的收益</span><br><span class="line">    	</span><br><span class="line">    	buy[0]&#x3D;-prices[0];&#x2F;&#x2F;第一天就买入的话，收益是当天股票价格的负数</span><br><span class="line">    	sell[0]&#x3D;cold[0]&#x3D;0;&#x2F;&#x2F;第一天不能卖出或进入冷冻期，默认为0</span><br><span class="line">    	</span><br><span class="line">    	for(int i&#x3D;1;i&lt;prices.length;i++) &#123;</span><br><span class="line">    		buy[i]&#x3D;Math.max(cold[i-1]-prices[i], buy[i-1]);&#x2F;&#x2F;只有两种情况：①.前一天是冷冻期，那今天买入；②.前一天已经买入，今天不操作</span><br><span class="line">    		sell[i]&#x3D;Math.max(buy[i-1]+prices[i], sell[i-1]);&#x2F;&#x2F;只有两种情况：①.前一天买入，今天卖出；②.前一天已经卖出，今天不操作（冷冻期）</span><br><span class="line">    		cold[i]&#x3D;Math.max(sell[i-1], cold[i-1]);	&#x2F;&#x2F;有两种情况：①.前一天卖出，今天就是冷冻期；②.前一天是冷冻期，今天不操作</span><br><span class="line">    	&#125;</span><br><span class="line">    	&#x2F;&#x2F;因为最后一次操作是买入的话必定亏钱，所以只要获得最后操作是卖出或冷冻期的最大收益即可</span><br><span class="line">		return Math.max(sell[prices.length-1], cold[prices.length-1]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：股票价格为：&#123;1,2,3,0,2&#125;</span><br><span class="line">		int[] test &#x3D; new int[] &#123;1,2,3,0,2&#125;;</span><br><span class="line">		int ans&#x3D;maxProfit(test);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：价格数组为：{1,2,3,0,2}<br>测试结果：最大收益：3<br>结果正确。</p>
+<hr>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/10/LeetCode-309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
