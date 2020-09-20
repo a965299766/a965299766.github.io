@@ -245,47 +245,6 @@ index超过集合下标返回则会报错
       </tags>
   </entry>
   <entry>
-    <title>Java集合-各种集合的使用场景[Java知识点]</title>
-    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
-<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
-即可以较为快捷地使用下标来直接访问数组中间的某个数据。
-但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
-此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
-<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
-但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
-<pre><code>栈和队列，大家应该都不陌生，
-Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
-Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
-<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
-<pre><code>都是Set的实现类。
-HashSet的性能总比TreeSet好，但不能保持数据的顺序。
-如果需要频繁地添加、查找元素时，建议使用HashSet。
-而如果需要一个保持排序的Set，用TreeSet。
-如果需要遍历集合元素，用LinkedHashSet。
-
-HashSet：通过散列法储存数据，查询很快。
-LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
-TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
-<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
-Map中键不能重复。
-数据呈现的是对应关系，如 学号-姓名 这种对应关系。
-HashMap是Map的具体实现类。</code></pre><hr>
-<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java集合-Queue和LinkedList[Java知识点]</title>
     <url>/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>Queue接口是我们平常所说的队列（数据先进先出），LinkedList是他的一个实现类</strong><br><strong>如果我们想定义一个队列，以下两种方法都是可以的：</strong></p>
@@ -343,6 +302,47 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
         <tag>集合</tag>
         <tag>Queue</tag>
         <tag>LinkedList</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合-各种集合的使用场景[Java知识点]</title>
+    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
+<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
+即可以较为快捷地使用下标来直接访问数组中间的某个数据。
+但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
+此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
+<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
+但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
+<pre><code>栈和队列，大家应该都不陌生，
+Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
+Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
+<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
+<pre><code>都是Set的实现类。
+HashSet的性能总比TreeSet好，但不能保持数据的顺序。
+如果需要频繁地添加、查找元素时，建议使用HashSet。
+而如果需要一个保持排序的Set，用TreeSet。
+如果需要遍历集合元素，用LinkedHashSet。
+
+HashSet：通过散列法储存数据，查询很快。
+LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
+TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
+<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
+Map中键不能重复。
+数据呈现的是对应关系，如 学号-姓名 这种对应关系。
+HashMap是Map的具体实现类。</code></pre><hr>
+<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
       </tags>
   </entry>
   <entry>
@@ -485,6 +485,47 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 101.对称二叉树[二叉树]</title>
+    <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
+<p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<a id="more"></a>
+
+
+<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
+<pre><code>    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
+<pre><code>  1
+ / \
+2   2
+ \   \
+ 3    3</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>我们可以使用两个指针，开始时均指向根节点，然后让他们同时行动，进行深度优先搜索或广度优先搜索，当一个指针p指向了当前树节点的左子树节点时，我们让另一个指针q同时指向当前节点的右子树节点，然后比较p和q所指节点的值是否相等。<br>如果遇到p和q节点的值不等或者p和q不同时为空的情况下，返回false。<br>如果搜索完成后没有发现以上情况，返回true。</p>
+<p><strong>###2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 TreeNode left;</span><br><span class="line">	 TreeNode right;</span><br><span class="line">	 TreeNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class IsSymmetric &#123;</span><br><span class="line">	public static boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root,root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">		if(p&#x3D;&#x3D;null&amp;&amp;q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果两节点都为空，返回true</span><br><span class="line">			return true;</span><br><span class="line">		if(p&#x3D;&#x3D;null||q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果只有一节点为空，返回false</span><br><span class="line">			return false;</span><br><span class="line">		</span><br><span class="line">		return p.val&#x3D;&#x3D;q.val&amp;&amp;check(p.right,q.left)&amp;&amp;check(p.left,q.right);&#x2F;&#x2F;两节点都不为空，递归进行比较</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：二叉树 [1,2,2,3,4,4,3]</span><br><span class="line">		TreeNode tree&#x3D;new TreeNode(1);</span><br><span class="line">		tree.left&#x3D;new TreeNode(2);</span><br><span class="line">		tree.left.left&#x3D;new TreeNode(3);</span><br><span class="line">		tree.left.right&#x3D;new TreeNode(4);</span><br><span class="line">		</span><br><span class="line">		tree.right&#x3D;new TreeNode(2);</span><br><span class="line">		tree.right.left&#x3D;new TreeNode(4);</span><br><span class="line">		tree.right.right&#x3D;new TreeNode(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(isSymmetric(tree));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：<br>二叉树 [1,2,2,3,4,4,3]</p>
+<pre><code>    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3</code></pre><p>测试结果：true<br>显然该树是对称的。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Lambda表达式-进阶部分[Java知识点]</title>
     <url>/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>本文在 <a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式基础部分</a>的基础上介绍了一些Lambda表达式的进阶用法。</strong></p>
@@ -550,47 +591,6 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
       <tags>
         <tag>Java</tag>
         <tag>Lambda表达式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 101.对称二叉树[二叉树]</title>
-    <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
-<p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<a id="more"></a>
-
-
-<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
-<pre><code>    1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
-<pre><code>  1
- / \
-2   2
- \   \
- 3    3</code></pre><hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>我们可以使用两个指针，开始时均指向根节点，然后让他们同时行动，进行深度优先搜索或广度优先搜索，当一个指针p指向了当前树节点的左子树节点时，我们让另一个指针q同时指向当前节点的右子树节点，然后比较p和q所指节点的值是否相等。<br>如果遇到p和q节点的值不等或者p和q不同时为空的情况下，返回false。<br>如果搜索完成后没有发现以上情况，返回true。</p>
-<p><strong>###2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 TreeNode left;</span><br><span class="line">	 TreeNode right;</span><br><span class="line">	 TreeNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class IsSymmetric &#123;</span><br><span class="line">	public static boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root,root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">		if(p&#x3D;&#x3D;null&amp;&amp;q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果两节点都为空，返回true</span><br><span class="line">			return true;</span><br><span class="line">		if(p&#x3D;&#x3D;null||q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果只有一节点为空，返回false</span><br><span class="line">			return false;</span><br><span class="line">		</span><br><span class="line">		return p.val&#x3D;&#x3D;q.val&amp;&amp;check(p.right,q.left)&amp;&amp;check(p.left,q.right);&#x2F;&#x2F;两节点都不为空，递归进行比较</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：二叉树 [1,2,2,3,4,4,3]</span><br><span class="line">		TreeNode tree&#x3D;new TreeNode(1);</span><br><span class="line">		tree.left&#x3D;new TreeNode(2);</span><br><span class="line">		tree.left.left&#x3D;new TreeNode(3);</span><br><span class="line">		tree.left.right&#x3D;new TreeNode(4);</span><br><span class="line">		</span><br><span class="line">		tree.right&#x3D;new TreeNode(2);</span><br><span class="line">		tree.right.left&#x3D;new TreeNode(4);</span><br><span class="line">		tree.right.right&#x3D;new TreeNode(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(isSymmetric(tree));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：<br>二叉树 [1,2,2,3,4,4,3]</p>
-<pre><code>    1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre><p>测试结果：true<br>显然该树是对称的。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -1102,6 +1102,53 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 21.合并两个有序链表[链表]</title>
+    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
+<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
+<a id="more"></a>
+
+
+<p><strong>示例：</strong></p>
+<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
+<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
+<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
+<p>①. 两链表指针均从头开始。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
+
+<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
+
+<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
+
+<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
+
+<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
+<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
+<p><strong>###2.3. 完整代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
+
+<p>LeetCode提交记录：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 3.无重复字符的最长子串[字符串]</title>
     <url>/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][哈希表][Sliding Window]</em></p>
@@ -1168,53 +1215,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
         <tag>哈希表</tag>
         <tag>字符串</tag>
         <tag>Sliding Window</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 21.合并两个有序链表[链表]</title>
-    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
-<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<a id="more"></a>
-
-
-<p><strong>示例：</strong></p>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
-<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
-<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
-<p>①. 两链表指针均从头开始。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
-
-<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
-
-<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
-
-<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
-
-<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
-<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
-<p><strong>###2.3. 完整代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
-
-<p>LeetCode提交记录：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1415,38 +1415,6 @@ f(i)=max(f[i-1]+nums[i],nums[i])，0&lt;i&lt;=nums.length时.</code></pre><p>实
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
-    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
-<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
-<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
-<a id="more"></a>
-
-<p><strong>示例 1:</strong></p>
-<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
-<p><strong>注意:</strong></p>
-<p>   输入的字符串长度不会超过1000。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>字符串</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 70.爬楼梯[动态规划]</title>
     <url>/2020/07/05/LeetCode-70-%E7%88%AC%E6%A5%BC%E6%A2%AF-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="1-题目描述："><a href="#1-题目描述：" class="headerlink" title="##1. 题目描述："></a>##1. 题目描述：</h2><p><em>标签：[动态规划][递归]</em></p>
@@ -1506,16 +1474,36 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       </categories>
   </entry>
   <entry>
-    <title>大家好辣</title>
-    <url>/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
-<img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
+    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
+    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
+<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
+<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
+<a id="more"></a>
 
+<p><strong>示例 1:</strong></p>
+<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
+<p><strong>注意:</strong></p>
+<p>   输入的字符串长度不会超过1000。</p>
 <hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<p>如有错误，欢迎联系本人QQ：965299766</p>
 ]]></content>
       <categories>
-        <category>其他</category>
+        <category>LeetCode</category>
       </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>字符串</tag>
+      </tags>
   </entry>
   <entry>
     <title>剑指 Offer 03. 数组中重复的数字[数组]</title>
@@ -1584,6 +1572,18 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       <tags>
         <tag>数组</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>大家好辣</title>
+    <url>/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
+<img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
+
+<hr>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
   </entry>
   <entry>
     <title>编译原理[9.1-9.15]</title>
