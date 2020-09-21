@@ -757,37 +757,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 169.多数元素[数组]</title>
-    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
-<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
-<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
-<a id="more"></a>
-
-
-<p><strong>示例 1:</strong></p>
-<p>输入: [3,2,3]<br>输出: 3</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
-<p><strong>###2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
-<p><strong>###2.3. LeetCode提交记录</strong></p>
-<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 155.最小栈[栈][设计]</title>
     <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
@@ -827,6 +796,37 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       <tags>
         <tag>设计</tag>
         <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 169.多数元素[数组]</title>
+    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
+<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
+<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
+<a id="more"></a>
+
+
+<p><strong>示例 1:</strong></p>
+<p>输入: [3,2,3]<br>输出: 3</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
+<p><strong>###2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
+<p><strong>###2.3. LeetCode提交记录</strong></p>
+<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -953,6 +953,40 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 198.打家劫舍[动态规划]</title>
+    <url>/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
+<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+<a id="more"></a>
+
+
+<p><strong>示例 1：</strong></p>
+<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>     偷窃到的最高金额 = 1 + 3 = 4 。</p>
+<p><strong>示例 2：</strong></p>
+<p>输入：[2,7,9,3,1]<br>输出：12<br>解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。<br>     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</p>
+<p><strong>提示：</strong></p>
+<pre><code>0 &lt;= nums.length &lt;= 100
+0 &lt;= nums[i] &lt;= 400</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题显然可以使用动态规划来解决，是动态规划的经典题型。<br>①. 当房屋数组元素个数为0时，显然无房屋可偷，直接返回0；<br>②. 当有1个房屋时，该房屋的价值显然就是最大价值，返回他即可；<br>③. 当有2个房屋时，由题意可得，我们不能同时偷窃两个相邻的房屋，显然，我们只能偷这两个房屋中价值较大的那个，所以应返回两房屋价值的较大者；<br>④. 当偷到2个以上房屋时，我们就要考虑两种情况了，假设目前正准备偷第k间房屋（k&gt;2），我们会面临两个选择：<br>    1）偷第k间房屋，因为和第k-1间房间相邻，我们就不能偷第k-1间房屋，那此时我们可获得的总价值为前面已经做过选择的k-2间房屋的最大价值加上第k间房屋的价值；<br>    2）不偷第k间房屋，那第k-1间房屋就是可以偷窃的，那此时我们获得的总价值就是前面已做过选择的k-1间房屋的最大价值。<br>从2个选择中选择能获得价值较大的一项，将该价值作为处理这间房屋所获得的最大价值。<br>⑤. 对于每间房屋，都按照④的方法进行选择，对每间房屋都可以求出偷窃到该房屋时能获得的最大价值，放在dp数组中的对应位置；<br>⑥. 最后返回dp数组的最后一项，因为执行以上算法后，即对最后一间房屋做出选择后，获得的价值就是你能获得的最大价值了。</p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Rob &#123;</span><br><span class="line">	public static int rob(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;0)</span><br><span class="line">			return 0;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)</span><br><span class="line">			return nums[0];</span><br><span class="line">		if(nums.length&#x3D;&#x3D;2)</span><br><span class="line">			return nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		</span><br><span class="line">		int[] dp&#x3D;new int[nums.length];</span><br><span class="line">		dp[0]&#x3D;nums[0];</span><br><span class="line">		dp[1]&#x3D;nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		for(int i&#x3D;2;i&lt;nums.length;i++) &#123;</span><br><span class="line">			dp[i]&#x3D;dp[i-2]+nums[i]&gt;dp[i-1]?dp[i-2]+nums[i]:dp[i-1];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return dp[dp.length-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：各房子的价值&#x3D;&#123;2,7,9,3,1&#125;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,7,9,3,1&#125;;</span><br><span class="line">		int ans&#x3D;rob(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：房子的价值数组={2,7,9,3,1}<br>测试结果：最大价值=12</p>
+<hr>
+<p><strong>LeetCode提交记录：</strong></p>
+<img src="/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 2.两数相加[链表]</title>
     <url>/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][数学]</em></p>
@@ -990,40 +1024,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       <tags>
         <tag>链表</tag>
         <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 198.打家劫舍[动态规划]</title>
-    <url>/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
-<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
-<a id="more"></a>
-
-
-<p><strong>示例 1：</strong></p>
-<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>     偷窃到的最高金额 = 1 + 3 = 4 。</p>
-<p><strong>示例 2：</strong></p>
-<p>输入：[2,7,9,3,1]<br>输出：12<br>解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。<br>     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</p>
-<p><strong>提示：</strong></p>
-<pre><code>0 &lt;= nums.length &lt;= 100
-0 &lt;= nums[i] &lt;= 400</code></pre><hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题显然可以使用动态规划来解决，是动态规划的经典题型。<br>①. 当房屋数组元素个数为0时，显然无房屋可偷，直接返回0；<br>②. 当有1个房屋时，该房屋的价值显然就是最大价值，返回他即可；<br>③. 当有2个房屋时，由题意可得，我们不能同时偷窃两个相邻的房屋，显然，我们只能偷这两个房屋中价值较大的那个，所以应返回两房屋价值的较大者；<br>④. 当偷到2个以上房屋时，我们就要考虑两种情况了，假设目前正准备偷第k间房屋（k&gt;2），我们会面临两个选择：<br>    1）偷第k间房屋，因为和第k-1间房间相邻，我们就不能偷第k-1间房屋，那此时我们可获得的总价值为前面已经做过选择的k-2间房屋的最大价值加上第k间房屋的价值；<br>    2）不偷第k间房屋，那第k-1间房屋就是可以偷窃的，那此时我们获得的总价值就是前面已做过选择的k-1间房屋的最大价值。<br>从2个选择中选择能获得价值较大的一项，将该价值作为处理这间房屋所获得的最大价值。<br>⑤. 对于每间房屋，都按照④的方法进行选择，对每间房屋都可以求出偷窃到该房屋时能获得的最大价值，放在dp数组中的对应位置；<br>⑥. 最后返回dp数组的最后一项，因为执行以上算法后，即对最后一间房屋做出选择后，获得的价值就是你能获得的最大价值了。</p>
-<p><strong>代码如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Rob &#123;</span><br><span class="line">	public static int rob(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;0)</span><br><span class="line">			return 0;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)</span><br><span class="line">			return nums[0];</span><br><span class="line">		if(nums.length&#x3D;&#x3D;2)</span><br><span class="line">			return nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		</span><br><span class="line">		int[] dp&#x3D;new int[nums.length];</span><br><span class="line">		dp[0]&#x3D;nums[0];</span><br><span class="line">		dp[1]&#x3D;nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		for(int i&#x3D;2;i&lt;nums.length;i++) &#123;</span><br><span class="line">			dp[i]&#x3D;dp[i-2]+nums[i]&gt;dp[i-1]?dp[i-2]+nums[i]:dp[i-1];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return dp[dp.length-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：各房子的价值&#x3D;&#123;2,7,9,3,1&#125;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,7,9,3,1&#125;;</span><br><span class="line">		int ans&#x3D;rob(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：房子的价值数组={2,7,9,3,1}<br>测试结果：最大价值=12</p>
-<hr>
-<p><strong>LeetCode提交记录：</strong></p>
-<img src="/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -1379,38 +1379,6 @@ cold[i]=max(sell[i-1],cold[i-1]);
       </categories>
   </entry>
   <entry>
-    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
-    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
-<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
-<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
-<a id="more"></a>
-
-<p><strong>示例 1:</strong></p>
-<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
-<p><strong>注意:</strong></p>
-<p>   输入的字符串长度不会超过1000。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>字符串</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 53.最大子序和[数组][动态规划]</title>
     <url>/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][动态规划]</em></p>
@@ -1444,6 +1412,38 @@ f(i)=max(f[i-1]+nums[i],nums[i])，0&lt;i&lt;=nums.length时.</code></pre><p>实
       <tags>
         <tag>数组</tag>
         <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
+    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
+<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
+<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
+<a id="more"></a>
+
+<p><strong>示例 1:</strong></p>
+<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
+<p><strong>注意:</strong></p>
+<p>   输入的字符串长度不会超过1000。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -1499,19 +1499,7 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
     <title>hello world</title>
     <url>/2020/07/03/hello-world/</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;Hello World!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This is a test file.<br>YYY<br>BBB<br>NNN</p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>大家好辣</title>
-    <url>/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
-<img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
-
-<hr>
+<p>This is a test file.<br>YYY<br>BBB<br>CCC</p>
 ]]></content>
       <categories>
         <category>其他</category>
@@ -1584,6 +1572,18 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       <tags>
         <tag>数组</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>大家好辣</title>
+    <url>/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
+<img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
+
+<hr>
+]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
   </entry>
   <entry>
     <title>编译原理[9.1-9.15]</title>
