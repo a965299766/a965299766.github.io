@@ -1,6 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Java集合-List和ArrayList[Java知识点]</title>
+    <url>/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>Collection不支持下标操作，只提供了一些基本的集合操作，而List更像是数组，可以进行下标操作。</strong><br><strong>List是一个接口，而ArrayList是List的一个实现类</strong><br><strong>如果我们需要定义一个ArrayList变量，那以下两种方法都是可以的：</strong></p>
+<pre><code>List&lt;E&gt; array=new ArrayList&lt;E&gt;();
+ArrayList&lt;E&gt; array=new ArrayList&lt;E&gt;();</code></pre><a id="more"></a>
+
+<hr>
+<h2 id="1-Collection集合的继承树"><a href="#1-Collection集合的继承树" class="headerlink" title="##1. Collection集合的继承树"></a>##1. Collection集合的继承树</h2><img src="/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Collection集合的继承树">
+
+<hr>
+<h2 id="2-List和ArrayList的常用方法"><a href="#2-List和ArrayList的常用方法" class="headerlink" title="##2. List和ArrayList的常用方法"></a>##2. List和ArrayList的常用方法</h2><p><strong>boolean add(E e)</strong></p>
+<pre><code>在集合末尾增加一个元素e
+添加成功则返回true</code></pre><p><strong>void add(int index, E element)</strong></p>
+<pre><code>在集合指定位置index处增加一个元素e
+如index超出集合下标范围，则报错</code></pre><p><strong>boolean addAll(Collection&lt;? extends E&gt; c)</strong></p>
+<pre><code>在集合末尾增加一组元素
+增加成功返回true</code></pre><p><strong>boolean contains(Object o)</strong></p>
+<pre><code>集合中是否存在一个元素o
+存在则返回true，否则返回false</code></pre><p><strong>E List.get(int index)</strong></p>
+<pre><code>获取集合中给定下标index处的元素值
+index超过集合下标返回则会报错
+***注意：Collection中没有这个方法***</code></pre><p><strong>int indexOf(Object o)</strong></p>
+<pre><code>返回给定值o在集合中第一次出现的位置
+没有出现则返回-1</code></pre><p><strong>int lastIndexOf(Object o)</strong></p>
+<pre><code>返回给定值o在集合中最后一次出现的位置
+没有出现则返回-1</code></pre><p><strong>boolean isEmpty()</strong></p>
+<pre><code>判断集合是否为空
+为空则返回true，非空则返回false</code></pre><p><strong>E remove(int index)</strong></p>
+<pre><code>移除集合中给定下标处的值
+返回被移除的元素值
+***注意：在Collection中，remove方法是给定值，移除集合中第一次出现该值的元素，
+而List中则是给定下标，移除下标处的值***</code></pre><p><strong>E set(int index, E element)</strong></p>
+<pre><code>将集合中给定下标index处的值更改为新值element
+返回修改前的值</code></pre><p><strong>int size()</strong></p>
+<pre><code>返回集合的大小
+即集合中元素的个数</code></pre><p><strong>List<E> subList(int fromIndex, int toIndex)</E></strong></p>
+<pre><code>返回一个子集合
+子集合为父集合下标从fromIndex到toIndex之间的所有元素（左闭右开）</code></pre><p><strong><E> E[] toArray(E[] a)</E></strong></p>
+<pre><code>集合转数组</code></pre><p><strong>void clear()</strong></p>
+<pre><code>清空集合所有元素</code></pre><p><strong><E> void java.util.Collections.sort(List<E> list)</E></E></strong></p>
+<pre><code>对集合进行升序排序</code></pre><hr>
+<h2 id="3-测试代码"><a href="#3-测试代码" class="headerlink" title="##3. 测试代码"></a>##3. 测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collections;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class TestList &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		List&lt;Integer&gt; array&#x3D;new ArrayList&lt;Integer&gt;() ;</span><br><span class="line">		array.add(1);</span><br><span class="line">		array.add(5);</span><br><span class="line">		array.add(10);</span><br><span class="line">		array.add(6);&#x2F;&#x2F;增加元素</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, 10, 6]</span><br><span class="line">		</span><br><span class="line">		array.add(2, 2);&#x2F;&#x2F;在指定位置增加元素</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, 2, 10, 6]</span><br><span class="line">		</span><br><span class="line">		array.addAll(array);&#x2F;&#x2F;增加一组元素，</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, 2, 10, 6, 1, 5, 2, 10, 6]</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.contains(2));</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		System.out.println(array.contains(100));&#x2F;&#x2F;数组是否包含元素</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.get(1));&#x2F;&#x2F;获取指定下标的元素</span><br><span class="line">		&#x2F;&#x2F;输出：5</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.indexOf(5));</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		System.out.println(array.indexOf(8000));&#x2F;&#x2F;获取指定元素的下标（从前往后数第一个出现的），无该元素则返回-1</span><br><span class="line">		&#x2F;&#x2F;输出：-1</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.lastIndexOf(6));</span><br><span class="line">		&#x2F;&#x2F;输出：9</span><br><span class="line">		System.out.println(array.lastIndexOf(8000));&#x2F;&#x2F;获取指定元素的下标（从后往前数第一个出现的），无该元素则返回-1</span><br><span class="line">		&#x2F;&#x2F;输出：-1</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.isEmpty());&#x2F;&#x2F;数组是否为空，是空返回true，非空返回false</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		array.remove(1);&#x2F;&#x2F;移除数组指定下标的元素</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2, 10, 6, 1, 5, 2, 10, 6]</span><br><span class="line">		</span><br><span class="line">		array.set(0, 8);&#x2F;&#x2F;将指定下标的元素值改为给定值</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[8, 2, 10, 6, 1, 5, 2, 10, 6]</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.size());&#x2F;&#x2F;获取数组的大小，即所有元素的个数</span><br><span class="line">		&#x2F;&#x2F;输出：9</span><br><span class="line">		</span><br><span class="line">		array&#x3D;array.subList(0, 5);</span><br><span class="line">		System.out.println(array);&#x2F;&#x2F;获取数组的子数组，需给出前后截取的范围，左闭右开</span><br><span class="line">		&#x2F;&#x2F;输出：[8, 2, 10, 6, 1]</span><br><span class="line">		</span><br><span class="line">		Integer[] a&#x3D;array.toArray(new Integer[array.size()]);&#x2F;&#x2F;集合转数组</span><br><span class="line">		for(int i&#x3D;0;i&lt;a.length;i++)</span><br><span class="line">			System.out.print(a[i]+&quot; &quot;);</span><br><span class="line">		System.out.println();</span><br><span class="line">		&#x2F;&#x2F;输出：8 2 10 6 1 </span><br><span class="line">		</span><br><span class="line">		Collections.sort(array);</span><br><span class="line">		System.out.println(array);&#x2F;&#x2F;对集合排序</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2, 6, 8, 10]</span><br><span class="line">		</span><br><span class="line">		array.clear();&#x2F;&#x2F;清空</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[]</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-相关链接"><a href="#4-相关链接" class="headerlink" title="##4. 相关链接"></a>##4. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>List</tag>
+        <tag>ArrayList</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java中的反射机制</title>
     <url>/2020/08/07/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<h2 id="1-什么是反射"><a href="#1-什么是反射" class="headerlink" title="##1. 什么是反射"></a>##1. 什么是反射</h2><p><strong><em>Java的反射（reflection）机制是指在程序的运行状态中，可以构造任意一个类的对象，可以了解任意一个对象所属的类，可以了解任意一个类的成员变量和方法，可以调用任意一个对象的属性和方法。这种动态获取程序信息以及动态调用对象的功能称为Java语言的反射机制。反射被视为动态语言的关键。</em></strong></p>
@@ -96,6 +153,49 @@
       </tags>
   </entry>
   <entry>
+    <title>Java集合框架[Java知识点]</title>
+    <url>/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>声明：本文内容来自于菜鸟教程(<a href="https://www.runoob.com/java/java-collections.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-collections.html</a>)<br>我仅作部分修改。万分感谢，如有侵权，联系我QQ：965299766删除。</strong></p>
+<hr>
+<p>Java提供了一系列集合类供我们使用，可以帮我们实现一些数据的操作。<br><strong>为什么要有集合？</strong><br>在Java中，我们平常使用的数组，如int[]，是定长的，即定义时就已经确定了他的长度。而很多时候我们需要对数组元素进行增删改查，定长数组就不方便了，于是就有了集合。</p>
+<a id="more"></a>
+
+<p> 集合框架被设计成要满足以下几个目标。</p>
+<pre><code>该框架必须是高性能的。基本集合（动态数组，链表，树，哈希表）的实现也必须是高效的。
+
+该框架允许不同类型的集合，以类似的方式工作，具有高度的互操作性。
+
+对一个集合的扩展和适应必须是简单的。</code></pre><p>为此，整个集合框架就围绕一组标准接口而设计。你可以直接使用这些接口的标准实现，诸如： LinkedList, HashSet, 和 TreeSet 等,除此之外你也可以通过这些接口实现自己的集合。</p>
+<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Java集合框架图">
+
+<p>从上面的集合框架图可以看到，Java 集合框架主要包括两种类型的容器，一种是集合（Collection），存储一个元素集合，另一种是图（Map），存储键/值对映射。Collection 接口又有 3 种子类型，List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。</p>
+<p>集合框架是一个用来代表和操纵集合的统一架构。所有的集合框架都包含如下内容：</p>
+<pre><code>接口：是代表集合的抽象数据类型。
+例如 Collection、List、Set、Map 等。
+之所以定义多个接口，是为了以不同的方式操作集合对象
+
+实现（类）：是集合接口的具体实现。
+从本质上讲，它们是可重复使用的数据结构，
+例如：ArrayList、LinkedList、HashSet、HashMap。
+
+算法：是实现集合接口的对象里的方法执行的一些有用的计算，
+例如：搜索和排序。这些算法被称为多态，那是因为相同的方法可以在相似的接口上有着不同的实现。</code></pre><p>除了集合，该框架也定义了几个 Map 接口和类。Map 里存储的是键/值对。尽管 Map 不是集合，但是它们完全整合在集合中。</p>
+<p><strong>集合框架体系如图所示</strong></p>
+<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="集合框架体系图">
+<p>Java 集合框架提供了一套性能优良，使用方便的接口和类，java集合框架位于java.util包中， 所以当使用集合框架的时候需要进行导包。</p>
+<hr>
+<p><strong>相关链接</strong></p>
+<p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java集合-Collection[Java知识点]</title>
     <url>/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>Collection接口统一定义了一系列单列集合</strong></p>
@@ -132,65 +232,8 @@
       </categories>
       <tags>
         <tag>Java</tag>
+        <tag>集合</tag>
         <tag>Collection</tag>
-        <tag>集合</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合-List和ArrayList[Java知识点]</title>
-    <url>/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>Collection不支持下标操作，只提供了一些基本的集合操作，而List更像是数组，可以进行下标操作。</strong><br><strong>List是一个接口，而ArrayList是List的一个实现类</strong><br><strong>如果我们需要定义一个ArrayList变量，那以下两种方法都是可以的：</strong></p>
-<pre><code>List&lt;E&gt; array=new ArrayList&lt;E&gt;();
-ArrayList&lt;E&gt; array=new ArrayList&lt;E&gt;();</code></pre><a id="more"></a>
-
-<hr>
-<h2 id="1-Collection集合的继承树"><a href="#1-Collection集合的继承树" class="headerlink" title="##1. Collection集合的继承树"></a>##1. Collection集合的继承树</h2><img src="/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Collection集合的继承树">
-
-<hr>
-<h2 id="2-List和ArrayList的常用方法"><a href="#2-List和ArrayList的常用方法" class="headerlink" title="##2. List和ArrayList的常用方法"></a>##2. List和ArrayList的常用方法</h2><p><strong>boolean add(E e)</strong></p>
-<pre><code>在集合末尾增加一个元素e
-添加成功则返回true</code></pre><p><strong>void add(int index, E element)</strong></p>
-<pre><code>在集合指定位置index处增加一个元素e
-如index超出集合下标范围，则报错</code></pre><p><strong>boolean addAll(Collection&lt;? extends E&gt; c)</strong></p>
-<pre><code>在集合末尾增加一组元素
-增加成功返回true</code></pre><p><strong>boolean contains(Object o)</strong></p>
-<pre><code>集合中是否存在一个元素o
-存在则返回true，否则返回false</code></pre><p><strong>E List.get(int index)</strong></p>
-<pre><code>获取集合中给定下标index处的元素值
-index超过集合下标返回则会报错
-***注意：Collection中没有这个方法***</code></pre><p><strong>int indexOf(Object o)</strong></p>
-<pre><code>返回给定值o在集合中第一次出现的位置
-没有出现则返回-1</code></pre><p><strong>int lastIndexOf(Object o)</strong></p>
-<pre><code>返回给定值o在集合中最后一次出现的位置
-没有出现则返回-1</code></pre><p><strong>boolean isEmpty()</strong></p>
-<pre><code>判断集合是否为空
-为空则返回true，非空则返回false</code></pre><p><strong>E remove(int index)</strong></p>
-<pre><code>移除集合中给定下标处的值
-返回被移除的元素值
-***注意：在Collection中，remove方法是给定值，移除集合中第一次出现该值的元素，
-而List中则是给定下标，移除下标处的值***</code></pre><p><strong>E set(int index, E element)</strong></p>
-<pre><code>将集合中给定下标index处的值更改为新值element
-返回修改前的值</code></pre><p><strong>int size()</strong></p>
-<pre><code>返回集合的大小
-即集合中元素的个数</code></pre><p><strong>List<E> subList(int fromIndex, int toIndex)</E></strong></p>
-<pre><code>返回一个子集合
-子集合为父集合下标从fromIndex到toIndex之间的所有元素（左闭右开）</code></pre><p><strong><E> E[] toArray(E[] a)</E></strong></p>
-<pre><code>集合转数组</code></pre><p><strong>void clear()</strong></p>
-<pre><code>清空集合所有元素</code></pre><p><strong><E> void java.util.Collections.sort(List<E> list)</E></E></strong></p>
-<pre><code>对集合进行升序排序</code></pre><hr>
-<h2 id="3-测试代码"><a href="#3-测试代码" class="headerlink" title="##3. 测试代码"></a>##3. 测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collections;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class TestList &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		List&lt;Integer&gt; array&#x3D;new ArrayList&lt;Integer&gt;() ;</span><br><span class="line">		array.add(1);</span><br><span class="line">		array.add(5);</span><br><span class="line">		array.add(10);</span><br><span class="line">		array.add(6);&#x2F;&#x2F;增加元素</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, 10, 6]</span><br><span class="line">		</span><br><span class="line">		array.add(2, 2);&#x2F;&#x2F;在指定位置增加元素</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, 2, 10, 6]</span><br><span class="line">		</span><br><span class="line">		array.addAll(array);&#x2F;&#x2F;增加一组元素，</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, 2, 10, 6, 1, 5, 2, 10, 6]</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.contains(2));</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		System.out.println(array.contains(100));&#x2F;&#x2F;数组是否包含元素</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.get(1));&#x2F;&#x2F;获取指定下标的元素</span><br><span class="line">		&#x2F;&#x2F;输出：5</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.indexOf(5));</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		System.out.println(array.indexOf(8000));&#x2F;&#x2F;获取指定元素的下标（从前往后数第一个出现的），无该元素则返回-1</span><br><span class="line">		&#x2F;&#x2F;输出：-1</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.lastIndexOf(6));</span><br><span class="line">		&#x2F;&#x2F;输出：9</span><br><span class="line">		System.out.println(array.lastIndexOf(8000));&#x2F;&#x2F;获取指定元素的下标（从后往前数第一个出现的），无该元素则返回-1</span><br><span class="line">		&#x2F;&#x2F;输出：-1</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.isEmpty());&#x2F;&#x2F;数组是否为空，是空返回true，非空返回false</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		array.remove(1);&#x2F;&#x2F;移除数组指定下标的元素</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2, 10, 6, 1, 5, 2, 10, 6]</span><br><span class="line">		</span><br><span class="line">		array.set(0, 8);&#x2F;&#x2F;将指定下标的元素值改为给定值</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[8, 2, 10, 6, 1, 5, 2, 10, 6]</span><br><span class="line">		</span><br><span class="line">		System.out.println(array.size());&#x2F;&#x2F;获取数组的大小，即所有元素的个数</span><br><span class="line">		&#x2F;&#x2F;输出：9</span><br><span class="line">		</span><br><span class="line">		array&#x3D;array.subList(0, 5);</span><br><span class="line">		System.out.println(array);&#x2F;&#x2F;获取数组的子数组，需给出前后截取的范围，左闭右开</span><br><span class="line">		&#x2F;&#x2F;输出：[8, 2, 10, 6, 1]</span><br><span class="line">		</span><br><span class="line">		Integer[] a&#x3D;array.toArray(new Integer[array.size()]);&#x2F;&#x2F;集合转数组</span><br><span class="line">		for(int i&#x3D;0;i&lt;a.length;i++)</span><br><span class="line">			System.out.print(a[i]+&quot; &quot;);</span><br><span class="line">		System.out.println();</span><br><span class="line">		&#x2F;&#x2F;输出：8 2 10 6 1 </span><br><span class="line">		</span><br><span class="line">		Collections.sort(array);</span><br><span class="line">		System.out.println(array);&#x2F;&#x2F;对集合排序</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2, 6, 8, 10]</span><br><span class="line">		</span><br><span class="line">		array.clear();&#x2F;&#x2F;清空</span><br><span class="line">		System.out.println(array);</span><br><span class="line">		&#x2F;&#x2F;输出：[]</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="4-相关链接"><a href="#4-相关链接" class="headerlink" title="##4. 相关链接"></a>##4. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
-        <tag>List</tag>
-        <tag>ArrayList</tag>
       </tags>
   </entry>
   <entry>
@@ -242,150 +285,6 @@ index超过集合下标返回则会报错
         <tag>集合</tag>
         <tag>Map</tag>
         <tag>HashMap</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合-各种集合的使用场景[Java知识点]</title>
-    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
-<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
-即可以较为快捷地使用下标来直接访问数组中间的某个数据。
-但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
-此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
-<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
-但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
-<pre><code>栈和队列，大家应该都不陌生，
-Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
-Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
-<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
-<pre><code>都是Set的实现类。
-HashSet的性能总比TreeSet好，但不能保持数据的顺序。
-如果需要频繁地添加、查找元素时，建议使用HashSet。
-而如果需要一个保持排序的Set，用TreeSet。
-如果需要遍历集合元素，用LinkedHashSet。
-
-HashSet：通过散列法储存数据，查询很快。
-LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
-TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
-<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
-Map中键不能重复。
-数据呈现的是对应关系，如 学号-姓名 这种对应关系。
-HashMap是Map的具体实现类。</code></pre><hr>
-<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合-Queue和LinkedList[Java知识点]</title>
-    <url>/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>Queue接口是我们平常所说的队列（数据先进先出），LinkedList是他的一个实现类</strong><br><strong>如果我们想定义一个队列，以下两种方法都是可以的：</strong></p>
-<pre><code>Queue&lt;E&gt; queue=new LinkedList&lt;E&gt;();
-LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>但必须注意：如果把他定义为Queue，那它就是一个纯粹的队列；</em></strong><br><strong><em>而如果定义成LinkedList，它除了实现Queue的方法外，还实现了List的许多方法，我们既可以把他当队列，还可以当做双向队列、链表、栈来使用他。</em></strong></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-Collection集合的继承树"><a href="#1-Collection集合的继承树" class="headerlink" title="##1. Collection集合的继承树"></a>##1. Collection集合的继承树</h2><img src="/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Collection集合的继承树">
-
-<hr>
-<h2 id="2-Queue的常用方法"><a href="#2-Queue的常用方法" class="headerlink" title="##2. Queue的常用方法"></a>##2. Queue的常用方法</h2><p><strong>boolean add(E e)</strong></p>
-<pre><code>在队尾中增加新数据</code></pre><p><strong>boolean offer(E e)</strong></p>
-<pre><code>在队尾增加新数据
-与add()不同的是：当队列容量已满时，add()方法会抛出IllegalStateException异常，
-而offer()方法会返回 false</code></pre><p><strong>E element()</strong></p>
-<pre><code>获取队列头元素</code></pre><p><strong>E peek()</strong></p>
-<pre><code>获取队列头元素
-与element()不同的是：在队列元素为空的情况下，element() 方法会抛出NoSuchElementException异常，
-而peek() 方法会返回 null</code></pre><p><strong>E poll()</strong></p>
-<pre><code>删除队列头元素</code></pre><p><strong>boolean contains(Object o)</strong></p>
-<pre><code>判断队列中是否存在元素o
-存在返回true，否则返回false</code></pre><p><strong>boolean isEmpty()</strong></p>
-<pre><code>判断队列是否为空
-为空则返回true，否则返回false</code></pre><p><strong>int size()</strong></p>
-<pre><code>获取队列的长度
-即队列中元素的个数</code></pre><p><strong>boolean remove(Object o)</strong><br><strong>boolean remove(int index)</strong></p>
-<pre><code>①. 如果定义的是Queue类型，则删除队列中第一个遇到的值等于o的元素；
-②. 如果定义的是LinkedList类型，则删除队列中下标为index的元素。</code></pre><p><strong>void clear()</strong></p>
-<pre><code>清空队列</code></pre><hr>
-<h2 id="3-Queue测试代码"><a href="#3-Queue测试代码" class="headerlink" title="##3. Queue测试代码"></a>##3. Queue测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.LinkedList;</span><br><span class="line">import java.util.Queue;</span><br><span class="line"></span><br><span class="line">public class TestQueue &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Queue&lt;Integer&gt; queue&#x3D;new LinkedList&lt;Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		queue.add(1);</span><br><span class="line">		queue.add(2);</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;在队列中增加数据</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2]</span><br><span class="line">		</span><br><span class="line">		queue.offer(3);</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;在队列中增加数据</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2,3]</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.element());&#x2F;&#x2F;获取队列头元素，不删除</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.peek());&#x2F;&#x2F;获取队列头元素，不删除</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		queue.poll();</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;删除队列头元素</span><br><span class="line">		&#x2F;&#x2F;输出：[2, 3]</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.contains(3));&#x2F;&#x2F;队列中是否存在该元素</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.isEmpty());&#x2F;&#x2F;队列是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		queue.remove(2);</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;删除队列中第一个值等于给定值的元素</span><br><span class="line">		&#x2F;&#x2F;输出：[3]</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.size());&#x2F;&#x2F;获取队列长度，即元素个数</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		queue.clear();</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;清空队列</span><br><span class="line">		&#x2F;&#x2F;输出：[]</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="4-除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下"><a href="#4-除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下" class="headerlink" title="##4. 除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下"></a>##4. 除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下</h2><p><strong>void addFirst(E e)</strong></p>
-<pre><code>从集合的头部插入元素</code></pre><p><strong>void addLast(E e)</strong></p>
-<pre><code>从集合的尾部插入元素</code></pre><p><strong>E get(int index)</strong></p>
-<pre><code>获取集合中给定下标处的值</code></pre><p><strong>E getFirst()</strong></p>
-<pre><code>获取集合头部的值</code></pre><p><strong>E getLast()</strong></p>
-<pre><code>获取集合尾部的值</code></pre><p><strong>int indexOf(Object o)</strong></p>
-<pre><code>获取给定元素在集合中首次出现的下标</code></pre><p><strong>int lastIndexOf(Object o)</strong></p>
-<pre><code>获取给定元素在集合中最后一次出现的下标</code></pre><p><strong>void push(E e)</strong></p>
-<pre><code>往集合头部插入数据，像栈一样使用</code></pre><p><strong>E pop()</strong></p>
-<pre><code>返回集合头部的数据，并删除
-像栈一样使用</code></pre><hr>
-<h2 id="5-LinkedList测试代码"><a href="#5-LinkedList测试代码" class="headerlink" title="##5. LinkedList测试代码"></a>##5. LinkedList测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.LinkedList;</span><br><span class="line"></span><br><span class="line">public class TestQueue &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		LinkedList&lt;Integer&gt; list&#x3D;new LinkedList&lt;Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		list.addFirst(1);</span><br><span class="line">		list.addFirst(2);</span><br><span class="line">		list.addLast(5);</span><br><span class="line">		System.out.println(list);&#x2F;&#x2F;在数组头或尾插入数据</span><br><span class="line">		&#x2F;&#x2F;输出：[2, 1, 5]</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.get(1));&#x2F;&#x2F;获取数组中给定下标处的值</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.getFirst());</span><br><span class="line">		&#x2F;&#x2F;输出：2</span><br><span class="line">		System.out.println(list.getLast());&#x2F;&#x2F;获取数组头或尾的值</span><br><span class="line">		&#x2F;&#x2F;输出：5</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.indexOf(2));&#x2F;&#x2F;获取第一次出现值为2的位置</span><br><span class="line">		&#x2F;&#x2F;输出：0</span><br><span class="line">		System.out.println(list.lastIndexOf(1));&#x2F;&#x2F;获取最后一次出现值为1的位置</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		list.push(1);</span><br><span class="line">		System.out.println(list);&#x2F;&#x2F;从数组头插入数据</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2, 1, 5]</span><br><span class="line">		</span><br><span class="line">		list.pop();</span><br><span class="line">		System.out.println(list);&#x2F;&#x2F;从数组头删除数据</span><br><span class="line">		&#x2F;&#x2F;输出：[2, 1, 5]</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="6-相关链接"><a href="#6-相关链接" class="headerlink" title="##6. 相关链接"></a>##6. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
-        <tag>Queue</tag>
-        <tag>LinkedList</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合框架[Java知识点]</title>
-    <url>/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>声明：本文内容来自于菜鸟教程(<a href="https://www.runoob.com/java/java-collections.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-collections.html</a>)<br>我仅作部分修改。万分感谢，如有侵权，联系我QQ：965299766删除。</strong></p>
-<hr>
-<p>Java提供了一系列集合类供我们使用，可以帮我们实现一些数据的操作。<br><strong>为什么要有集合？</strong><br>在Java中，我们平常使用的数组，如int[]，是定长的，即定义时就已经确定了他的长度。而很多时候我们需要对数组元素进行增删改查，定长数组就不方便了，于是就有了集合。</p>
-<a id="more"></a>
-
-<p> 集合框架被设计成要满足以下几个目标。</p>
-<pre><code>该框架必须是高性能的。基本集合（动态数组，链表，树，哈希表）的实现也必须是高效的。
-
-该框架允许不同类型的集合，以类似的方式工作，具有高度的互操作性。
-
-对一个集合的扩展和适应必须是简单的。</code></pre><p>为此，整个集合框架就围绕一组标准接口而设计。你可以直接使用这些接口的标准实现，诸如： LinkedList, HashSet, 和 TreeSet 等,除此之外你也可以通过这些接口实现自己的集合。</p>
-<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Java集合框架图">
-
-<p>从上面的集合框架图可以看到，Java 集合框架主要包括两种类型的容器，一种是集合（Collection），存储一个元素集合，另一种是图（Map），存储键/值对映射。Collection 接口又有 3 种子类型，List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。</p>
-<p>集合框架是一个用来代表和操纵集合的统一架构。所有的集合框架都包含如下内容：</p>
-<pre><code>接口：是代表集合的抽象数据类型。
-例如 Collection、List、Set、Map 等。
-之所以定义多个接口，是为了以不同的方式操作集合对象
-
-实现（类）：是集合接口的具体实现。
-从本质上讲，它们是可重复使用的数据结构，
-例如：ArrayList、LinkedList、HashSet、HashMap。
-
-算法：是实现集合接口的对象里的方法执行的一些有用的计算，
-例如：搜索和排序。这些算法被称为多态，那是因为相同的方法可以在相似的接口上有着不同的实现。</code></pre><p>除了集合，该框架也定义了几个 Map 接口和类。Map 里存储的是键/值对。尽管 Map 不是集合，但是它们完全整合在集合中。</p>
-<p><strong>集合框架体系如图所示</strong></p>
-<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="集合框架体系图">
-<p>Java 集合框架提供了一套性能优良，使用方便的接口和类，java集合框架位于java.util包中， 所以当使用集合框架的时候需要进行导包。</p>
-<hr>
-<p><strong>相关链接</strong></p>
-<p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
       </tags>
   </entry>
   <entry>
@@ -594,103 +493,137 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 120.三角形最小路径和[数组][动态规划]</title>
-    <url>/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][动态规划]</em></p>
-<p>给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。</p>
-<p>相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。</p>
+    <title>Java集合-Queue和LinkedList[Java知识点]</title>
+    <url>/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>Queue接口是我们平常所说的队列（数据先进先出），LinkedList是他的一个实现类</strong><br><strong>如果我们想定义一个队列，以下两种方法都是可以的：</strong></p>
+<pre><code>Queue&lt;E&gt; queue=new LinkedList&lt;E&gt;();
+LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>但必须注意：如果把他定义为Queue，那它就是一个纯粹的队列；</em></strong><br><strong><em>而如果定义成LinkedList，它除了实现Queue的方法外，还实现了List的许多方法，我们既可以把他当队列，还可以当做双向队列、链表、栈来使用他。</em></strong></p>
 <a id="more"></a>
 
-<p><strong>例如，给定三角形：</strong></p>
-<p>[<br>     [2],<br>    [3,4],<br>   [6,5,7],<br>  [4,1,8,3]<br>]</p>
-<p>自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。</p>
 <hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>仍然是一道经典的动态规划题，貌似我还在学校的OJ上做过^^，只是当时我还不知道啥是动态规划，也忘了当时咋做的了。</p>
-<p><strong>①. 构建dp数组</strong><br>为了说明方便，我们将题目给定的三角形数组（triangle）列都一一对应好，这样看起来好看点，再创建一个规模和三角形数组一样的dp数组：</p>
-<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.jpg" class title="图一">
+<h2 id="1-Collection集合的继承树"><a href="#1-Collection集合的继承树" class="headerlink" title="##1. Collection集合的继承树"></a>##1. Collection集合的继承树</h2><img src="/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Collection集合的继承树">
 
 <hr>
-<p><strong>②. 这题的dp数组应该代表什么意思呢？</strong><br><strong>dp[i][j]代表：当从上至下走到这里的时候，我们可获得的最短路径。</strong><br>当然，前提是按规则走，且走到的地方，都必须有值（因为题目是三角形数组，而我们使用的是二维矩形数组，必然有右上方的部分格子没有值，我们不能走到没有值的地方去）。</p>
-<hr>
-<p><strong>③. 那我们是如何走的呢</strong><br><strong>那我们是如何走的呢？</strong><br>对于三角形数组，最上方的那一个格子，是我们的出发点，我们必须从出发点出发，所以对应dp数组的最上方那个格子的值，毫无疑问，就是三角形数组出发点的路径长度值。</p>
-<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2.jpg" class title="图二">
-
-<p>对于其他的格子，我们可以分为两种情况：<br><strong>3.1. 边缘格子</strong><br>什么是边缘格子呢，就像这样：</p>
-<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/3.jpg" class title="图三">
-
-<p>显然，边缘格子就是指处于三角形数组的边缘了，我们又可以分为左边缘格子和右边缘格子。<br>左边缘格子就是：除第一行外，每一行中列号为0的格子，也就是顶在数组最左边的那些格子；<br>右边缘格子就是：除第一行外，每一行中列号最大的格子，也就是顶在数组最右边的那些格子。</p>
-<p><strong>我们如何走到一个左边缘格子？</strong><br>显然，要走到一个左边缘格子，我们首先必须得在上一行的左边缘格子上，才能保证下一步能走到这一行的左边缘格子。<br><strong>即，要想走到triangle[i][0]，我们首先必须得在triangle[i-1][0]的位置上。</strong></p>
-<p><strong>dp数组也一样，即dp[i][0]=dp[i-1][0]+triangle[i][0]</strong></p>
-<p><strong>我们如何走到一个右边缘格子？</strong><br>一样的，要走到一个右边缘格子，首先得处在上一行的右边缘格子上。<br><strong>也就是说，要想走到triangle[i][i]，首先我们得处于triangle[i-1][i-1]上。</strong></p>
-<p><strong>dp数组也一样，即dp[i][i]=dp[i-1][i-1]+triangle[i][i]</strong></p>
-<p><strong>3.2. 普通格子</strong><br>除了第一行的格子和边缘格子，其他的就叫普通格子了。</p>
-<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/4.jpg" class title="图四">
-
-<p><strong>我们如何走到一个普通格子上呢？</strong><br>根据规则，我们可以知道，从该格子的上一行同一列或者前一列的格子，可以走到该普通格子上，比如我们要走到5这个格子上：</p>
-<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/5.jpg" class title="图五">
-
-<p>我们只有处在3或4的位置上，才能让下一步走到5.</p>
-<p>而dp数组要求的是最短路径，我们将这两种走法的路径最小值填入dp数组：<br><strong>即dp[i][j]=min(dp[i-1][j]+triangle[i][j],dp[i-1][j-1]+triangle[i][j])</strong></p>
-<hr>
-<p><strong>④. 此时，我们可以写出dp数组的递推公式了</strong></p>
-<pre><code>dp[i][j] =    triangle[i][j]，当i=j=0时（第一格）
-            dp[i-1][0]，当i!=0，j=0时（左边缘）
-            dp[i-1][j-1]，当i!=0，j=i时（右边缘）
-            min(dp[i-1][j]+triangle[i][j],dp[i-1][j-1]+triangle[i][j])，当i!=0，j!=i时（普通格）</code></pre><hr>
-<p><strong>⑤. 获取答案</strong><br>dp数组填完后，如何获取最终的最短路径呢？<br>显然，走完后，答案必定在dp数组最后一行产生，我们只需要对dp数组最后一行进行排序，返回其中的最小值即可。</p>
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class MinimumTotal &#123;</span><br><span class="line">	public static int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) &#123;</span><br><span class="line">		int len&#x3D;triangle.size();&#x2F;&#x2F;len代表这个三角形共有几行</span><br><span class="line">		int[][] dp&#x3D;new int[len][len];&#x2F;&#x2F;动态规划数组，dp[i][j]代表走到第i行第j列时的最小路径长度</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i+1;j++) &#123;&#x2F;&#x2F;逐行逐个数判断</span><br><span class="line">				</span><br><span class="line">				if(i&#x3D;&#x3D;0&amp;&amp;j&#x3D;&#x3D;0) &#123;&#x2F;&#x2F;如果是第一行</span><br><span class="line">					dp[i][j]&#x3D;triangle.get(0).get(0);&#x2F;&#x2F;最小路径就是当前路径数组值</span><br><span class="line">				&#125;</span><br><span class="line">				else if(j&#x3D;&#x3D;0&amp;&amp;i!&#x3D;0) &#123;&#x2F;&#x2F;如果是第一列但不是第一行</span><br><span class="line">					dp[i][j]&#x3D;dp[i-1][j]+triangle.get(i).get(j);&#x2F;&#x2F;最小路径就是dp数组的上一行同列的值+路径数组当前值</span><br><span class="line">				&#125;</span><br><span class="line">				else if(j&#x3D;&#x3D;i&amp;&amp;i!&#x3D;0)&#123;&#x2F;&#x2F;如果是最后一列但不是第一行</span><br><span class="line">					dp[i][j]&#x3D;dp[i-1][j-1]+triangle.get(i).get(j);&#x2F;&#x2F;最小路径就是dp数组的上一行上一列的值+路径数组当前值</span><br><span class="line">				&#125;</span><br><span class="line">				else &#123;&#x2F;&#x2F;以上都不满足</span><br><span class="line">					dp[i][j]&#x3D;Math.min(dp[i-1][j]+triangle.get(i).get(j), dp[i-1][j-1]+triangle.get(i).get(j));&#x2F;&#x2F;最小路径就是两者的较小值</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(dp[len-1]);&#x2F;&#x2F;对dp数组最后一行排序</span><br><span class="line">		return dp[len-1][0];&#x2F;&#x2F;返回dp数组最后一行的最小值即为答案</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;*测试用例：[2],</span><br><span class="line">	    *						[3,4],</span><br><span class="line">	    *						[6,5,7],</span><br><span class="line">	   *						[4,1,8,3]</span><br><span class="line">	   *&#x2F;</span><br><span class="line">		List&lt;List&lt;Integer&gt;&gt; triangle&#x3D;new ArrayList&lt;List&lt;Integer&gt;&gt;() ;</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; one&#x3D;new ArrayList&lt;Integer&gt;() ;</span><br><span class="line">		one.add(2);</span><br><span class="line">		triangle.add(one);</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; two&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		two.add(3);</span><br><span class="line">		two.add(4);</span><br><span class="line">		triangle.add(two);</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; three&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		three.add(6);</span><br><span class="line">		three.add(5);</span><br><span class="line">		three.add(7);</span><br><span class="line">		triangle.add(three);</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; four&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		four.add(4);</span><br><span class="line">		four.add(1);</span><br><span class="line">		four.add(8);</span><br><span class="line">		four.add(3);</span><br><span class="line">		triangle.add(four);</span><br><span class="line">		</span><br><span class="line">		int ans&#x3D;minimumTotal(triangle);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：<br>[2],<br>[3,4],<br>[6,5,7],<br>[4,1,8,3]</p>
-<p>测试结果：最短路径=11<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+<h2 id="2-Queue的常用方法"><a href="#2-Queue的常用方法" class="headerlink" title="##2. Queue的常用方法"></a>##2. Queue的常用方法</h2><p><strong>boolean add(E e)</strong></p>
+<pre><code>在队尾中增加新数据</code></pre><p><strong>boolean offer(E e)</strong></p>
+<pre><code>在队尾增加新数据
+与add()不同的是：当队列容量已满时，add()方法会抛出IllegalStateException异常，
+而offer()方法会返回 false</code></pre><p><strong>E element()</strong></p>
+<pre><code>获取队列头元素</code></pre><p><strong>E peek()</strong></p>
+<pre><code>获取队列头元素
+与element()不同的是：在队列元素为空的情况下，element() 方法会抛出NoSuchElementException异常，
+而peek() 方法会返回 null</code></pre><p><strong>E poll()</strong></p>
+<pre><code>删除队列头元素</code></pre><p><strong>boolean contains(Object o)</strong></p>
+<pre><code>判断队列中是否存在元素o
+存在返回true，否则返回false</code></pre><p><strong>boolean isEmpty()</strong></p>
+<pre><code>判断队列是否为空
+为空则返回true，否则返回false</code></pre><p><strong>int size()</strong></p>
+<pre><code>获取队列的长度
+即队列中元素的个数</code></pre><p><strong>boolean remove(Object o)</strong><br><strong>boolean remove(int index)</strong></p>
+<pre><code>①. 如果定义的是Queue类型，则删除队列中第一个遇到的值等于o的元素；
+②. 如果定义的是LinkedList类型，则删除队列中下标为index的元素。</code></pre><p><strong>void clear()</strong></p>
+<pre><code>清空队列</code></pre><hr>
+<h2 id="3-Queue测试代码"><a href="#3-Queue测试代码" class="headerlink" title="##3. Queue测试代码"></a>##3. Queue测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.LinkedList;</span><br><span class="line">import java.util.Queue;</span><br><span class="line"></span><br><span class="line">public class TestQueue &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Queue&lt;Integer&gt; queue&#x3D;new LinkedList&lt;Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		queue.add(1);</span><br><span class="line">		queue.add(2);</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;在队列中增加数据</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2]</span><br><span class="line">		</span><br><span class="line">		queue.offer(3);</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;在队列中增加数据</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2,3]</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.element());&#x2F;&#x2F;获取队列头元素，不删除</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.peek());&#x2F;&#x2F;获取队列头元素，不删除</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		queue.poll();</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;删除队列头元素</span><br><span class="line">		&#x2F;&#x2F;输出：[2, 3]</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.contains(3));&#x2F;&#x2F;队列中是否存在该元素</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.isEmpty());&#x2F;&#x2F;队列是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		queue.remove(2);</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;删除队列中第一个值等于给定值的元素</span><br><span class="line">		&#x2F;&#x2F;输出：[3]</span><br><span class="line">		</span><br><span class="line">		System.out.println(queue.size());&#x2F;&#x2F;获取队列长度，即元素个数</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		queue.clear();</span><br><span class="line">		System.out.println(queue);&#x2F;&#x2F;清空队列</span><br><span class="line">		&#x2F;&#x2F;输出：[]</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
+<h2 id="4-除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下"><a href="#4-除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下" class="headerlink" title="##4. 除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下"></a>##4. 除了使用Queue定义的方法之外，LinkedList还能像链表和栈一样操作数据，常用方法如下</h2><p><strong>void addFirst(E e)</strong></p>
+<pre><code>从集合的头部插入元素</code></pre><p><strong>void addLast(E e)</strong></p>
+<pre><code>从集合的尾部插入元素</code></pre><p><strong>E get(int index)</strong></p>
+<pre><code>获取集合中给定下标处的值</code></pre><p><strong>E getFirst()</strong></p>
+<pre><code>获取集合头部的值</code></pre><p><strong>E getLast()</strong></p>
+<pre><code>获取集合尾部的值</code></pre><p><strong>int indexOf(Object o)</strong></p>
+<pre><code>获取给定元素在集合中首次出现的下标</code></pre><p><strong>int lastIndexOf(Object o)</strong></p>
+<pre><code>获取给定元素在集合中最后一次出现的下标</code></pre><p><strong>void push(E e)</strong></p>
+<pre><code>往集合头部插入数据，像栈一样使用</code></pre><p><strong>E pop()</strong></p>
+<pre><code>返回集合头部的数据，并删除
+像栈一样使用</code></pre><hr>
+<h2 id="5-LinkedList测试代码"><a href="#5-LinkedList测试代码" class="headerlink" title="##5. LinkedList测试代码"></a>##5. LinkedList测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.LinkedList;</span><br><span class="line"></span><br><span class="line">public class TestQueue &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		LinkedList&lt;Integer&gt; list&#x3D;new LinkedList&lt;Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		list.addFirst(1);</span><br><span class="line">		list.addFirst(2);</span><br><span class="line">		list.addLast(5);</span><br><span class="line">		System.out.println(list);&#x2F;&#x2F;在数组头或尾插入数据</span><br><span class="line">		&#x2F;&#x2F;输出：[2, 1, 5]</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.get(1));&#x2F;&#x2F;获取数组中给定下标处的值</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.getFirst());</span><br><span class="line">		&#x2F;&#x2F;输出：2</span><br><span class="line">		System.out.println(list.getLast());&#x2F;&#x2F;获取数组头或尾的值</span><br><span class="line">		&#x2F;&#x2F;输出：5</span><br><span class="line">		</span><br><span class="line">		System.out.println(list.indexOf(2));&#x2F;&#x2F;获取第一次出现值为2的位置</span><br><span class="line">		&#x2F;&#x2F;输出：0</span><br><span class="line">		System.out.println(list.lastIndexOf(1));&#x2F;&#x2F;获取最后一次出现值为1的位置</span><br><span class="line">		&#x2F;&#x2F;输出：1</span><br><span class="line">		</span><br><span class="line">		list.push(1);</span><br><span class="line">		System.out.println(list);&#x2F;&#x2F;从数组头插入数据</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 2, 1, 5]</span><br><span class="line">		</span><br><span class="line">		list.pop();</span><br><span class="line">		System.out.println(list);&#x2F;&#x2F;从数组头删除数据</span><br><span class="line">		&#x2F;&#x2F;输出：[2, 1, 5]</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="6-相关链接"><a href="#6-相关链接" class="headerlink" title="##6. 相关链接"></a>##6. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
 ]]></content>
       <categories>
-        <category>LeetCode</category>
+        <category>Java知识点</category>
       </categories>
       <tags>
-        <tag>数组</tag>
-        <tag>动态规划</tag>
+        <tag>Java</tag>
+        <tag>集合</tag>
+        <tag>Queue</tag>
+        <tag>LinkedList</tag>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
-    <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
-<p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
-<p><strong>说明：你不能倾斜容器，且 n 的值至少为 2。</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/question.jpg" class title="问题示例">
-
-<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
+    <title>Java集合-各种集合的使用场景[Java知识点]</title>
+    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
 <a id="more"></a>
 
-<p><strong>示例：</strong></p>
-<p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49</p>
 <hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 暴力解法</strong></p>
-<p>这题的暴力解法不难想到，使用两个指针分别从数组的前后逼近中间，分别求面积，再得到面积的最大值就行了。</p>
-<p><strong>两指针分别代表形成容器的左壁和右壁，而能装水的体积取决于：①. 左右壁高度的较小者；②. 左右壁之间的距离。</strong></p>
-<p><strong>那此时我们只需要遍历所有能形成容器的情况，即遍历所有可能出现的左右壁组合，将左右壁较小者乘上左右壁距离即可得到装水的体积。遍历过程中求出体积的最大值就行了。</strong></p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">	       int len &#x3D; height.length;</span><br><span class="line">	       int max &#x3D; 0;</span><br><span class="line">	       for(int i &#x3D; 0;i &lt; len - 1;i++)&#123;</span><br><span class="line">	           for(int j &#x3D; len - 1;j &gt; i ;j--)&#123;</span><br><span class="line">	               int water &#x3D; height[i] &gt; height[j] ? height[j] * (j - i) : height[i] * (j - i);</span><br><span class="line">	               max &#x3D; Math.max(max,water);</span><br><span class="line">	           &#125;</span><br><span class="line">	       &#125;</span><br><span class="line">	       return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result1.jpg" class title="提交记录">
+<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
+<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
+即可以较为快捷地使用下标来直接访问数组中间的某个数据。
+但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
+此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
+<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
+但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
+<pre><code>栈和队列，大家应该都不陌生，
+Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
+Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
+<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
+<pre><code>都是Set的实现类。
+HashSet的性能总比TreeSet好，但不能保持数据的顺序。
+如果需要频繁地添加、查找元素时，建议使用HashSet。
+而如果需要一个保持排序的Set，用TreeSet。
+如果需要遍历集合元素，用LinkedHashSet。
 
+HashSet：通过散列法储存数据，查询很快。
+LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
+TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
+<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
+Map中键不能重复。
+数据呈现的是对应关系，如 学号-姓名 这种对应关系。
+HashMap是Map的具体实现类。</code></pre><hr>
+<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 155.最小栈[栈][设计]</title>
+    <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
+<p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
+<pre><code>push(x) —— 将元素 x 推入栈中。
+pop() —— 删除栈顶的元素。
+top() —— 获取栈顶元素。
+getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
 
+<p><strong>示例:</strong></p>
+<p><strong>输入：</strong><br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
+<p><strong>输出：</strong><br>[null,null,null,null,-3,null,0,-2]</p>
+<p><strong>解释：</strong><br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
+<p><strong>提示：</strong><br>pop、top 和 getMin 操作总是在 非空栈 上调用。</p>
 <hr>
-<p><strong>2.2. 优化解法</strong><br>我们知道，容器装水的体积的决定因素之一是<strong>容器左壁和右壁的长度较小者</strong>，所以我们在遍历所有左右壁组合的时候，<strong>固定长度较大的壁不动，将长度较小的壁向中间逼近</strong>。</p>
-<p><strong>因为体积取决于长度较小的壁，所以我们暂且不管长度较长的壁，只是使长度较小的壁的长度尽可能地长，从而面积也尽可能地大，省去了许多无用步骤。</strong></p>
-<p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">		int len &#x3D; height.length;</span><br><span class="line">        int max &#x3D; 0;</span><br><span class="line">        int left &#x3D; 0;</span><br><span class="line">        int right &#x3D; len - 1;</span><br><span class="line"></span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            int area &#x3D; Math.min(height[left],height[right]) * (right - left);</span><br><span class="line">            max &#x3D; Math.max(max,area);</span><br><span class="line"></span><br><span class="line">            if(height[left] &gt; height[right])&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result2.jpg" class title="提交记录">
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>本题是一道设计题，已经提前给出了模板，要求我们对其中给出的函数进行完善，以达到他的要求。</p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/model.jpg" class title="模板">
 
-<p>发现在运行时间上，较上一种暴力解法快了许多。</p>
+<p>要求是能够实现栈最基本的push、pop和top操作的同时，还需要实现获取栈中最小值getMin的功能。</p>
+<p>相信上过数据结构课的各位做这题应该不难（doge），在C++中，我们使用动态数组来实现栈的各种功能，在Java中，我们依然使用动态数组ArrayList来实现。<br>题目不难，直接放代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class MinStack &#123;</span><br><span class="line">	private ArrayList&lt;Integer&gt; array;</span><br><span class="line">	</span><br><span class="line">	public MinStack() &#123;</span><br><span class="line">		array&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">    	array.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void pop() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">    		array.remove(array.size()-1);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int top() &#123;</span><br><span class="line">    	if(!array.isEmpty())</span><br><span class="line">    		return array.get(array.size()-1);</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int getMin() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">	    	int min&#x3D;Integer.MAX_VALUE;</span><br><span class="line">	    	for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">	    		if(array.get(i)&lt;min)</span><br><span class="line">	    			min&#x3D;array.get(i);</span><br><span class="line">	    	&#125;</span><br><span class="line">			return min;</span><br><span class="line">    	&#125;</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		MinStack minStack&#x3D;new MinStack();</span><br><span class="line">		minStack.push(-2);</span><br><span class="line">		minStack.push(0);</span><br><span class="line">		minStack.push(-3);</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">		minStack.pop();</span><br><span class="line">		System.out.println(minStack.top());</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：</p>
+<pre><code>操作：[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]
+输入：[[],[-2],[0],[-3],[],[],[],[]]</code></pre><p>输出：</p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/run.jpg" class title="运行">
+
+<p>可以看到我们向栈中push了三个数字-2,0,-3，然后输出栈中最小值为-3，然后删除了栈顶元素，输出了现在的栈顶元素0，然后输出了现在的最小值为-2，结果正确。</p>
+<p><strong>LeetCode提交结果：</strong></p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/result1.jpg" class title="提交结果">
+
 <hr>
 <p>如有错误，欢迎联系本人QQ：965299766</p>
 ]]></content>
@@ -698,8 +631,8 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>数组</tag>
-        <tag>双指针</tag>
+        <tag>栈</tag>
+        <tag>设计</tag>
       </tags>
   </entry>
   <entry>
@@ -754,79 +687,6 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
         <tag>设计</tag>
         <tag>哈希表</tag>
         <tag>队列</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 155.最小栈[栈][设计]</title>
-    <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
-<p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
-<pre><code>push(x) —— 将元素 x 推入栈中。
-pop() —— 删除栈顶的元素。
-top() —— 获取栈顶元素。
-getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<p><strong>输入：</strong><br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
-<p><strong>输出：</strong><br>[null,null,null,null,-3,null,0,-2]</p>
-<p><strong>解释：</strong><br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
-<p><strong>提示：</strong><br>pop、top 和 getMin 操作总是在 非空栈 上调用。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>本题是一道设计题，已经提前给出了模板，要求我们对其中给出的函数进行完善，以达到他的要求。</p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/model.jpg" class title="模板">
-
-<p>要求是能够实现栈最基本的push、pop和top操作的同时，还需要实现获取栈中最小值getMin的功能。</p>
-<p>相信上过数据结构课的各位做这题应该不难（doge），在C++中，我们使用动态数组来实现栈的各种功能，在Java中，我们依然使用动态数组ArrayList来实现。<br>题目不难，直接放代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class MinStack &#123;</span><br><span class="line">	private ArrayList&lt;Integer&gt; array;</span><br><span class="line">	</span><br><span class="line">	public MinStack() &#123;</span><br><span class="line">		array&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">    	array.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void pop() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">    		array.remove(array.size()-1);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int top() &#123;</span><br><span class="line">    	if(!array.isEmpty())</span><br><span class="line">    		return array.get(array.size()-1);</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int getMin() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">	    	int min&#x3D;Integer.MAX_VALUE;</span><br><span class="line">	    	for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">	    		if(array.get(i)&lt;min)</span><br><span class="line">	    			min&#x3D;array.get(i);</span><br><span class="line">	    	&#125;</span><br><span class="line">			return min;</span><br><span class="line">    	&#125;</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		MinStack minStack&#x3D;new MinStack();</span><br><span class="line">		minStack.push(-2);</span><br><span class="line">		minStack.push(0);</span><br><span class="line">		minStack.push(-3);</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">		minStack.pop();</span><br><span class="line">		System.out.println(minStack.top());</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：</p>
-<pre><code>操作：[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]
-输入：[[],[-2],[0],[-3],[],[],[],[]]</code></pre><p>输出：</p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/run.jpg" class title="运行">
-
-<p>可以看到我们向栈中push了三个数字-2,0,-3，然后输出栈中最小值为-3，然后删除了栈顶元素，输出了现在的栈顶元素0，然后输出了现在的最小值为-2，结果正确。</p>
-<p><strong>LeetCode提交结果：</strong></p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/result1.jpg" class title="提交结果">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>设计</tag>
-        <tag>栈</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 169.多数元素[数组]</title>
-    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
-<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
-<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
-<a id="more"></a>
-
-
-<p><strong>示例 1:</strong></p>
-<p>输入: [3,2,3]<br>输出: 3</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
-<p><strong>###2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
-<p><strong>###2.3. LeetCode提交记录</strong></p>
-<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -887,106 +747,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 19.删除链表的倒数第N个节点[链表][双指针]</title>
-    <url>/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][双指针]</em></p>
-<p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
-<p><strong>示例：</strong></p>
-<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</p>
-<p>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p>
-<p><strong>说明：</strong></p>
-<p>给定的 n 保证是有效的。</p>
-<a id="more"></a>
-
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 常规解法</strong><br>看到这题最容易想到的解法就是遍历两次链表。<br><strong>第一次遍历可以获取到链表的长度len。</strong><br><strong>第二次遍历，当遍历到第 (len - n) 个结点时，删除该结点的下一结点。最后返回head即可。</strong></p>
-<hr>
-<p><strong>2.2. 双指针解法</strong><br>题目告知我们n必定是有效的，不会出现<strong>n大于链表长度</strong>的情况。<br>我们可以采用<strong>双指针</strong>的方法来解决本问题。</p>
-<p><strong>①. 定义两个指针p和q，同时指向head结点；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/1.jpg" class title="图一">
-
-<p><strong>②. 让p指针先往后移动n个结点，q指针不动；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/2.jpg" class title="图二">
-
-<p><strong>③. 然后p，q指针同时向后移动，直到p指针的下一结点为null时停止；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/3.jpg" class title="图三">
-
-<p><strong>④. 此时发现q的下一结点正是我们要删除的结点；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/4.jpg" class title="图四">
-
-<p><strong>⑤. 删除成功后返回head结点作为答案。</strong></p>
-<hr>
-<p><strong>2.3. 存在的问题</strong><br>这种方法在极端情况下有潜在的问题：</p>
-<p><strong>当我们要删除的结点正好是head结点</strong>时，怎么办？</p>
-<p>举个例子：<br>给定链表 = [1,2]，n = 2，</p>
-<p><strong>p结点从head结点出发，移动n = 2位后，已经指向了null了，此时我们无法判断null的下一结点是不是null，就会报找不到指针的错误。</strong></p>
-<hr>
-<p><strong>2.4. 解决方案</strong><br>解决方法也很简单，<br><strong>设置一个 “哑结点” d，他指向的下一个结点是head结点，此时就不会出现上述错误。</strong></p>
-<p><strong>①. 设置“哑结点”d，他的下一个结点指向的是head；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/5.jpg" class title="图五">
-
-<p><strong>②. p结点向后移动n位；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/6.jpg" class title="图六">
-
-<p><strong>③. p，q结点同时移动，直到p结点的下一结点为null；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/7.jpg" class title="图七">
-
-<p><strong>④. 删除q结点的下一结点，也就是head结点；</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/8.jpg" class title="图八">
-
-<p><strong>⑤. 注意：此时返回的答案就不是哑结点d了，而是d.next。</strong></p>
-<hr>
-<h2 id="3-具体代码"><a href="#3-具体代码" class="headerlink" title="##3. 具体代码"></a>##3. 具体代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> *&#x2F;</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode removeNthFromEnd(ListNode head, int n) &#123;</span><br><span class="line">        ListNode d &#x3D; new ListNode(0);</span><br><span class="line">        d.next &#x3D; head;&#x2F;&#x2F;哑结点d</span><br><span class="line"></span><br><span class="line">        ListNode p &#x3D; d;</span><br><span class="line">        ListNode q &#x3D; null;</span><br><span class="line"></span><br><span class="line">        while(n !&#x3D; 0)&#123;&#x2F;&#x2F;p向后移动n位</span><br><span class="line">            p &#x3D; p.next;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        q &#x3D; d;</span><br><span class="line">        while(p.next !&#x3D; null)&#123;&#x2F;&#x2F;p，q同时移动直到p的下一结点为null</span><br><span class="line">            p &#x3D; p.next;</span><br><span class="line">            q &#x3D; q.next;</span><br><span class="line">        &#125;</span><br><span class="line">        q.next &#x3D; q.next.next;&#x2F;&#x2F;删除q的下一结点</span><br><span class="line">        return d.next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：链表 = 1-&gt;2-&gt;3-&gt;4-&gt;5，n = 2<br>测试结果：1-&gt;2-&gt;3-&gt;5<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 198.打家劫舍[动态规划]</title>
-    <url>/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
-<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
-<a id="more"></a>
-
-
-<p><strong>示例 1：</strong></p>
-<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>     偷窃到的最高金额 = 1 + 3 = 4 。</p>
-<p><strong>示例 2：</strong></p>
-<p>输入：[2,7,9,3,1]<br>输出：12<br>解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。<br>     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</p>
-<p><strong>提示：</strong></p>
-<pre><code>0 &lt;= nums.length &lt;= 100
-0 &lt;= nums[i] &lt;= 400</code></pre><hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题显然可以使用动态规划来解决，是动态规划的经典题型。<br>①. 当房屋数组元素个数为0时，显然无房屋可偷，直接返回0；<br>②. 当有1个房屋时，该房屋的价值显然就是最大价值，返回他即可；<br>③. 当有2个房屋时，由题意可得，我们不能同时偷窃两个相邻的房屋，显然，我们只能偷这两个房屋中价值较大的那个，所以应返回两房屋价值的较大者；<br>④. 当偷到2个以上房屋时，我们就要考虑两种情况了，假设目前正准备偷第k间房屋（k&gt;2），我们会面临两个选择：<br>    1）偷第k间房屋，因为和第k-1间房间相邻，我们就不能偷第k-1间房屋，那此时我们可获得的总价值为前面已经做过选择的k-2间房屋的最大价值加上第k间房屋的价值；<br>    2）不偷第k间房屋，那第k-1间房屋就是可以偷窃的，那此时我们获得的总价值就是前面已做过选择的k-1间房屋的最大价值。<br>从2个选择中选择能获得价值较大的一项，将该价值作为处理这间房屋所获得的最大价值。<br>⑤. 对于每间房屋，都按照④的方法进行选择，对每间房屋都可以求出偷窃到该房屋时能获得的最大价值，放在dp数组中的对应位置；<br>⑥. 最后返回dp数组的最后一项，因为执行以上算法后，即对最后一间房屋做出选择后，获得的价值就是你能获得的最大价值了。</p>
-<p><strong>代码如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Rob &#123;</span><br><span class="line">	public static int rob(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;0)</span><br><span class="line">			return 0;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)</span><br><span class="line">			return nums[0];</span><br><span class="line">		if(nums.length&#x3D;&#x3D;2)</span><br><span class="line">			return nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		</span><br><span class="line">		int[] dp&#x3D;new int[nums.length];</span><br><span class="line">		dp[0]&#x3D;nums[0];</span><br><span class="line">		dp[1]&#x3D;nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		for(int i&#x3D;2;i&lt;nums.length;i++) &#123;</span><br><span class="line">			dp[i]&#x3D;dp[i-2]+nums[i]&gt;dp[i-1]?dp[i-2]+nums[i]:dp[i-1];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return dp[dp.length-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：各房子的价值&#x3D;&#123;2,7,9,3,1&#125;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,7,9,3,1&#125;;</span><br><span class="line">		int ans&#x3D;rob(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：房子的价值数组={2,7,9,3,1}<br>测试结果：最大价值=12</p>
-<hr>
-<p><strong>LeetCode提交记录：</strong></p>
-<img src="/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 2.两数相加[链表]</title>
     <url>/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][数学]</em></p>
@@ -1027,116 +787,74 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 20.有效的括号[栈]</title>
-    <url>/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][字符串]</em><br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
-<pre><code>左括号必须用相同类型的右括号闭合。
-左括号必须以正确的顺序闭合。</code></pre><p>注意空字符串可被认为是有效字符串。</p>
+    <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
+    <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
+<p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+<p><strong>说明：你不能倾斜容器，且 n 的值至少为 2。</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/question.jpg" class title="问题示例">
+
+<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
 <a id="more"></a>
-
-<p><strong>示例 1:</strong></p>
-<p>输入: “()”<br>输出: true</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: “()[]{}”<br>输出: true</p>
-<p><strong>示例 3:</strong></p>
-<p>输入: “(]”<br>输出: false</p>
-<p><strong>示例 4:</strong></p>
-<p>输入: “([)]”<br>输出: false</p>
-<p><strong>示例 5:</strong></p>
-<p>输入: “{[]}”<br>输出: true</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>###2.1. 介绍<br>本题是一道简单题，但是如果单纯地使用字符串方法做，很难做出来，因为本题对字符串挨个研究时，还需要考虑整个字符串的结构，这是难以做到的，比如输入s=“([)]”，显然小括号和中括号在这里是可以被匹配到的，即每个左括号都对应一个右括号，但这个的结果是false，因为他整体不满足正确的闭合顺序。<br>针对这种情况，使用“栈”这种数据结构就能帮助我们掌握字符串的整体结构，从而容易地解决问题。</p>
-<pre><code>在表示问题的递归结构时，栈数据结构可以派上用场。
-我们无法真正地从内到外处理这个问题，因为我们对整体结构一无所知。
-但是，栈可以帮助我们递归地处理这种情况，即从外部到内部。</code></pre><p>###2.2. 算法<br>①. 创建一个字符类型的栈stack，置为空；<br>②. 对于输入字符串s，挨个字符判断入栈；<br>③. 如果栈为空，则s的当前字符入栈，不进行任何判断；<br>④. 如果s的当前字符是右括号（右括号指 “)”,”]”或”}”），且栈不为空，则判断栈顶元素，如果是与当前字符匹配的左括号，这对匹配成功的括号抵消，表示为向栈中插入该字符，再把栈顶的两个元素删除，实际操作时可简化为不插入元素，只删除栈顶一个元素即可达到同样效果。<br>⑤. 如果插入的不是右括号，则直接入栈即可。<br>⑥. 最后判断栈是否为空，为空则表示所有括号全部匹配成功，都被抵消了，返回true；不为空则表示该字符串不符合题目要求，返回false。</p>
-<p>###2.3. 完整程序</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Stack;</span><br><span class="line">public class IsValid &#123;</span><br><span class="line">	public boolean isValid(String s) &#123;</span><br><span class="line">        if(s.equals(&quot;&quot;))</span><br><span class="line">            return true;</span><br><span class="line">        else&#123;</span><br><span class="line">            Stack&lt;Character&gt; stack&#x3D;new Stack&lt;Character&gt;();&#x2F;&#x2F;字符类型的栈</span><br><span class="line">        	for(int i&#x3D;0;i&lt;s.length();i++) &#123;</span><br><span class="line">        		if(stack.isEmpty()) &#123;&#x2F;&#x2F;如果当前栈为空，直接插入，不执行下面的判断了</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        			continue;</span><br><span class="line">        		&#125;</span><br><span class="line">        		if(s.charAt(i)&#x3D;&#x3D;&#39;)&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;(&#39;)&#123;&#x2F;&#x2F;如果匹配成功，则这对括号同时抵消，即取出栈顶元素</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;]&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;[&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;&#125;&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;&#123;&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else &#123;&#x2F;&#x2F;如匹配失败，直接在栈中插入元素</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        		&#125;</span><br><span class="line">        	&#125;</span><br><span class="line">        	if(stack.isEmpty())&#x2F;&#x2F;如果最后栈为空，表示括号全部匹配成功，抵消成功</span><br><span class="line">        		return true;</span><br><span class="line">        &#125;</span><br><span class="line">		return false;&#x2F;&#x2F;不然就返回false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s&#x3D;&quot;[])&quot;;</span><br><span class="line">		IsValid i&#x3D;new IsValid();</span><br><span class="line">		System.out.println(i.isValid(s));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：s=”[])”<br>测试结果：false</p>
-<p>###2.4. LeetCode提交结果</p>
-<img src="/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>栈</tag>
-        <tag>字符串</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 200.岛屿数量[深度优先搜索]</title>
-    <url>/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[深度优先搜索]</em></p>
-<p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
-<p>岛屿总是被水包围，并且每座岛屿只能由水平方向或竖直方向上相邻的陆地连接形成。</p>
-<p>此外，你可以假设该网格的四条边均被水包围。</p>
-<a id="more"></a>
-
-<p><strong>示例 1:</strong></p>
-<p><strong>输入:</strong><br>[<br>[‘1’,’1’,’1’,’1’,’0’],<br>[‘1’,’1’,’0’,’1’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’0’,’0’,’0’]<br>]<br><strong>输出:</strong> 1</p>
-<p><strong>示例 2:</strong></p>
-<p><strong>输入:</strong><br>[<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’1’,’0’,’0’],<br>[‘0’,’0’,’0’,’1’,’1’]<br>]<br>*<em>输出: *</em>3<br>*<em>解释: *</em>每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 思路</strong><br>本题可以将数组看做一张图，对图进行遍历。</p>
-<p><strong>当遍历到一个位置值为’1’的时候，即代表该点是岛屿的一个点，从该点开始，对图进行深度优先搜索，将所有搜索到的点都置为’0’，代表这些是属于同一个岛屿的点，搜索完毕时，计数器count+1；</strong><br>继续遍历，由于上次搜索，属于同一岛屿的点全部被置为’0’了，所以以后只会搜索到其他岛屿了，遍历结束，返回计数count。</p>
-<p>我们也可以理解为<strong>“感染”</strong>的方式，即找到一个点为’1’时，对其周围的点递归进行<strong>“感染”</strong>，<strong>该点附近值同样为’1’的点被感染，值发生改变（可以置为不为’1’的任意值）</strong>，递归结束后，计数器count+1.</p>
-<p><strong>2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int numIslands(char[][] grid) &#123;</span><br><span class="line">        int count &#x3D; 0;&#x2F;&#x2F;计数器</span><br><span class="line">        for(int i &#x3D; 0;i &lt; grid.length;i++)&#123;</span><br><span class="line">            for(int j &#x3D; 0;j &lt; grid[0].length;j++)&#123;&#x2F;&#x2F;遍历</span><br><span class="line">                if(grid[i][j] &#x3D;&#x3D; &#39;1&#39;)&#123;&#x2F;&#x2F;如果一个点是岛屿点</span><br><span class="line">                    infect(grid,i,j);&#x2F;&#x2F;从该点开始，进行感染</span><br><span class="line">                    count++;&#x2F;&#x2F;感染完一整个岛屿后，计数器+1</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return count;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void infect(char[][] grid,int i ,int j)&#123;</span><br><span class="line">        if(i &lt; 0 || i &gt;&#x3D; grid.length || j &lt; 0 || j &gt;&#x3D;grid[0].length || grid[i][j] !&#x3D; &#39;1&#39;)&#123;</span><br><span class="line">            return;&#x2F;&#x2F;如果被感染的点超出边界或其值不为&#39;1&#39;，即代表该点不是岛屿了，不能感染，直接返回</span><br><span class="line">        &#125;</span><br><span class="line">        grid[i][j] &#x3D; &#39;2&#39;;&#x2F;&#x2F;将被感染的点置为非&#39;1&#39;值</span><br><span class="line">        infect(grid,i - 1,j);&#x2F;&#x2F;递归对该点周围四个点进行感染</span><br><span class="line">        infect(grid,i + 1,j);</span><br><span class="line">        infect(grid,i,j + 1);</span><br><span class="line">        infect(grid,i,j - 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>测试用例：</strong><br>[<br>[‘1’,’1’,’1’,’1’,’0’],<br>[‘1’,’1’,’0’,’1’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’0’,’0’,’0’]<br>]</p>
-<p><strong>测试结果：</strong>岛屿数量 = 1<br>结果正确。</p>
-<p><strong>2.3. LeetCode提交记录</strong></p>
-<img src="/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>深度优先搜索</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 21.合并两个有序链表[链表]</title>
-    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
-<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<a id="more"></a>
-
 
 <p><strong>示例：</strong></p>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
+<p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49</p>
 <hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
-<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
-<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
-<p>①. 两链表指针均从头开始。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 暴力解法</strong></p>
+<p>这题的暴力解法不难想到，使用两个指针分别从数组的前后逼近中间，分别求面积，再得到面积的最大值就行了。</p>
+<p><strong>两指针分别代表形成容器的左壁和右壁，而能装水的体积取决于：①. 左右壁高度的较小者；②. 左右壁之间的距离。</strong></p>
+<p><strong>那此时我们只需要遍历所有能形成容器的情况，即遍历所有可能出现的左右壁组合，将左右壁较小者乘上左右壁距离即可得到装水的体积。遍历过程中求出体积的最大值就行了。</strong></p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">	       int len &#x3D; height.length;</span><br><span class="line">	       int max &#x3D; 0;</span><br><span class="line">	       for(int i &#x3D; 0;i &lt; len - 1;i++)&#123;</span><br><span class="line">	           for(int j &#x3D; len - 1;j &gt; i ;j--)&#123;</span><br><span class="line">	               int water &#x3D; height[i] &gt; height[j] ? height[j] * (j - i) : height[i] * (j - i);</span><br><span class="line">	               max &#x3D; Math.max(max,water);</span><br><span class="line">	           &#125;</span><br><span class="line">	       &#125;</span><br><span class="line">	       return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result1.jpg" class title="提交记录">
 
-<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
 
-<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
+<hr>
+<p><strong>2.2. 优化解法</strong><br>我们知道，容器装水的体积的决定因素之一是<strong>容器左壁和右壁的长度较小者</strong>，所以我们在遍历所有左右壁组合的时候，<strong>固定长度较大的壁不动，将长度较小的壁向中间逼近</strong>。</p>
+<p><strong>因为体积取决于长度较小的壁，所以我们暂且不管长度较长的壁，只是使长度较小的壁的长度尽可能地长，从而面积也尽可能地大，省去了许多无用步骤。</strong></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">		int len &#x3D; height.length;</span><br><span class="line">        int max &#x3D; 0;</span><br><span class="line">        int left &#x3D; 0;</span><br><span class="line">        int right &#x3D; len - 1;</span><br><span class="line"></span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            int area &#x3D; Math.min(height[left],height[right]) * (right - left);</span><br><span class="line">            max &#x3D; Math.max(max,area);</span><br><span class="line"></span><br><span class="line">            if(height[left] &gt; height[right])&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result2.jpg" class title="提交记录">
 
-<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
+<p>发现在运行时间上，较上一种暴力解法快了许多。</p>
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 198.打家劫舍[动态规划]</title>
+    <url>/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
+<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+<a id="more"></a>
 
-<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
-<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
-<p><strong>###2.3. 完整代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
 
-<p>LeetCode提交记录：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
+<p><strong>示例 1：</strong></p>
+<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>     偷窃到的最高金额 = 1 + 3 = 4 。</p>
+<p><strong>示例 2：</strong></p>
+<p>输入：[2,7,9,3,1]<br>输出：12<br>解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。<br>     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</p>
+<p><strong>提示：</strong></p>
+<pre><code>0 &lt;= nums.length &lt;= 100
+0 &lt;= nums[i] &lt;= 400</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题显然可以使用动态规划来解决，是动态规划的经典题型。<br>①. 当房屋数组元素个数为0时，显然无房屋可偷，直接返回0；<br>②. 当有1个房屋时，该房屋的价值显然就是最大价值，返回他即可；<br>③. 当有2个房屋时，由题意可得，我们不能同时偷窃两个相邻的房屋，显然，我们只能偷这两个房屋中价值较大的那个，所以应返回两房屋价值的较大者；<br>④. 当偷到2个以上房屋时，我们就要考虑两种情况了，假设目前正准备偷第k间房屋（k&gt;2），我们会面临两个选择：<br>    1）偷第k间房屋，因为和第k-1间房间相邻，我们就不能偷第k-1间房屋，那此时我们可获得的总价值为前面已经做过选择的k-2间房屋的最大价值加上第k间房屋的价值；<br>    2）不偷第k间房屋，那第k-1间房屋就是可以偷窃的，那此时我们获得的总价值就是前面已做过选择的k-1间房屋的最大价值。<br>从2个选择中选择能获得价值较大的一项，将该价值作为处理这间房屋所获得的最大价值。<br>⑤. 对于每间房屋，都按照④的方法进行选择，对每间房屋都可以求出偷窃到该房屋时能获得的最大价值，放在dp数组中的对应位置；<br>⑥. 最后返回dp数组的最后一项，因为执行以上算法后，即对最后一间房屋做出选择后，获得的价值就是你能获得的最大价值了。</p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Rob &#123;</span><br><span class="line">	public static int rob(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;0)</span><br><span class="line">			return 0;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)</span><br><span class="line">			return nums[0];</span><br><span class="line">		if(nums.length&#x3D;&#x3D;2)</span><br><span class="line">			return nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		</span><br><span class="line">		int[] dp&#x3D;new int[nums.length];</span><br><span class="line">		dp[0]&#x3D;nums[0];</span><br><span class="line">		dp[1]&#x3D;nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		for(int i&#x3D;2;i&lt;nums.length;i++) &#123;</span><br><span class="line">			dp[i]&#x3D;dp[i-2]+nums[i]&gt;dp[i-1]?dp[i-2]+nums[i]:dp[i-1];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return dp[dp.length-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：各房子的价值&#x3D;&#123;2,7,9,3,1&#125;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,7,9,3,1&#125;;</span><br><span class="line">		int ans&#x3D;rob(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：房子的价值数组={2,7,9,3,1}<br>测试结果：最大价值=12</p>
+<hr>
+<p><strong>LeetCode提交记录：</strong></p>
+<img src="/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
 
 <hr>
 <p>如有错误，欢迎联系本人QQ：965299766</p>
@@ -1145,7 +863,70 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>链表</tag>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 120.三角形最小路径和[数组][动态规划]</title>
+    <url>/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][动态规划]</em></p>
+<p>给定一个三角形，找出自顶向下的最小路径和。每一步只能移动到下一行中相邻的结点上。</p>
+<p>相邻的结点 在这里指的是 下标 与 上一层结点下标 相同或者等于 上一层结点下标 + 1 的两个结点。</p>
+<a id="more"></a>
+
+<p><strong>例如，给定三角形：</strong></p>
+<p>[<br>     [2],<br>    [3,4],<br>   [6,5,7],<br>  [4,1,8,3]<br>]</p>
+<p>自顶向下的最小路径和为 11（即，2 + 3 + 5 + 1 = 11）。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>仍然是一道经典的动态规划题，貌似我还在学校的OJ上做过^^，只是当时我还不知道啥是动态规划，也忘了当时咋做的了。</p>
+<p><strong>①. 构建dp数组</strong><br>为了说明方便，我们将题目给定的三角形数组（triangle）列都一一对应好，这样看起来好看点，再创建一个规模和三角形数组一样的dp数组：</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.jpg" class title="图一">
+
+<hr>
+<p><strong>②. 这题的dp数组应该代表什么意思呢？</strong><br><strong>dp[i][j]代表：当从上至下走到这里的时候，我们可获得的最短路径。</strong><br>当然，前提是按规则走，且走到的地方，都必须有值（因为题目是三角形数组，而我们使用的是二维矩形数组，必然有右上方的部分格子没有值，我们不能走到没有值的地方去）。</p>
+<hr>
+<p><strong>③. 那我们是如何走的呢</strong><br><strong>那我们是如何走的呢？</strong><br>对于三角形数组，最上方的那一个格子，是我们的出发点，我们必须从出发点出发，所以对应dp数组的最上方那个格子的值，毫无疑问，就是三角形数组出发点的路径长度值。</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2.jpg" class title="图二">
+
+<p>对于其他的格子，我们可以分为两种情况：<br><strong>3.1. 边缘格子</strong><br>什么是边缘格子呢，就像这样：</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/3.jpg" class title="图三">
+
+<p>显然，边缘格子就是指处于三角形数组的边缘了，我们又可以分为左边缘格子和右边缘格子。<br>左边缘格子就是：除第一行外，每一行中列号为0的格子，也就是顶在数组最左边的那些格子；<br>右边缘格子就是：除第一行外，每一行中列号最大的格子，也就是顶在数组最右边的那些格子。</p>
+<p><strong>我们如何走到一个左边缘格子？</strong><br>显然，要走到一个左边缘格子，我们首先必须得在上一行的左边缘格子上，才能保证下一步能走到这一行的左边缘格子。<br><strong>即，要想走到triangle[i][0]，我们首先必须得在triangle[i-1][0]的位置上。</strong></p>
+<p><strong>dp数组也一样，即dp[i][0]=dp[i-1][0]+triangle[i][0]</strong></p>
+<p><strong>我们如何走到一个右边缘格子？</strong><br>一样的，要走到一个右边缘格子，首先得处在上一行的右边缘格子上。<br><strong>也就是说，要想走到triangle[i][i]，首先我们得处于triangle[i-1][i-1]上。</strong></p>
+<p><strong>dp数组也一样，即dp[i][i]=dp[i-1][i-1]+triangle[i][i]</strong></p>
+<p><strong>3.2. 普通格子</strong><br>除了第一行的格子和边缘格子，其他的就叫普通格子了。</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/4.jpg" class title="图四">
+
+<p><strong>我们如何走到一个普通格子上呢？</strong><br>根据规则，我们可以知道，从该格子的上一行同一列或者前一列的格子，可以走到该普通格子上，比如我们要走到5这个格子上：</p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/5.jpg" class title="图五">
+
+<p>我们只有处在3或4的位置上，才能让下一步走到5.</p>
+<p>而dp数组要求的是最短路径，我们将这两种走法的路径最小值填入dp数组：<br><strong>即dp[i][j]=min(dp[i-1][j]+triangle[i][j],dp[i-1][j-1]+triangle[i][j])</strong></p>
+<hr>
+<p><strong>④. 此时，我们可以写出dp数组的递推公式了</strong></p>
+<pre><code>dp[i][j] =    triangle[i][j]，当i=j=0时（第一格）
+            dp[i-1][0]，当i!=0，j=0时（左边缘）
+            dp[i-1][j-1]，当i!=0，j=i时（右边缘）
+            min(dp[i-1][j]+triangle[i][j],dp[i-1][j-1]+triangle[i][j])，当i!=0，j!=i时（普通格）</code></pre><hr>
+<p><strong>⑤. 获取答案</strong><br>dp数组填完后，如何获取最终的最短路径呢？<br>显然，走完后，答案必定在dp数组最后一行产生，我们只需要对dp数组最后一行进行排序，返回其中的最小值即可。</p>
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class MinimumTotal &#123;</span><br><span class="line">	public static int minimumTotal(List&lt;List&lt;Integer&gt;&gt; triangle) &#123;</span><br><span class="line">		int len&#x3D;triangle.size();&#x2F;&#x2F;len代表这个三角形共有几行</span><br><span class="line">		int[][] dp&#x3D;new int[len][len];&#x2F;&#x2F;动态规划数组，dp[i][j]代表走到第i行第j列时的最小路径长度</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i+1;j++) &#123;&#x2F;&#x2F;逐行逐个数判断</span><br><span class="line">				</span><br><span class="line">				if(i&#x3D;&#x3D;0&amp;&amp;j&#x3D;&#x3D;0) &#123;&#x2F;&#x2F;如果是第一行</span><br><span class="line">					dp[i][j]&#x3D;triangle.get(0).get(0);&#x2F;&#x2F;最小路径就是当前路径数组值</span><br><span class="line">				&#125;</span><br><span class="line">				else if(j&#x3D;&#x3D;0&amp;&amp;i!&#x3D;0) &#123;&#x2F;&#x2F;如果是第一列但不是第一行</span><br><span class="line">					dp[i][j]&#x3D;dp[i-1][j]+triangle.get(i).get(j);&#x2F;&#x2F;最小路径就是dp数组的上一行同列的值+路径数组当前值</span><br><span class="line">				&#125;</span><br><span class="line">				else if(j&#x3D;&#x3D;i&amp;&amp;i!&#x3D;0)&#123;&#x2F;&#x2F;如果是最后一列但不是第一行</span><br><span class="line">					dp[i][j]&#x3D;dp[i-1][j-1]+triangle.get(i).get(j);&#x2F;&#x2F;最小路径就是dp数组的上一行上一列的值+路径数组当前值</span><br><span class="line">				&#125;</span><br><span class="line">				else &#123;&#x2F;&#x2F;以上都不满足</span><br><span class="line">					dp[i][j]&#x3D;Math.min(dp[i-1][j]+triangle.get(i).get(j), dp[i-1][j-1]+triangle.get(i).get(j));&#x2F;&#x2F;最小路径就是两者的较小值</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(dp[len-1]);&#x2F;&#x2F;对dp数组最后一行排序</span><br><span class="line">		return dp[len-1][0];&#x2F;&#x2F;返回dp数组最后一行的最小值即为答案</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;*测试用例：[2],</span><br><span class="line">	    *						[3,4],</span><br><span class="line">	    *						[6,5,7],</span><br><span class="line">	   *						[4,1,8,3]</span><br><span class="line">	   *&#x2F;</span><br><span class="line">		List&lt;List&lt;Integer&gt;&gt; triangle&#x3D;new ArrayList&lt;List&lt;Integer&gt;&gt;() ;</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; one&#x3D;new ArrayList&lt;Integer&gt;() ;</span><br><span class="line">		one.add(2);</span><br><span class="line">		triangle.add(one);</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; two&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		two.add(3);</span><br><span class="line">		two.add(4);</span><br><span class="line">		triangle.add(two);</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; three&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		three.add(6);</span><br><span class="line">		three.add(5);</span><br><span class="line">		three.add(7);</span><br><span class="line">		triangle.add(three);</span><br><span class="line">		</span><br><span class="line">		List&lt;Integer&gt; four&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		four.add(4);</span><br><span class="line">		four.add(1);</span><br><span class="line">		four.add(8);</span><br><span class="line">		four.add(3);</span><br><span class="line">		triangle.add(four);</span><br><span class="line">		</span><br><span class="line">		int ans&#x3D;minimumTotal(triangle);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：<br>[2],<br>[3,4],<br>[6,5,7],<br>[4,1,8,3]</p>
+<p>测试结果：最短路径=11<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>数组</tag>
       </tags>
   </entry>
   <entry>
@@ -1215,6 +996,94 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
         <tag>哈希表</tag>
         <tag>字符串</tag>
         <tag>Sliding Window</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 20.有效的括号[栈]</title>
+    <url>/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][字符串]</em><br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<pre><code>左括号必须用相同类型的右括号闭合。
+左括号必须以正确的顺序闭合。</code></pre><p>注意空字符串可被认为是有效字符串。</p>
+<a id="more"></a>
+
+<p><strong>示例 1:</strong></p>
+<p>输入: “()”<br>输出: true</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: “()[]{}”<br>输出: true</p>
+<p><strong>示例 3:</strong></p>
+<p>输入: “(]”<br>输出: false</p>
+<p><strong>示例 4:</strong></p>
+<p>输入: “([)]”<br>输出: false</p>
+<p><strong>示例 5:</strong></p>
+<p>输入: “{[]}”<br>输出: true</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>###2.1. 介绍<br>本题是一道简单题，但是如果单纯地使用字符串方法做，很难做出来，因为本题对字符串挨个研究时，还需要考虑整个字符串的结构，这是难以做到的，比如输入s=“([)]”，显然小括号和中括号在这里是可以被匹配到的，即每个左括号都对应一个右括号，但这个的结果是false，因为他整体不满足正确的闭合顺序。<br>针对这种情况，使用“栈”这种数据结构就能帮助我们掌握字符串的整体结构，从而容易地解决问题。</p>
+<pre><code>在表示问题的递归结构时，栈数据结构可以派上用场。
+我们无法真正地从内到外处理这个问题，因为我们对整体结构一无所知。
+但是，栈可以帮助我们递归地处理这种情况，即从外部到内部。</code></pre><p>###2.2. 算法<br>①. 创建一个字符类型的栈stack，置为空；<br>②. 对于输入字符串s，挨个字符判断入栈；<br>③. 如果栈为空，则s的当前字符入栈，不进行任何判断；<br>④. 如果s的当前字符是右括号（右括号指 “)”,”]”或”}”），且栈不为空，则判断栈顶元素，如果是与当前字符匹配的左括号，这对匹配成功的括号抵消，表示为向栈中插入该字符，再把栈顶的两个元素删除，实际操作时可简化为不插入元素，只删除栈顶一个元素即可达到同样效果。<br>⑤. 如果插入的不是右括号，则直接入栈即可。<br>⑥. 最后判断栈是否为空，为空则表示所有括号全部匹配成功，都被抵消了，返回true；不为空则表示该字符串不符合题目要求，返回false。</p>
+<p>###2.3. 完整程序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Stack;</span><br><span class="line">public class IsValid &#123;</span><br><span class="line">	public boolean isValid(String s) &#123;</span><br><span class="line">        if(s.equals(&quot;&quot;))</span><br><span class="line">            return true;</span><br><span class="line">        else&#123;</span><br><span class="line">            Stack&lt;Character&gt; stack&#x3D;new Stack&lt;Character&gt;();&#x2F;&#x2F;字符类型的栈</span><br><span class="line">        	for(int i&#x3D;0;i&lt;s.length();i++) &#123;</span><br><span class="line">        		if(stack.isEmpty()) &#123;&#x2F;&#x2F;如果当前栈为空，直接插入，不执行下面的判断了</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        			continue;</span><br><span class="line">        		&#125;</span><br><span class="line">        		if(s.charAt(i)&#x3D;&#x3D;&#39;)&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;(&#39;)&#123;&#x2F;&#x2F;如果匹配成功，则这对括号同时抵消，即取出栈顶元素</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;]&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;[&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;&#125;&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;&#123;&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else &#123;&#x2F;&#x2F;如匹配失败，直接在栈中插入元素</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        		&#125;</span><br><span class="line">        	&#125;</span><br><span class="line">        	if(stack.isEmpty())&#x2F;&#x2F;如果最后栈为空，表示括号全部匹配成功，抵消成功</span><br><span class="line">        		return true;</span><br><span class="line">        &#125;</span><br><span class="line">		return false;&#x2F;&#x2F;不然就返回false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s&#x3D;&quot;[])&quot;;</span><br><span class="line">		IsValid i&#x3D;new IsValid();</span><br><span class="line">		System.out.println(i.isValid(s));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：s=”[])”<br>测试结果：false</p>
+<p>###2.4. LeetCode提交结果</p>
+<img src="/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>栈</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 21.合并两个有序链表[链表]</title>
+    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
+<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
+<a id="more"></a>
+
+
+<p><strong>示例：</strong></p>
+<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
+<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
+<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
+<p>①. 两链表指针均从头开始。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
+
+<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
+
+<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
+
+<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
+
+<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
+<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
+<p><strong>###2.3. 完整代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
+
+<p>LeetCode提交记录：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1379,72 +1248,14 @@ cold[i]=max(sell[i-1],cold[i-1]);
       </categories>
   </entry>
   <entry>
-    <title>LeetCode 53.最大子序和[数组][动态规划]</title>
-    <url>/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][动态规划]</em></p>
-<p>给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
-<a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<p>输入: [-2,1,-3,4,-1,2,1,-5,4],<br>输出: 6<br>解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 动态规划算法</strong><br>题目要求一个有一个最大和的连续子数组，返回其最大和。<br>对于输入的数组nums，我们可以令：f(i)代表以第i的数作为子数组的结尾时的最大和，很显然，本题的答案就是所有f(i)中的最大值。<br>我们又可以发现，f(i)是和f(i-1)是相关的（i不等于0的时候），我们又能够得知，当i=0时，f(i)=nums[0]。所以，我们可以得出求f(i)的递推公式：</p>
-<pre><code>f(i)=nums[0]，i=0时；
-f(i)=max(f[i-1]+nums[i],nums[i])，0&lt;i&lt;=nums.length时.</code></pre><p>实际程序中，我们将f(i)抽象成数组，分别求出f(i)的值后，取其中最大值最为结果即可。<br>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxSubArray &#123;</span><br><span class="line">	public static int maxSubArray(int[] nums) &#123;</span><br><span class="line">		int save[]&#x3D;new int[nums.length];</span><br><span class="line">		save[0]&#x3D;nums[0];</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;1;i&lt;nums.length;i++) &#123;</span><br><span class="line">			save[i]&#x3D;(save[i-1]+nums[i])&gt;nums[i]?(save[i-1]+nums[i]):nums[i];&#x2F;&#x2F;套用递推公式</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		int max&#x3D;Integer.MIN_VALUE;</span><br><span class="line">		for(int i&#x3D;0;i&lt;save.length;i++) &#123;&#x2F;&#x2F;求出save数组的最大值</span><br><span class="line">			if(save[i]&gt;max)</span><br><span class="line">				max&#x3D;save[i];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return max;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums[]&#x3D;&#123;-2,1,-3,4,-1,2,1,-5,4&#125;</span><br><span class="line">		int nums[]&#x3D;new int[] &#123;-2,1,-3,4,-1,2,1,-5,4&#125;;</span><br><span class="line">		int ans&#x3D;maxSubArray(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：nums[]={-2,1,-3,4,-1,2,1,-5,4}<br>测试结果：6</p>
-<hr>
-<p>LeetCode提交记录：</p>
-<img src="/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result1.jpg" class title="提交记录">
-
-
-<hr>
-<p><strong>###2.2. 小小的优化</strong><br>本题对f(i)创建数组的用途仅仅是用来求其中的最大值，针对本题，我们可以在套用公式求每个f(i)的时候同时求出最大值，这样就不用创建数组了。<br>程序如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxSubArray &#123;</span><br><span class="line">	public static int maxSubArray(int[] nums) &#123;</span><br><span class="line">		int ls&#x3D;nums[0];</span><br><span class="line">		int max&#x3D;ls;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;1;i&lt;nums.length;i++) &#123;</span><br><span class="line">			ls&#x3D;ls+nums[i]&gt;nums[i]?ls+nums[i]:nums[i];</span><br><span class="line">			max&#x3D;ls&gt;max?ls:max;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		return max;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums[]&#x3D;&#123;-2,1,-3,4,-1,2,1,-5,4&#125;</span><br><span class="line">		int nums[]&#x3D;new int[] &#123;-2,1,-3,4,-1,2,1,-5,4&#125;;</span><br><span class="line">		int ans&#x3D;maxSubArray(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>LeetCode提交记录：</p>
-<img src="/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result2.jpg" class title="提交记录">
-<p>时间消耗降低了。</p>
-<h2 id="此外，本题还可以使用分治法解决。"><a href="#此外，本题还可以使用分治法解决。" class="headerlink" title="此外，本题还可以使用分治法解决。"></a>此外，本题还可以使用分治法解决。</h2><p>如有错误，欢迎联系本人QQ：965299766</p>
+    <title>hello world</title>
+    <url>/2020/07/03/hello-world/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;Hello World!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>This is a test file.<br>YYY<br>BBB</p>
 ]]></content>
       <categories>
-        <category>LeetCode</category>
+        <category>其他</category>
       </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
-    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
-<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
-<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
-<a id="more"></a>
-
-<p><strong>示例 1:</strong></p>
-<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
-<p><strong>注意:</strong></p>
-<p>   输入的字符串长度不会超过1000。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
-        <tag>字符串</tag>
-      </tags>
   </entry>
   <entry>
     <title>LeetCode 70.爬楼梯[动态规划]</title>
@@ -1496,14 +1307,228 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       </tags>
   </entry>
   <entry>
-    <title>hello world</title>
-    <url>/2020/07/03/hello-world/</url>
-    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class HelloWorld &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		System.out.println(&quot;Hello World!&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>This is a test file.<br>YYY<br>BBB</p>
+    <title>大家好辣</title>
+    <url>/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
+<img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
+
+<hr>
 ]]></content>
       <categories>
         <category>其他</category>
       </categories>
+  </entry>
+  <entry>
+    <title>LeetCode 53.最大子序和[数组][动态规划]</title>
+    <url>/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][动态规划]</em></p>
+<p>给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。</p>
+<a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<p>输入: [-2,1,-3,4,-1,2,1,-5,4],<br>输出: 6<br>解释: 连续子数组 [4,-1,2,1] 的和最大，为 6。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 动态规划算法</strong><br>题目要求一个有一个最大和的连续子数组，返回其最大和。<br>对于输入的数组nums，我们可以令：f(i)代表以第i的数作为子数组的结尾时的最大和，很显然，本题的答案就是所有f(i)中的最大值。<br>我们又可以发现，f(i)是和f(i-1)是相关的（i不等于0的时候），我们又能够得知，当i=0时，f(i)=nums[0]。所以，我们可以得出求f(i)的递推公式：</p>
+<pre><code>f(i)=nums[0]，i=0时；
+f(i)=max(f[i-1]+nums[i],nums[i])，0&lt;i&lt;=nums.length时.</code></pre><p>实际程序中，我们将f(i)抽象成数组，分别求出f(i)的值后，取其中最大值最为结果即可。<br>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxSubArray &#123;</span><br><span class="line">	public static int maxSubArray(int[] nums) &#123;</span><br><span class="line">		int save[]&#x3D;new int[nums.length];</span><br><span class="line">		save[0]&#x3D;nums[0];</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;1;i&lt;nums.length;i++) &#123;</span><br><span class="line">			save[i]&#x3D;(save[i-1]+nums[i])&gt;nums[i]?(save[i-1]+nums[i]):nums[i];&#x2F;&#x2F;套用递推公式</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		int max&#x3D;Integer.MIN_VALUE;</span><br><span class="line">		for(int i&#x3D;0;i&lt;save.length;i++) &#123;&#x2F;&#x2F;求出save数组的最大值</span><br><span class="line">			if(save[i]&gt;max)</span><br><span class="line">				max&#x3D;save[i];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return max;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums[]&#x3D;&#123;-2,1,-3,4,-1,2,1,-5,4&#125;</span><br><span class="line">		int nums[]&#x3D;new int[] &#123;-2,1,-3,4,-1,2,1,-5,4&#125;;</span><br><span class="line">		int ans&#x3D;maxSubArray(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：nums[]={-2,1,-3,4,-1,2,1,-5,4}<br>测试结果：6</p>
+<hr>
+<p>LeetCode提交记录：</p>
+<img src="/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result1.jpg" class title="提交记录">
+
+
+<hr>
+<p><strong>###2.2. 小小的优化</strong><br>本题对f(i)创建数组的用途仅仅是用来求其中的最大值，针对本题，我们可以在套用公式求每个f(i)的时候同时求出最大值，这样就不用创建数组了。<br>程序如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxSubArray &#123;</span><br><span class="line">	public static int maxSubArray(int[] nums) &#123;</span><br><span class="line">		int ls&#x3D;nums[0];</span><br><span class="line">		int max&#x3D;ls;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;1;i&lt;nums.length;i++) &#123;</span><br><span class="line">			ls&#x3D;ls+nums[i]&gt;nums[i]?ls+nums[i]:nums[i];</span><br><span class="line">			max&#x3D;ls&gt;max?ls:max;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		return max;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums[]&#x3D;&#123;-2,1,-3,4,-1,2,1,-5,4&#125;</span><br><span class="line">		int nums[]&#x3D;new int[] &#123;-2,1,-3,4,-1,2,1,-5,4&#125;;</span><br><span class="line">		int ans&#x3D;maxSubArray(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>LeetCode提交记录：</p>
+<img src="/2020/07/05/LeetCode-53-%E6%9C%80%E5%A4%A7%E5%AD%90%E5%BA%8F%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%88%86%E6%B2%BB%E6%B3%95-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result2.jpg" class title="提交记录">
+<p>时间消耗降低了。</p>
+<h2 id="此外，本题还可以使用分治法解决。"><a href="#此外，本题还可以使用分治法解决。" class="headerlink" title="此外，本题还可以使用分治法解决。"></a>此外，本题还可以使用分治法解决。</h2><p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 19.删除链表的倒数第N个节点[链表][双指针]</title>
+    <url>/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][双指针]</em></p>
+<p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
+<p><strong>示例：</strong></p>
+<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</p>
+<p>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p>
+<p><strong>说明：</strong></p>
+<p>给定的 n 保证是有效的。</p>
+<a id="more"></a>
+
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 常规解法</strong><br>看到这题最容易想到的解法就是遍历两次链表。<br><strong>第一次遍历可以获取到链表的长度len。</strong><br><strong>第二次遍历，当遍历到第 (len - n) 个结点时，删除该结点的下一结点。最后返回head即可。</strong></p>
+<hr>
+<p><strong>2.2. 双指针解法</strong><br>题目告知我们n必定是有效的，不会出现<strong>n大于链表长度</strong>的情况。<br>我们可以采用<strong>双指针</strong>的方法来解决本问题。</p>
+<p><strong>①. 定义两个指针p和q，同时指向head结点；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/1.jpg" class title="图一">
+
+<p><strong>②. 让p指针先往后移动n个结点，q指针不动；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/2.jpg" class title="图二">
+
+<p><strong>③. 然后p，q指针同时向后移动，直到p指针的下一结点为null时停止；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/3.jpg" class title="图三">
+
+<p><strong>④. 此时发现q的下一结点正是我们要删除的结点；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/4.jpg" class title="图四">
+
+<p><strong>⑤. 删除成功后返回head结点作为答案。</strong></p>
+<hr>
+<p><strong>2.3. 存在的问题</strong><br>这种方法在极端情况下有潜在的问题：</p>
+<p><strong>当我们要删除的结点正好是head结点</strong>时，怎么办？</p>
+<p>举个例子：<br>给定链表 = [1,2]，n = 2，</p>
+<p><strong>p结点从head结点出发，移动n = 2位后，已经指向了null了，此时我们无法判断null的下一结点是不是null，就会报找不到指针的错误。</strong></p>
+<hr>
+<p><strong>2.4. 解决方案</strong><br>解决方法也很简单，<br><strong>设置一个 “哑结点” d，他指向的下一个结点是head结点，此时就不会出现上述错误。</strong></p>
+<p><strong>①. 设置“哑结点”d，他的下一个结点指向的是head；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/5.jpg" class title="图五">
+
+<p><strong>②. p结点向后移动n位；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/6.jpg" class title="图六">
+
+<p><strong>③. p，q结点同时移动，直到p结点的下一结点为null；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/7.jpg" class title="图七">
+
+<p><strong>④. 删除q结点的下一结点，也就是head结点；</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/8.jpg" class title="图八">
+
+<p><strong>⑤. 注意：此时返回的答案就不是哑结点d了，而是d.next。</strong></p>
+<hr>
+<h2 id="3-具体代码"><a href="#3-具体代码" class="headerlink" title="##3. 具体代码"></a>##3. 具体代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;**</span><br><span class="line"> * Definition for singly-linked list.</span><br><span class="line"> * public class ListNode &#123;</span><br><span class="line"> *     int val;</span><br><span class="line"> *     ListNode next;</span><br><span class="line"> *     ListNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line"> * &#125;</span><br><span class="line"> *&#x2F;</span><br><span class="line">class Solution &#123;</span><br><span class="line">    public ListNode removeNthFromEnd(ListNode head, int n) &#123;</span><br><span class="line">        ListNode d &#x3D; new ListNode(0);</span><br><span class="line">        d.next &#x3D; head;&#x2F;&#x2F;哑结点d</span><br><span class="line"></span><br><span class="line">        ListNode p &#x3D; d;</span><br><span class="line">        ListNode q &#x3D; null;</span><br><span class="line"></span><br><span class="line">        while(n !&#x3D; 0)&#123;&#x2F;&#x2F;p向后移动n位</span><br><span class="line">            p &#x3D; p.next;</span><br><span class="line">            n--;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        q &#x3D; d;</span><br><span class="line">        while(p.next !&#x3D; null)&#123;&#x2F;&#x2F;p，q同时移动直到p的下一结点为null</span><br><span class="line">            p &#x3D; p.next;</span><br><span class="line">            q &#x3D; q.next;</span><br><span class="line">        &#125;</span><br><span class="line">        q.next &#x3D; q.next.next;&#x2F;&#x2F;删除q的下一结点</span><br><span class="line">        return d.next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：链表 = 1-&gt;2-&gt;3-&gt;4-&gt;5，n = 2<br>测试结果：1-&gt;2-&gt;3-&gt;5<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 169.多数元素[数组]</title>
+    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
+<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
+<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
+<a id="more"></a>
+
+
+<p><strong>示例 1:</strong></p>
+<p>输入: [3,2,3]<br>输出: 3</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
+<p><strong>###2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
+<p><strong>###2.3. LeetCode提交记录</strong></p>
+<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 647.回文子串[字符串][动态规划]</title>
+    <url>/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
+<p>给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。</p>
+<p>具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被计为是不同的子串。</p>
+<a id="more"></a>
+
+<p><strong>示例 1:</strong></p>
+<p>输入: “abc”<br>输出: 3<br>解释: 三个回文子串: “a”, “b”, “c”.</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: “aaa”<br>输出: 6<br>说明: 6个回文子串: “a”, “a”, “a”, “aa”, “aa”, “aaa”.</p>
+<p><strong>注意:</strong></p>
+<p>   输入的字符串长度不会超过1000。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题也是一道动态规划题，和第5题是重复的，只不过本题是求回文子串的个数，第5题求的是最长的回文子串，代码都是几乎一样的，连接在这：<br><a href="https://a965299766.github.io/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" target="_blank" rel="noopener">LeetCode 5.最长回文串[字符串][动态规划]</a></p>
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class CountSubstrings &#123;</span><br><span class="line">	public static int countSubstrings(String s) &#123;</span><br><span class="line">		int len&#x3D;s.length();</span><br><span class="line">		if(len&lt;2)</span><br><span class="line">			return len;</span><br><span class="line">		</span><br><span class="line">		boolean[][] dp&#x3D;new boolean[len][len];</span><br><span class="line">		int count&#x3D;0;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			dp[i][i]&#x3D;true;</span><br><span class="line">			count++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0;i&lt;len;i++) &#123;</span><br><span class="line">			for(int j&#x3D;0;j&lt;i;j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if(s.charAt(i)&#x3D;&#x3D;s.charAt(j)) &#123;</span><br><span class="line">					</span><br><span class="line">					if(i-j+1&lt;3) &#123;</span><br><span class="line">						dp[i][j]&#x3D;true;</span><br><span class="line">					&#125;else &#123;</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">							</span><br><span class="line">					</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">					dp[i][j]&#x3D;false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				if(dp[i][j]&#x3D;&#x3D;true)</span><br><span class="line">					count++;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return count;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：s&#x3D;&quot;aaa&quot;</span><br><span class="line">		String s&#x3D;&quot;aaa&quot;;</span><br><span class="line">		System.out.println(countSubstrings(s));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：s=”aaa”<br>测试结果：回文子串个数：6<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/11/LeetCode-647-%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+        <tag>字符串</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>编译原理[9.17-]</title>
+    <url>/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/</url>
+    <content><![CDATA[<p><strong>接上文 <a href="https://dulaogou.vip/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/" target="_blank" rel="noopener">编译原理9.1-9.15</a></strong></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题"><a href="#1-不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题" class="headerlink" title="##1. 不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题"></a>##1. 不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题</h2><img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/1.jpg" class title="图1">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/2.jpg" class title="图2">
+
+<hr>
+<h2 id="2-最小化一个DFA的状态数"><a href="#2-最小化一个DFA的状态数" class="headerlink" title="##2. 最小化一个DFA的状态数"></a>##2. 最小化一个DFA的状态数</h2><p>通过上面的算法，我们成功地将一个不确定的有穷自动机（NFA）转化为一个确定的有穷自动机（DFA），但这样的DFA是可能存在<strong>冗余</strong>的，即<br><strong>有两个或两个以上的状态，他们经过相同标号的弧到达的结点是相同的，即他们两个或多个状态结点，在功能上是完全相同的。</strong><br>这时，我们应该删除若干冗余结点，使得DFA的结点数尽可能的少，达到简化的效果。</p>
+<p>如结点A通过字符1的弧，能够到达结点C，<br>结点B通过字符1的弧，也能够到达结点C，<br>此外，结点A和B没有其他的弧能到达其他结点，这时，我们认为结点A和B在功能上是一样的，我们应该删除其中一个，保留另一个。</p>
+<hr>
+<p>###2.1. 算法描述</p>
+<p>算法的基本步骤是：<br>①. <strong>划分两个状态组：</strong>一组为<strong>终止态组成的集合</strong>（这里我们称为<strong>“接受状态组”</strong>），另一组为<strong>其他状态组成的集合</strong>（称为<strong>“非接受状态组”</strong>）。</p>
+<p>②. <strong>选取非接受状态组A，并选定某个输入符号a，检查a是否能区分A组中的某些状态。</strong>即若A状态组中有一部分状态A1经过标号为a的弧，能够到达一组集合B，而A中另一部分状态A2经过标号为a的弧，能到达另外一组集合C。<strong>此时，我们把A1和A2从A中分割开。</strong></p>
+<p>③. <strong>再选定某个输入符号b，重复②的分割过程，直到无法根据某个符号对一组状态进行分割为止。</strong>此时，原先的大状态组A被分割成了许多小的状态组A1,A2,A3……An，任意一个小的状态组中的所有状态，对于一个特定的输入符号，他们的行动都是一致的。</p>
+<p>④. <strong>对于每个小的状态组，选取其中一个状态作为代表，删除组内其他的状态。</strong></p>
+<p>⑤. <strong>如果有能够到达被删除状态的结点，将该结点连接至被删除状态结点的代表结点。</strong><br>如结点1通过字符a能到达结点3，结点2能通过字符a能到达结点4，经过上述算法，假设我们得出：结点3，4属于同一状态组，我们就要选出代表结点3，删除冗余结点4，那此时，结点2本来是指向4的，但是结点4被删除了，我们就把结点2指向结点4的代表结点3即可。</p>
+<p><strong>此时，完成了简化算法</strong>。</p>
+<hr>
+<p>###2.2. 一道例题</p>
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/3.jpg" class title="图1">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/4.jpg" class title="图2">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/5.jpg" class title="图3">
+
+<hr>
+<h2 id="3-从正则表达式构造NFA"><a href="#3-从正则表达式构造NFA" class="headerlink" title="##3. 从正则表达式构造NFA"></a>##3. 从正则表达式构造NFA</h2><p>给出一个正则表达式，如何画出对应的状态图？</p>
+<p>正则表达式的三种运算分别是<strong>连接运算A×B</strong>， <strong>或运算A|B</strong>， 闭包运算<strong>A*</strong>，分别转化为状态图为：</p>
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/6.jpg" class title="正则表达式转换为NFA">
+
+<hr>
+<h2 id="4-一道作业题"><a href="#4-一道作业题" class="headerlink" title="##4. 一道作业题"></a>##4. 一道作业题</h2><img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/7.jpg" class title="图1">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/8.jpg" class title="图2">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/9.jpg" class title="图3">
+
+<hr>
+<h2 id="5-相关链接"><a href="#5-相关链接" class="headerlink" title="##5. 相关链接"></a>##5. 相关链接</h2><p><strong><a href="https://dulaogou.vip/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/" target="_blank" rel="noopener">编译原理9.1-9.15</a></strong></p>
+]]></content>
+      <categories>
+        <category>编译原理</category>
+      </categories>
+      <tags>
+        <tag>编译原理</tag>
+      </tags>
   </entry>
   <entry>
     <title>剑指 Offer 03. 数组中重复的数字[数组]</title>
@@ -1574,16 +1599,38 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       </tags>
   </entry>
   <entry>
-    <title>大家好辣</title>
-    <url>/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
-<img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
+    <title>LeetCode 200.岛屿数量[深度优先搜索]</title>
+    <url>/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[深度优先搜索]</em></p>
+<p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
+<p>岛屿总是被水包围，并且每座岛屿只能由水平方向或竖直方向上相邻的陆地连接形成。</p>
+<p>此外，你可以假设该网格的四条边均被水包围。</p>
+<a id="more"></a>
+
+<p><strong>示例 1:</strong></p>
+<p><strong>输入:</strong><br>[<br>[‘1’,’1’,’1’,’1’,’0’],<br>[‘1’,’1’,’0’,’1’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’0’,’0’,’0’]<br>]<br><strong>输出:</strong> 1</p>
+<p><strong>示例 2:</strong></p>
+<p><strong>输入:</strong><br>[<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’1’,’0’,’0’],<br>[‘0’,’0’,’0’,’1’,’1’]<br>]<br>*<em>输出: *</em>3<br>*<em>解释: *</em>每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 思路</strong><br>本题可以将数组看做一张图，对图进行遍历。</p>
+<p><strong>当遍历到一个位置值为’1’的时候，即代表该点是岛屿的一个点，从该点开始，对图进行深度优先搜索，将所有搜索到的点都置为’0’，代表这些是属于同一个岛屿的点，搜索完毕时，计数器count+1；</strong><br>继续遍历，由于上次搜索，属于同一岛屿的点全部被置为’0’了，所以以后只会搜索到其他岛屿了，遍历结束，返回计数count。</p>
+<p>我们也可以理解为<strong>“感染”</strong>的方式，即找到一个点为’1’时，对其周围的点递归进行<strong>“感染”</strong>，<strong>该点附近值同样为’1’的点被感染，值发生改变（可以置为不为’1’的任意值）</strong>，递归结束后，计数器count+1.</p>
+<p><strong>2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int numIslands(char[][] grid) &#123;</span><br><span class="line">        int count &#x3D; 0;&#x2F;&#x2F;计数器</span><br><span class="line">        for(int i &#x3D; 0;i &lt; grid.length;i++)&#123;</span><br><span class="line">            for(int j &#x3D; 0;j &lt; grid[0].length;j++)&#123;&#x2F;&#x2F;遍历</span><br><span class="line">                if(grid[i][j] &#x3D;&#x3D; &#39;1&#39;)&#123;&#x2F;&#x2F;如果一个点是岛屿点</span><br><span class="line">                    infect(grid,i,j);&#x2F;&#x2F;从该点开始，进行感染</span><br><span class="line">                    count++;&#x2F;&#x2F;感染完一整个岛屿后，计数器+1</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return count;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void infect(char[][] grid,int i ,int j)&#123;</span><br><span class="line">        if(i &lt; 0 || i &gt;&#x3D; grid.length || j &lt; 0 || j &gt;&#x3D;grid[0].length || grid[i][j] !&#x3D; &#39;1&#39;)&#123;</span><br><span class="line">            return;&#x2F;&#x2F;如果被感染的点超出边界或其值不为&#39;1&#39;，即代表该点不是岛屿了，不能感染，直接返回</span><br><span class="line">        &#125;</span><br><span class="line">        grid[i][j] &#x3D; &#39;2&#39;;&#x2F;&#x2F;将被感染的点置为非&#39;1&#39;值</span><br><span class="line">        infect(grid,i - 1,j);&#x2F;&#x2F;递归对该点周围四个点进行感染</span><br><span class="line">        infect(grid,i + 1,j);</span><br><span class="line">        infect(grid,i,j + 1);</span><br><span class="line">        infect(grid,i,j - 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>测试用例：</strong><br>[<br>[‘1’,’1’,’1’,’1’,’0’],<br>[‘1’,’1’,’0’,’1’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’0’,’0’,’0’]<br>]</p>
+<p><strong>测试结果：</strong>岛屿数量 = 1<br>结果正确。</p>
+<p><strong>2.3. LeetCode提交记录</strong></p>
+<img src="/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/result.jpg" class title="提交记录">
 
 <hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
 ]]></content>
       <categories>
-        <category>其他</category>
+        <category>LeetCode</category>
       </categories>
+      <tags>
+        <tag>深度优先搜索</tag>
+      </tags>
   </entry>
   <entry>
     <title>编译原理[9.1-9.15]</title>
@@ -1705,53 +1752,6 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
 <p>如本题，原状态机的终止态是结点g，那么新状态机中，只要包含g结点的新状态就是新的终止态，本题中新状态F包含旧状态g，那么F结点就是新状态机的终止态（图中未标注，应该给F结点画上双重圈）。</p>
 <hr>
 <h2 id="8-相关链接"><a href="#8-相关链接" class="headerlink" title="##8. 相关链接"></a>##8. 相关链接</h2><p><strong><a href="https://dulaogou.vip/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/" target="_blank" rel="noopener">编译原理9.17-</a></strong></p>
-]]></content>
-      <categories>
-        <category>编译原理</category>
-      </categories>
-      <tags>
-        <tag>编译原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>编译原理[9.17-]</title>
-    <url>/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/</url>
-    <content><![CDATA[<p><strong>接上文 <a href="https://dulaogou.vip/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/" target="_blank" rel="noopener">编译原理9.1-9.15</a></strong></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题"><a href="#1-不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题" class="headerlink" title="##1. 不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题"></a>##1. 不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题</h2><img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/1.jpg" class title="图1">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/2.jpg" class title="图2">
-
-<hr>
-<h2 id="2-最小化一个DFA的状态数"><a href="#2-最小化一个DFA的状态数" class="headerlink" title="##2. 最小化一个DFA的状态数"></a>##2. 最小化一个DFA的状态数</h2><p>通过上面的算法，我们成功地将一个不确定的有穷自动机（NFA）转化为一个确定的有穷自动机（DFA），但这样的DFA是可能存在<strong>冗余</strong>的，即<br><strong>有两个或两个以上的状态，他们经过相同标号的弧到达的结点是相同的，即他们两个或多个状态结点，在功能上是完全相同的。</strong><br>这时，我们应该删除若干冗余结点，使得DFA的结点数尽可能的少，达到简化的效果。</p>
-<p>如结点A通过字符1的弧，能够到达结点C，<br>结点B通过字符1的弧，也能够到达结点C，<br>此外，结点A和B没有其他的弧能到达其他结点，这时，我们认为结点A和B在功能上是一样的，我们应该删除其中一个，保留另一个。</p>
-<hr>
-<p>###2.1. 算法描述</p>
-<p>算法的基本步骤是：<br>①. <strong>划分两个状态组：</strong>一组为<strong>终止态组成的集合</strong>（这里我们称为<strong>“接受状态组”</strong>），另一组为<strong>其他状态组成的集合</strong>（称为<strong>“非接受状态组”</strong>）。</p>
-<p>②. <strong>选取非接受状态组A，并选定某个输入符号a，检查a是否能区分A组中的某些状态。</strong>即若A状态组中有一部分状态A1经过标号为a的弧，能够到达一组集合B，而A中另一部分状态A2经过标号为a的弧，能到达另外一组集合C。<strong>此时，我们把A1和A2从A中分割开。</strong></p>
-<p>③. <strong>再选定某个输入符号b，重复②的分割过程，直到无法根据某个符号对一组状态进行分割为止。</strong>此时，原先的大状态组A被分割成了许多小的状态组A1,A2,A3……An，任意一个小的状态组中的所有状态，对于一个特定的输入符号，他们的行动都是一致的。</p>
-<p>④. <strong>对于每个小的状态组，选取其中一个状态作为代表，删除组内其他的状态。</strong></p>
-<p>⑤. <strong>如果有能够到达被删除状态的结点，将该结点连接至被删除状态结点的代表结点。</strong><br>如结点1通过字符a能到达结点3，结点2能通过字符a能到达结点4，经过上述算法，假设我们得出：结点3，4属于同一状态组，我们就要选出代表结点3，删除冗余结点4，那此时，结点2本来是指向4的，但是结点4被删除了，我们就把结点2指向结点4的代表结点3即可。</p>
-<p><strong>此时，完成了简化算法</strong>。</p>
-<hr>
-<p>###2.2. 一道例题</p>
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/3.jpg" class title="图1">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/4.jpg" class title="图2">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/5.jpg" class title="图3">
-
-<hr>
-<h2 id="3-从正则表达式构造NFA"><a href="#3-从正则表达式构造NFA" class="headerlink" title="##3. 从正则表达式构造NFA"></a>##3. 从正则表达式构造NFA</h2><p>给出一个正则表达式，如何画出对应的状态图？</p>
-<p>正则表达式的三种运算分别是<strong>连接运算A×B</strong>， <strong>或运算A|B</strong>， 闭包运算<strong>A*</strong>，分别转化为状态图为：</p>
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/6.jpg" class title="正则表达式转换为NFA">
-
-<hr>
-<h2 id="4-一道作业题"><a href="#4-一道作业题" class="headerlink" title="##4. 一道作业题"></a>##4. 一道作业题</h2><img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/7.jpg" class title="图1">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/8.jpg" class title="图2">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/9.jpg" class title="图3">
-
-<hr>
-<h2 id="5-相关链接"><a href="#5-相关链接" class="headerlink" title="##5. 相关链接"></a>##5. 相关链接</h2><p><strong><a href="https://dulaogou.vip/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/" target="_blank" rel="noopener">编译原理9.1-9.15</a></strong></p>
 ]]></content>
       <categories>
         <category>编译原理</category>
