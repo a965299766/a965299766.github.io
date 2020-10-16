@@ -137,6 +137,57 @@
       </tags>
   </entry>
   <entry>
+    <title>Java集合-Map和HashMap[Java知识点]</title>
+    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>相较于线性的集合如List，Queue，LinkedList之类的集合，Map和HashMap则是另一种完全不同的数据存储方式：键-值对。</strong></p>
+<p><strong>也就是说，在Map中，数据并不是List中那样单个出现，互相不关联，而是成对出现，比如在一个Map中，我们这样记录数据：{1=5,2=10}，注意：这里的1=5,2=10并非数学上的等号关系，而是“对应”的关系，1和5是一对，2和10是一对。</strong></p>
+<p><strong>在Map中，一对数据a=b，其中我们称a为“关键字（key）”或“键”，b为“值（value）”，键在Map中是唯一的，我们可以通过键来查找他对应的值。</strong><br>在应用中，我们常常使用Map来保存一些数据，如：统计每种商品的数量时，我们就可以使用Map，其中key为商品编号，对应的value为商品出现数量。这样做可以减少程序员的工作量。</p>
+<p><strong>HashMap使用哈希算法对键去重复，效率高，但是无序。</strong><br><strong>Map是接口，HashMap是Map的主要实现类。定义方式：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;定义一个键和值类型都是Integer类型的map和hashmap</span><br><span class="line">Map&lt;Integer,Integer&gt; map&#x3D;new HashMap&lt;Integer,Integer&gt;();</span><br><span class="line">&#x2F;&#x2F;或者</span><br><span class="line">HashMap&lt;Integer,Integer&gt; hashmap&#x3D;new HashMap&lt;Integer,Integer&gt;();</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-Map的常用方法"><a href="#1-Map的常用方法" class="headerlink" title="##1. Map的常用方法"></a>##1. Map的常用方法</h2><p><strong>E put(E key, E value)</strong></p>
+<pre><code>在map中插入键-值对，key为关键字，value为对应值
+如果map中已存在该关键字，则修改其对应值为value
+如果是新插入的键值对，返回值为null
+如果是修改了原关键字的对应值，返回值为被修改的value值</code></pre><p><strong>E putIfAbsent(E key, E value)</strong></p>
+<pre><code>如果map中不存在关键字key，则插入该键值对，并返回null
+如果已存在，什么也不做，返回-1</code></pre><p><strong>boolean containsKey(Object key)</strong></p>
+<pre><code>判断map中是否存在关键字为key的键值对
+存在则返回true，否则false</code></pre><p><strong>boolean containsValue(Object value)</strong></p>
+<pre><code>判断map中是否存在对应值为value的键值对
+存在则返回true，否则false</code></pre><p><strong>E get(Object key)</strong></p>
+<pre><code>获取map中关键字为key的对应值
+未找到则返回null</code></pre><p><strong>boolean isEmpty()</strong></p>
+<pre><code>判断map是否为空</code></pre><p><strong>int size()</strong></p>
+<pre><code>返回map中的元素个数</code></pre><p><strong>E remove(Object key)</strong></p>
+<pre><code>删除map中关键字为key的元素
+返回被删除的key的对应值
+未找到则返回null</code></pre><p><strong>boolean remove(Object key, Object value)</strong></p>
+<pre><code>删除map中关键字为key且值为value的元素
+成功则返回true，失败返回false</code></pre><p><strong>E replace(E key, E value)</strong></p>
+<pre><code>将map中，关键字为key的对应值改为value
+返回被修改的值，未找到则返回null</code></pre><p><strong>boolean replace(E key, E oldValue, E newValue)</strong></p>
+<pre><code>将map中，关键字为key且值为oldValue的元素的值修改为newValue
+修改成功返回true，失败返回false</code></pre><p><strong>void clear()</strong></p>
+<pre><code>清空map数据</code></pre><hr>
+<h2 id="2-测试代码"><a href="#2-测试代码" class="headerlink" title="##2. 测试代码"></a>##2. 测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class TestMap &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Map&lt;Integer, Integer&gt; map&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		map.put(1, -1);</span><br><span class="line">		map.put(5, -5);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;在map中插入键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.containsKey(1));&#x2F;&#x2F;map中是否存在关键字</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		System.out.println(map.containsValue(-5));&#x2F;&#x2F;map中是否存在值</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line"></span><br><span class="line">		map.putIfAbsent(1, -2);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;如果存在关键字，则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.putIfAbsent(3, -3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;如果不存在关键字，则插入键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 3&#x3D;-3, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.get(3));&#x2F;&#x2F;返回关键字对应的值</span><br><span class="line">		&#x2F;&#x2F;输出：-3</span><br><span class="line">		System.out.println(map.get(7));&#x2F;&#x2F;不存在就返回null</span><br><span class="line">		&#x2F;&#x2F;输出：null</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.isEmpty());&#x2F;&#x2F;判断是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.size());&#x2F;&#x2F;返回元素个数</span><br><span class="line">		&#x2F;&#x2F;输出：3</span><br><span class="line">		</span><br><span class="line">		map.remove(3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;移除map中关键字为3的键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.remove(1, -5);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;移除map中关键字为1且值为-5的键-值对，不存在则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.replace(1, 2);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;修改map中的键-值关系</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;2, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.replace(1, 1, 3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;修改map中的键值关系，不存在则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;2, 5&#x3D;-5&#125;</span><br><span class="line">				</span><br><span class="line">		map.clear();</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;清空map</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-相关链接"><a href="#3-相关链接" class="headerlink" title="##3. 相关链接"></a>##3. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+        <tag>Map</tag>
+        <tag>HashMap</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java集合-List和ArrayList[Java知识点]</title>
     <url>/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>Collection不支持下标操作，只提供了一些基本的集合操作，而List更像是数组，可以进行下标操作。</strong><br><strong>List是一个接口，而ArrayList是List的一个实现类</strong><br><strong>如果我们需要定义一个ArrayList变量，那以下两种方法都是可以的：</strong></p>
@@ -191,57 +242,6 @@ index超过集合下标返回则会报错
         <tag>集合</tag>
         <tag>List</tag>
         <tag>ArrayList</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java集合-Map和HashMap[Java知识点]</title>
-    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>相较于线性的集合如List，Queue，LinkedList之类的集合，Map和HashMap则是另一种完全不同的数据存储方式：键-值对。</strong></p>
-<p><strong>也就是说，在Map中，数据并不是List中那样单个出现，互相不关联，而是成对出现，比如在一个Map中，我们这样记录数据：{1=5,2=10}，注意：这里的1=5,2=10并非数学上的等号关系，而是“对应”的关系，1和5是一对，2和10是一对。</strong></p>
-<p><strong>在Map中，一对数据a=b，其中我们称a为“关键字（key）”或“键”，b为“值（value）”，键在Map中是唯一的，我们可以通过键来查找他对应的值。</strong><br>在应用中，我们常常使用Map来保存一些数据，如：统计每种商品的数量时，我们就可以使用Map，其中key为商品编号，对应的value为商品出现数量。这样做可以减少程序员的工作量。</p>
-<p><strong>HashMap使用哈希算法对键去重复，效率高，但是无序。</strong><br><strong>Map是接口，HashMap是Map的主要实现类。定义方式：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;定义一个键和值类型都是Integer类型的map和hashmap</span><br><span class="line">Map&lt;Integer,Integer&gt; map&#x3D;new HashMap&lt;Integer,Integer&gt;();</span><br><span class="line">&#x2F;&#x2F;或者</span><br><span class="line">HashMap&lt;Integer,Integer&gt; hashmap&#x3D;new HashMap&lt;Integer,Integer&gt;();</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-Map的常用方法"><a href="#1-Map的常用方法" class="headerlink" title="##1. Map的常用方法"></a>##1. Map的常用方法</h2><p><strong>E put(E key, E value)</strong></p>
-<pre><code>在map中插入键-值对，key为关键字，value为对应值
-如果map中已存在该关键字，则修改其对应值为value
-如果是新插入的键值对，返回值为null
-如果是修改了原关键字的对应值，返回值为被修改的value值</code></pre><p><strong>E putIfAbsent(E key, E value)</strong></p>
-<pre><code>如果map中不存在关键字key，则插入该键值对，并返回null
-如果已存在，什么也不做，返回-1</code></pre><p><strong>boolean containsKey(Object key)</strong></p>
-<pre><code>判断map中是否存在关键字为key的键值对
-存在则返回true，否则false</code></pre><p><strong>boolean containsValue(Object value)</strong></p>
-<pre><code>判断map中是否存在对应值为value的键值对
-存在则返回true，否则false</code></pre><p><strong>E get(Object key)</strong></p>
-<pre><code>获取map中关键字为key的对应值
-未找到则返回null</code></pre><p><strong>boolean isEmpty()</strong></p>
-<pre><code>判断map是否为空</code></pre><p><strong>int size()</strong></p>
-<pre><code>返回map中的元素个数</code></pre><p><strong>E remove(Object key)</strong></p>
-<pre><code>删除map中关键字为key的元素
-返回被删除的key的对应值
-未找到则返回null</code></pre><p><strong>boolean remove(Object key, Object value)</strong></p>
-<pre><code>删除map中关键字为key且值为value的元素
-成功则返回true，失败返回false</code></pre><p><strong>E replace(E key, E value)</strong></p>
-<pre><code>将map中，关键字为key的对应值改为value
-返回被修改的值，未找到则返回null</code></pre><p><strong>boolean replace(E key, E oldValue, E newValue)</strong></p>
-<pre><code>将map中，关键字为key且值为oldValue的元素的值修改为newValue
-修改成功返回true，失败返回false</code></pre><p><strong>void clear()</strong></p>
-<pre><code>清空map数据</code></pre><hr>
-<h2 id="2-测试代码"><a href="#2-测试代码" class="headerlink" title="##2. 测试代码"></a>##2. 测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class TestMap &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Map&lt;Integer, Integer&gt; map&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		map.put(1, -1);</span><br><span class="line">		map.put(5, -5);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;在map中插入键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.containsKey(1));&#x2F;&#x2F;map中是否存在关键字</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		System.out.println(map.containsValue(-5));&#x2F;&#x2F;map中是否存在值</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line"></span><br><span class="line">		map.putIfAbsent(1, -2);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;如果存在关键字，则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.putIfAbsent(3, -3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;如果不存在关键字，则插入键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 3&#x3D;-3, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.get(3));&#x2F;&#x2F;返回关键字对应的值</span><br><span class="line">		&#x2F;&#x2F;输出：-3</span><br><span class="line">		System.out.println(map.get(7));&#x2F;&#x2F;不存在就返回null</span><br><span class="line">		&#x2F;&#x2F;输出：null</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.isEmpty());&#x2F;&#x2F;判断是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		System.out.println(map.size());&#x2F;&#x2F;返回元素个数</span><br><span class="line">		&#x2F;&#x2F;输出：3</span><br><span class="line">		</span><br><span class="line">		map.remove(3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;移除map中关键字为3的键-值对</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.remove(1, -5);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;移除map中关键字为1且值为-5的键-值对，不存在则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;-1, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.replace(1, 2);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;修改map中的键-值关系</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;2, 5&#x3D;-5&#125;</span><br><span class="line">		</span><br><span class="line">		map.replace(1, 1, 3);</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;修改map中的键值关系，不存在则不操作</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;1&#x3D;2, 5&#x3D;-5&#125;</span><br><span class="line">				</span><br><span class="line">		map.clear();</span><br><span class="line">		System.out.println(map);&#x2F;&#x2F;清空map</span><br><span class="line">		&#x2F;&#x2F;输出：&#123;&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="3-相关链接"><a href="#3-相关链接" class="headerlink" title="##3. 相关链接"></a>##3. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
-        <tag>Map</tag>
-        <tag>HashMap</tag>
       </tags>
   </entry>
   <entry>
@@ -485,6 +485,52 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
+    <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
+<p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+<p><strong>说明：你不能倾斜容器，且 n 的值至少为 2。</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/question.jpg" class title="问题示例">
+
+<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
+<a id="more"></a>
+
+<p><strong>示例：</strong></p>
+<p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 暴力解法</strong></p>
+<p>这题的暴力解法不难想到，使用两个指针分别从数组的前后逼近中间，分别求面积，再得到面积的最大值就行了。</p>
+<p><strong>两指针分别代表形成容器的左壁和右壁，而能装水的体积取决于：①. 左右壁高度的较小者；②. 左右壁之间的距离。</strong></p>
+<p><strong>那此时我们只需要遍历所有能形成容器的情况，即遍历所有可能出现的左右壁组合，将左右壁较小者乘上左右壁距离即可得到装水的体积。遍历过程中求出体积的最大值就行了。</strong></p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">	       int len &#x3D; height.length;</span><br><span class="line">	       int max &#x3D; 0;</span><br><span class="line">	       for(int i &#x3D; 0;i &lt; len - 1;i++)&#123;</span><br><span class="line">	           for(int j &#x3D; len - 1;j &gt; i ;j--)&#123;</span><br><span class="line">	               int water &#x3D; height[i] &gt; height[j] ? height[j] * (j - i) : height[i] * (j - i);</span><br><span class="line">	               max &#x3D; Math.max(max,water);</span><br><span class="line">	           &#125;</span><br><span class="line">	       &#125;</span><br><span class="line">	       return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result1.jpg" class title="提交记录">
+
+
+<hr>
+<p><strong>2.2. 优化解法</strong><br>我们知道，容器装水的体积的决定因素之一是<strong>容器左壁和右壁的长度较小者</strong>，所以我们在遍历所有左右壁组合的时候，<strong>固定长度较大的壁不动，将长度较小的壁向中间逼近</strong>。</p>
+<p><strong>因为体积取决于长度较小的壁，所以我们暂且不管长度较长的壁，只是使长度较小的壁的长度尽可能地长，从而面积也尽可能地大，省去了许多无用步骤。</strong></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">		int len &#x3D; height.length;</span><br><span class="line">        int max &#x3D; 0;</span><br><span class="line">        int left &#x3D; 0;</span><br><span class="line">        int right &#x3D; len - 1;</span><br><span class="line"></span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            int area &#x3D; Math.min(height[left],height[right]) * (right - left);</span><br><span class="line">            max &#x3D; Math.max(max,area);</span><br><span class="line"></span><br><span class="line">            if(height[left] &gt; height[right])&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result2.jpg" class title="提交记录">
+
+<p>发现在运行时间上，较上一种暴力解法快了许多。</p>
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Lambda表达式-进阶部分[Java知识点]</title>
     <url>/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>本文在 <a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式基础部分</a>的基础上介绍了一些Lambda表达式的进阶用法。</strong></p>
@@ -553,6 +599,60 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 146.LRU缓存机制[设计]</title>
+    <url>/2020/07/12/LeetCode-146-LRU%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6-%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[设计][哈希表][队列]</em></p>
+<p>运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制。它应该支持以下操作： 获取数据 get 和 写入数据 put 。</p>
+<p>获取数据 get(key) - 如果关键字 (key) 存在于缓存中，则获取关键字的值（总是正数），否则返回 -1。<br>写入数据 put(key, value) - 如果关键字已经存在，则变更其数据值；如果关键字不存在，则插入该组「关键字/值」。当缓存容量达到上限时，它应该在写入新数据之前删除最久未使用的数据值，从而为新的数据值留出空间。</p>
+<a id="more"></a>
+
+
+<p><strong>示例:</strong></p>
+<p>LRUCache cache = new LRUCache(2);    //缓存容量为2</p>
+<p>cache.put(1, 1);<br>cache.put(2, 2);<br>cache.get(1);       // 返回  1<br>cache.put(3, 3);    // 该操作会使得关键字 2 作废<br>cache.get(2);       // 返回 -1 (未找到)<br>cache.put(4, 4);    // 该操作会使得关键字 1 作废<br>cache.get(1);       // 返回 -1 (未找到)<br>cache.get(3);       // 返回  3<br>cache.get(4);       // 返回  4</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>我们在上操作系统这门课的时候就接触过LRU缓存机制（最近最少使用），应该是使用到类似于队列的数据结构，所以本题我决定使用队列的方法来解决。<br>而由于题目告诉我们，数据是以关键字-值的形式，即key-value的形式储存，我们自然可以想到储存这样的数据应该使用Map接口，这题我使用的是HashMap类。</p>
+<p><strong>①. 初始化</strong><br>由于构造函数传入了一个参数capacity，代表缓存的容量，所以我们需要在类中定义一个参数来接收传入的capacity。定义变量：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer, Integer&gt; hash;&#x2F;&#x2F;键-值对应哈希表</span><br><span class="line">int capacity;&#x2F;&#x2F;容量</span><br><span class="line">Queue&lt;Integer&gt; queue;&#x2F;&#x2F;队列</span><br></pre></td></tr></table></figure>
+<p>构造函数：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public LRUCache(int capacity) &#123;</span><br><span class="line">	&#x2F;&#x2F;构造函数初始化，创建队列和哈希表对象，将容量赋值为函数传入的capacity值</span><br><span class="line">	queue&#x3D;new LinkedList &lt;Integer&gt; () ;</span><br><span class="line">	hash&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">	this.capacity&#x3D;capacity;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>②. 完成put()函数</strong><br>put(key,value)函数的要求是传入一个关键字和值，判断关键字是否已存在，如果存在，更改其值为value；否则，插入该组[关键字/值]到缓存。如果缓存容量到达上限，应删除最久未使用的数据。<br>1）如果缓存中没找到该关键字，我们就要在缓存中插入该组数据：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(queue.isEmpty()||!queue.contains(key)) &#123;&#x2F;&#x2F;如果队列为空或者不包含当前插入的关键字</span><br><span class="line">   		queue.offer(key);&#x2F;&#x2F;将关键字加入队列</span><br><span class="line">   		hash.put(key, value);&#x2F;&#x2F;将值插入哈希表中</span><br><span class="line">   		if(queue.size()&gt;capacity) &#123;&#x2F;&#x2F;如果此时队列容量满</span><br><span class="line">   			queue.poll();&#x2F;&#x2F;删除最久未使用的关键字</span><br><span class="line">   		&#125;</span><br><span class="line">   	&#125;</span><br></pre></td></tr></table></figure>
+<p>我们暂且认为每次操作后，队列都会按照最近使用的先后顺序进行排序（接下来会讲怎么实现），所以上面代码中的 queue.poll() 函数删除的必定是最久未使用的关键字。</p>
+<p>2）如果缓存中找到了该关键字，我们就需要修改该关键字对应的值为value，并且把队列中该关键字放到队尾（代表最近被使用）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">else &#123;&#x2F;&#x2F;如果已包含当前关键字</span><br><span class="line">   		queue&#x3D;repair(key,value);&#x2F;&#x2F;修改该关键字在队列中的优先级，修改哈希表中该关键字对应的值</span><br><span class="line">   	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3）其中我写了个repair(key,value)函数，用来修改key在队列中的优先级，并且修改哈希表中key对应的值为value：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private Queue&lt;Integer&gt; repair(int key,int value) &#123;</span><br><span class="line">	&#x2F;&#x2F;修改队列优先级和哈希表的键值</span><br><span class="line">	Queue&lt;Integer&gt; q&#x3D;new LinkedList&lt;Integer&gt;();</span><br><span class="line">	for(int k:queue) &#123;</span><br><span class="line">		if(k&#x3D;&#x3D;key) </span><br><span class="line">			continue;</span><br><span class="line">		else &#123;</span><br><span class="line">			q.offer(k);&#x2F;&#x2F;将队列中不等于关键字的元素按原序放入一个新的队列中</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	q.offer(key);&#x2F;&#x2F;最后在新队列中放入关键字元素，代表该关键字在队列中是最近被使用的，优先级最高</span><br><span class="line">	hash.put(key, value);&#x2F;&#x2F;更新哈希表中对应的键值</span><br><span class="line">	return q;&#x2F;&#x2F;返回新队列</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：这里的repair函数比较重要，在后面还会使用到。</p>
+<p><strong>③. 完成get()函数</strong><br>1）get(key)的作用是，如果在缓存中找不到该关键字key，返回-1：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;如果队列是空的或者找不到该关键字，返回-1</span><br><span class="line">if(queue.isEmpty()||!queue.contains(key)) &#123;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2）如果找到了关键字，我们只需要将队列中该关键字key放置到队尾（最近被使用）即可，key对应的value不必改变，如果需要使用上面我们已完成的repair函数，我们只需传入key和key对应的value即可，代表将key对应的值value修改为原来值，即不作改变。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;不然，找到了该关键字的话，修改该关键字在队列中的优先级，并返回哈希表中该关键字对应的值</span><br><span class="line">queue&#x3D;repair(key,hash.get(key));</span><br><span class="line">return hash.get(key);</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.LinkedList;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Queue;</span><br><span class="line"></span><br><span class="line">public class LRUCache &#123;</span><br><span class="line">	</span><br><span class="line">	Map&lt;Integer, Integer&gt; hash;&#x2F;&#x2F;键-值对应哈希表</span><br><span class="line">	int capacity;&#x2F;&#x2F;容量</span><br><span class="line">	Queue&lt;Integer&gt; queue;&#x2F;&#x2F;队列</span><br><span class="line">	</span><br><span class="line">	public LRUCache(int capacity) &#123;</span><br><span class="line">		&#x2F;&#x2F;构造函数初始化，创建队列和哈希表对象，将容量赋值为函数传入的capacity值</span><br><span class="line">		queue&#x3D;new LinkedList &lt;Integer&gt; () ;</span><br><span class="line">		hash&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">		this.capacity&#x3D;capacity;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int get(int key) &#123;</span><br><span class="line">    	&#x2F;&#x2F;如果队列是空的或者找不到该关键字，返回-1</span><br><span class="line">    	if(queue.isEmpty()||!queue.contains(key)) &#123;</span><br><span class="line">    		return -1;</span><br><span class="line">    	&#125;</span><br><span class="line">    	</span><br><span class="line">    	&#x2F;&#x2F;不然，找到了该关键字的话，修改该关键字在队列中的优先级，并返回哈希表中该关键字对应的值</span><br><span class="line">    	queue&#x3D;repair(key,hash.get(key));</span><br><span class="line">    	return hash.get(key);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void put(int key, int value) &#123;</span><br><span class="line">    	</span><br><span class="line">    	if(queue.isEmpty()||!queue.contains(key)) &#123;&#x2F;&#x2F;如果队列为空或者不包含当前插入的关键字</span><br><span class="line">    		queue.offer(key);&#x2F;&#x2F;将关键字加入队列</span><br><span class="line">    		hash.put(key, value);&#x2F;&#x2F;将值插入哈希表中</span><br><span class="line">    		if(queue.size()&gt;capacity) &#123;&#x2F;&#x2F;如果此时队列容量满</span><br><span class="line">    			queue.poll();&#x2F;&#x2F;删除最久未使用的关键字</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;else &#123;&#x2F;&#x2F;如果已包含当前关键字</span><br><span class="line">    		queue&#x3D;repair(key,value);&#x2F;&#x2F;修改该关键字在队列中的优先级，修改哈希表中该关键字对应的值</span><br><span class="line">    	&#125;</span><br><span class="line">    	</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	private Queue&lt;Integer&gt; repair(int key,int value) &#123;</span><br><span class="line">		&#x2F;&#x2F;修改队列优先级和哈希表的键值</span><br><span class="line">		Queue&lt;Integer&gt; q&#x3D;new LinkedList&lt;Integer&gt;();</span><br><span class="line">		for(int k:queue) &#123;</span><br><span class="line">			if(k&#x3D;&#x3D;key) </span><br><span class="line">				continue;</span><br><span class="line">			else &#123;</span><br><span class="line">				q.offer(k);&#x2F;&#x2F;将队列中不等于关键字的元素按原序放入一个新的队列中</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		q.offer(key);&#x2F;&#x2F;最后在新队列中放入关键字元素，代表该关键字在队列中是最近被使用的，优先级最高</span><br><span class="line">		hash.put(key, value);&#x2F;&#x2F;更新哈希表中对应的键值</span><br><span class="line">		return q;&#x2F;&#x2F;返回新队列</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		LRUCache cache&#x3D;new LRUCache(2);</span><br><span class="line">		int ans&#x3D;0;</span><br><span class="line">		cache.put(1, 1);</span><br><span class="line">		cache.put(2, 2);</span><br><span class="line">		ans&#x3D;cache.get(1);       &#x2F;&#x2F; 返回  1</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		cache.put(3, 3);    &#x2F;&#x2F; 该操作会使得关键字 2 作废</span><br><span class="line">		ans&#x3D;cache.get(2);       &#x2F;&#x2F; 返回 -1 (未找到)</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		cache.put(4, 4);    &#x2F;&#x2F; 该操作会使得关键字 1 作废</span><br><span class="line">		ans&#x3D;cache.get(1);       &#x2F;&#x2F; 返回 -1 (未找到)</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		ans&#x3D;cache.get(3);       &#x2F;&#x2F; 返回  3</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		ans&#x3D;cache.get(4);       &#x2F;&#x2F; 返回  4</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：<br>new LRUCache(2);<br>put(1,1);<br>put(1,2);<br>get(1);<br>put(3,3);<br>get(2);<br>put(4,4);<br>get(1);<br>get(3);<br>get(4);</p>
+<p>测试结果：<br>null<br>null<br>null<br>1<br>null<br>-1<br>null<br>-1<br>3<br>4</p>
+<p>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/12/LeetCode-146-LRU%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6-%E8%AE%BE%E8%AE%A1/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>设计</tag>
+        <tag>哈希表</tag>
+        <tag>队列</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 101.对称二叉树[二叉树]</title>
     <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
@@ -591,52 +691,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </categories>
       <tags>
         <tag>二叉树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
-    <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
-<p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
-<p><strong>说明：你不能倾斜容器，且 n 的值至少为 2。</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/question.jpg" class title="问题示例">
-
-<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
-<a id="more"></a>
-
-<p><strong>示例：</strong></p>
-<p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 暴力解法</strong></p>
-<p>这题的暴力解法不难想到，使用两个指针分别从数组的前后逼近中间，分别求面积，再得到面积的最大值就行了。</p>
-<p><strong>两指针分别代表形成容器的左壁和右壁，而能装水的体积取决于：①. 左右壁高度的较小者；②. 左右壁之间的距离。</strong></p>
-<p><strong>那此时我们只需要遍历所有能形成容器的情况，即遍历所有可能出现的左右壁组合，将左右壁较小者乘上左右壁距离即可得到装水的体积。遍历过程中求出体积的最大值就行了。</strong></p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">	       int len &#x3D; height.length;</span><br><span class="line">	       int max &#x3D; 0;</span><br><span class="line">	       for(int i &#x3D; 0;i &lt; len - 1;i++)&#123;</span><br><span class="line">	           for(int j &#x3D; len - 1;j &gt; i ;j--)&#123;</span><br><span class="line">	               int water &#x3D; height[i] &gt; height[j] ? height[j] * (j - i) : height[i] * (j - i);</span><br><span class="line">	               max &#x3D; Math.max(max,water);</span><br><span class="line">	           &#125;</span><br><span class="line">	       &#125;</span><br><span class="line">	       return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result1.jpg" class title="提交记录">
-
-
-<hr>
-<p><strong>2.2. 优化解法</strong><br>我们知道，容器装水的体积的决定因素之一是<strong>容器左壁和右壁的长度较小者</strong>，所以我们在遍历所有左右壁组合的时候，<strong>固定长度较大的壁不动，将长度较小的壁向中间逼近</strong>。</p>
-<p><strong>因为体积取决于长度较小的壁，所以我们暂且不管长度较长的壁，只是使长度较小的壁的长度尽可能地长，从而面积也尽可能地大，省去了许多无用步骤。</strong></p>
-<p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">		int len &#x3D; height.length;</span><br><span class="line">        int max &#x3D; 0;</span><br><span class="line">        int left &#x3D; 0;</span><br><span class="line">        int right &#x3D; len - 1;</span><br><span class="line"></span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            int area &#x3D; Math.min(height[left],height[right]) * (right - left);</span><br><span class="line">            max &#x3D; Math.max(max,area);</span><br><span class="line"></span><br><span class="line">            if(height[left] &gt; height[right])&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result2.jpg" class title="提交记录">
-
-<p>发现在运行时间上，较上一种暴力解法快了许多。</p>
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -700,60 +754,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       <tags>
         <tag>数组</tag>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 146.LRU缓存机制[设计]</title>
-    <url>/2020/07/12/LeetCode-146-LRU%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6-%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[设计][哈希表][队列]</em></p>
-<p>运用你所掌握的数据结构，设计和实现一个  LRU (最近最少使用) 缓存机制。它应该支持以下操作： 获取数据 get 和 写入数据 put 。</p>
-<p>获取数据 get(key) - 如果关键字 (key) 存在于缓存中，则获取关键字的值（总是正数），否则返回 -1。<br>写入数据 put(key, value) - 如果关键字已经存在，则变更其数据值；如果关键字不存在，则插入该组「关键字/值」。当缓存容量达到上限时，它应该在写入新数据之前删除最久未使用的数据值，从而为新的数据值留出空间。</p>
-<a id="more"></a>
-
-
-<p><strong>示例:</strong></p>
-<p>LRUCache cache = new LRUCache(2);    //缓存容量为2</p>
-<p>cache.put(1, 1);<br>cache.put(2, 2);<br>cache.get(1);       // 返回  1<br>cache.put(3, 3);    // 该操作会使得关键字 2 作废<br>cache.get(2);       // 返回 -1 (未找到)<br>cache.put(4, 4);    // 该操作会使得关键字 1 作废<br>cache.get(1);       // 返回 -1 (未找到)<br>cache.get(3);       // 返回  3<br>cache.get(4);       // 返回  4</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>我们在上操作系统这门课的时候就接触过LRU缓存机制（最近最少使用），应该是使用到类似于队列的数据结构，所以本题我决定使用队列的方法来解决。<br>而由于题目告诉我们，数据是以关键字-值的形式，即key-value的形式储存，我们自然可以想到储存这样的数据应该使用Map接口，这题我使用的是HashMap类。</p>
-<p><strong>①. 初始化</strong><br>由于构造函数传入了一个参数capacity，代表缓存的容量，所以我们需要在类中定义一个参数来接收传入的capacity。定义变量：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Map&lt;Integer, Integer&gt; hash;&#x2F;&#x2F;键-值对应哈希表</span><br><span class="line">int capacity;&#x2F;&#x2F;容量</span><br><span class="line">Queue&lt;Integer&gt; queue;&#x2F;&#x2F;队列</span><br></pre></td></tr></table></figure>
-<p>构造函数：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public LRUCache(int capacity) &#123;</span><br><span class="line">	&#x2F;&#x2F;构造函数初始化，创建队列和哈希表对象，将容量赋值为函数传入的capacity值</span><br><span class="line">	queue&#x3D;new LinkedList &lt;Integer&gt; () ;</span><br><span class="line">	hash&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">	this.capacity&#x3D;capacity;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>②. 完成put()函数</strong><br>put(key,value)函数的要求是传入一个关键字和值，判断关键字是否已存在，如果存在，更改其值为value；否则，插入该组[关键字/值]到缓存。如果缓存容量到达上限，应删除最久未使用的数据。<br>1）如果缓存中没找到该关键字，我们就要在缓存中插入该组数据：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">if(queue.isEmpty()||!queue.contains(key)) &#123;&#x2F;&#x2F;如果队列为空或者不包含当前插入的关键字</span><br><span class="line">   		queue.offer(key);&#x2F;&#x2F;将关键字加入队列</span><br><span class="line">   		hash.put(key, value);&#x2F;&#x2F;将值插入哈希表中</span><br><span class="line">   		if(queue.size()&gt;capacity) &#123;&#x2F;&#x2F;如果此时队列容量满</span><br><span class="line">   			queue.poll();&#x2F;&#x2F;删除最久未使用的关键字</span><br><span class="line">   		&#125;</span><br><span class="line">   	&#125;</span><br></pre></td></tr></table></figure>
-<p>我们暂且认为每次操作后，队列都会按照最近使用的先后顺序进行排序（接下来会讲怎么实现），所以上面代码中的 queue.poll() 函数删除的必定是最久未使用的关键字。</p>
-<p>2）如果缓存中找到了该关键字，我们就需要修改该关键字对应的值为value，并且把队列中该关键字放到队尾（代表最近被使用）：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">else &#123;&#x2F;&#x2F;如果已包含当前关键字</span><br><span class="line">   		queue&#x3D;repair(key,value);&#x2F;&#x2F;修改该关键字在队列中的优先级，修改哈希表中该关键字对应的值</span><br><span class="line">   	&#125;</span><br></pre></td></tr></table></figure>
-
-<p>3）其中我写了个repair(key,value)函数，用来修改key在队列中的优先级，并且修改哈希表中key对应的值为value：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private Queue&lt;Integer&gt; repair(int key,int value) &#123;</span><br><span class="line">	&#x2F;&#x2F;修改队列优先级和哈希表的键值</span><br><span class="line">	Queue&lt;Integer&gt; q&#x3D;new LinkedList&lt;Integer&gt;();</span><br><span class="line">	for(int k:queue) &#123;</span><br><span class="line">		if(k&#x3D;&#x3D;key) </span><br><span class="line">			continue;</span><br><span class="line">		else &#123;</span><br><span class="line">			q.offer(k);&#x2F;&#x2F;将队列中不等于关键字的元素按原序放入一个新的队列中</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	q.offer(key);&#x2F;&#x2F;最后在新队列中放入关键字元素，代表该关键字在队列中是最近被使用的，优先级最高</span><br><span class="line">	hash.put(key, value);&#x2F;&#x2F;更新哈希表中对应的键值</span><br><span class="line">	return q;&#x2F;&#x2F;返回新队列</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>注意：这里的repair函数比较重要，在后面还会使用到。</p>
-<p><strong>③. 完成get()函数</strong><br>1）get(key)的作用是，如果在缓存中找不到该关键字key，返回-1：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;如果队列是空的或者找不到该关键字，返回-1</span><br><span class="line">if(queue.isEmpty()||!queue.contains(key)) &#123;</span><br><span class="line">	return -1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>2）如果找到了关键字，我们只需要将队列中该关键字key放置到队尾（最近被使用）即可，key对应的value不必改变，如果需要使用上面我们已完成的repair函数，我们只需传入key和key对应的value即可，代表将key对应的值value修改为原来值，即不作改变。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;不然，找到了该关键字的话，修改该关键字在队列中的优先级，并返回哈希表中该关键字对应的值</span><br><span class="line">queue&#x3D;repair(key,hash.get(key));</span><br><span class="line">return hash.get(key);</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.LinkedList;</span><br><span class="line">import java.util.Map;</span><br><span class="line">import java.util.Queue;</span><br><span class="line"></span><br><span class="line">public class LRUCache &#123;</span><br><span class="line">	</span><br><span class="line">	Map&lt;Integer, Integer&gt; hash;&#x2F;&#x2F;键-值对应哈希表</span><br><span class="line">	int capacity;&#x2F;&#x2F;容量</span><br><span class="line">	Queue&lt;Integer&gt; queue;&#x2F;&#x2F;队列</span><br><span class="line">	</span><br><span class="line">	public LRUCache(int capacity) &#123;</span><br><span class="line">		&#x2F;&#x2F;构造函数初始化，创建队列和哈希表对象，将容量赋值为函数传入的capacity值</span><br><span class="line">		queue&#x3D;new LinkedList &lt;Integer&gt; () ;</span><br><span class="line">		hash&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">		this.capacity&#x3D;capacity;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int get(int key) &#123;</span><br><span class="line">    	&#x2F;&#x2F;如果队列是空的或者找不到该关键字，返回-1</span><br><span class="line">    	if(queue.isEmpty()||!queue.contains(key)) &#123;</span><br><span class="line">    		return -1;</span><br><span class="line">    	&#125;</span><br><span class="line">    	</span><br><span class="line">    	&#x2F;&#x2F;不然，找到了该关键字的话，修改该关键字在队列中的优先级，并返回哈希表中该关键字对应的值</span><br><span class="line">    	queue&#x3D;repair(key,hash.get(key));</span><br><span class="line">    	return hash.get(key);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void put(int key, int value) &#123;</span><br><span class="line">    	</span><br><span class="line">    	if(queue.isEmpty()||!queue.contains(key)) &#123;&#x2F;&#x2F;如果队列为空或者不包含当前插入的关键字</span><br><span class="line">    		queue.offer(key);&#x2F;&#x2F;将关键字加入队列</span><br><span class="line">    		hash.put(key, value);&#x2F;&#x2F;将值插入哈希表中</span><br><span class="line">    		if(queue.size()&gt;capacity) &#123;&#x2F;&#x2F;如果此时队列容量满</span><br><span class="line">    			queue.poll();&#x2F;&#x2F;删除最久未使用的关键字</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;else &#123;&#x2F;&#x2F;如果已包含当前关键字</span><br><span class="line">    		queue&#x3D;repair(key,value);&#x2F;&#x2F;修改该关键字在队列中的优先级，修改哈希表中该关键字对应的值</span><br><span class="line">    	&#125;</span><br><span class="line">    	</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	private Queue&lt;Integer&gt; repair(int key,int value) &#123;</span><br><span class="line">		&#x2F;&#x2F;修改队列优先级和哈希表的键值</span><br><span class="line">		Queue&lt;Integer&gt; q&#x3D;new LinkedList&lt;Integer&gt;();</span><br><span class="line">		for(int k:queue) &#123;</span><br><span class="line">			if(k&#x3D;&#x3D;key) </span><br><span class="line">				continue;</span><br><span class="line">			else &#123;</span><br><span class="line">				q.offer(k);&#x2F;&#x2F;将队列中不等于关键字的元素按原序放入一个新的队列中</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		q.offer(key);&#x2F;&#x2F;最后在新队列中放入关键字元素，代表该关键字在队列中是最近被使用的，优先级最高</span><br><span class="line">		hash.put(key, value);&#x2F;&#x2F;更新哈希表中对应的键值</span><br><span class="line">		return q;&#x2F;&#x2F;返回新队列</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		LRUCache cache&#x3D;new LRUCache(2);</span><br><span class="line">		int ans&#x3D;0;</span><br><span class="line">		cache.put(1, 1);</span><br><span class="line">		cache.put(2, 2);</span><br><span class="line">		ans&#x3D;cache.get(1);       &#x2F;&#x2F; 返回  1</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		cache.put(3, 3);    &#x2F;&#x2F; 该操作会使得关键字 2 作废</span><br><span class="line">		ans&#x3D;cache.get(2);       &#x2F;&#x2F; 返回 -1 (未找到)</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		cache.put(4, 4);    &#x2F;&#x2F; 该操作会使得关键字 1 作废</span><br><span class="line">		ans&#x3D;cache.get(1);       &#x2F;&#x2F; 返回 -1 (未找到)</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		ans&#x3D;cache.get(3);       &#x2F;&#x2F; 返回  3</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		ans&#x3D;cache.get(4);       &#x2F;&#x2F; 返回  4</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：<br>new LRUCache(2);<br>put(1,1);<br>put(1,2);<br>get(1);<br>put(3,3);<br>get(2);<br>put(4,4);<br>get(1);<br>get(3);<br>get(4);</p>
-<p>测试结果：<br>null<br>null<br>null<br>1<br>null<br>-1<br>null<br>-1<br>3<br>4</p>
-<p>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/12/LeetCode-146-LRU%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6-%E8%AE%BE%E8%AE%A1/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>设计</tag>
-        <tag>哈希表</tag>
-        <tag>队列</tag>
       </tags>
   </entry>
   <entry>
@@ -1579,7 +1579,6 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
     <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
 <img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
 
-<p><img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/D:%5Cblog%5Csource_posts%5C%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%5CQQ%E5%9B%BE%E7%89%8720201013151244.jpg" alt="QQ图片20201013151244"></p>
 <hr>
 ]]></content>
       <categories>

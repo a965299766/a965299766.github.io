@@ -305,20 +305,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/List/</loc>
-    <lastmod>2020-10-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/ArrayList/</loc>
-    <lastmod>2020-10-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/tags/Map/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
@@ -327,6 +313,20 @@
   
   <url>
     <loc>http://yoursite.com/tags/HashMap/</loc>
+    <lastmod>2020-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/List/</loc>
+    <lastmod>2020-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/ArrayList/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -354,13 +354,6 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
-    <lastmod>2020-10-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/tags/%E6%95%B0%E7%BB%84/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
@@ -369,13 +362,6 @@
   
   <url>
     <loc>http://yoursite.com/tags/%E5%8F%8C%E6%8C%87%E9%92%88/</loc>
-    <lastmod>2020-10-16</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -397,6 +383,20 @@
   
   <url>
     <loc>http://yoursite.com/tags/%E9%98%9F%E5%88%97/</loc>
+    <lastmod>2020-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
+    <lastmod>2020-10-16</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</loc>
     <lastmod>2020-10-16</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
