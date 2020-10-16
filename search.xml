@@ -594,6 +594,52 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
+    <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
+<p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+<p><strong>说明：你不能倾斜容器，且 n 的值至少为 2。</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/question.jpg" class title="问题示例">
+
+<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
+<a id="more"></a>
+
+<p><strong>示例：</strong></p>
+<p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 暴力解法</strong></p>
+<p>这题的暴力解法不难想到，使用两个指针分别从数组的前后逼近中间，分别求面积，再得到面积的最大值就行了。</p>
+<p><strong>两指针分别代表形成容器的左壁和右壁，而能装水的体积取决于：①. 左右壁高度的较小者；②. 左右壁之间的距离。</strong></p>
+<p><strong>那此时我们只需要遍历所有能形成容器的情况，即遍历所有可能出现的左右壁组合，将左右壁较小者乘上左右壁距离即可得到装水的体积。遍历过程中求出体积的最大值就行了。</strong></p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">	       int len &#x3D; height.length;</span><br><span class="line">	       int max &#x3D; 0;</span><br><span class="line">	       for(int i &#x3D; 0;i &lt; len - 1;i++)&#123;</span><br><span class="line">	           for(int j &#x3D; len - 1;j &gt; i ;j--)&#123;</span><br><span class="line">	               int water &#x3D; height[i] &gt; height[j] ? height[j] * (j - i) : height[i] * (j - i);</span><br><span class="line">	               max &#x3D; Math.max(max,water);</span><br><span class="line">	           &#125;</span><br><span class="line">	       &#125;</span><br><span class="line">	       return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result1.jpg" class title="提交记录">
+
+
+<hr>
+<p><strong>2.2. 优化解法</strong><br>我们知道，容器装水的体积的决定因素之一是<strong>容器左壁和右壁的长度较小者</strong>，所以我们在遍历所有左右壁组合的时候，<strong>固定长度较大的壁不动，将长度较小的壁向中间逼近</strong>。</p>
+<p><strong>因为体积取决于长度较小的壁，所以我们暂且不管长度较长的壁，只是使长度较小的壁的长度尽可能地长，从而面积也尽可能地大，省去了许多无用步骤。</strong></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">		int len &#x3D; height.length;</span><br><span class="line">        int max &#x3D; 0;</span><br><span class="line">        int left &#x3D; 0;</span><br><span class="line">        int right &#x3D; len - 1;</span><br><span class="line"></span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            int area &#x3D; Math.min(height[left],height[right]) * (right - left);</span><br><span class="line">            max &#x3D; Math.max(max,area);</span><br><span class="line"></span><br><span class="line">            if(height[left] &gt; height[right])&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result2.jpg" class title="提交记录">
+
+<p>发现在运行时间上，较上一种暴力解法快了许多。</p>
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 120.三角形最小路径和[数组][动态规划]</title>
     <url>/2020/07/16/LeetCode-120-%E4%B8%89%E8%A7%92%E5%BD%A2%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C-%E6%95%B0%E7%BB%84-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][动态规划]</em></p>
@@ -654,52 +700,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       <tags>
         <tag>数组</tag>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
-    <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
-<p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
-<p><strong>说明：你不能倾斜容器，且 n 的值至少为 2。</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/question.jpg" class title="问题示例">
-
-<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
-<a id="more"></a>
-
-<p><strong>示例：</strong></p>
-<p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 暴力解法</strong></p>
-<p>这题的暴力解法不难想到，使用两个指针分别从数组的前后逼近中间，分别求面积，再得到面积的最大值就行了。</p>
-<p><strong>两指针分别代表形成容器的左壁和右壁，而能装水的体积取决于：①. 左右壁高度的较小者；②. 左右壁之间的距离。</strong></p>
-<p><strong>那此时我们只需要遍历所有能形成容器的情况，即遍历所有可能出现的左右壁组合，将左右壁较小者乘上左右壁距离即可得到装水的体积。遍历过程中求出体积的最大值就行了。</strong></p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">	       int len &#x3D; height.length;</span><br><span class="line">	       int max &#x3D; 0;</span><br><span class="line">	       for(int i &#x3D; 0;i &lt; len - 1;i++)&#123;</span><br><span class="line">	           for(int j &#x3D; len - 1;j &gt; i ;j--)&#123;</span><br><span class="line">	               int water &#x3D; height[i] &gt; height[j] ? height[j] * (j - i) : height[i] * (j - i);</span><br><span class="line">	               max &#x3D; Math.max(max,water);</span><br><span class="line">	           &#125;</span><br><span class="line">	       &#125;</span><br><span class="line">	       return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result1.jpg" class title="提交记录">
-
-
-<hr>
-<p><strong>2.2. 优化解法</strong><br>我们知道，容器装水的体积的决定因素之一是<strong>容器左壁和右壁的长度较小者</strong>，所以我们在遍历所有左右壁组合的时候，<strong>固定长度较大的壁不动，将长度较小的壁向中间逼近</strong>。</p>
-<p><strong>因为体积取决于长度较小的壁，所以我们暂且不管长度较长的壁，只是使长度较小的壁的长度尽可能地长，从而面积也尽可能地大，省去了许多无用步骤。</strong></p>
-<p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">		int len &#x3D; height.length;</span><br><span class="line">        int max &#x3D; 0;</span><br><span class="line">        int left &#x3D; 0;</span><br><span class="line">        int right &#x3D; len - 1;</span><br><span class="line"></span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            int area &#x3D; Math.min(height[left],height[right]) * (right - left);</span><br><span class="line">            max &#x3D; Math.max(max,area);</span><br><span class="line"></span><br><span class="line">            if(height[left] &gt; height[right])&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result2.jpg" class title="提交记录">
-
-<p>发现在运行时间上，较上一种暴力解法快了许多。</p>
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -953,6 +953,40 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 198.打家劫舍[动态规划]</title>
+    <url>/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
+<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+<a id="more"></a>
+
+
+<p><strong>示例 1：</strong></p>
+<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>     偷窃到的最高金额 = 1 + 3 = 4 。</p>
+<p><strong>示例 2：</strong></p>
+<p>输入：[2,7,9,3,1]<br>输出：12<br>解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。<br>     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</p>
+<p><strong>提示：</strong></p>
+<pre><code>0 &lt;= nums.length &lt;= 100
+0 &lt;= nums[i] &lt;= 400</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题显然可以使用动态规划来解决，是动态规划的经典题型。<br>①. 当房屋数组元素个数为0时，显然无房屋可偷，直接返回0；<br>②. 当有1个房屋时，该房屋的价值显然就是最大价值，返回他即可；<br>③. 当有2个房屋时，由题意可得，我们不能同时偷窃两个相邻的房屋，显然，我们只能偷这两个房屋中价值较大的那个，所以应返回两房屋价值的较大者；<br>④. 当偷到2个以上房屋时，我们就要考虑两种情况了，假设目前正准备偷第k间房屋（k&gt;2），我们会面临两个选择：<br>    1）偷第k间房屋，因为和第k-1间房间相邻，我们就不能偷第k-1间房屋，那此时我们可获得的总价值为前面已经做过选择的k-2间房屋的最大价值加上第k间房屋的价值；<br>    2）不偷第k间房屋，那第k-1间房屋就是可以偷窃的，那此时我们获得的总价值就是前面已做过选择的k-1间房屋的最大价值。<br>从2个选择中选择能获得价值较大的一项，将该价值作为处理这间房屋所获得的最大价值。<br>⑤. 对于每间房屋，都按照④的方法进行选择，对每间房屋都可以求出偷窃到该房屋时能获得的最大价值，放在dp数组中的对应位置；<br>⑥. 最后返回dp数组的最后一项，因为执行以上算法后，即对最后一间房屋做出选择后，获得的价值就是你能获得的最大价值了。</p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Rob &#123;</span><br><span class="line">	public static int rob(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;0)</span><br><span class="line">			return 0;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)</span><br><span class="line">			return nums[0];</span><br><span class="line">		if(nums.length&#x3D;&#x3D;2)</span><br><span class="line">			return nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		</span><br><span class="line">		int[] dp&#x3D;new int[nums.length];</span><br><span class="line">		dp[0]&#x3D;nums[0];</span><br><span class="line">		dp[1]&#x3D;nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		for(int i&#x3D;2;i&lt;nums.length;i++) &#123;</span><br><span class="line">			dp[i]&#x3D;dp[i-2]+nums[i]&gt;dp[i-1]?dp[i-2]+nums[i]:dp[i-1];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return dp[dp.length-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：各房子的价值&#x3D;&#123;2,7,9,3,1&#125;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,7,9,3,1&#125;;</span><br><span class="line">		int ans&#x3D;rob(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：房子的价值数组={2,7,9,3,1}<br>测试结果：最大价值=12</p>
+<hr>
+<p><strong>LeetCode提交记录：</strong></p>
+<img src="/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 2.两数相加[链表]</title>
     <url>/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][数学]</em></p>
@@ -990,40 +1024,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       <tags>
         <tag>链表</tag>
         <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 198.打家劫舍[动态规划]</title>
-    <url>/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
-<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
-<a id="more"></a>
-
-
-<p><strong>示例 1：</strong></p>
-<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>     偷窃到的最高金额 = 1 + 3 = 4 。</p>
-<p><strong>示例 2：</strong></p>
-<p>输入：[2,7,9,3,1]<br>输出：12<br>解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。<br>     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</p>
-<p><strong>提示：</strong></p>
-<pre><code>0 &lt;= nums.length &lt;= 100
-0 &lt;= nums[i] &lt;= 400</code></pre><hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题显然可以使用动态规划来解决，是动态规划的经典题型。<br>①. 当房屋数组元素个数为0时，显然无房屋可偷，直接返回0；<br>②. 当有1个房屋时，该房屋的价值显然就是最大价值，返回他即可；<br>③. 当有2个房屋时，由题意可得，我们不能同时偷窃两个相邻的房屋，显然，我们只能偷这两个房屋中价值较大的那个，所以应返回两房屋价值的较大者；<br>④. 当偷到2个以上房屋时，我们就要考虑两种情况了，假设目前正准备偷第k间房屋（k&gt;2），我们会面临两个选择：<br>    1）偷第k间房屋，因为和第k-1间房间相邻，我们就不能偷第k-1间房屋，那此时我们可获得的总价值为前面已经做过选择的k-2间房屋的最大价值加上第k间房屋的价值；<br>    2）不偷第k间房屋，那第k-1间房屋就是可以偷窃的，那此时我们获得的总价值就是前面已做过选择的k-1间房屋的最大价值。<br>从2个选择中选择能获得价值较大的一项，将该价值作为处理这间房屋所获得的最大价值。<br>⑤. 对于每间房屋，都按照④的方法进行选择，对每间房屋都可以求出偷窃到该房屋时能获得的最大价值，放在dp数组中的对应位置；<br>⑥. 最后返回dp数组的最后一项，因为执行以上算法后，即对最后一间房屋做出选择后，获得的价值就是你能获得的最大价值了。</p>
-<p><strong>代码如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Rob &#123;</span><br><span class="line">	public static int rob(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;0)</span><br><span class="line">			return 0;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)</span><br><span class="line">			return nums[0];</span><br><span class="line">		if(nums.length&#x3D;&#x3D;2)</span><br><span class="line">			return nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		</span><br><span class="line">		int[] dp&#x3D;new int[nums.length];</span><br><span class="line">		dp[0]&#x3D;nums[0];</span><br><span class="line">		dp[1]&#x3D;nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		for(int i&#x3D;2;i&lt;nums.length;i++) &#123;</span><br><span class="line">			dp[i]&#x3D;dp[i-2]+nums[i]&gt;dp[i-1]?dp[i-2]+nums[i]:dp[i-1];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return dp[dp.length-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：各房子的价值&#x3D;&#123;2,7,9,3,1&#125;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,7,9,3,1&#125;;</span><br><span class="line">		int ans&#x3D;rob(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：房子的价值数组={2,7,9,3,1}<br>测试结果：最大价值=12</p>
-<hr>
-<p><strong>LeetCode提交记录：</strong></p>
-<img src="/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>动态规划</tag>
       </tags>
   </entry>
   <entry>
@@ -1579,11 +1579,56 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
     <content><![CDATA[<p>大家好辣，我是阿伟，<br>是南信大计软院的一个废物，<br>这是我的个人博客，<br>欢迎来玩辣。<br>插张图片</p>
 <img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/1.jpg" class title="狗妈">
 
+<p><img src="/2020/07/03/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/D:%5Cblog%5Csource_posts%5C%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%5CQQ%E5%9B%BE%E7%89%8720201013151244.jpg" alt="QQ图片20201013151244"></p>
 <hr>
 ]]></content>
       <categories>
         <category>其他</category>
       </categories>
+  </entry>
+  <entry>
+    <title>编译原理[10.14]</title>
+    <url>/2020/10/14/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-14/</url>
+    <content><![CDATA[<p><strong>接上文 <a href="https://dulaogou.vip/2020/10/01/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-24-9-29/" target="_blank" rel="noopener">编译原理9.24-9.29</a></strong></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-问题"><a href="#1-问题" class="headerlink" title="##1. 问题"></a>##1. 问题</h2><p>进行语法分析时，对于一个语法树，从起始结点开始，依次读取用户输入的字符，并做相应的推导，直到读完用户的输入，才能够判断输入是否合法。<br>当语法树比较大时，他产生的语法空间也会很大，这样要执行上面的操作肯定会产生很多错误步骤，需要做很多回溯处理，大大降低了运行效率。</p>
+<hr>
+<h2 id="2-FIRST集"><a href="#2-FIRST集" class="headerlink" title="##2. FIRST集"></a>##2. FIRST集</h2><p>我们定义<br><strong>FIRST(α)为：从α开始推导得到的串的首符号的集合，其中α是任意的文法符号串。</strong><br>我们现在可以考虑产生式：<strong>A-&gt;α|β</strong>，其中FIRST(α)和FIRST(β)是不相交的集合。</p>
+<p><strong>此时我们只需要看下一个输入的符号a，看a出现在FIRST(α)还是在FIRST(β)中，我们就可以唯一确定一条路径向下推导。</strong>因为a只能出现在FIRST(α)或者FIRST(β)中的一个集合中。</p>
+<p><em>比如，假设a在FIRST(α)中，我们就可以直接选择<strong>A-&gt;α</strong>这条路径向下推导，就不用考虑<strong>A-&gt;β</strong>这条路了。</em></p>
+<hr>
+<h2 id="3-计算FIRST集的方法"><a href="#3-计算FIRST集的方法" class="headerlink" title="##3. 计算FIRST集的方法"></a>##3. 计算FIRST集的方法</h2><p>计算各个文法符号X的FIRST(X)时，不断应用下列规则，直到再没有出现新的终结符号或ε可以被加入到任何FIRST集合中为止：<br><strong>1）如果X是一个终结符号，那么FIRST(X) = X；</strong><br><strong>2）如果X是一个非终结符号，且X-&gt;Y1Y2…Yk是一个产生式（k&gt;=1），那么如果对于某个i，终结符a在FIRST(Yi)中且ε在所有的FIRST(Y1)、FIRST(Y2)、…FIRST(Yi-1)中，就把a加入到FIRST(X)中；</strong><br><strong>3）如果X-&gt;ε是一个产生式，则把ε加入到FIRST(X)中。</strong></p>
+<hr>
+<p><strong>例题：</strong></p>
+<p>有如下文法：<br>E -&gt; TE’…………………………①<br>E’ -&gt; +TE’ | ε…………………..②<br>T -&gt; FT’…………………………③<br>T’ -&gt; *FT’ | ε…………………..④<br>F -&gt; ( E ) | <strong>id</strong>………………….⑤<br>求各个文法符号的FIRST集。</p>
+<hr>
+<p><strong>解法</strong></p>
+<p>1）求FIRST(E)：先看①式，E推导出的第一个符号是T，是非终结符，推导T，即③式，T推导的第一个符号是F，是非终结符，接着推导F，即⑤式，F推导的第一个符号是左括号<strong>(</strong> 或终结符 <strong>id</strong>，无法继续推导，把左括号和id加入FIRST(E)中，<br>即<strong>FIRST(E) = {‘(‘, id}</strong></p>
+<p>2）求FIRST(E’)：先看②式，E’推导出的第一个符号是<strong>+</strong>号或者<strong>ε</strong>，两者均是终结符，无法继续推导，把+和ε放入FIRST(E’)中，<br>即<strong>FIRST(E’) = {+, ε}</strong></p>
+<p>3）同理，求出<br><strong>FIRST(T) = {‘(‘, id}</strong><br><strong>FIRST(T’) = {*, ε}</strong><br><strong>FIRST(F) = {‘(‘, id)</strong></p>
+<hr>
+<h2 id="4-FOLLOW集"><a href="#4-FOLLOW集" class="headerlink" title="##4. FOLLOW集"></a>##4. FOLLOW集</h2><p>当某一非终结符的产生式中含有空产生式时，它的非空产生式右部的开始符号集两两不相交，并与在推导过程中紧跟该非终结符右部可能出现的终结符集也不相交，则仍可构造确定的自顶向下分析。因此，引入了一个文法符号的后跟符号集合FOLLOW集。</p>
+<hr>
+<h2 id="5-FOLLOW集的求法"><a href="#5-FOLLOW集的求法" class="headerlink" title="##5. FOLLOW集的求法"></a>##5. FOLLOW集的求法</h2><p>计算所有非终结符号A的FOLLOW(A)时，不断应用如下规则，直到再没有新的终结符号可以被加入到任意的FOLLOW集合中为止。<br><strong>1）将$放到FOLLOW(S)中，其中S是开始符号，$是输入右端的结束标记；</strong><br><strong>2）如果存在一个产生式A -&gt; αBβ，那么FIRST(β)中除ε之外的所有符号都在FOLLOW(B)中；</strong><br><strong>3）如果存在一个产生式 A -&gt; αB，或存在产生式 A -&gt; αBβ且FIRST(β)包含ε，那么FOLLOW(A)中的所有符号都在FOLLOW(B)中。</strong></p>
+<hr>
+<p><strong>例题：</strong></p>
+<p>求上一题的所有非终结符号的FOLLOW集合。</p>
+<img src="/2020/10/14/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-14/1.jpg" class title="图1">
+
+<img src="/2020/10/14/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-14/2.jpg" class title="图2">
+
+<hr>
+<h2 id="6-LL-1-文法"><a href="#6-LL-1-文法" class="headerlink" title="##6. LL(1)文法"></a>##6. LL(1)文法</h2><p>对于称为LL(1)的文法，我们可以构造出预测分析器，即不需要回溯的递归下降语法分析器，LL(1)中的第一个L表示从左向右扫描输入，第二个L表示产生最左推导，而1表示在每一步中只需要向前看一个输入符号来决定语法分析动作。</p>
+<p>对于一个LL(1)文法<br><strong>A -&gt; αB | βC | ε</strong><br>需要满足： <strong>FIRST(α) ∩ FIRST(β) ∩ FOLLOW(A) = ∅</strong></p>
+]]></content>
+      <categories>
+        <category>编译原理</category>
+      </categories>
+      <tags>
+        <tag>编译原理</tag>
+      </tags>
   </entry>
   <entry>
     <title>编译原理[9.1-9.15]</title>
