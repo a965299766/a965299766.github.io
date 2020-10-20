@@ -245,47 +245,6 @@ index超过集合下标返回则会报错
       </tags>
   </entry>
   <entry>
-    <title>Java集合-各种集合的使用场景[Java知识点]</title>
-    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
-<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
-即可以较为快捷地使用下标来直接访问数组中间的某个数据。
-但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
-此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
-<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
-但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
-<pre><code>栈和队列，大家应该都不陌生，
-Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
-Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
-<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
-<pre><code>都是Set的实现类。
-HashSet的性能总比TreeSet好，但不能保持数据的顺序。
-如果需要频繁地添加、查找元素时，建议使用HashSet。
-而如果需要一个保持排序的Set，用TreeSet。
-如果需要遍历集合元素，用LinkedHashSet。
-
-HashSet：通过散列法储存数据，查询很快。
-LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
-TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
-<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
-Map中键不能重复。
-数据呈现的是对应关系，如 学号-姓名 这种对应关系。
-HashMap是Map的具体实现类。</code></pre><hr>
-<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java集合-Queue和LinkedList[Java知识点]</title>
     <url>/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>Queue接口是我们平常所说的队列（数据先进先出），LinkedList是他的一个实现类</strong><br><strong>如果我们想定义一个队列，以下两种方法都是可以的：</strong></p>
@@ -346,6 +305,47 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
       </tags>
   </entry>
   <entry>
+    <title>Java集合-各种集合的使用场景[Java知识点]</title>
+    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
+<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
+即可以较为快捷地使用下标来直接访问数组中间的某个数据。
+但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
+此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
+<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
+但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
+<pre><code>栈和队列，大家应该都不陌生，
+Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
+Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
+<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
+<pre><code>都是Set的实现类。
+HashSet的性能总比TreeSet好，但不能保持数据的顺序。
+如果需要频繁地添加、查找元素时，建议使用HashSet。
+而如果需要一个保持排序的Set，用TreeSet。
+如果需要遍历集合元素，用LinkedHashSet。
+
+HashSet：通过散列法储存数据，查询很快。
+LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
+TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
+<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
+Map中键不能重复。
+数据呈现的是对应关系，如 学号-姓名 这种对应关系。
+HashMap是Map的具体实现类。</code></pre><hr>
+<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java集合框架[Java知识点]</title>
     <url>/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>声明：本文内容来自于菜鸟教程(<a href="https://www.runoob.com/java/java-collections.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-collections.html</a>)<br>我仅作部分修改。万分感谢，如有侵权，联系我QQ：965299766删除。</strong></p>
@@ -386,6 +386,74 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
       <tags>
         <tag>Java</tag>
         <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Lambda表达式-进阶部分[Java知识点]</title>
+    <url>/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>本文在 <a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式基础部分</a>的基础上介绍了一些Lambda表达式的进阶用法。</strong></p>
+<p><strong>仅供参考</strong></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-方法引用"><a href="#1-方法引用" class="headerlink" title="##1. 方法引用"></a>##1. 方法引用</h2><p><strong>如果需要在程序中多次实现同一个接口，我们可能会写成如下形式：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SingleReturnSingleParameter lambda1 &#x3D; a -&gt; a * 2;</span><br><span class="line">	</span><br><span class="line">SingleReturnSingleParameter lambda2 &#x3D; a -&gt; a  * 2;</span><br><span class="line">&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
+
+<p><strong>显然，这种写法中，函数实现部分是有重复的，这样写，我们后续如果需要对接口的实现方法进行修改的话，就必须把每个实现的语句都修改一遍。</strong><br>如上方所示程序中，接口的实现函数是 <strong>a -&gt; a * 2</strong> ，如果想要把返回值从 a * 2 改为 a * 3的话，就需要对每个 a * 2 进行修改，此时，我们可以使用方法引用，将重复的部分用函数封装，从而方便了后续修改：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Syntax3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		SingleReturnSingleParameter lambda1 &#x3D; a -&gt; change(a);</span><br><span class="line">		</span><br><span class="line">		SingleReturnSingleParameter lambda2 &#x3D; a -&gt; change(a);</span><br><span class="line">		&#x2F;&#x2F;......</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static int change(int a) &#123;&#x2F;&#x2F;写成一个函数</span><br><span class="line">		return a * 2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还可以这么写，使用 <strong>隶属者::方法名</strong> 的方式来引用方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SingleReturnSingleParameter lambda1 &#x3D; Syntax3 :: change;</span><br><span class="line">	</span><br><span class="line">SingleReturnSingleParameter lambda2 &#x3D; Syntax3 :: change;</span><br><span class="line">&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-构造方法引用"><a href="#2-构造方法引用" class="headerlink" title="##2. 构造方法引用"></a>##2. 构造方法引用</h2><p><strong>那如果我们想引用的方法是一个类的构造方法呢？</strong></p>
+<p>先写一个测试类Person，其中有一个无参构造和一个有参构造：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	public Person() &#123;</span><br><span class="line">		System.out.println(&quot;Person的无参构造执行了&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public Person(int a , int b) &#123;</span><br><span class="line">		System.out.println(&quot;Person的有参构造执行了，参数a&#x3D;&quot;+a+&quot;,b&#x3D;&quot;+b);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于调用无参构造和有参构造，分别写两个接口。</p>
+<p><strong>注意：接口中的方法参数必须和要实现的构造函数参数一致！</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">interface Person1&#123;</span><br><span class="line">	Person getPerson();&#x2F;&#x2F;调用无参构造</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person2&#123;</span><br><span class="line">	Person getPerson(int a , int b);&#x2F;&#x2F;调用有参构造</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>对于不同的接口方法参数，使用Lambda表达式时会调用不同的构造函数</strong></p>
+<p>测试代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Syntax &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;调用Person类的无参构造</span><br><span class="line">		Person1 person1 &#x3D; () -&gt; new Person();</span><br><span class="line">		Person1 person2 &#x3D; Person::new;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;测试</span><br><span class="line">		person1.getPerson();</span><br><span class="line">		&#x2F;&#x2F;输出：Person的无参构造执行了</span><br><span class="line">		person2.getPerson();</span><br><span class="line">		&#x2F;&#x2F;输出：Person的无参构造执行了</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;调用Person类的有参构造</span><br><span class="line">		Person2 person3 &#x3D; (a , b) -&gt; new Person(a , b);</span><br><span class="line">		Person2 person4 &#x3D; Person::new;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;测试</span><br><span class="line">		person3.getPerson(1, 5);</span><br><span class="line">		&#x2F;&#x2F;输出：Person的有参构造执行了，参数a&#x3D;1,b&#x3D;5</span><br><span class="line">		person4.getPerson(2, 3);</span><br><span class="line">		&#x2F;&#x2F;输出：Person的有参构造执行了，参数a&#x3D;2,b&#x3D;3</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person1&#123;</span><br><span class="line">	Person getPerson();&#x2F;&#x2F;调用无参构造</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person2&#123;</span><br><span class="line">	Person getPerson(int a , int b);&#x2F;&#x2F;调用有参构造</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-实际运用"><a href="#3-实际运用" class="headerlink" title="##3. 实际运用"></a>##3. 实际运用</h2><p><strong>3.1. 需求</strong><br>给定一个Person类，属性有姓名（String name），年龄（int age）。<br>给定一个Person类型的ArrayList，里面有10个随机的Person对象。<br>要求：使用ArrayList.sort()函数将其中的Person对象按年龄降序排序。</p>
+<p><strong>3.2. Person类</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public Person(String name,int age) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">		this.age &#x3D; age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return this.age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		String ret &#x3D; &quot;姓名：&quot; + this.name + &quot;年龄：&quot; + this.age+&quot;\n&quot;;</span><br><span class="line">		return ret;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.3. ArrayList</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ArrayList&lt;Person&gt; list &#x3D; new ArrayList&lt;Person&gt;();</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;10个随机Person对象</span><br><span class="line">list.add(new Person(&quot;xiaoming&quot;,10));</span><br><span class="line">list.add(new Person(&quot;laogou&quot;,15));</span><br><span class="line">list.add(new Person(&quot;zhangsan&quot;,7));</span><br><span class="line">list.add(new Person(&quot;lisi&quot;,5));</span><br><span class="line">list.add(new Person(&quot;wangwu&quot;,18));</span><br><span class="line">list.add(new Person(&quot;maliu&quot;,20));</span><br><span class="line">list.add(new Person(&quot;tianqi&quot;,2));</span><br><span class="line">list.add(new Person(&quot;wangwang&quot;,13));</span><br><span class="line">list.add(new Person(&quot;honghong&quot;,10));</span><br><span class="line">list.add(new Person(&quot;zhaoshu&quot;,55));</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.4. sort()函数</strong><br>sort函数形式如下：</p>
+<pre><code>void sort(Comparator&lt;? super Person&gt; c)</code></pre><p>这其中的一个参数Comparator&lt;&gt; c是个啥？</p>
+<p><strong>查看源码得知，这是一个函数式接口</strong></p>
+<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="函数式接口Comparator">
+
+<p>其中有个待实现函数compare：</p>
+<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="待实现函数compare">
+
+<p>它的作用是：<br><strong>对于参数o1和o2，如果返回值为正数，说明o1＞o2；</strong><br><strong>如果返回值为负数，说明o1＜o2；</strong><br><strong>如果返回值为0，说明o1=o2。</strong></p>
+<p>至此，我们就可以实现这个函数式接口了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list.sort((o1 , o2) -&gt; o2.getAge() - o1.getAge());</span><br></pre></td></tr></table></figure>
+<p>这样是降序排序，如果要升序，则</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list.sort((o1 , o2) -&gt; o1.getAge() - o2.getAge());</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.5. 完整代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class Example &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		ArrayList&lt;Person&gt; list &#x3D; new ArrayList&lt;Person&gt;();</span><br><span class="line">		</span><br><span class="line">		list.add(new Person(&quot;xiaoming&quot;,10));</span><br><span class="line">		list.add(new Person(&quot;laogou&quot;,15));</span><br><span class="line">		list.add(new Person(&quot;zhangsan&quot;,7));</span><br><span class="line">		list.add(new Person(&quot;lisi&quot;,5));</span><br><span class="line">		list.add(new Person(&quot;wangwu&quot;,18));</span><br><span class="line">		list.add(new Person(&quot;maliu&quot;,20));</span><br><span class="line">		list.add(new Person(&quot;tianqi&quot;,2));</span><br><span class="line">		list.add(new Person(&quot;wangwang&quot;,13));</span><br><span class="line">		list.add(new Person(&quot;honghong&quot;,10));</span><br><span class="line">		list.add(new Person(&quot;zhaoshu&quot;,55));</span><br><span class="line">		</span><br><span class="line">		list.sort((o1 , o2) -&gt; o2.getAge() - o1.getAge());</span><br><span class="line">		</span><br><span class="line">		System.out.println(list);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.6. 运行结果图：</strong></p>
+<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/3.jpg" class title="运行结果图">
+
+<hr>
+<h2 id="4-相关链接"><a href="#4-相关链接" class="headerlink" title="##4. 相关链接"></a>##4. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式-基础部分</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Lambda表达式</tag>
       </tags>
   </entry>
   <entry>
@@ -485,74 +553,6 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
       </tags>
   </entry>
   <entry>
-    <title>Lambda表达式-进阶部分[Java知识点]</title>
-    <url>/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>本文在 <a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式基础部分</a>的基础上介绍了一些Lambda表达式的进阶用法。</strong></p>
-<p><strong>仅供参考</strong></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-方法引用"><a href="#1-方法引用" class="headerlink" title="##1. 方法引用"></a>##1. 方法引用</h2><p><strong>如果需要在程序中多次实现同一个接口，我们可能会写成如下形式：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SingleReturnSingleParameter lambda1 &#x3D; a -&gt; a * 2;</span><br><span class="line">	</span><br><span class="line">SingleReturnSingleParameter lambda2 &#x3D; a -&gt; a  * 2;</span><br><span class="line">&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
-
-<p><strong>显然，这种写法中，函数实现部分是有重复的，这样写，我们后续如果需要对接口的实现方法进行修改的话，就必须把每个实现的语句都修改一遍。</strong><br>如上方所示程序中，接口的实现函数是 <strong>a -&gt; a * 2</strong> ，如果想要把返回值从 a * 2 改为 a * 3的话，就需要对每个 a * 2 进行修改，此时，我们可以使用方法引用，将重复的部分用函数封装，从而方便了后续修改：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Syntax3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		SingleReturnSingleParameter lambda1 &#x3D; a -&gt; change(a);</span><br><span class="line">		</span><br><span class="line">		SingleReturnSingleParameter lambda2 &#x3D; a -&gt; change(a);</span><br><span class="line">		&#x2F;&#x2F;......</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static int change(int a) &#123;&#x2F;&#x2F;写成一个函数</span><br><span class="line">		return a * 2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还可以这么写，使用 <strong>隶属者::方法名</strong> 的方式来引用方法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SingleReturnSingleParameter lambda1 &#x3D; Syntax3 :: change;</span><br><span class="line">	</span><br><span class="line">SingleReturnSingleParameter lambda2 &#x3D; Syntax3 :: change;</span><br><span class="line">&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="2-构造方法引用"><a href="#2-构造方法引用" class="headerlink" title="##2. 构造方法引用"></a>##2. 构造方法引用</h2><p><strong>那如果我们想引用的方法是一个类的构造方法呢？</strong></p>
-<p>先写一个测试类Person，其中有一个无参构造和一个有参构造：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	public Person() &#123;</span><br><span class="line">		System.out.println(&quot;Person的无参构造执行了&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public Person(int a , int b) &#123;</span><br><span class="line">		System.out.println(&quot;Person的有参构造执行了，参数a&#x3D;&quot;+a+&quot;,b&#x3D;&quot;+b);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对于调用无参构造和有参构造，分别写两个接口。</p>
-<p><strong>注意：接口中的方法参数必须和要实现的构造函数参数一致！</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">interface Person1&#123;</span><br><span class="line">	Person getPerson();&#x2F;&#x2F;调用无参构造</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person2&#123;</span><br><span class="line">	Person getPerson(int a , int b);&#x2F;&#x2F;调用有参构造</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>对于不同的接口方法参数，使用Lambda表达式时会调用不同的构造函数</strong></p>
-<p>测试代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Syntax &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;调用Person类的无参构造</span><br><span class="line">		Person1 person1 &#x3D; () -&gt; new Person();</span><br><span class="line">		Person1 person2 &#x3D; Person::new;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;测试</span><br><span class="line">		person1.getPerson();</span><br><span class="line">		&#x2F;&#x2F;输出：Person的无参构造执行了</span><br><span class="line">		person2.getPerson();</span><br><span class="line">		&#x2F;&#x2F;输出：Person的无参构造执行了</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;调用Person类的有参构造</span><br><span class="line">		Person2 person3 &#x3D; (a , b) -&gt; new Person(a , b);</span><br><span class="line">		Person2 person4 &#x3D; Person::new;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;测试</span><br><span class="line">		person3.getPerson(1, 5);</span><br><span class="line">		&#x2F;&#x2F;输出：Person的有参构造执行了，参数a&#x3D;1,b&#x3D;5</span><br><span class="line">		person4.getPerson(2, 3);</span><br><span class="line">		&#x2F;&#x2F;输出：Person的有参构造执行了，参数a&#x3D;2,b&#x3D;3</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person1&#123;</span><br><span class="line">	Person getPerson();&#x2F;&#x2F;调用无参构造</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person2&#123;</span><br><span class="line">	Person getPerson(int a , int b);&#x2F;&#x2F;调用有参构造</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="3-实际运用"><a href="#3-实际运用" class="headerlink" title="##3. 实际运用"></a>##3. 实际运用</h2><p><strong>3.1. 需求</strong><br>给定一个Person类，属性有姓名（String name），年龄（int age）。<br>给定一个Person类型的ArrayList，里面有10个随机的Person对象。<br>要求：使用ArrayList.sort()函数将其中的Person对象按年龄降序排序。</p>
-<p><strong>3.2. Person类</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public Person(String name,int age) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">		this.age &#x3D; age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return this.age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		String ret &#x3D; &quot;姓名：&quot; + this.name + &quot;年龄：&quot; + this.age+&quot;\n&quot;;</span><br><span class="line">		return ret;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.3. ArrayList</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ArrayList&lt;Person&gt; list &#x3D; new ArrayList&lt;Person&gt;();</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;10个随机Person对象</span><br><span class="line">list.add(new Person(&quot;xiaoming&quot;,10));</span><br><span class="line">list.add(new Person(&quot;laogou&quot;,15));</span><br><span class="line">list.add(new Person(&quot;zhangsan&quot;,7));</span><br><span class="line">list.add(new Person(&quot;lisi&quot;,5));</span><br><span class="line">list.add(new Person(&quot;wangwu&quot;,18));</span><br><span class="line">list.add(new Person(&quot;maliu&quot;,20));</span><br><span class="line">list.add(new Person(&quot;tianqi&quot;,2));</span><br><span class="line">list.add(new Person(&quot;wangwang&quot;,13));</span><br><span class="line">list.add(new Person(&quot;honghong&quot;,10));</span><br><span class="line">list.add(new Person(&quot;zhaoshu&quot;,55));</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.4. sort()函数</strong><br>sort函数形式如下：</p>
-<pre><code>void sort(Comparator&lt;? super Person&gt; c)</code></pre><p>这其中的一个参数Comparator&lt;&gt; c是个啥？</p>
-<p><strong>查看源码得知，这是一个函数式接口</strong></p>
-<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="函数式接口Comparator">
-
-<p>其中有个待实现函数compare：</p>
-<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="待实现函数compare">
-
-<p>它的作用是：<br><strong>对于参数o1和o2，如果返回值为正数，说明o1＞o2；</strong><br><strong>如果返回值为负数，说明o1＜o2；</strong><br><strong>如果返回值为0，说明o1=o2。</strong></p>
-<p>至此，我们就可以实现这个函数式接口了：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list.sort((o1 , o2) -&gt; o2.getAge() - o1.getAge());</span><br></pre></td></tr></table></figure>
-<p>这样是降序排序，如果要升序，则</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list.sort((o1 , o2) -&gt; o1.getAge() - o2.getAge());</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.5. 完整代码如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class Example &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		ArrayList&lt;Person&gt; list &#x3D; new ArrayList&lt;Person&gt;();</span><br><span class="line">		</span><br><span class="line">		list.add(new Person(&quot;xiaoming&quot;,10));</span><br><span class="line">		list.add(new Person(&quot;laogou&quot;,15));</span><br><span class="line">		list.add(new Person(&quot;zhangsan&quot;,7));</span><br><span class="line">		list.add(new Person(&quot;lisi&quot;,5));</span><br><span class="line">		list.add(new Person(&quot;wangwu&quot;,18));</span><br><span class="line">		list.add(new Person(&quot;maliu&quot;,20));</span><br><span class="line">		list.add(new Person(&quot;tianqi&quot;,2));</span><br><span class="line">		list.add(new Person(&quot;wangwang&quot;,13));</span><br><span class="line">		list.add(new Person(&quot;honghong&quot;,10));</span><br><span class="line">		list.add(new Person(&quot;zhaoshu&quot;,55));</span><br><span class="line">		</span><br><span class="line">		list.sort((o1 , o2) -&gt; o2.getAge() - o1.getAge());</span><br><span class="line">		</span><br><span class="line">		System.out.println(list);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.6. 运行结果图：</strong></p>
-<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/3.jpg" class title="运行结果图">
-
-<hr>
-<h2 id="4-相关链接"><a href="#4-相关链接" class="headerlink" title="##4. 相关链接"></a>##4. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式-基础部分</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Lambda表达式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 101.对称二叉树[二叉树]</title>
     <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
@@ -591,6 +591,52 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
       </categories>
       <tags>
         <tag>二叉树</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
+    <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
+<p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
+<p><strong>说明：你不能倾斜容器，且 n 的值至少为 2。</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/question.jpg" class title="问题示例">
+
+<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
+<a id="more"></a>
+
+<p><strong>示例：</strong></p>
+<p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 暴力解法</strong></p>
+<p>这题的暴力解法不难想到，使用两个指针分别从数组的前后逼近中间，分别求面积，再得到面积的最大值就行了。</p>
+<p><strong>两指针分别代表形成容器的左壁和右壁，而能装水的体积取决于：①. 左右壁高度的较小者；②. 左右壁之间的距离。</strong></p>
+<p><strong>那此时我们只需要遍历所有能形成容器的情况，即遍历所有可能出现的左右壁组合，将左右壁较小者乘上左右壁距离即可得到装水的体积。遍历过程中求出体积的最大值就行了。</strong></p>
+<p>代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">	       int len &#x3D; height.length;</span><br><span class="line">	       int max &#x3D; 0;</span><br><span class="line">	       for(int i &#x3D; 0;i &lt; len - 1;i++)&#123;</span><br><span class="line">	           for(int j &#x3D; len - 1;j &gt; i ;j--)&#123;</span><br><span class="line">	               int water &#x3D; height[i] &gt; height[j] ? height[j] * (j - i) : height[i] * (j - i);</span><br><span class="line">	               max &#x3D; Math.max(max,water);</span><br><span class="line">	           &#125;</span><br><span class="line">	       &#125;</span><br><span class="line">	       return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result1.jpg" class title="提交记录">
+
+
+<hr>
+<p><strong>2.2. 优化解法</strong><br>我们知道，容器装水的体积的决定因素之一是<strong>容器左壁和右壁的长度较小者</strong>，所以我们在遍历所有左右壁组合的时候，<strong>固定长度较大的壁不动，将长度较小的壁向中间逼近</strong>。</p>
+<p><strong>因为体积取决于长度较小的壁，所以我们暂且不管长度较长的壁，只是使长度较小的壁的长度尽可能地长，从而面积也尽可能地大，省去了许多无用步骤。</strong></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">		int len &#x3D; height.length;</span><br><span class="line">        int max &#x3D; 0;</span><br><span class="line">        int left &#x3D; 0;</span><br><span class="line">        int right &#x3D; len - 1;</span><br><span class="line"></span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            int area &#x3D; Math.min(height[left],height[right]) * (right - left);</span><br><span class="line">            max &#x3D; Math.max(max,area);</span><br><span class="line"></span><br><span class="line">            if(height[left] &gt; height[right])&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result2.jpg" class title="提交记录">
+
+<p>发现在运行时间上，较上一种暴力解法快了许多。</p>
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -654,52 +700,6 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
       <tags>
         <tag>数组</tag>
         <tag>动态规划</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
-    <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
-<p>给你 n 个非负整数 a1，a2，…，an，每个数代表坐标中的一个点 (i, ai) 。在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0)。找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。</p>
-<p><strong>说明：你不能倾斜容器，且 n 的值至少为 2。</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/question.jpg" class title="问题示例">
-
-<p>图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</p>
-<a id="more"></a>
-
-<p><strong>示例：</strong></p>
-<p>输入：[1,8,6,2,5,4,8,3,7]<br>输出：49</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 暴力解法</strong></p>
-<p>这题的暴力解法不难想到，使用两个指针分别从数组的前后逼近中间，分别求面积，再得到面积的最大值就行了。</p>
-<p><strong>两指针分别代表形成容器的左壁和右壁，而能装水的体积取决于：①. 左右壁高度的较小者；②. 左右壁之间的距离。</strong></p>
-<p><strong>那此时我们只需要遍历所有能形成容器的情况，即遍历所有可能出现的左右壁组合，将左右壁较小者乘上左右壁距离即可得到装水的体积。遍历过程中求出体积的最大值就行了。</strong></p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">	       int len &#x3D; height.length;</span><br><span class="line">	       int max &#x3D; 0;</span><br><span class="line">	       for(int i &#x3D; 0;i &lt; len - 1;i++)&#123;</span><br><span class="line">	           for(int j &#x3D; len - 1;j &gt; i ;j--)&#123;</span><br><span class="line">	               int water &#x3D; height[i] &gt; height[j] ? height[j] * (j - i) : height[i] * (j - i);</span><br><span class="line">	               max &#x3D; Math.max(max,water);</span><br><span class="line">	           &#125;</span><br><span class="line">	       &#125;</span><br><span class="line">	       return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result1.jpg" class title="提交记录">
-
-
-<hr>
-<p><strong>2.2. 优化解法</strong><br>我们知道，容器装水的体积的决定因素之一是<strong>容器左壁和右壁的长度较小者</strong>，所以我们在遍历所有左右壁组合的时候，<strong>固定长度较大的壁不动，将长度较小的壁向中间逼近</strong>。</p>
-<p><strong>因为体积取决于长度较小的壁，所以我们暂且不管长度较长的壁，只是使长度较小的壁的长度尽可能地长，从而面积也尽可能地大，省去了许多无用步骤。</strong></p>
-<p>代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxArea &#123;</span><br><span class="line">	public static int maxArea(int[] height) &#123;</span><br><span class="line">		int len &#x3D; height.length;</span><br><span class="line">        int max &#x3D; 0;</span><br><span class="line">        int left &#x3D; 0;</span><br><span class="line">        int right &#x3D; len - 1;</span><br><span class="line"></span><br><span class="line">        while(left &lt; right)&#123;</span><br><span class="line">            int area &#x3D; Math.min(height[left],height[right]) * (right - left);</span><br><span class="line">            max &#x3D; Math.max(max,area);</span><br><span class="line"></span><br><span class="line">            if(height[left] &gt; height[right])&#123;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;</span><br><span class="line">            else&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return max;</span><br><span class="line">	   &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：height[]&#123;1,8,6,2,5,4,8,3,7&#125;</span><br><span class="line">		int[] height &#x3D; new int[] &#123;1,8,6,2,5,4,8,3,7&#125;;</span><br><span class="line">		System.out.println(maxArea(height));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：height[]{1,8,6,2,5,4,8,3,7}<br>测试结果：49<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/result2.jpg" class title="提交记录">
-
-<p>发现在运行时间上，较上一种暴力解法快了许多。</p>
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>双指针</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,6 +1068,53 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 21.合并两个有序链表[链表]</title>
+    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
+<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
+<a id="more"></a>
+
+
+<p><strong>示例：</strong></p>
+<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
+<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
+<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
+<p>①. 两链表指针均从头开始。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
+
+<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
+
+<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
+
+<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
+
+<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
+<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
+<p><strong>###2.3. 完整代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
+
+<p>LeetCode提交记录：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 200.岛屿数量[深度优先搜索]</title>
     <url>/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[深度优先搜索]</em></p>
@@ -1211,95 +1258,6 @@ cold[i]=max(sell[i-1],cold[i-1]);
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 21.合并两个有序链表[链表]</title>
-    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
-<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<a id="more"></a>
-
-
-<p><strong>示例：</strong></p>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
-<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
-<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
-<p>①. 两链表指针均从头开始。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
-
-<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
-
-<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
-
-<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
-
-<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
-<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
-<p><strong>###2.3. 完整代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
-
-<p>LeetCode提交记录：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 5.最长回文串[字符串][动态规划]</title>
-    <url>/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<ul>
-<li>字符串</li>
-<li>动态规划</li>
-</ul>
-<hr>
-<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
-<p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
-<a id="more"></a>
-
-<p><strong>示例 1：</strong></p>
-<p>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。</p>
-<p><strong>示例 2：</strong></p>
-<p>输入: “cbbd”<br>输出: “bb”</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>1. 暴力解法</strong><br>我们可以枚举所有可能的子串，分别判断是否是回文字符串，并保存最长子串的相关信息，输出最长子串。<br>做法是用两个指针不断枚举字符串的左右界，不断判断是否是回文串，详细不赘述。</p>
-<p><strong>2. 动态规划方法</strong><br><strong>我们知道：当一个字符串（长度大于2）是回文字符串时，同时删除掉左右两端的字符，他仍然是回文串。<br>我们又知道：若一个字符串仅有一个字符，或者有两个字符且两字符相等时，这个字符串必是回文字符串。<br>所以，我们可以知道：若一个字符串已经是回文的了，在他两头加上两个相等的字符，他仍然是回文字符串。</strong><br>对此，我们可以使用动态规划方法解决。</p>
-<p>①. 对于输入的给定字符串s，设置一个二维boolean类型的dp数组，dp[i][j]表示：字符串s从第i个字符开始，到第j个字符结束所表示的子串是否是回文的，true代表是回文，false代表不是；<br>②. dp初始化：我们知道仅有一个字符的子串必是回文字符串，我们将dp中代表仅有一个字符的位置置为true；</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for (int i &#x3D; 0 ; i &lt; len ; i++)</span><br><span class="line">	dp[i][i] &#x3D; true;</span><br></pre></td></tr></table></figure>
-<p>③. 我们以字符串s=”babad”为例，此时dp数组如图：</p>
-<img src="/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.jpg" class title="图1">
-
-<p>④. 由前面的分析可得dp的递推公式：</p>
-<pre><code>dp[i][j] = (s[i]==s[j]) and (|i-j&lt;3| or dp[i-1][j+1])</code></pre><p>由于dp[i][j]和dp[j][i]代表意思相同，我们只要将dp数组的左下或右上部分填满即可，不必重复考虑，这里，我们选择填满左下；</p>
-<p>⑤. 按行优先填写，首先判断当前子串两头是否相等，然后判断子串长度是否小于3；<br>1）. 如果子串两头不相等，当前dp表格填false；<br>2）. 如果子串两头相等，且子串长度小于3，dp表格填true；<br>3）. 如果子串两头相等，且子串长度大于等于3，dp当前表格的值等于它右上角的值。<br>在填写过程中，我们必须选择合适的填写顺序，保证当前填写的dp的右上角有值。<br>填完dp数组如图所示：</p>
-<img src="/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2.jpg" class title="图2">
-
-<p>⑥. 在填写过程中，如果遇到dp为true的情况，记录当前子串的信息（起始位置和长度），并保留迄今为止最长子串的信息。最后返回他即可。</p>
-<hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class LongestPalindrome &#123;</span><br><span class="line">	public static String longestPalindrome(String s) &#123;</span><br><span class="line">		if (s &#x3D;&#x3D; null || s.length() &#x3D;&#x3D; 0 || s.length() &#x3D;&#x3D; 1)&#x2F;&#x2F;特殊情况处理</span><br><span class="line">			return s;</span><br><span class="line">		</span><br><span class="line">		int len &#x3D; s.length();&#x2F;&#x2F;字符串长度</span><br><span class="line">		int maxLength&#x3D;1,start&#x3D;0;&#x2F;&#x2F;记录回文子串的最大长度和起始位置</span><br><span class="line">		&#x2F;&#x2F;动态规划数组，dp[i][j]表示字符串第i个字符到第j个字符作为的子串是否为回文字符串</span><br><span class="line">		boolean[][] dp &#x3D; new boolean[len][len];</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;初始化，表示仅有一个字符的子串必是回文字符串</span><br><span class="line">		for (int i &#x3D; 0 ; i &lt; len ; i++)</span><br><span class="line">			dp[i][i] &#x3D; true;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;我们只需要填写二维数组dp左下的部分即可，因为dp[i][j]和dp[j][i]是一样的，无需重复考虑</span><br><span class="line">		for (int i &#x3D; 0 ; i &lt; len ; i++) &#123;</span><br><span class="line">			for (int j &#x3D; 0 ; j &lt; i ; j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if (s.charAt(i) &#x3D;&#x3D; s.charAt(j)) &#123;&#x2F;&#x2F;如果两端字符相等</span><br><span class="line">					</span><br><span class="line">					if (i - j &lt; 3)</span><br><span class="line">						dp[i][j] &#x3D; true;&#x2F;&#x2F;如果子串长度小于3的话，无需进一步判断，它必定是回文的</span><br><span class="line">					else  &#123;&#x2F;&#x2F;如果子串长度大于等于3</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				else  &#123;</span><br><span class="line">					dp[i][j] &#x3D; false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				&#x2F;&#x2F;如果当前记录的子串是回文的，且长度大于当前已记录的最长回文字符串长度</span><br><span class="line">				if (dp[i][j] &amp;&amp; i - j + 1 &gt; maxLength) &#123;</span><br><span class="line">					maxLength &#x3D; i - j + 1;</span><br><span class="line">					start &#x3D; j;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return s.substring(start, start+maxLength);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：String s&#x3D;&quot;babad&quot;</span><br><span class="line">		String s &#x3D; &quot;babad&quot;;</span><br><span class="line">		System.out.println(longestPalindrome(s));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：字符串s=”babad”<br>测试结果：最长子串为：”bab”<br>结果正确。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-  </entry>
-  <entry>
     <title>LeetCode 350.两个数组的交集II[排序][哈希表]</title>
     <url>/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[排序][哈希表]</em></p>
@@ -1377,6 +1335,48 @@ cold[i]=max(sell[i-1],cold[i-1]);
         <tag>哈希表</tag>
         <tag>排序</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 5.最长回文串[字符串][动态规划]</title>
+    <url>/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<ul>
+<li>字符串</li>
+<li>动态规划</li>
+</ul>
+<hr>
+<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][动态规划]</em></p>
+<p>给定一个字符串 s，找到 s 中最长的回文子串。你可以假设 s 的最大长度为 1000。</p>
+<a id="more"></a>
+
+<p><strong>示例 1：</strong></p>
+<p>输入: “babad”<br>输出: “bab”<br>注意: “aba” 也是一个有效答案。</p>
+<p><strong>示例 2：</strong></p>
+<p>输入: “cbbd”<br>输出: “bb”</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>1. 暴力解法</strong><br>我们可以枚举所有可能的子串，分别判断是否是回文字符串，并保存最长子串的相关信息，输出最长子串。<br>做法是用两个指针不断枚举字符串的左右界，不断判断是否是回文串，详细不赘述。</p>
+<p><strong>2. 动态规划方法</strong><br><strong>我们知道：当一个字符串（长度大于2）是回文字符串时，同时删除掉左右两端的字符，他仍然是回文串。<br>我们又知道：若一个字符串仅有一个字符，或者有两个字符且两字符相等时，这个字符串必是回文字符串。<br>所以，我们可以知道：若一个字符串已经是回文的了，在他两头加上两个相等的字符，他仍然是回文字符串。</strong><br>对此，我们可以使用动态规划方法解决。</p>
+<p>①. 对于输入的给定字符串s，设置一个二维boolean类型的dp数组，dp[i][j]表示：字符串s从第i个字符开始，到第j个字符结束所表示的子串是否是回文的，true代表是回文，false代表不是；<br>②. dp初始化：我们知道仅有一个字符的子串必是回文字符串，我们将dp中代表仅有一个字符的位置置为true；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">for (int i &#x3D; 0 ; i &lt; len ; i++)</span><br><span class="line">	dp[i][i] &#x3D; true;</span><br></pre></td></tr></table></figure>
+<p>③. 我们以字符串s=”babad”为例，此时dp数组如图：</p>
+<img src="/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/1.jpg" class title="图1">
+
+<p>④. 由前面的分析可得dp的递推公式：</p>
+<pre><code>dp[i][j] = (s[i]==s[j]) and (|i-j&lt;3| or dp[i-1][j+1])</code></pre><p>由于dp[i][j]和dp[j][i]代表意思相同，我们只要将dp数组的左下或右上部分填满即可，不必重复考虑，这里，我们选择填满左下；</p>
+<p>⑤. 按行优先填写，首先判断当前子串两头是否相等，然后判断子串长度是否小于3；<br>1）. 如果子串两头不相等，当前dp表格填false；<br>2）. 如果子串两头相等，且子串长度小于3，dp表格填true；<br>3）. 如果子串两头相等，且子串长度大于等于3，dp当前表格的值等于它右上角的值。<br>在填写过程中，我们必须选择合适的填写顺序，保证当前填写的dp的右上角有值。<br>填完dp数组如图所示：</p>
+<img src="/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/2.jpg" class title="图2">
+
+<p>⑥. 在填写过程中，如果遇到dp为true的情况，记录当前子串的信息（起始位置和长度），并保留迄今为止最长子串的信息。最后返回他即可。</p>
+<hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class LongestPalindrome &#123;</span><br><span class="line">	public static String longestPalindrome(String s) &#123;</span><br><span class="line">		if (s &#x3D;&#x3D; null || s.length() &#x3D;&#x3D; 0 || s.length() &#x3D;&#x3D; 1)&#x2F;&#x2F;特殊情况处理</span><br><span class="line">			return s;</span><br><span class="line">		</span><br><span class="line">		int len &#x3D; s.length();&#x2F;&#x2F;字符串长度</span><br><span class="line">		int maxLength&#x3D;1,start&#x3D;0;&#x2F;&#x2F;记录回文子串的最大长度和起始位置</span><br><span class="line">		&#x2F;&#x2F;动态规划数组，dp[i][j]表示字符串第i个字符到第j个字符作为的子串是否为回文字符串</span><br><span class="line">		boolean[][] dp &#x3D; new boolean[len][len];</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;初始化，表示仅有一个字符的子串必是回文字符串</span><br><span class="line">		for (int i &#x3D; 0 ; i &lt; len ; i++)</span><br><span class="line">			dp[i][i] &#x3D; true;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;我们只需要填写二维数组dp左下的部分即可，因为dp[i][j]和dp[j][i]是一样的，无需重复考虑</span><br><span class="line">		for (int i &#x3D; 0 ; i &lt; len ; i++) &#123;</span><br><span class="line">			for (int j &#x3D; 0 ; j &lt; i ; j++) &#123;</span><br><span class="line">				</span><br><span class="line">				if (s.charAt(i) &#x3D;&#x3D; s.charAt(j)) &#123;&#x2F;&#x2F;如果两端字符相等</span><br><span class="line">					</span><br><span class="line">					if (i - j &lt; 3)</span><br><span class="line">						dp[i][j] &#x3D; true;&#x2F;&#x2F;如果子串长度小于3的话，无需进一步判断，它必定是回文的</span><br><span class="line">					else  &#123;&#x2F;&#x2F;如果子串长度大于等于3</span><br><span class="line">						dp[i][j]&#x3D;dp[i-1][j+1];</span><br><span class="line">					&#125;</span><br><span class="line">					</span><br><span class="line">				&#125;</span><br><span class="line">				else  &#123;</span><br><span class="line">					dp[i][j] &#x3D; false;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">				&#x2F;&#x2F;如果当前记录的子串是回文的，且长度大于当前已记录的最长回文字符串长度</span><br><span class="line">				if (dp[i][j] &amp;&amp; i - j + 1 &gt; maxLength) &#123;</span><br><span class="line">					maxLength &#x3D; i - j + 1;</span><br><span class="line">					start &#x3D; j;</span><br><span class="line">				&#125;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return s.substring(start, start+maxLength);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：String s&#x3D;&quot;babad&quot;</span><br><span class="line">		String s &#x3D; &quot;babad&quot;;</span><br><span class="line">		System.out.println(longestPalindrome(s));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：字符串s=”babad”<br>测试结果：最长子串为：”bab”<br>结果正确。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/10/LeetCode-5-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
   </entry>
   <entry>
     <title>LeetCode 53.最大子序和[数组][动态规划]</title>
@@ -1641,14 +1641,14 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
 <p><strong>1）First集</strong><br>First(E) = First(T) = First(F) = {‘(‘, <strong>id</strong>}<br>First(E’) = {+, ε}<br>First(T’) = {*, ε}</p>
 <hr>
 <p><strong>2）Follow集</strong><br>计算所有非终结符号A的Follow(A)时，不断应用如下规则，直到再没有新的终结符号可以被加入到任意的Follow集合中为止。<br><strong>1. 将$放到Follow(S)中，其中S是开始符号，$是输入右端的结束标记；</strong><br>    即Follow(S)包含{$}，其中，S是开始符号。<br><strong>2. 如果存在一个产生式A -&gt; αBβ，那么First(β)中除ε之外的所有符号都在Follow(B)中；</strong><br>    即Follow(B)包含First(β) - {ε}。<br><strong>3. 如果存在一个产生式 A -&gt; αB，或存在产生式 A -&gt; αBβ且FIRST(β)包含ε，那么Follow(A)中的所有符号都在Follow(B)中。</strong><br>    即Follow(B)包含Follow(A)。</p>
-<p>2.0）由于E是起始符号，所以<font color="#FF0000">Follow(E)包含{$}；<font><br>2.1）求Follow(E)，看E出现在哪些产生式的右侧，发现出现在⑤式的右侧，观察发现此处E的下一个符号为终结符’)’，得出Follow(E)包含First(‘ ) ‘)，直接得出<font color="#FF0000">Follow(E)包含{‘ ) ‘}<font>；再次观察发现E没有出现在其他式子的右侧，可以得出<font color="#FF0000">Follow(E) = {‘ ) ‘, $}<font>;<br>2.2）求Follow(E’)，E‘出现在①式和②式的右侧，先看①式，E’后面没有下一个符号了，可以得出Follow(E’)包含Follow(E)，即<font color="#FF0000">Follow(E’)包含{‘ ) ‘, $}<font>；再看②式，E‘后面也没有下一个符号，则Follow(E’)包含Follow(E’)，这是废话，不管。此时没有其他式子右侧有E‘了，则<font color="#FF0000">Follow(E’) = {‘ ) ‘, $}<font>；<br>2.3）求Follow(T)，观察T出现在哪些式子的右侧，发现出现在①式和②式的右侧，先看①式，T后面跟着E‘，可得Follow(T)包含First(E’) - {ε}，即<font color="#FF0000">Follow(T)包含{+}<font>；再观察②式，发现E’还能推导出ε，那我们把产生式右侧的E‘用ε替代，产生式变为E’ -&gt; +T，可知Follow(T)包含Follow(E’)，即<font color="#FF0000">Follow(T)包含{‘ ) ‘, $}<font>。此外没有别的T出现在产生式右侧了，此时可以直接Follow(T) = {‘ ) ‘, $’} + First(E’) - {ε}，即<font color="#FF0000">Follow(T) = {‘ ) ‘, +, $}<font>；<br>2.4）求Follow(T’)，看哪些式子右侧包含T’，发现③式和④式右侧有T‘，先看③，T’后面不跟符号了，则Follow(T’)包含Follow(T)，即<font color="#FF0000">Follow(T’)包含{‘ ) ‘, +, $}<font>；再看④，可知Follow(T’)包含Follow(T‘)，废话，不管；得出<font color="#FF0000">Follow(T’) = Follow(T) = {‘ ) ‘, +, $}<font>；<br>2.5）求Follow(F)，发现③式，④式右侧包含F，先看③，F后面跟T’，则Follow(F)包含First(T’) - {ε}，即<font color="#FF0000">Follow(F)包含{*}<font>；再看④式，F后面跟着T‘，和上面一样处理；但是由④式还能得出，T’能推导出ε，此时产生式变为T‘ -&gt; *F，可得Follow(F)包含Follow(T’)，即<font color="#FF0000">Follow(F)包含{‘ ) ‘, +, $}<font>；此时没有别的产生式右侧有F了，即<font color="#FF0000">Follow(F) = {‘ ) ‘, + , *, $}<font>。<br>2.6）结果：<font color="#FF0000">Follow(E) = {‘ ) ‘, $}<font>；<br><font color="#FF0000">Follow(E’) = {‘ ) ‘, $}<font>；<br><font color="#FF0000">Follow(T) = {‘ ) ‘, +,  $}<font>；<br><font color="#FF0000">Follow(T’) = {‘ ) ‘, +,  $}<font>；<br><font color="#FF0000">Follow(F) = {‘ ) ‘, +, *,  $}<font>。</font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></font></p>
+<p>2.0）由于E是起始符号，所以<font color="#FF0000">Follow(E)包含{$}</font>；<br>2.1）求Follow(E)，看E出现在哪些产生式的右侧，发现出现在⑤式的右侧，观察发现此处E的下一个符号为终结符’)’，得出Follow(E)包含First(‘ ) ‘)，直接得出<font color="#FF0000">Follow(E)包含{‘ ) ‘}</font>；再次观察发现E没有出现在其他式子的右侧，可以得出<font color="#FF0000">Follow(E) = {‘ ) ‘, $}</font>;<br>2.2）求Follow(E’)，E‘出现在①式和②式的右侧，先看①式，E’后面没有下一个符号了，可以得出Follow(E’)包含Follow(E)，即<font color="#FF0000">Follow(E’)包含{‘ ) ‘, $}</font>；再看②式，E‘后面也没有下一个符号，则Follow(E’)包含Follow(E’)，这是废话，不管。此时没有其他式子右侧有E‘了，则<font color="#FF0000">Follow(E’) = {‘ ) ‘, $}</font>；<br>2.3）求Follow(T)，观察T出现在哪些式子的右侧，发现出现在①式和②式的右侧，先看①式，T后面跟着E‘，可得Follow(T)包含First(E’) - {ε}，即<font color="#FF0000">Follow(T)包含{+}</font>；再观察②式，发现E’还能推导出ε，那我们把产生式右侧的E‘用ε替代，产生式变为E’ -&gt; +T，可知Follow(T)包含Follow(E’)，即<font color="#FF0000">Follow(T)包含{‘ ) ‘, $}</font>。此外没有别的T出现在产生式右侧了，此时可以直接Follow(T) = {‘ ) ‘, $’} + First(E’) - {ε}，即<font color="#FF0000">Follow(T) = {‘ ) ‘, +, $}</font>；<br>2.4）求Follow(T’)，看哪些式子右侧包含T’，发现③式和④式右侧有T‘，先看③，T’后面不跟符号了，则Follow(T’)包含Follow(T)，即<font color="#FF0000">Follow(T’)包含{‘ ) ‘, +, $}</font>；再看④，可知Follow(T’)包含Follow(T‘)，废话，不管；得出<font color="#FF0000">Follow(T’) = Follow(T) = {‘ ) ‘, +, $}</font>；<br>2.5）求Follow(F)，发现③式，④式右侧包含F，先看③，F后面跟T’，则Follow(F)包含First(T’) - {ε}，即<font color="#FF0000">Follow(F)包含{*}</font>；再看④式，F后面跟着T‘，和上面一样处理；但是由④式还能得出，T’能推导出ε，此时产生式变为T‘ -&gt; *F，可得Follow(F)包含Follow(T’)，即<font color="#FF0000">Follow(F)包含{‘ ) ‘, +, $}</font>；此时没有别的产生式右侧有F了，即<font color="#FF0000">Follow(F) = {‘ ) ‘, + , *, $}</font>。<br>2.6）结果：<font color="#FF0000">Follow(E) = {‘ ) ‘, $}</font>；<br><font color="#FF0000">Follow(E’) = {‘ ) ‘, $}</font>；<br><font color="#FF0000">Follow(T) = {‘ ) ‘, +,  $}</font>；<br><font color="#FF0000">Follow(T’) = {‘ ) ‘, +,  $}</font>；<br><font color="#FF0000">Follow(F) = {‘ ) ‘, +, *,  $}</font>。</p>
 <hr>
 <p><strong>例2</strong><br>有如下文法：<br>① S -&gt; iEtSS’ | a<br>② S’ -&gt; eS | ε<br>③ E -&gt; b<br>求各个文法符号的First集和Follow集。</p>
 <hr>
 <p><strong>1）First集</strong><br>First(S) = {i, a}<br>First(S’) = {e, ε}<br>First(E) = {b}</p>
 <hr>
 <p><strong>2）Follow集</strong><br>计算所有非终结符号A的Follow(A)时，不断应用如下规则，直到再没有新的终结符号可以被加入到任意的Follow集合中为止。<br><strong>1. 将$放到Follow(S)中，其中S是开始符号，$是输入右端的结束标记；</strong><br>    即Follow(S)包含{$}，其中，S是开始符号。<br><strong>2. 如果存在一个产生式A -&gt; αBβ，那么First(β)中除ε之外的所有符号都在Follow(B)中；</strong><br>    即Follow(B)包含First(β) - {ε}。<br><strong>3. 如果存在一个产生式 A -&gt; αB，或存在产生式 A -&gt; αBβ且FIRST(β)包含ε，那么Follow(A)中的所有符号都在Follow(B)中。</strong><br>    即Follow(B)包含Follow(A)。</p>
-<p>2.0）由于S是起始符号，所以<font color="#FF0000">Follow(S)包含{$}；<font><br>2.1）求Follow(S)，观察哪些式子右侧有S，发现①式和②式右侧有S。先看①，S的后面跟着S’，可以得出Follow(S)包含First(S’) - {ε}，即<font color="#FF0000">Follow(S)包含{e}<font>；但此时通过②式可以得出S‘能推导出ε，此时①式可以改写为S -&gt; iEtS | a，此时得出Follow(S)包含Follow(S)，废话，不管；再看②式，S的后面不跟符号了，则得出<font color="#FF0000">Follow(S)包含Follow(S’)<font>；此时Follow(S) = Follow(S’) + {e, $}；<br>2.2）求Follow(S’)，观察得知只有①式右侧有S’，而且S‘后面不跟符号，得出Follow(S’)包含Follow(S)，再由2.1）得出的结论Follow(S)包含Follow(S’)，得出Follow(S) = Follow(S’)，所以<font color="#FF0000">Follow(S) = Follow(S’) = {e, $}；<br>2.3）求Follow(E)， E只在①式右侧出现，且后面跟的是终结符t，则Follow(E) = First(t) = {t}；<br>2.6）结果：<font color="#FF0000">Follow(S) = {e, $}<font>；<br><font color="#FF0000">Follow(S’) = {e, $}<font>；<br><font color="#FF0000">Follow(E) = {t}<font>；</font></font></font></font></font></font></font></font></font></font></font></font></font></p>
+<p>2.0）由于S是起始符号，所以<font color="#FF0000">Follow(S)包含{$}；</font><br>2.1）求Follow(S)，观察哪些式子右侧有S，发现①式和②式右侧有S。先看①，S的后面跟着S’，可以得出Follow(S)包含First(S’) - {ε}，即<font color="#FF0000">Follow(S)包含{e}</font>；但此时通过②式可以得出S‘能推导出ε，此时①式可以改写为S -&gt; iEtS | a，此时得出Follow(S)包含Follow(S)，废话，不管；再看②式，S的后面不跟符号了，则得出<font color="#FF0000">Follow(S)包含Follow(S’)</font>；此时Follow(S) = Follow(S’) + {e, $}；<br>2.2）求Follow(S’)，观察得知只有①式右侧有S’，而且S‘后面不跟符号，得出Follow(S’)包含Follow(S)，再由2.1）得出的结论Follow(S)包含Follow(S’)，得出Follow(S) = Follow(S’)，所以<font color="#FF0000">Follow(S) = Follow(S’) = {e, $}；<br>2.3）求Follow(E)， E只在①式右侧出现，且后面跟的是终结符t，则Follow(E) = First(t) = {t}；<br>2.6）结果：<font color="#FF0000">Follow(S) = {e, $}</font>；<br><font color="#FF0000">Follow(S’) = {e, $}</font>；<br><font color="#FF0000">Follow(E) = {t}</font>；</font></p>
 <hr>
 <h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2>]]></content>
       <categories>
