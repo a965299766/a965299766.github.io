@@ -553,47 +553,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 101.对称二叉树[二叉树]</title>
-    <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
-<p>给定一个二叉树，检查它是否是镜像对称的。</p>
-<a id="more"></a>
-
-
-<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
-<pre><code>    1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
-<pre><code>  1
- / \
-2   2
- \   \
- 3    3</code></pre><hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>我们可以使用两个指针，开始时均指向根节点，然后让他们同时行动，进行深度优先搜索或广度优先搜索，当一个指针p指向了当前树节点的左子树节点时，我们让另一个指针q同时指向当前节点的右子树节点，然后比较p和q所指节点的值是否相等。<br>如果遇到p和q节点的值不等或者p和q不同时为空的情况下，返回false。<br>如果搜索完成后没有发现以上情况，返回true。</p>
-<p><strong>###2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 TreeNode left;</span><br><span class="line">	 TreeNode right;</span><br><span class="line">	 TreeNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class IsSymmetric &#123;</span><br><span class="line">	public static boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root,root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">		if(p&#x3D;&#x3D;null&amp;&amp;q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果两节点都为空，返回true</span><br><span class="line">			return true;</span><br><span class="line">		if(p&#x3D;&#x3D;null||q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果只有一节点为空，返回false</span><br><span class="line">			return false;</span><br><span class="line">		</span><br><span class="line">		return p.val&#x3D;&#x3D;q.val&amp;&amp;check(p.right,q.left)&amp;&amp;check(p.left,q.right);&#x2F;&#x2F;两节点都不为空，递归进行比较</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：二叉树 [1,2,2,3,4,4,3]</span><br><span class="line">		TreeNode tree&#x3D;new TreeNode(1);</span><br><span class="line">		tree.left&#x3D;new TreeNode(2);</span><br><span class="line">		tree.left.left&#x3D;new TreeNode(3);</span><br><span class="line">		tree.left.right&#x3D;new TreeNode(4);</span><br><span class="line">		</span><br><span class="line">		tree.right&#x3D;new TreeNode(2);</span><br><span class="line">		tree.right.left&#x3D;new TreeNode(4);</span><br><span class="line">		tree.right.right&#x3D;new TreeNode(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(isSymmetric(tree));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：<br>二叉树 [1,2,2,3,4,4,3]</p>
-<pre><code>    1
-   / \
-  2   2
- / \ / \
-3  4 4  3</code></pre><p>测试结果：true<br>显然该树是对称的。</p>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>二叉树</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
     <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
@@ -703,48 +662,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 155.最小栈[栈][设计]</title>
-    <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
-<p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
-<pre><code>push(x) —— 将元素 x 推入栈中。
-pop() —— 删除栈顶的元素。
-top() —— 获取栈顶元素。
-getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<p><strong>输入：</strong><br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
-<p><strong>输出：</strong><br>[null,null,null,null,-3,null,0,-2]</p>
-<p><strong>解释：</strong><br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
-<p><strong>提示：</strong><br>pop、top 和 getMin 操作总是在 非空栈 上调用。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>本题是一道设计题，已经提前给出了模板，要求我们对其中给出的函数进行完善，以达到他的要求。</p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/model.jpg" class title="模板">
-
-<p>要求是能够实现栈最基本的push、pop和top操作的同时，还需要实现获取栈中最小值getMin的功能。</p>
-<p>相信上过数据结构课的各位做这题应该不难（doge），在C++中，我们使用动态数组来实现栈的各种功能，在Java中，我们依然使用动态数组ArrayList来实现。<br>题目不难，直接放代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class MinStack &#123;</span><br><span class="line">	private ArrayList&lt;Integer&gt; array;</span><br><span class="line">	</span><br><span class="line">	public MinStack() &#123;</span><br><span class="line">		array&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">    	array.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void pop() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">    		array.remove(array.size()-1);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int top() &#123;</span><br><span class="line">    	if(!array.isEmpty())</span><br><span class="line">    		return array.get(array.size()-1);</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int getMin() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">	    	int min&#x3D;Integer.MAX_VALUE;</span><br><span class="line">	    	for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">	    		if(array.get(i)&lt;min)</span><br><span class="line">	    			min&#x3D;array.get(i);</span><br><span class="line">	    	&#125;</span><br><span class="line">			return min;</span><br><span class="line">    	&#125;</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		MinStack minStack&#x3D;new MinStack();</span><br><span class="line">		minStack.push(-2);</span><br><span class="line">		minStack.push(0);</span><br><span class="line">		minStack.push(-3);</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">		minStack.pop();</span><br><span class="line">		System.out.println(minStack.top());</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：</p>
-<pre><code>操作：[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]
-输入：[[],[-2],[0],[-3],[],[],[],[]]</code></pre><p>输出：</p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/run.jpg" class title="运行">
-
-<p>可以看到我们向栈中push了三个数字-2,0,-3，然后输出栈中最小值为-3，然后删除了栈顶元素，输出了现在的栈顶元素0，然后输出了现在的最小值为-2，结果正确。</p>
-<p><strong>LeetCode提交结果：</strong></p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/result1.jpg" class title="提交结果">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>栈</tag>
-        <tag>设计</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 146.LRU缓存机制[设计]</title>
     <url>/2020/07/12/LeetCode-146-LRU%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6-%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[设计][哈希表][队列]</em></p>
@@ -796,6 +713,48 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
         <tag>设计</tag>
         <tag>哈希表</tag>
         <tag>队列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 155.最小栈[栈][设计]</title>
+    <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
+<p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
+<pre><code>push(x) —— 将元素 x 推入栈中。
+pop() —— 删除栈顶的元素。
+top() —— 获取栈顶元素。
+getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<p><strong>输入：</strong><br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
+<p><strong>输出：</strong><br>[null,null,null,null,-3,null,0,-2]</p>
+<p><strong>解释：</strong><br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
+<p><strong>提示：</strong><br>pop、top 和 getMin 操作总是在 非空栈 上调用。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>本题是一道设计题，已经提前给出了模板，要求我们对其中给出的函数进行完善，以达到他的要求。</p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/model.jpg" class title="模板">
+
+<p>要求是能够实现栈最基本的push、pop和top操作的同时，还需要实现获取栈中最小值getMin的功能。</p>
+<p>相信上过数据结构课的各位做这题应该不难（doge），在C++中，我们使用动态数组来实现栈的各种功能，在Java中，我们依然使用动态数组ArrayList来实现。<br>题目不难，直接放代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class MinStack &#123;</span><br><span class="line">	private ArrayList&lt;Integer&gt; array;</span><br><span class="line">	</span><br><span class="line">	public MinStack() &#123;</span><br><span class="line">		array&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">    	array.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void pop() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">    		array.remove(array.size()-1);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int top() &#123;</span><br><span class="line">    	if(!array.isEmpty())</span><br><span class="line">    		return array.get(array.size()-1);</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int getMin() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">	    	int min&#x3D;Integer.MAX_VALUE;</span><br><span class="line">	    	for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">	    		if(array.get(i)&lt;min)</span><br><span class="line">	    			min&#x3D;array.get(i);</span><br><span class="line">	    	&#125;</span><br><span class="line">			return min;</span><br><span class="line">    	&#125;</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		MinStack minStack&#x3D;new MinStack();</span><br><span class="line">		minStack.push(-2);</span><br><span class="line">		minStack.push(0);</span><br><span class="line">		minStack.push(-3);</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">		minStack.pop();</span><br><span class="line">		System.out.println(minStack.top());</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：</p>
+<pre><code>操作：[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]
+输入：[[],[-2],[0],[-3],[],[],[],[]]</code></pre><p>输出：</p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/run.jpg" class title="运行">
+
+<p>可以看到我们向栈中push了三个数字-2,0,-3，然后输出栈中最小值为-3，然后删除了栈顶元素，输出了现在的栈顶元素0，然后输出了现在的最小值为-2，结果正确。</p>
+<p><strong>LeetCode提交结果：</strong></p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/result1.jpg" class title="提交结果">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>设计</tag>
+        <tag>栈</tag>
       </tags>
   </entry>
   <entry>
@@ -1102,6 +1061,53 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 21.合并两个有序链表[链表]</title>
+    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
+<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
+<a id="more"></a>
+
+
+<p><strong>示例：</strong></p>
+<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
+<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
+<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
+<p>①. 两链表指针均从头开始。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
+
+<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
+
+<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
+
+<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
+
+<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
+<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
+<p><strong>###2.3. 完整代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
+
+<p>LeetCode提交记录：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 3.无重复字符的最长子串[字符串]</title>
     <url>/2020/07/04/LeetCode-3-%E6%97%A0%E9%87%8D%E5%A4%8D%E5%AD%97%E7%AC%A6%E7%9A%84%E6%9C%80%E9%95%BF%E5%AD%90%E4%B8%B2-%E5%AD%97%E7%AC%A6%E4%B8%B2/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[字符串][哈希表][Sliding Window]</em></p>
@@ -1171,53 +1177,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 21.合并两个有序链表[链表]</title>
-    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
-<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<a id="more"></a>
-
-
-<p><strong>示例：</strong></p>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
-<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
-<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
-<p>①. 两链表指针均从头开始。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
-
-<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
-
-<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
-
-<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
-
-<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
-<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
-<p><strong>###2.3. 完整代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
-
-<p>LeetCode提交记录：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 309.最佳买卖股票时机含冷冻期[动态规划]</title>
     <url>/2020/07/10/LeetCode-309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
@@ -1255,6 +1214,47 @@ cold[i]=max(sell[i-1],cold[i-1]);
       </categories>
       <tags>
         <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 101.对称二叉树[二叉树]</title>
+    <url>/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[二叉树]</em></p>
+<p>给定一个二叉树，检查它是否是镜像对称的。</p>
+<a id="more"></a>
+
+
+<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
+<pre><code>    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3</code></pre><p>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
+<pre><code>  1
+ / \
+2   2
+ \   \
+ 3    3</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>我们可以使用两个指针，开始时均指向根节点，然后让他们同时行动，进行深度优先搜索或广度优先搜索，当一个指针p指向了当前树节点的左子树节点时，我们让另一个指针q同时指向当前节点的右子树节点，然后比较p和q所指节点的值是否相等。<br>如果遇到p和q节点的值不等或者p和q不同时为空的情况下，返回false。<br>如果搜索完成后没有发现以上情况，返回true。</p>
+<p><strong>###2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class TreeNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 TreeNode left;</span><br><span class="line">	 TreeNode right;</span><br><span class="line">	 TreeNode(int x) &#123; val &#x3D; x; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class IsSymmetric &#123;</span><br><span class="line">	public static boolean isSymmetric(TreeNode root) &#123;</span><br><span class="line">        return check(root,root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static boolean check(TreeNode p, TreeNode q) &#123;</span><br><span class="line">		if(p&#x3D;&#x3D;null&amp;&amp;q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果两节点都为空，返回true</span><br><span class="line">			return true;</span><br><span class="line">		if(p&#x3D;&#x3D;null||q&#x3D;&#x3D;null)	&#x2F;&#x2F;如果只有一节点为空，返回false</span><br><span class="line">			return false;</span><br><span class="line">		</span><br><span class="line">		return p.val&#x3D;&#x3D;q.val&amp;&amp;check(p.right,q.left)&amp;&amp;check(p.left,q.right);&#x2F;&#x2F;两节点都不为空，递归进行比较</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：二叉树 [1,2,2,3,4,4,3]</span><br><span class="line">		TreeNode tree&#x3D;new TreeNode(1);</span><br><span class="line">		tree.left&#x3D;new TreeNode(2);</span><br><span class="line">		tree.left.left&#x3D;new TreeNode(3);</span><br><span class="line">		tree.left.right&#x3D;new TreeNode(4);</span><br><span class="line">		</span><br><span class="line">		tree.right&#x3D;new TreeNode(2);</span><br><span class="line">		tree.right.left&#x3D;new TreeNode(4);</span><br><span class="line">		tree.right.right&#x3D;new TreeNode(3);</span><br><span class="line">		</span><br><span class="line">		System.out.println(isSymmetric(tree));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：<br>二叉树 [1,2,2,3,4,4,3]</p>
+<pre><code>    1
+   / \
+  2   2
+ / \ / \
+3  4 4  3</code></pre><p>测试结果：true<br>显然该树是对称的。</p>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/06/LeetCode-101-%E5%AF%B9%E7%A7%B0%E4%BA%8C%E5%8F%89%E6%A0%91-%E4%BA%8C%E5%8F%89%E6%A0%91/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>二叉树</tag>
       </tags>
   </entry>
   <entry>
@@ -1592,7 +1592,7 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
 <a id="more"></a>
 
 <hr>
-<h2 id="1-问题"><a href="#1-问题" class="headerlink" title="##1. 问题"></a>##1. 问题</h2><p>进行语法分析时，对于一个语法树，从起始结点开始，依次读取用户输入的字符，并做相应的推导，直到读完用户的输入，才能够判断输入是否合法。<br>当语法树比较大时，他产生的语法空间也会很大，这样要执行上面的操作肯定会产生很多错误步骤，需要做很多回溯处理，大大降低了运行效率。</p>
+<h2 id="1-问题"><a href="#1-问题" class="headerlink" title="##1. 问题"></a>##1. 问题</h2><p>进行语法分析时，对于一个语法树，从起始结点开始，依次读取用户输入的字符，并做相应的推导，直到读完用户的输入，才能够判断输入是否合法。<br>当语法树比较大时，他产生的语法空间也会很大，这样要执行上面的操作肯定会产生很多错误步骤，需要做很多回溯处理，大大降低了运行效率。<br><a href="D://杜尤伟/大三上/编译原理/实验二/jiaocheng.pdf" target="_blank">编译原理 First集 Follow集 select集 通俗易懂的讲解 + 实例 .pdf</a>（请确保有pdf阅读器或使用支持阅读pdf文档的浏览器打开。）</p>
 <hr>
 <h2 id="2-FIRST集"><a href="#2-FIRST集" class="headerlink" title="##2. FIRST集"></a>##2. FIRST集</h2><p>我们定义<br><strong>FIRST(α)为：从α开始推导得到的串的首符号的集合，其中α是任意的文法符号串。</strong><br>我们现在可以考虑产生式：<strong>A-&gt;α|β</strong>，其中FIRST(α)和FIRST(β)是不相交的集合。</p>
 <p><strong>此时我们只需要看下一个输入的符号a，看a出现在FIRST(α)还是在FIRST(β)中，我们就可以唯一确定一条路径向下推导。</strong>因为a只能出现在FIRST(α)或者FIRST(β)中的一个集合中。</p>
