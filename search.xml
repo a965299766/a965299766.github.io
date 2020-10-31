@@ -1,47 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Java集合-Collection[Java知识点]</title>
-    <url>/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>Collection接口统一定义了一系列单列集合</strong></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-Collection集合的继承树"><a href="#1-Collection集合的继承树" class="headerlink" title="##1. Collection集合的继承树"></a>##1. Collection集合的继承树</h2><img src="/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Collection集合的继承树">
-
-<hr>
-<h2 id="2-Collection的常用方法"><a href="#2-Collection的常用方法" class="headerlink" title="##2. Collection的常用方法"></a>##2. Collection的常用方法</h2><p><strong>boolean add(E e)</strong></p>
-<pre><code>在集合中添加一个元素e
-添加成功则返回true</code></pre><p><strong>boolean addAll(Collection&lt;? extends E&gt; c)</strong></p>
-<pre><code>在集合中添加一组元素c
-添加成功则返回true</code></pre><p><strong>boolean contains(Object o)</strong></p>
-<pre><code>集合中是否存在元素o
-存在则返回true，否则返回false</code></pre><p><strong>boolean isEmpty()</strong></p>
-<pre><code>集合是否为空（没有元素）
-为空则返回true，否则返回false</code></pre><p><strong>boolean remove(Object o)</strong></p>
-<pre><code>删除集合中第一次出现值等于元素o的元素
-删除成功则返回true</code></pre><p><strong>int size()</strong></p>
-<pre><code>获得集合的大小
-即集合中元素的个数</code></pre><p><strong><E> E[] toArray(E[] a)</E></strong></p>
-<pre><code>将集合转换为数组
-如将Integer类型的集合转换为Integer类型的数组</code></pre><p><strong>boolean retainAll(Collection&lt;?&gt; c)</strong></p>
-<pre><code>保留原集合中，值等于给定集合c中出现过的值，删掉其他的</code></pre><p><strong>void clear()</strong></p>
-<pre><code>清空集合元素</code></pre><hr>
-<h2 id="3-测试代码"><a href="#3-测试代码" class="headerlink" title="##3. 测试代码"></a>##3. 测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line"></span><br><span class="line">public class TestCollection &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Collection&lt;Integer&gt; coll&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		coll.add(1);</span><br><span class="line">		coll.add(5);</span><br><span class="line">		coll.add(-5);</span><br><span class="line">		System.out.println(coll);&#x2F;&#x2F;添加元素</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, -5]</span><br><span class="line">		</span><br><span class="line">		coll.addAll(coll);</span><br><span class="line">		System.out.println(coll);&#x2F;&#x2F;添加一组元素</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, -5, 1, 5, -5]</span><br><span class="line">		</span><br><span class="line">		System.out.println(coll.contains(5));&#x2F;&#x2F;集合中是否存在元素</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		</span><br><span class="line">		System.out.println(coll.isEmpty());&#x2F;&#x2F;集合是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		coll.remove(1);&#x2F;&#x2F;删除集合中第一次出现的该值，不存在则不删除</span><br><span class="line">		System.out.println(coll);</span><br><span class="line">		&#x2F;&#x2F;输出：[5, -5, 1, 5, -5]</span><br><span class="line"></span><br><span class="line">		System.out.println(coll.size());&#x2F;&#x2F;返回集合的大小，即元素的个数</span><br><span class="line">		&#x2F;&#x2F;输出：5</span><br><span class="line">		</span><br><span class="line">		Integer[] a&#x3D;coll.toArray(new Integer[coll.size()]);&#x2F;&#x2F;集合转数组</span><br><span class="line">		for(int k:a)</span><br><span class="line">			System.out.print(k+&quot; &quot;);</span><br><span class="line">		System.out.println();</span><br><span class="line">		&#x2F;&#x2F;输出：5 -5 1 5 -5 </span><br><span class="line">		</span><br><span class="line">		Collection&lt;Integer&gt; ls&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		ls.add(5);</span><br><span class="line">		ls.add(-5);</span><br><span class="line">		coll.retainAll(ls);&#x2F;&#x2F;集合中保留给定集合中的值，删掉其他值</span><br><span class="line">		System.out.println(coll);</span><br><span class="line">		&#x2F;&#x2F;输出：[5, -5, 5, -5]</span><br><span class="line">		</span><br><span class="line">		coll.clear();&#x2F;&#x2F;清空集合</span><br><span class="line">		System.out.println(coll);</span><br><span class="line">		&#x2F;&#x2F;输出：[]</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="4-相关链接"><a href="#4-相关链接" class="headerlink" title="##4. 相关链接"></a>##4. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Collection</tag>
-        <tag>集合</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java中的反射机制</title>
     <url>/2020/08/07/Java%E4%B8%AD%E7%9A%84%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/</url>
     <content><![CDATA[<h2 id="1-什么是反射"><a href="#1-什么是反射" class="headerlink" title="##1. 什么是反射"></a>##1. 什么是反射</h2><p><strong><em>Java的反射（reflection）机制是指在程序的运行状态中，可以构造任意一个类的对象，可以了解任意一个对象所属的类，可以了解任意一个类的成员变量和方法，可以调用任意一个对象的属性和方法。这种动态获取程序信息以及动态调用对象的功能称为Java语言的反射机制。反射被视为动态语言的关键。</em></strong></p>
@@ -134,6 +93,47 @@
       <tags>
         <tag>Java</tag>
         <tag>反射</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合-Collection[Java知识点]</title>
+    <url>/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>Collection接口统一定义了一系列单列集合</strong></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-Collection集合的继承树"><a href="#1-Collection集合的继承树" class="headerlink" title="##1. Collection集合的继承树"></a>##1. Collection集合的继承树</h2><img src="/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Collection集合的继承树">
+
+<hr>
+<h2 id="2-Collection的常用方法"><a href="#2-Collection的常用方法" class="headerlink" title="##2. Collection的常用方法"></a>##2. Collection的常用方法</h2><p><strong>boolean add(E e)</strong></p>
+<pre><code>在集合中添加一个元素e
+添加成功则返回true</code></pre><p><strong>boolean addAll(Collection&lt;? extends E&gt; c)</strong></p>
+<pre><code>在集合中添加一组元素c
+添加成功则返回true</code></pre><p><strong>boolean contains(Object o)</strong></p>
+<pre><code>集合中是否存在元素o
+存在则返回true，否则返回false</code></pre><p><strong>boolean isEmpty()</strong></p>
+<pre><code>集合是否为空（没有元素）
+为空则返回true，否则返回false</code></pre><p><strong>boolean remove(Object o)</strong></p>
+<pre><code>删除集合中第一次出现值等于元素o的元素
+删除成功则返回true</code></pre><p><strong>int size()</strong></p>
+<pre><code>获得集合的大小
+即集合中元素的个数</code></pre><p><strong><E> E[] toArray(E[] a)</E></strong></p>
+<pre><code>将集合转换为数组
+如将Integer类型的集合转换为Integer类型的数组</code></pre><p><strong>boolean retainAll(Collection&lt;?&gt; c)</strong></p>
+<pre><code>保留原集合中，值等于给定集合c中出现过的值，删掉其他的</code></pre><p><strong>void clear()</strong></p>
+<pre><code>清空集合元素</code></pre><hr>
+<h2 id="3-测试代码"><a href="#3-测试代码" class="headerlink" title="##3. 测试代码"></a>##3. 测试代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Collection;</span><br><span class="line"></span><br><span class="line">public class TestCollection &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Collection&lt;Integer&gt; coll&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		</span><br><span class="line">		coll.add(1);</span><br><span class="line">		coll.add(5);</span><br><span class="line">		coll.add(-5);</span><br><span class="line">		System.out.println(coll);&#x2F;&#x2F;添加元素</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, -5]</span><br><span class="line">		</span><br><span class="line">		coll.addAll(coll);</span><br><span class="line">		System.out.println(coll);&#x2F;&#x2F;添加一组元素</span><br><span class="line">		&#x2F;&#x2F;输出：[1, 5, -5, 1, 5, -5]</span><br><span class="line">		</span><br><span class="line">		System.out.println(coll.contains(5));&#x2F;&#x2F;集合中是否存在元素</span><br><span class="line">		&#x2F;&#x2F;输出：true</span><br><span class="line">		</span><br><span class="line">		System.out.println(coll.isEmpty());&#x2F;&#x2F;集合是否为空</span><br><span class="line">		&#x2F;&#x2F;输出：false</span><br><span class="line">		</span><br><span class="line">		coll.remove(1);&#x2F;&#x2F;删除集合中第一次出现的该值，不存在则不删除</span><br><span class="line">		System.out.println(coll);</span><br><span class="line">		&#x2F;&#x2F;输出：[5, -5, 1, 5, -5]</span><br><span class="line"></span><br><span class="line">		System.out.println(coll.size());&#x2F;&#x2F;返回集合的大小，即元素的个数</span><br><span class="line">		&#x2F;&#x2F;输出：5</span><br><span class="line">		</span><br><span class="line">		Integer[] a&#x3D;coll.toArray(new Integer[coll.size()]);&#x2F;&#x2F;集合转数组</span><br><span class="line">		for(int k:a)</span><br><span class="line">			System.out.print(k+&quot; &quot;);</span><br><span class="line">		System.out.println();</span><br><span class="line">		&#x2F;&#x2F;输出：5 -5 1 5 -5 </span><br><span class="line">		</span><br><span class="line">		Collection&lt;Integer&gt; ls&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		ls.add(5);</span><br><span class="line">		ls.add(-5);</span><br><span class="line">		coll.retainAll(ls);&#x2F;&#x2F;集合中保留给定集合中的值，删掉其他值</span><br><span class="line">		System.out.println(coll);</span><br><span class="line">		&#x2F;&#x2F;输出：[5, -5, 5, -5]</span><br><span class="line">		</span><br><span class="line">		coll.clear();&#x2F;&#x2F;清空集合</span><br><span class="line">		System.out.println(coll);</span><br><span class="line">		&#x2F;&#x2F;输出：[]</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="4-相关链接"><a href="#4-相关链接" class="headerlink" title="##4. 相关链接"></a>##4. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Collection</tag>
+        <tag>集合</tag>
       </tags>
   </entry>
   <entry>
@@ -389,74 +389,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>Lambda表达式-进阶部分[Java知识点]</title>
-    <url>/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>本文在 <a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式基础部分</a>的基础上介绍了一些Lambda表达式的进阶用法。</strong></p>
-<p><strong>仅供参考</strong></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-方法引用"><a href="#1-方法引用" class="headerlink" title="##1. 方法引用"></a>##1. 方法引用</h2><p><strong>如果需要在程序中多次实现同一个接口，我们可能会写成如下形式：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SingleReturnSingleParameter lambda1 &#x3D; a -&gt; a * 2;</span><br><span class="line">	</span><br><span class="line">SingleReturnSingleParameter lambda2 &#x3D; a -&gt; a  * 2;</span><br><span class="line">&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
-
-<p><strong>显然，这种写法中，函数实现部分是有重复的，这样写，我们后续如果需要对接口的实现方法进行修改的话，就必须把每个实现的语句都修改一遍。</strong><br>如上方所示程序中，接口的实现函数是 <strong>a -&gt; a * 2</strong> ，如果想要把返回值从 a * 2 改为 a * 3的话，就需要对每个 a * 2 进行修改，此时，我们可以使用方法引用，将重复的部分用函数封装，从而方便了后续修改：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Syntax3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		SingleReturnSingleParameter lambda1 &#x3D; a -&gt; change(a);</span><br><span class="line">		</span><br><span class="line">		SingleReturnSingleParameter lambda2 &#x3D; a -&gt; change(a);</span><br><span class="line">		&#x2F;&#x2F;......</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static int change(int a) &#123;&#x2F;&#x2F;写成一个函数</span><br><span class="line">		return a * 2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>还可以这么写，使用 <strong>隶属者::方法名</strong> 的方式来引用方法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SingleReturnSingleParameter lambda1 &#x3D; Syntax3 :: change;</span><br><span class="line">	</span><br><span class="line">SingleReturnSingleParameter lambda2 &#x3D; Syntax3 :: change;</span><br><span class="line">&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="2-构造方法引用"><a href="#2-构造方法引用" class="headerlink" title="##2. 构造方法引用"></a>##2. 构造方法引用</h2><p><strong>那如果我们想引用的方法是一个类的构造方法呢？</strong></p>
-<p>先写一个测试类Person，其中有一个无参构造和一个有参构造：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	public Person() &#123;</span><br><span class="line">		System.out.println(&quot;Person的无参构造执行了&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public Person(int a , int b) &#123;</span><br><span class="line">		System.out.println(&quot;Person的有参构造执行了，参数a&#x3D;&quot;+a+&quot;,b&#x3D;&quot;+b);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>对于调用无参构造和有参构造，分别写两个接口。</p>
-<p><strong>注意：接口中的方法参数必须和要实现的构造函数参数一致！</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">interface Person1&#123;</span><br><span class="line">	Person getPerson();&#x2F;&#x2F;调用无参构造</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person2&#123;</span><br><span class="line">	Person getPerson(int a , int b);&#x2F;&#x2F;调用有参构造</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>对于不同的接口方法参数，使用Lambda表达式时会调用不同的构造函数</strong></p>
-<p>测试代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Syntax &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;调用Person类的无参构造</span><br><span class="line">		Person1 person1 &#x3D; () -&gt; new Person();</span><br><span class="line">		Person1 person2 &#x3D; Person::new;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;测试</span><br><span class="line">		person1.getPerson();</span><br><span class="line">		&#x2F;&#x2F;输出：Person的无参构造执行了</span><br><span class="line">		person2.getPerson();</span><br><span class="line">		&#x2F;&#x2F;输出：Person的无参构造执行了</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;调用Person类的有参构造</span><br><span class="line">		Person2 person3 &#x3D; (a , b) -&gt; new Person(a , b);</span><br><span class="line">		Person2 person4 &#x3D; Person::new;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;测试</span><br><span class="line">		person3.getPerson(1, 5);</span><br><span class="line">		&#x2F;&#x2F;输出：Person的有参构造执行了，参数a&#x3D;1,b&#x3D;5</span><br><span class="line">		person4.getPerson(2, 3);</span><br><span class="line">		&#x2F;&#x2F;输出：Person的有参构造执行了，参数a&#x3D;2,b&#x3D;3</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person1&#123;</span><br><span class="line">	Person getPerson();&#x2F;&#x2F;调用无参构造</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person2&#123;</span><br><span class="line">	Person getPerson(int a , int b);&#x2F;&#x2F;调用有参构造</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="3-实际运用"><a href="#3-实际运用" class="headerlink" title="##3. 实际运用"></a>##3. 实际运用</h2><p><strong>3.1. 需求</strong><br>给定一个Person类，属性有姓名（String name），年龄（int age）。<br>给定一个Person类型的ArrayList，里面有10个随机的Person对象。<br>要求：使用ArrayList.sort()函数将其中的Person对象按年龄降序排序。</p>
-<p><strong>3.2. Person类</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public Person(String name,int age) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">		this.age &#x3D; age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return this.age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		String ret &#x3D; &quot;姓名：&quot; + this.name + &quot;年龄：&quot; + this.age+&quot;\n&quot;;</span><br><span class="line">		return ret;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.3. ArrayList</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ArrayList&lt;Person&gt; list &#x3D; new ArrayList&lt;Person&gt;();</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;10个随机Person对象</span><br><span class="line">list.add(new Person(&quot;xiaoming&quot;,10));</span><br><span class="line">list.add(new Person(&quot;laogou&quot;,15));</span><br><span class="line">list.add(new Person(&quot;zhangsan&quot;,7));</span><br><span class="line">list.add(new Person(&quot;lisi&quot;,5));</span><br><span class="line">list.add(new Person(&quot;wangwu&quot;,18));</span><br><span class="line">list.add(new Person(&quot;maliu&quot;,20));</span><br><span class="line">list.add(new Person(&quot;tianqi&quot;,2));</span><br><span class="line">list.add(new Person(&quot;wangwang&quot;,13));</span><br><span class="line">list.add(new Person(&quot;honghong&quot;,10));</span><br><span class="line">list.add(new Person(&quot;zhaoshu&quot;,55));</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.4. sort()函数</strong><br>sort函数形式如下：</p>
-<pre><code>void sort(Comparator&lt;? super Person&gt; c)</code></pre><p>这其中的一个参数Comparator&lt;&gt; c是个啥？</p>
-<p><strong>查看源码得知，这是一个函数式接口</strong></p>
-<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="函数式接口Comparator">
-
-<p>其中有个待实现函数compare：</p>
-<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="待实现函数compare">
-
-<p>它的作用是：<br><strong>对于参数o1和o2，如果返回值为正数，说明o1＞o2；</strong><br><strong>如果返回值为负数，说明o1＜o2；</strong><br><strong>如果返回值为0，说明o1=o2。</strong></p>
-<p>至此，我们就可以实现这个函数式接口了：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list.sort((o1 , o2) -&gt; o2.getAge() - o1.getAge());</span><br></pre></td></tr></table></figure>
-<p>这样是降序排序，如果要升序，则</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list.sort((o1 , o2) -&gt; o1.getAge() - o2.getAge());</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.5. 完整代码如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class Example &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		ArrayList&lt;Person&gt; list &#x3D; new ArrayList&lt;Person&gt;();</span><br><span class="line">		</span><br><span class="line">		list.add(new Person(&quot;xiaoming&quot;,10));</span><br><span class="line">		list.add(new Person(&quot;laogou&quot;,15));</span><br><span class="line">		list.add(new Person(&quot;zhangsan&quot;,7));</span><br><span class="line">		list.add(new Person(&quot;lisi&quot;,5));</span><br><span class="line">		list.add(new Person(&quot;wangwu&quot;,18));</span><br><span class="line">		list.add(new Person(&quot;maliu&quot;,20));</span><br><span class="line">		list.add(new Person(&quot;tianqi&quot;,2));</span><br><span class="line">		list.add(new Person(&quot;wangwang&quot;,13));</span><br><span class="line">		list.add(new Person(&quot;honghong&quot;,10));</span><br><span class="line">		list.add(new Person(&quot;zhaoshu&quot;,55));</span><br><span class="line">		</span><br><span class="line">		list.sort((o1 , o2) -&gt; o2.getAge() - o1.getAge());</span><br><span class="line">		</span><br><span class="line">		System.out.println(list);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.6. 运行结果图：</strong></p>
-<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/3.jpg" class title="运行结果图">
-
-<hr>
-<h2 id="4-相关链接"><a href="#4-相关链接" class="headerlink" title="##4. 相关链接"></a>##4. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式-基础部分</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>Lambda表达式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Lambda表达式-基础部分[Java知识点]</title>
     <url>/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。</strong></p>
@@ -543,6 +475,74 @@ HashMap是Map的具体实现类。</code></pre><hr>
 <p><strong>Lambda表达式的基础部分至此结束。</strong></p>
 <hr>
 <h2 id="5-相关链接"><a href="#5-相关链接" class="headerlink" title="##5. 相关链接"></a>##5. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式-进阶部分</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Lambda表达式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Lambda表达式-进阶部分[Java知识点]</title>
+    <url>/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>本文在 <a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式基础部分</a>的基础上介绍了一些Lambda表达式的进阶用法。</strong></p>
+<p><strong>仅供参考</strong></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-方法引用"><a href="#1-方法引用" class="headerlink" title="##1. 方法引用"></a>##1. 方法引用</h2><p><strong>如果需要在程序中多次实现同一个接口，我们可能会写成如下形式：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SingleReturnSingleParameter lambda1 &#x3D; a -&gt; a * 2;</span><br><span class="line">	</span><br><span class="line">SingleReturnSingleParameter lambda2 &#x3D; a -&gt; a  * 2;</span><br><span class="line">&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
+
+<p><strong>显然，这种写法中，函数实现部分是有重复的，这样写，我们后续如果需要对接口的实现方法进行修改的话，就必须把每个实现的语句都修改一遍。</strong><br>如上方所示程序中，接口的实现函数是 <strong>a -&gt; a * 2</strong> ，如果想要把返回值从 a * 2 改为 a * 3的话，就需要对每个 a * 2 进行修改，此时，我们可以使用方法引用，将重复的部分用函数封装，从而方便了后续修改：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Syntax3 &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		SingleReturnSingleParameter lambda1 &#x3D; a -&gt; change(a);</span><br><span class="line">		</span><br><span class="line">		SingleReturnSingleParameter lambda2 &#x3D; a -&gt; change(a);</span><br><span class="line">		&#x2F;&#x2F;......</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static int change(int a) &#123;&#x2F;&#x2F;写成一个函数</span><br><span class="line">		return a * 2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还可以这么写，使用 <strong>隶属者::方法名</strong> 的方式来引用方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SingleReturnSingleParameter lambda1 &#x3D; Syntax3 :: change;</span><br><span class="line">	</span><br><span class="line">SingleReturnSingleParameter lambda2 &#x3D; Syntax3 :: change;</span><br><span class="line">&#x2F;&#x2F;......</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="2-构造方法引用"><a href="#2-构造方法引用" class="headerlink" title="##2. 构造方法引用"></a>##2. 构造方法引用</h2><p><strong>那如果我们想引用的方法是一个类的构造方法呢？</strong></p>
+<p>先写一个测试类Person，其中有一个无参构造和一个有参构造：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	public Person() &#123;</span><br><span class="line">		System.out.println(&quot;Person的无参构造执行了&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public Person(int a , int b) &#123;</span><br><span class="line">		System.out.println(&quot;Person的有参构造执行了，参数a&#x3D;&quot;+a+&quot;,b&#x3D;&quot;+b);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>对于调用无参构造和有参构造，分别写两个接口。</p>
+<p><strong>注意：接口中的方法参数必须和要实现的构造函数参数一致！</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">interface Person1&#123;</span><br><span class="line">	Person getPerson();&#x2F;&#x2F;调用无参构造</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person2&#123;</span><br><span class="line">	Person getPerson(int a , int b);&#x2F;&#x2F;调用有参构造</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>对于不同的接口方法参数，使用Lambda表达式时会调用不同的构造函数</strong></p>
+<p>测试代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Syntax &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;调用Person类的无参构造</span><br><span class="line">		Person1 person1 &#x3D; () -&gt; new Person();</span><br><span class="line">		Person1 person2 &#x3D; Person::new;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;测试</span><br><span class="line">		person1.getPerson();</span><br><span class="line">		&#x2F;&#x2F;输出：Person的无参构造执行了</span><br><span class="line">		person2.getPerson();</span><br><span class="line">		&#x2F;&#x2F;输出：Person的无参构造执行了</span><br><span class="line"></span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;调用Person类的有参构造</span><br><span class="line">		Person2 person3 &#x3D; (a , b) -&gt; new Person(a , b);</span><br><span class="line">		Person2 person4 &#x3D; Person::new;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;测试</span><br><span class="line">		person3.getPerson(1, 5);</span><br><span class="line">		&#x2F;&#x2F;输出：Person的有参构造执行了，参数a&#x3D;1,b&#x3D;5</span><br><span class="line">		person4.getPerson(2, 3);</span><br><span class="line">		&#x2F;&#x2F;输出：Person的有参构造执行了，参数a&#x3D;2,b&#x3D;3</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person1&#123;</span><br><span class="line">	Person getPerson();&#x2F;&#x2F;调用无参构造</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@FunctionalInterface</span><br><span class="line">interface Person2&#123;</span><br><span class="line">	Person getPerson(int a , int b);&#x2F;&#x2F;调用有参构造</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-实际运用"><a href="#3-实际运用" class="headerlink" title="##3. 实际运用"></a>##3. 实际运用</h2><p><strong>3.1. 需求</strong><br>给定一个Person类，属性有姓名（String name），年龄（int age）。<br>给定一个Person类型的ArrayList，里面有10个随机的Person对象。<br>要求：使用ArrayList.sort()函数将其中的Person对象按年龄降序排序。</p>
+<p><strong>3.2. Person类</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Person &#123;</span><br><span class="line">	private String name;</span><br><span class="line">	private int age;</span><br><span class="line">	</span><br><span class="line">	public Person(String name,int age) &#123;</span><br><span class="line">		this.name &#x3D; name;</span><br><span class="line">		this.age &#x3D; age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public int getAge() &#123;</span><br><span class="line">		return this.age;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public String toString() &#123;</span><br><span class="line">		String ret &#x3D; &quot;姓名：&quot; + this.name + &quot;年龄：&quot; + this.age+&quot;\n&quot;;</span><br><span class="line">		return ret;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.3. ArrayList</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ArrayList&lt;Person&gt; list &#x3D; new ArrayList&lt;Person&gt;();</span><br><span class="line">	</span><br><span class="line">&#x2F;&#x2F;10个随机Person对象</span><br><span class="line">list.add(new Person(&quot;xiaoming&quot;,10));</span><br><span class="line">list.add(new Person(&quot;laogou&quot;,15));</span><br><span class="line">list.add(new Person(&quot;zhangsan&quot;,7));</span><br><span class="line">list.add(new Person(&quot;lisi&quot;,5));</span><br><span class="line">list.add(new Person(&quot;wangwu&quot;,18));</span><br><span class="line">list.add(new Person(&quot;maliu&quot;,20));</span><br><span class="line">list.add(new Person(&quot;tianqi&quot;,2));</span><br><span class="line">list.add(new Person(&quot;wangwang&quot;,13));</span><br><span class="line">list.add(new Person(&quot;honghong&quot;,10));</span><br><span class="line">list.add(new Person(&quot;zhaoshu&quot;,55));</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.4. sort()函数</strong><br>sort函数形式如下：</p>
+<pre><code>void sort(Comparator&lt;? super Person&gt; c)</code></pre><p>这其中的一个参数Comparator&lt;&gt; c是个啥？</p>
+<p><strong>查看源码得知，这是一个函数式接口</strong></p>
+<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="函数式接口Comparator">
+
+<p>其中有个待实现函数compare：</p>
+<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="待实现函数compare">
+
+<p>它的作用是：<br><strong>对于参数o1和o2，如果返回值为正数，说明o1＞o2；</strong><br><strong>如果返回值为负数，说明o1＜o2；</strong><br><strong>如果返回值为0，说明o1=o2。</strong></p>
+<p>至此，我们就可以实现这个函数式接口了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list.sort((o1 , o2) -&gt; o2.getAge() - o1.getAge());</span><br></pre></td></tr></table></figure>
+<p>这样是降序排序，如果要升序，则</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">list.sort((o1 , o2) -&gt; o1.getAge() - o2.getAge());</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.5. 完整代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class Example &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		ArrayList&lt;Person&gt; list &#x3D; new ArrayList&lt;Person&gt;();</span><br><span class="line">		</span><br><span class="line">		list.add(new Person(&quot;xiaoming&quot;,10));</span><br><span class="line">		list.add(new Person(&quot;laogou&quot;,15));</span><br><span class="line">		list.add(new Person(&quot;zhangsan&quot;,7));</span><br><span class="line">		list.add(new Person(&quot;lisi&quot;,5));</span><br><span class="line">		list.add(new Person(&quot;wangwu&quot;,18));</span><br><span class="line">		list.add(new Person(&quot;maliu&quot;,20));</span><br><span class="line">		list.add(new Person(&quot;tianqi&quot;,2));</span><br><span class="line">		list.add(new Person(&quot;wangwang&quot;,13));</span><br><span class="line">		list.add(new Person(&quot;honghong&quot;,10));</span><br><span class="line">		list.add(new Person(&quot;zhaoshu&quot;,55));</span><br><span class="line">		</span><br><span class="line">		list.sort((o1 , o2) -&gt; o2.getAge() - o1.getAge());</span><br><span class="line">		</span><br><span class="line">		System.out.println(list);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.6. 运行结果图：</strong></p>
+<img src="/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/3.jpg" class title="运行结果图">
+
+<hr>
+<h2 id="4-相关链接"><a href="#4-相关链接" class="headerlink" title="##4. 相关链接"></a>##4. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式-基础部分</a></p>
 ]]></content>
       <categories>
         <category>Java知识点</category>
@@ -703,6 +703,48 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 155.最小栈[栈][设计]</title>
+    <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
+<p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
+<pre><code>push(x) —— 将元素 x 推入栈中。
+pop() —— 删除栈顶的元素。
+top() —— 获取栈顶元素。
+getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<p><strong>输入：</strong><br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
+<p><strong>输出：</strong><br>[null,null,null,null,-3,null,0,-2]</p>
+<p><strong>解释：</strong><br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
+<p><strong>提示：</strong><br>pop、top 和 getMin 操作总是在 非空栈 上调用。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>本题是一道设计题，已经提前给出了模板，要求我们对其中给出的函数进行完善，以达到他的要求。</p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/model.jpg" class title="模板">
+
+<p>要求是能够实现栈最基本的push、pop和top操作的同时，还需要实现获取栈中最小值getMin的功能。</p>
+<p>相信上过数据结构课的各位做这题应该不难（doge），在C++中，我们使用动态数组来实现栈的各种功能，在Java中，我们依然使用动态数组ArrayList来实现。<br>题目不难，直接放代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class MinStack &#123;</span><br><span class="line">	private ArrayList&lt;Integer&gt; array;</span><br><span class="line">	</span><br><span class="line">	public MinStack() &#123;</span><br><span class="line">		array&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">    	array.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void pop() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">    		array.remove(array.size()-1);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int top() &#123;</span><br><span class="line">    	if(!array.isEmpty())</span><br><span class="line">    		return array.get(array.size()-1);</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int getMin() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">	    	int min&#x3D;Integer.MAX_VALUE;</span><br><span class="line">	    	for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">	    		if(array.get(i)&lt;min)</span><br><span class="line">	    			min&#x3D;array.get(i);</span><br><span class="line">	    	&#125;</span><br><span class="line">			return min;</span><br><span class="line">    	&#125;</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		MinStack minStack&#x3D;new MinStack();</span><br><span class="line">		minStack.push(-2);</span><br><span class="line">		minStack.push(0);</span><br><span class="line">		minStack.push(-3);</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">		minStack.pop();</span><br><span class="line">		System.out.println(minStack.top());</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：</p>
+<pre><code>操作：[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]
+输入：[[],[-2],[0],[-3],[],[],[],[]]</code></pre><p>输出：</p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/run.jpg" class title="运行">
+
+<p>可以看到我们向栈中push了三个数字-2,0,-3，然后输出栈中最小值为-3，然后删除了栈顶元素，输出了现在的栈顶元素0，然后输出了现在的最小值为-2，结果正确。</p>
+<p><strong>LeetCode提交结果：</strong></p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/result1.jpg" class title="提交结果">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>栈</tag>
+        <tag>设计</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 146.LRU缓存机制[设计]</title>
     <url>/2020/07/12/LeetCode-146-LRU%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6-%E8%AE%BE%E8%AE%A1/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[设计][哈希表][队列]</em></p>
@@ -754,48 +796,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
         <tag>设计</tag>
         <tag>哈希表</tag>
         <tag>队列</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 155.最小栈[栈][设计]</title>
-    <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
-<p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
-<pre><code>push(x) —— 将元素 x 推入栈中。
-pop() —— 删除栈顶的元素。
-top() —— 获取栈顶元素。
-getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<p><strong>输入：</strong><br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
-<p><strong>输出：</strong><br>[null,null,null,null,-3,null,0,-2]</p>
-<p><strong>解释：</strong><br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
-<p><strong>提示：</strong><br>pop、top 和 getMin 操作总是在 非空栈 上调用。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>本题是一道设计题，已经提前给出了模板，要求我们对其中给出的函数进行完善，以达到他的要求。</p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/model.jpg" class title="模板">
-
-<p>要求是能够实现栈最基本的push、pop和top操作的同时，还需要实现获取栈中最小值getMin的功能。</p>
-<p>相信上过数据结构课的各位做这题应该不难（doge），在C++中，我们使用动态数组来实现栈的各种功能，在Java中，我们依然使用动态数组ArrayList来实现。<br>题目不难，直接放代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class MinStack &#123;</span><br><span class="line">	private ArrayList&lt;Integer&gt; array;</span><br><span class="line">	</span><br><span class="line">	public MinStack() &#123;</span><br><span class="line">		array&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">    	array.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void pop() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">    		array.remove(array.size()-1);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int top() &#123;</span><br><span class="line">    	if(!array.isEmpty())</span><br><span class="line">    		return array.get(array.size()-1);</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int getMin() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">	    	int min&#x3D;Integer.MAX_VALUE;</span><br><span class="line">	    	for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">	    		if(array.get(i)&lt;min)</span><br><span class="line">	    			min&#x3D;array.get(i);</span><br><span class="line">	    	&#125;</span><br><span class="line">			return min;</span><br><span class="line">    	&#125;</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		MinStack minStack&#x3D;new MinStack();</span><br><span class="line">		minStack.push(-2);</span><br><span class="line">		minStack.push(0);</span><br><span class="line">		minStack.push(-3);</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">		minStack.pop();</span><br><span class="line">		System.out.println(minStack.top());</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：</p>
-<pre><code>操作：[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]
-输入：[[],[-2],[0],[-3],[],[],[],[]]</code></pre><p>输出：</p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/run.jpg" class title="运行">
-
-<p>可以看到我们向栈中push了三个数字-2,0,-3，然后输出栈中最小值为-3，然后删除了栈顶元素，输出了现在的栈顶元素0，然后输出了现在的最小值为-2，结果正确。</p>
-<p><strong>LeetCode提交结果：</strong></p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/result1.jpg" class title="提交结果">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>设计</tag>
-        <tag>栈</tag>
       </tags>
   </entry>
   <entry>
@@ -1068,53 +1068,6 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 21.合并两个有序链表[链表]</title>
-    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
-<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
-<a id="more"></a>
-
-
-<p><strong>示例：</strong></p>
-<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
-<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
-<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
-<p>①. 两链表指针均从头开始。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
-
-<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
-
-<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
-
-<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
-
-<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
-<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
-<p><strong>###2.3. 完整代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
-
-<p>LeetCode提交记录：</p>
-<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>链表</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 200.岛屿数量[深度优先搜索]</title>
     <url>/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[深度优先搜索]</em></p>
@@ -1215,6 +1168,53 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
         <tag>哈希表</tag>
         <tag>字符串</tag>
         <tag>Sliding Window</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 21.合并两个有序链表[链表]</title>
+    <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
+<p>将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
+<a id="more"></a>
+
+
+<p><strong>示例：</strong></p>
+<p>输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4<br>输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这是一道简单题，在数据结构课程中也有讲过，由于输入的两个链表已经是有序链表了，我们只需要按顺序将两链表合并即可，思路如下：</p>
+<p><strong>###2.1. 思路</strong><br>①. 创建一个答案链表ans用以保存答案；<br>②. 两个链表均从头开始比较，比较两链表对应位置的值，将较小的一方的值赋给ans，然后较小的一个链表指针向后移一位，同时ans的指针也后移一位，重复比较，直到一个链表指针为null；<br>③. 一个链表指针为null，将不为null那个链表赋值给ans即可。</p>
+<p><strong>###2.2. 图解</strong><br>以l1=1-&gt;2-&gt;4,l2=1-&gt;3-&gt;4为例：</p>
+<p>①. 两链表指针均从头开始。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/1.jpg" class title="图一">
+
+<p>②. 两链表指针处的值进行比较，取较小值，发现都是1，相等，这时我们默认取l1的值，把l1的指针后移一位，把1赋给ans，并且ans后移一位（新建一个节点）。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/2.jpg" class title="图二">
+
+<p>③. 两链表指针处均不为null，再次比较，发现l2的值为1小于l1的值2，将l2的值1赋给ans，l2和ans指针后移一位。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/3.jpg" class title="图三">
+
+<p>④. 以此类推，直到有一个链表的指针指向了null，现在情形如图所示。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/4.jpg" class title="图四">
+
+<p>⑤. 此时必有一个链表指针为null，一个链表指针不为null，我们只要将ans的指针连接到不为null的那个链表处即可。</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/5.jpg" class title="图五">
+<p>此时的ans链表就是我们要找的答案，返回他的头结点即可。</p>
+<p><strong>###2.3. 完整代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class ListNode &#123;</span><br><span class="line">	 int val;</span><br><span class="line">	 ListNode next;</span><br><span class="line">	 ListNode() &#123;&#125;</span><br><span class="line">	 ListNode(int val) &#123; this.val &#x3D; val; &#125;</span><br><span class="line">	 ListNode(int val, ListNode next) &#123; this.val &#x3D; val; this.next &#x3D; next; &#125;</span><br><span class="line">	 </span><br><span class="line">	 public void print(ListNode l) &#123;&#x2F;&#x2F;打印链表内容</span><br><span class="line">		 while(l!&#x3D;null) &#123;</span><br><span class="line">			 System.out.println(l.val);</span><br><span class="line">			 l&#x3D;l.next;</span><br><span class="line">		 &#125;</span><br><span class="line">	 &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public class MergeTwoLists &#123;</span><br><span class="line">	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) &#123;</span><br><span class="line">		ListNode ans&#x3D;new ListNode(0);</span><br><span class="line">		ListNode head&#x3D;ans;&#x2F;&#x2F;头结点，用来返回答案</span><br><span class="line">		while(l1!&#x3D;null&amp;&amp;l2!&#x3D;null) &#123;&#x2F;&#x2F;按顺序合并</span><br><span class="line">			ans.next&#x3D;new ListNode(0);</span><br><span class="line">			ans&#x3D;ans.next;</span><br><span class="line">			if(l1.val&gt;l2.val) &#123;</span><br><span class="line">				ans.val&#x3D;l2.val;</span><br><span class="line">				l2&#x3D;l2.next;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				ans.val&#x3D;l1.val;</span><br><span class="line">				l1&#x3D;l1.next;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ans.next&#x3D;new ListNode(0);</span><br><span class="line">		ans.next&#x3D;l1&#x3D;&#x3D;null?l2:l1;&#x2F;&#x2F;把ans连接到非空的那个链表上</span><br><span class="line">		return head.next;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：l1&#x3D;1-&gt;2-&gt;4,l2&#x3D;1-&gt;3-&gt;4</span><br><span class="line">		ListNode l1&#x3D;new ListNode(1);</span><br><span class="line">		l1.next&#x3D;new ListNode(2);</span><br><span class="line">		l1.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode l2&#x3D;new ListNode(1);</span><br><span class="line">		l2.next&#x3D;new ListNode(3);</span><br><span class="line">		l2.next.next&#x3D;new ListNode(4);</span><br><span class="line">		</span><br><span class="line">		ListNode ans&#x3D;mergeTwoLists(l1,l2);</span><br><span class="line">		ans.print(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：l1=1-&gt;2-&gt;4;l2=1-&gt;3-&gt;4<br>测试结果：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/run.jpg" class title="运行结果">
+
+<p>LeetCode提交记录：</p>
+<img src="/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>链表</tag>
       </tags>
   </entry>
   <entry>
@@ -1751,7 +1751,7 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
 <hr>
 <p><strong>从正则表达式到自动机</strong></p>
 <hr>
-<p>例题：<br>对于正则表达式 1(0|1)<em>101。<br>转化步骤：<br>*</em>①. 画出状态转换图**</p>
+<p>例题：<br>对于正则表达式 1(0|1)*101。<br>转化步骤：<br><strong>①. 画出状态转换图</strong></p>
 <img src="/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/9.jpg" class title="状态转换图">
 
 <p><strong>②. 列出状态转换矩阵</strong><br>2.1. 由于本题的正则表达式只有0和1组成，我们<strong>1） 从起点状态a开始，列出a经过0的弧能到达的状态集合（不包含状态a自己），和经过1的弧能到达的状态集合（不包含状态a自己）。</strong><br><strong>2.）求出状态集合后，对得到的两个集合分别求ε闭包，得到答案集合，填在对应的表格中。</strong></p>
