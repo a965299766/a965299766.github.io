@@ -88,7 +88,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/10/14/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-14/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/10/14/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-14/2.jpg">
 <meta property="article:published_time" content="2020-10-14T14:35:57.000Z">
-<meta property="article:modified_time" content="2020-10-31T08:07:49.490Z">
+<meta property="article:modified_time" content="2020-10-31T08:14:08.859Z">
 <meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/2020/10/14/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-14/1.jpg">
@@ -391,7 +391,7 @@
 <a id="more"></a>
 
 <hr>
-<h2 id="1-问题"><a href="#1-问题" class="headerlink" title="##1. 问题"></a>##1. 问题</h2><p>进行语法分析时，对于一个语法树，从起始结点开始，依次读取用户输入的字符，并做相应的推导，直到读完用户的输入，才能够判断输入是否合法。<br>当语法树比较大时，他产生的语法空间也会很大，这样要执行上面的操作肯定会产生很多错误步骤，需要做很多回溯处理，大大降低了运行效率。<br><a href="D://杜尤伟/大三上/编译原理/实验二/jiaocheng.pdf" target="_blank">编译原理 First集 Follow集 select集 通俗易懂的讲解 + 实例 .pdf</a>（请确保有pdf阅读器或使用支持阅读pdf文档的浏览器打开。）</p>
+<h2 id="1-问题"><a href="#1-问题" class="headerlink" title="##1. 问题"></a>##1. 问题</h2><p>进行语法分析时，对于一个语法树，从起始结点开始，依次读取用户输入的字符，并做相应的推导，直到读完用户的输入，才能够判断输入是否合法。<br>当语法树比较大时，他产生的语法空间也会很大，这样要执行上面的操作肯定会产生很多错误步骤，需要做很多回溯处理，大大降低了运行效率。</p>
 <hr>
 <h2 id="2-FIRST集"><a href="#2-FIRST集" class="headerlink" title="##2. FIRST集"></a>##2. FIRST集</h2><p>我们定义<br><strong>FIRST(α)为：从α开始推导得到的串的首符号的集合，其中α是任意的文法符号串。</strong><br>我们现在可以考虑产生式：<strong>A-&gt;α|β</strong>，其中FIRST(α)和FIRST(β)是不相交的集合。</p>
 <p><strong>此时我们只需要看下一个输入的符号a，看a出现在FIRST(α)还是在FIRST(β)中，我们就可以唯一确定一条路径向下推导。</strong>因为a只能出现在FIRST(α)或者FIRST(β)中的一个集合中。</p>
