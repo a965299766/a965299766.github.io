@@ -254,47 +254,6 @@ LinkedList&lt;E&gt; queue=new LinkedList&lt;E&gt;();</code></pre><p><strong><em>
       </tags>
   </entry>
   <entry>
-    <title>Java集合-各种集合的使用场景[Java知识点]</title>
-    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
-<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
-即可以较为快捷地使用下标来直接访问数组中间的某个数据。
-但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
-此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
-<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
-但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
-<pre><code>栈和队列，大家应该都不陌生，
-Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
-Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
-<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
-<pre><code>都是Set的实现类。
-HashSet的性能总比TreeSet好，但不能保持数据的顺序。
-如果需要频繁地添加、查找元素时，建议使用HashSet。
-而如果需要一个保持排序的Set，用TreeSet。
-如果需要遍历集合元素，用LinkedHashSet。
-
-HashSet：通过散列法储存数据，查询很快。
-LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
-TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
-<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
-Map中键不能重复。
-数据呈现的是对应关系，如 学号-姓名 这种对应关系。
-HashMap是Map的具体实现类。</code></pre><hr>
-<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java集合-Map和HashMap[Java知识点]</title>
     <url>/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
     <content><![CDATA[<p><strong>相较于线性的集合如List，Queue，LinkedList之类的集合，Map和HashMap则是另一种完全不同的数据存储方式：键-值对。</strong></p>
@@ -346,99 +305,87 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>Lambda表达式-基础部分[Java知识点]</title>
-    <url>/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。</strong></p>
-<p><strong>Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）。</strong></p>
-<p><strong>使用 Lambda 表达式可以使代码变的更加简洁紧凑。</strong><br><em>以上来自：</em><a href="https://www.runoob.com/java/java8-lambda-expressions.html" target="_blank" rel="noopener">菜鸟教程-Lambda表达式</a></p>
-<p><strong>使用Lambda表达式能够将一个接口非常简洁地实现，从而使代码更简洁。</strong></p>
+    <title>Java集合-各种集合的使用场景[Java知识点]</title>
+    <url>/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>我们知道Java有许多的集合，如线性集合List，Set，Queue等，键-值对集合Map和HashMap，那我们应该怎么在具体问题中选择合适的集合来使用呢？</strong><br><em>注：本文大多知识来源于互联网，本人仅作整理，方便日后查找。</em></p>
 <a id="more"></a>
 
 <hr>
-<h2 id="1-先举个例子"><a href="#1-先举个例子" class="headerlink" title="##1. 先举个例子"></a>##1. 先举个例子</h2><p>我们先假设有一个接口TestInterface，里面声明了一个函数func()：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface TestInterface&#123;&#x2F;&#x2F;接口</span><br><span class="line">	int func(int a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>我们是如何实现这个接口的呢？学习Lambda表达式之前，我们一般用两种方法来实现接口：</p>
-<p><strong>1.1. 通过接口实现类</strong><br>首先定义该接口的实现类，然后完成接口中的方法的实现。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Realize implements TestInterface&#123;&#x2F;&#x2F;定义接口的实现类</span><br><span class="line">	@Override</span><br><span class="line">	public int func(int a) &#123;&#x2F;&#x2F;方法具体实现</span><br><span class="line">		System.out.println(a+&quot;*2&#x3D;&quot;+a*2);</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>做到了这步，我们就可以用这个实现类来创建对象调用func函数了：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;1. 通过接口实现类</span><br><span class="line">	Realize r&#x3D;new Realize();</span><br><span class="line">	r.func(5);</span><br><span class="line">	&#x2F;&#x2F;输出：5*2&#x3D;10</span><br></pre></td></tr></table></figure>
+<h2 id="1-分类记录"><a href="#1-分类记录" class="headerlink" title="##1. 分类记录"></a>##1. 分类记录</h2><p><strong>1. ArrayList</strong></p>
+<pre><code>ArrayList的底层实现是用数组的方式，随机访问比较快速，
+即可以较为快捷地使用下标来直接访问数组中间的某个数据。
+但是如果要频繁地插入删除元素，ArrayList会有移动元素的开销，
+此时不建议使用ArrayList。</code></pre><p><strong>2. LinkedList</strong></p>
+<pre><code>LinkedList底层是使用链表实现的，插入删除比较快，
+但如果要随机访问或者遍历，效率就不如ArrayList了。</code></pre><p><strong>3. Stack和Queue</strong></p>
+<pre><code>栈和队列，大家应该都不陌生，
+Stack：数据先进后出，可以理解为只有一个出口的胡同，先进去的后出来。
+Queue：数据先进先出，可以理解为银行排队，先到的先办理先走人。</code></pre><p><strong>4. Set</strong></p>
+<pre><code>Set也是线性集合，和List的区别是：List中元素可以重复，而Set中元素不重复。</code></pre><p><strong>5. HashSet、TreeSet和LinkedHashSet</strong></p>
+<pre><code>都是Set的实现类。
+HashSet的性能总比TreeSet好，但不能保持数据的顺序。
+如果需要频繁地添加、查找元素时，建议使用HashSet。
+而如果需要一个保持排序的Set，用TreeSet。
+如果需要遍历集合元素，用LinkedHashSet。
 
-<p><strong>1.2. 通过匿名内部类</strong><br>我们直接声明接口的一个匿名内部类，构造内部类的时候我们同时将函数实现完成：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;2. 通过匿名内部类</span><br><span class="line">	TestInterface testInterface&#x3D;new TestInterface() &#123;</span><br><span class="line">		@Override</span><br><span class="line">		public int func(int a) &#123;</span><br><span class="line">			System.out.println(&quot;a&#x3D;&quot;+a);</span><br><span class="line">			return 0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure>
-<p>此时，我们也可以使用func方法了：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">testInterface.func(8);</span><br><span class="line">&#x2F;&#x2F;输出：a&#x3D;8</span><br></pre></td></tr></table></figure>
-
-<p><strong>第二种方法相较于第一种方法稍微简单些，但如果使用Lambda表达式，就可以简化为一行代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;3. 使用lambda表达式</span><br><span class="line">TestInterface test2&#x3D;(a)-&gt;&#123;return a * 3;&#125;;</span><br></pre></td></tr></table></figure>
-<p>调用func方法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int ans&#x3D;test2.func(6);</span><br><span class="line">System.out.println(ans);</span><br><span class="line">&#x2F;&#x2F;输出：18</span><br></pre></td></tr></table></figure>
-<p><strong>很显然，使用Lambda表达式极大地简化了我们的代码，使程序更为简洁。</strong><br><strong>那么我们如何使用呢？</strong></p>
-<hr>
-<h2 id="2-接口准备"><a href="#2-接口准备" class="headerlink" title="##2. 接口准备"></a>##2. 接口准备</h2><p><strong>能用Lambda表达式的接口都是只有一个函数声明的，对此，我们可以使用 @FunctionalInterface 来修饰接口，保证该接口只有一个函数声明。</strong></p>
-<p>我们提前准备以下6个接口供后续讲解使用，里面分别各有一个函数声明：<br><strong>①. 函数为无参数无返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface NoneReturnNoneParameter &#123;&#x2F;&#x2F;无参数无返回值</span><br><span class="line">	void test();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>②. 函数为有一个参数无返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface NoneReturnSingleParameter &#123;&#x2F;&#x2F;有一个参数无返回值</span><br><span class="line">	void test(int a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>③. 函数为有多个参数无返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface NoneReturnMultipleParameter &#123;&#x2F;&#x2F;有多个参数无返回值</span><br><span class="line">	void test(int a,int b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>④. 函数为无参数有返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface SingleReturnNoneParameter &#123;&#x2F;&#x2F;无参数有返回值</span><br><span class="line">	int test();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>⑤. 函数为有一个参数有返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface SingleReturnSingleParameter &#123;&#x2F;&#x2F;有一个参数有返回值</span><br><span class="line">	int test(int a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>⑥. 函数为有多个参数有返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface SingleReturnMultipleParameter &#123;&#x2F;&#x2F;有多个参数有返回值</span><br><span class="line">	int test(int a,int b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="3-Lambda基本语法"><a href="#3-Lambda基本语法" class="headerlink" title="##3. Lambda基本语法"></a>##3. Lambda基本语法</h2><p><strong>对于Lambda表达式，我们要关心的就是函数的参数列表及方法主体，而方法名和返回值类型均被忽略。</strong></p>
-<p><strong>在Lambda中，我们用 () 来描述参数列表，用 {} 来描述方法主体，这和平常的函数是一样的。</strong></p>
-<p><strong>在()中间写参数列表，在{}中间写上方法主体。</strong></p>
-<p><strong>用 -&gt; 来连接参数列表和方法主体，-&gt; 读作 “goes to” ，是Lambda运算符。</strong></p>
-<hr>
-<p><strong>对拥有以上6种不同参数和返回值方法的接口，我们分别进行实现：</strong></p>
-<p><strong>3.1. 无参数无返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;1. 无参数无返回值</span><br><span class="line">	NoneReturnNoneParameter test1&#x3D;() -&gt; &#123;</span><br><span class="line">		System.out.println(&quot;无参数无返回值的方法实现了&quot;);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	test1.test();&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：无参数无返回值的方法实现了</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.2. 有一个参数无返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;2. 有一个参数无返回值</span><br><span class="line">	NoneReturnSingleParameter test2 &#x3D; (int a) -&gt; &#123;</span><br><span class="line">		System.out.println(&quot;有一个参数无返回值的方法实现了，参数a&#x3D;&quot;+a);</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	test2.test(5);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：有一个参数无返回值的方法实现了，参数a&#x3D;5</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.3. 有多个参数无返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;3. 有多个参数无返回值</span><br><span class="line">	NoneReturnMultipleParameter test3 &#x3D; (int a,int b) -&gt; &#123;</span><br><span class="line">			System.out.println(&quot;有多个参数无返回值的方法实现了，参数a&#x3D;&quot;+a+&quot;，参数b&#x3D;&quot;+b);</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	test3.test(1, 3);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：有多个参数无返回值的方法实现了，参数a&#x3D;1，参数b&#x3D;3</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.4. 无参数有返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;4. 无参数有返回值</span><br><span class="line">	SingleReturnNoneParameter test4 &#x3D; () -&gt; &#123;</span><br><span class="line">			System.out.println(&quot;无参数有返回值的方法实现了&quot;);</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	int ret &#x3D; test4.test();&#x2F;&#x2F;测试</span><br><span class="line">	System.out.println(&quot;返回值为：&quot;+ret);</span><br><span class="line">	&#x2F;&#x2F;输出：无参数有返回值的方法实现了</span><br><span class="line">	&#x2F;&#x2F;返回值为：1</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.5. 有一个参数有返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;5. 有一个参数有返回值</span><br><span class="line">	SingleReturnSingleParameter test5 &#x3D; (int a) -&gt; &#123;</span><br><span class="line">			System.out.println(&quot;有一个参数有返回值的方法实现了&quot;);</span><br><span class="line">		return a * 2;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	int ret1 &#x3D; test5.test(10);&#x2F;&#x2F;测试</span><br><span class="line">	System.out.println(&quot;返回值为：&quot;+ret1);</span><br><span class="line">	&#x2F;&#x2F;输出：有一个参数有返回值的方法实现了</span><br><span class="line">	&#x2F;&#x2F;返回值为：20</span><br></pre></td></tr></table></figure>
-
-<p><strong>3.6. 有多个参数有返回值</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;6. 有多个参数有返回值</span><br><span class="line">	SingleReturnMultipleParameter test6 &#x3D; (int a,int b) -&gt; &#123;</span><br><span class="line">			System.out.println(&quot;有多个参数有返回值的方法实现了&quot;);</span><br><span class="line">		return a + b;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	int ret2 &#x3D; test6.test(10, 12);&#x2F;&#x2F;测试</span><br><span class="line">	System.out.println(&quot;返回值为：&quot;+ret2);</span><br><span class="line">	&#x2F;&#x2F;输出：有多个参数有返回值的方法实现了</span><br><span class="line">	&#x2F;&#x2F;返回值为：22</span><br></pre></td></tr></table></figure>
-
-<p><strong>其实都还是挺简单的。</strong></p>
-<hr>
-<h2 id="4-语法精简"><a href="#4-语法精简" class="headerlink" title="##4. 语法精简"></a>##4. 语法精简</h2><p><strong>对于一些特殊情况，Lambda表达式还可以进一步精简。</strong></p>
-<p><strong>4.1. 由于在接口中声明函数时就已经声明了参数的类型了，所以在写Lambda表达式时，参数类型可以省略。</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;1. 因为在接口声明函数时已经声明了参数类型了，所以在Lambda表达式中可以省略参数类型</span><br><span class="line">	NoneReturnMultipleParameter test1 &#x3D; (a,b) -&gt; &#123;&#x2F;&#x2F;注意：原写法中a和b都是有int修饰的，我们可以将int修饰去掉，仍然正确</span><br><span class="line">		System.out.println(&quot;a&#x3D;&quot;+a+&quot;,b&#x3D;&quot;+b);</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	test1.test(3, 4);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：a&#x3D;3,b&#x3D;4</span><br></pre></td></tr></table></figure>
-<p><strong><em>特别注意：如果要省略参数类型，则每一个参数类型都必须同时省略！</em></strong></p>
-<p><strong>4.2. 如果参数列表中只有一个参数，那么包围参数的小括号 （）也可以省略。</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;2. 如果参数列表中只有一个参数，那么包围参数的小括号 （）也可以省略</span><br><span class="line">	NoneReturnSingleParameter test2 &#x3D; a -&gt; &#123;&#x2F;&#x2F;注意：原写法中a是由小括号（）包围的，若只有一个参数，那么可以省略小括号</span><br><span class="line">		System.out.println(&quot;a&#x3D;&quot;+a);</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	test2.test(5);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：a&#x3D;5</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.3. 如果方法体只有一条语句，那么包围方法体的大括号 {} 也可以省略。</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;3. 如果方法体只有一条语句，那么包围方法体的大括号 &#123;&#125; 也可以省略</span><br><span class="line">	NoneReturnSingleParameter test3 &#x3D; a -&gt; System.out.println(&quot;a&#x3D;&quot;+a);</span><br><span class="line">		</span><br><span class="line">	test3.test(8);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：a&#x3D;8</span><br></pre></td></tr></table></figure>
-
-<p><strong>4.4. 如果4.3中方法体中唯一一条语句是 return 语句，那么关键词return 也必须省略。</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;4. 如果3中方法体中唯一一条语句是 return 语句，那么关键词return 也必须省略</span><br><span class="line">		SingleReturnNoneParameter test4 &#x3D; () -&gt; 10;</span><br><span class="line">		</span><br><span class="line">		int ret &#x3D; test4.test();&#x2F;&#x2F;测试</span><br><span class="line">		System.out.println(&quot;返回值为：&quot;+ret);</span><br><span class="line">		&#x2F;&#x2F;输出：返回值为：10</span><br></pre></td></tr></table></figure>
-
-<p><strong>发现Lambda表达式又在原基础上精简了不少。</strong></p>
-<p><strong>Lambda表达式的基础部分至此结束。</strong></p>
-<hr>
-<h2 id="5-相关链接"><a href="#5-相关链接" class="headerlink" title="##5. 相关链接"></a>##5. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式-进阶部分</a></p>
+HashSet：通过散列法储存数据，查询很快。
+LinkedHashSet：以元素插入的顺序来维护集合的链接表，允许以插入的顺序在集合中迭代。
+TreeSet：以树结构存储Set接口的实现，对象按升序存储时，访问速度很快。</code></pre><p><strong>6. Map和HashMap</strong></p>
+<pre><code>当我们需要通过数据的代号来获取数据时可以使用Map。
+Map中键不能重复。
+数据呈现的是对应关系，如 学号-姓名 这种对应关系。
+HashMap是Map的具体实现类。</code></pre><hr>
+<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合框架</a><br><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a></p>
 ]]></content>
       <categories>
         <category>Java知识点</category>
       </categories>
       <tags>
         <tag>Java</tag>
-        <tag>Lambda表达式</tag>
+        <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java集合框架[Java知识点]</title>
+    <url>/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>声明：本文内容来自于菜鸟教程(<a href="https://www.runoob.com/java/java-collections.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-collections.html</a>)<br>我仅作部分修改。万分感谢，如有侵权，联系我QQ：965299766删除。</strong></p>
+<hr>
+<p>Java提供了一系列集合类供我们使用，可以帮我们实现一些数据的操作。<br><strong>为什么要有集合？</strong><br>在Java中，我们平常使用的数组，如int[]，是定长的，即定义时就已经确定了他的长度。而很多时候我们需要对数组元素进行增删改查，定长数组就不方便了，于是就有了集合。</p>
+<a id="more"></a>
+
+<p> 集合框架被设计成要满足以下几个目标。</p>
+<pre><code>该框架必须是高性能的。基本集合（动态数组，链表，树，哈希表）的实现也必须是高效的。
+
+该框架允许不同类型的集合，以类似的方式工作，具有高度的互操作性。
+
+对一个集合的扩展和适应必须是简单的。</code></pre><p>为此，整个集合框架就围绕一组标准接口而设计。你可以直接使用这些接口的标准实现，诸如： LinkedList, HashSet, 和 TreeSet 等,除此之外你也可以通过这些接口实现自己的集合。</p>
+<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Java集合框架图">
+
+<p>从上面的集合框架图可以看到，Java 集合框架主要包括两种类型的容器，一种是集合（Collection），存储一个元素集合，另一种是图（Map），存储键/值对映射。Collection 接口又有 3 种子类型，List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。</p>
+<p>集合框架是一个用来代表和操纵集合的统一架构。所有的集合框架都包含如下内容：</p>
+<pre><code>接口：是代表集合的抽象数据类型。
+例如 Collection、List、Set、Map 等。
+之所以定义多个接口，是为了以不同的方式操作集合对象
+
+实现（类）：是集合接口的具体实现。
+从本质上讲，它们是可重复使用的数据结构，
+例如：ArrayList、LinkedList、HashSet、HashMap。
+
+算法：是实现集合接口的对象里的方法执行的一些有用的计算，
+例如：搜索和排序。这些算法被称为多态，那是因为相同的方法可以在相似的接口上有着不同的实现。</code></pre><p>除了集合，该框架也定义了几个 Map 接口和类。Map 里存储的是键/值对。尽管 Map 不是集合，但是它们完全整合在集合中。</p>
+<p><strong>集合框架体系如图所示</strong></p>
+<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="集合框架体系图">
+<p>Java 集合框架提供了一套性能优良，使用方便的接口和类，java集合框架位于java.util包中， 所以当使用集合框架的时候需要进行导包。</p>
+<hr>
+<p><strong>相关链接</strong></p>
+<p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>集合</tag>
       </tags>
   </entry>
   <entry>
@@ -551,49 +498,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>Java集合框架[Java知识点]</title>
-    <url>/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
-    <content><![CDATA[<p><strong>声明：本文内容来自于菜鸟教程(<a href="https://www.runoob.com/java/java-collections.html" target="_blank" rel="noopener">https://www.runoob.com/java/java-collections.html</a>)<br>我仅作部分修改。万分感谢，如有侵权，联系我QQ：965299766删除。</strong></p>
-<hr>
-<p>Java提供了一系列集合类供我们使用，可以帮我们实现一些数据的操作。<br><strong>为什么要有集合？</strong><br>在Java中，我们平常使用的数组，如int[]，是定长的，即定义时就已经确定了他的长度。而很多时候我们需要对数组元素进行增删改查，定长数组就不方便了，于是就有了集合。</p>
-<a id="more"></a>
-
-<p> 集合框架被设计成要满足以下几个目标。</p>
-<pre><code>该框架必须是高性能的。基本集合（动态数组，链表，树，哈希表）的实现也必须是高效的。
-
-该框架允许不同类型的集合，以类似的方式工作，具有高度的互操作性。
-
-对一个集合的扩展和适应必须是简单的。</code></pre><p>为此，整个集合框架就围绕一组标准接口而设计。你可以直接使用这些接口的标准实现，诸如： LinkedList, HashSet, 和 TreeSet 等,除此之外你也可以通过这些接口实现自己的集合。</p>
-<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/1.jpg" class title="Java集合框架图">
-
-<p>从上面的集合框架图可以看到，Java 集合框架主要包括两种类型的容器，一种是集合（Collection），存储一个元素集合，另一种是图（Map），存储键/值对映射。Collection 接口又有 3 种子类型，List、Set 和 Queue，再下面是一些抽象类，最后是具体实现类，常用的有 ArrayList、LinkedList、HashSet、LinkedHashSet、HashMap、LinkedHashMap 等等。</p>
-<p>集合框架是一个用来代表和操纵集合的统一架构。所有的集合框架都包含如下内容：</p>
-<pre><code>接口：是代表集合的抽象数据类型。
-例如 Collection、List、Set、Map 等。
-之所以定义多个接口，是为了以不同的方式操作集合对象
-
-实现（类）：是集合接口的具体实现。
-从本质上讲，它们是可重复使用的数据结构，
-例如：ArrayList、LinkedList、HashSet、HashMap。
-
-算法：是实现集合接口的对象里的方法执行的一些有用的计算，
-例如：搜索和排序。这些算法被称为多态，那是因为相同的方法可以在相似的接口上有着不同的实现。</code></pre><p>除了集合，该框架也定义了几个 Map 接口和类。Map 里存储的是键/值对。尽管 Map 不是集合，但是它们完全整合在集合中。</p>
-<p><strong>集合框架体系如图所示</strong></p>
-<img src="/2020/07/13/Java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6-Java%E7%9F%A5%E8%AF%86%E7%82%B9/2.jpg" class title="集合框架体系图">
-<p>Java 集合框架提供了一套性能优良，使用方便的接口和类，java集合框架位于java.util包中， 所以当使用集合框架的时候需要进行导包。</p>
-<hr>
-<p><strong>相关链接</strong></p>
-<p><a href="https://dulaogou.vip/2020/07/13/Java%E9%9B%86%E5%90%88-Collection-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Collection</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-List%E5%92%8CArrayList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-List和ArrayList</a><br><a href="https://dulaogou.vip/2020/07/14/Java%E9%9B%86%E5%90%88-Queue%E5%92%8CLinkedList-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Queue和LinkedList</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-Map%E5%92%8CHashMap-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-Map和HashMap</a><br><a href="https://dulaogou.vip/2020/07/16/Java%E9%9B%86%E5%90%88-%E5%90%84%E7%A7%8D%E9%9B%86%E5%90%88%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Java集合-各种集合的使用场景</a></p>
-]]></content>
-      <categories>
-        <category>Java知识点</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>集合</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 11. 盛最多水的容器[数组][双指针]</title>
     <url>/2020/07/20/LeetCode-11-%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8-%E6%95%B0%E7%BB%84-%E5%8F%8C%E6%8C%87%E9%92%88/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组][双指针]</em></p>
@@ -637,6 +541,102 @@ HashMap是Map的具体实现类。</code></pre><hr>
       <tags>
         <tag>数组</tag>
         <tag>双指针</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Lambda表达式-基础部分[Java知识点]</title>
+    <url>/2020/07/17/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E5%9F%BA%E7%A1%80%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/</url>
+    <content><![CDATA[<p><strong>Lambda 表达式，也可称为闭包，它是推动 Java 8 发布的最重要新特性。</strong></p>
+<p><strong>Lambda 允许把函数作为一个方法的参数（函数作为参数传递进方法中）。</strong></p>
+<p><strong>使用 Lambda 表达式可以使代码变的更加简洁紧凑。</strong><br><em>以上来自：</em><a href="https://www.runoob.com/java/java8-lambda-expressions.html" target="_blank" rel="noopener">菜鸟教程-Lambda表达式</a></p>
+<p><strong>使用Lambda表达式能够将一个接口非常简洁地实现，从而使代码更简洁。</strong></p>
+<a id="more"></a>
+
+<hr>
+<h2 id="1-先举个例子"><a href="#1-先举个例子" class="headerlink" title="##1. 先举个例子"></a>##1. 先举个例子</h2><p>我们先假设有一个接口TestInterface，里面声明了一个函数func()：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">interface TestInterface&#123;&#x2F;&#x2F;接口</span><br><span class="line">	int func(int a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们是如何实现这个接口的呢？学习Lambda表达式之前，我们一般用两种方法来实现接口：</p>
+<p><strong>1.1. 通过接口实现类</strong><br>首先定义该接口的实现类，然后完成接口中的方法的实现。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Realize implements TestInterface&#123;&#x2F;&#x2F;定义接口的实现类</span><br><span class="line">	@Override</span><br><span class="line">	public int func(int a) &#123;&#x2F;&#x2F;方法具体实现</span><br><span class="line">		System.out.println(a+&quot;*2&#x3D;&quot;+a*2);</span><br><span class="line">		return 0;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>做到了这步，我们就可以用这个实现类来创建对象调用func函数了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;1. 通过接口实现类</span><br><span class="line">	Realize r&#x3D;new Realize();</span><br><span class="line">	r.func(5);</span><br><span class="line">	&#x2F;&#x2F;输出：5*2&#x3D;10</span><br></pre></td></tr></table></figure>
+
+<p><strong>1.2. 通过匿名内部类</strong><br>我们直接声明接口的一个匿名内部类，构造内部类的时候我们同时将函数实现完成：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;2. 通过匿名内部类</span><br><span class="line">	TestInterface testInterface&#x3D;new TestInterface() &#123;</span><br><span class="line">		@Override</span><br><span class="line">		public int func(int a) &#123;</span><br><span class="line">			System.out.println(&quot;a&#x3D;&quot;+a);</span><br><span class="line">			return 0;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;;</span><br></pre></td></tr></table></figure>
+<p>此时，我们也可以使用func方法了：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">testInterface.func(8);</span><br><span class="line">&#x2F;&#x2F;输出：a&#x3D;8</span><br></pre></td></tr></table></figure>
+
+<p><strong>第二种方法相较于第一种方法稍微简单些，但如果使用Lambda表达式，就可以简化为一行代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;3. 使用lambda表达式</span><br><span class="line">TestInterface test2&#x3D;(a)-&gt;&#123;return a * 3;&#125;;</span><br></pre></td></tr></table></figure>
+<p>调用func方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int ans&#x3D;test2.func(6);</span><br><span class="line">System.out.println(ans);</span><br><span class="line">&#x2F;&#x2F;输出：18</span><br></pre></td></tr></table></figure>
+<p><strong>很显然，使用Lambda表达式极大地简化了我们的代码，使程序更为简洁。</strong><br><strong>那么我们如何使用呢？</strong></p>
+<hr>
+<h2 id="2-接口准备"><a href="#2-接口准备" class="headerlink" title="##2. 接口准备"></a>##2. 接口准备</h2><p><strong>能用Lambda表达式的接口都是只有一个函数声明的，对此，我们可以使用 @FunctionalInterface 来修饰接口，保证该接口只有一个函数声明。</strong></p>
+<p>我们提前准备以下6个接口供后续讲解使用，里面分别各有一个函数声明：<br><strong>①. 函数为无参数无返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface NoneReturnNoneParameter &#123;&#x2F;&#x2F;无参数无返回值</span><br><span class="line">	void test();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>②. 函数为有一个参数无返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface NoneReturnSingleParameter &#123;&#x2F;&#x2F;有一个参数无返回值</span><br><span class="line">	void test(int a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>③. 函数为有多个参数无返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface NoneReturnMultipleParameter &#123;&#x2F;&#x2F;有多个参数无返回值</span><br><span class="line">	void test(int a,int b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>④. 函数为无参数有返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface SingleReturnNoneParameter &#123;&#x2F;&#x2F;无参数有返回值</span><br><span class="line">	int test();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>⑤. 函数为有一个参数有返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface SingleReturnSingleParameter &#123;&#x2F;&#x2F;有一个参数有返回值</span><br><span class="line">	int test(int a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>⑥. 函数为有多个参数有返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">@FunctionalInterface</span><br><span class="line">public interface SingleReturnMultipleParameter &#123;&#x2F;&#x2F;有多个参数有返回值</span><br><span class="line">	int test(int a,int b);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="3-Lambda基本语法"><a href="#3-Lambda基本语法" class="headerlink" title="##3. Lambda基本语法"></a>##3. Lambda基本语法</h2><p><strong>对于Lambda表达式，我们要关心的就是函数的参数列表及方法主体，而方法名和返回值类型均被忽略。</strong></p>
+<p><strong>在Lambda中，我们用 () 来描述参数列表，用 {} 来描述方法主体，这和平常的函数是一样的。</strong></p>
+<p><strong>在()中间写参数列表，在{}中间写上方法主体。</strong></p>
+<p><strong>用 -&gt; 来连接参数列表和方法主体，-&gt; 读作 “goes to” ，是Lambda运算符。</strong></p>
+<hr>
+<p><strong>对拥有以上6种不同参数和返回值方法的接口，我们分别进行实现：</strong></p>
+<p><strong>3.1. 无参数无返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;1. 无参数无返回值</span><br><span class="line">	NoneReturnNoneParameter test1&#x3D;() -&gt; &#123;</span><br><span class="line">		System.out.println(&quot;无参数无返回值的方法实现了&quot;);</span><br><span class="line">	&#125;;</span><br><span class="line"></span><br><span class="line">	test1.test();&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：无参数无返回值的方法实现了</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.2. 有一个参数无返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;2. 有一个参数无返回值</span><br><span class="line">	NoneReturnSingleParameter test2 &#x3D; (int a) -&gt; &#123;</span><br><span class="line">		System.out.println(&quot;有一个参数无返回值的方法实现了，参数a&#x3D;&quot;+a);</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	test2.test(5);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：有一个参数无返回值的方法实现了，参数a&#x3D;5</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.3. 有多个参数无返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;3. 有多个参数无返回值</span><br><span class="line">	NoneReturnMultipleParameter test3 &#x3D; (int a,int b) -&gt; &#123;</span><br><span class="line">			System.out.println(&quot;有多个参数无返回值的方法实现了，参数a&#x3D;&quot;+a+&quot;，参数b&#x3D;&quot;+b);</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	test3.test(1, 3);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：有多个参数无返回值的方法实现了，参数a&#x3D;1，参数b&#x3D;3</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.4. 无参数有返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;4. 无参数有返回值</span><br><span class="line">	SingleReturnNoneParameter test4 &#x3D; () -&gt; &#123;</span><br><span class="line">			System.out.println(&quot;无参数有返回值的方法实现了&quot;);</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	int ret &#x3D; test4.test();&#x2F;&#x2F;测试</span><br><span class="line">	System.out.println(&quot;返回值为：&quot;+ret);</span><br><span class="line">	&#x2F;&#x2F;输出：无参数有返回值的方法实现了</span><br><span class="line">	&#x2F;&#x2F;返回值为：1</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.5. 有一个参数有返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;5. 有一个参数有返回值</span><br><span class="line">	SingleReturnSingleParameter test5 &#x3D; (int a) -&gt; &#123;</span><br><span class="line">			System.out.println(&quot;有一个参数有返回值的方法实现了&quot;);</span><br><span class="line">		return a * 2;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	int ret1 &#x3D; test5.test(10);&#x2F;&#x2F;测试</span><br><span class="line">	System.out.println(&quot;返回值为：&quot;+ret1);</span><br><span class="line">	&#x2F;&#x2F;输出：有一个参数有返回值的方法实现了</span><br><span class="line">	&#x2F;&#x2F;返回值为：20</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.6. 有多个参数有返回值</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;6. 有多个参数有返回值</span><br><span class="line">	SingleReturnMultipleParameter test6 &#x3D; (int a,int b) -&gt; &#123;</span><br><span class="line">			System.out.println(&quot;有多个参数有返回值的方法实现了&quot;);</span><br><span class="line">		return a + b;</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	int ret2 &#x3D; test6.test(10, 12);&#x2F;&#x2F;测试</span><br><span class="line">	System.out.println(&quot;返回值为：&quot;+ret2);</span><br><span class="line">	&#x2F;&#x2F;输出：有多个参数有返回值的方法实现了</span><br><span class="line">	&#x2F;&#x2F;返回值为：22</span><br></pre></td></tr></table></figure>
+
+<p><strong>其实都还是挺简单的。</strong></p>
+<hr>
+<h2 id="4-语法精简"><a href="#4-语法精简" class="headerlink" title="##4. 语法精简"></a>##4. 语法精简</h2><p><strong>对于一些特殊情况，Lambda表达式还可以进一步精简。</strong></p>
+<p><strong>4.1. 由于在接口中声明函数时就已经声明了参数的类型了，所以在写Lambda表达式时，参数类型可以省略。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;1. 因为在接口声明函数时已经声明了参数类型了，所以在Lambda表达式中可以省略参数类型</span><br><span class="line">	NoneReturnMultipleParameter test1 &#x3D; (a,b) -&gt; &#123;&#x2F;&#x2F;注意：原写法中a和b都是有int修饰的，我们可以将int修饰去掉，仍然正确</span><br><span class="line">		System.out.println(&quot;a&#x3D;&quot;+a+&quot;,b&#x3D;&quot;+b);</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	test1.test(3, 4);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：a&#x3D;3,b&#x3D;4</span><br></pre></td></tr></table></figure>
+<p><strong><em>特别注意：如果要省略参数类型，则每一个参数类型都必须同时省略！</em></strong></p>
+<p><strong>4.2. 如果参数列表中只有一个参数，那么包围参数的小括号 （）也可以省略。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;2. 如果参数列表中只有一个参数，那么包围参数的小括号 （）也可以省略</span><br><span class="line">	NoneReturnSingleParameter test2 &#x3D; a -&gt; &#123;&#x2F;&#x2F;注意：原写法中a是由小括号（）包围的，若只有一个参数，那么可以省略小括号</span><br><span class="line">		System.out.println(&quot;a&#x3D;&quot;+a);</span><br><span class="line">	&#125;;</span><br><span class="line">	</span><br><span class="line">	test2.test(5);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：a&#x3D;5</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.3. 如果方法体只有一条语句，那么包围方法体的大括号 {} 也可以省略。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;3. 如果方法体只有一条语句，那么包围方法体的大括号 &#123;&#125; 也可以省略</span><br><span class="line">	NoneReturnSingleParameter test3 &#x3D; a -&gt; System.out.println(&quot;a&#x3D;&quot;+a);</span><br><span class="line">		</span><br><span class="line">	test3.test(8);&#x2F;&#x2F;测试</span><br><span class="line">	&#x2F;&#x2F;输出：a&#x3D;8</span><br></pre></td></tr></table></figure>
+
+<p><strong>4.4. 如果4.3中方法体中唯一一条语句是 return 语句，那么关键词return 也必须省略。</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;4. 如果3中方法体中唯一一条语句是 return 语句，那么关键词return 也必须省略</span><br><span class="line">		SingleReturnNoneParameter test4 &#x3D; () -&gt; 10;</span><br><span class="line">		</span><br><span class="line">		int ret &#x3D; test4.test();&#x2F;&#x2F;测试</span><br><span class="line">		System.out.println(&quot;返回值为：&quot;+ret);</span><br><span class="line">		&#x2F;&#x2F;输出：返回值为：10</span><br></pre></td></tr></table></figure>
+
+<p><strong>发现Lambda表达式又在原基础上精简了不少。</strong></p>
+<p><strong>Lambda表达式的基础部分至此结束。</strong></p>
+<hr>
+<h2 id="5-相关链接"><a href="#5-相关链接" class="headerlink" title="##5. 相关链接"></a>##5. 相关链接</h2><p><a href="https://dulaogou.vip/2020/07/19/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F-%E8%BF%9B%E9%98%B6%E9%83%A8%E5%88%86-Java%E7%9F%A5%E8%AF%86%E7%82%B9/" target="_blank" rel="noopener">Lambda表达式-进阶部分</a></p>
+]]></content>
+      <categories>
+        <category>Java知识点</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Lambda表达式</tag>
       </tags>
   </entry>
   <entry>
@@ -757,6 +757,79 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 155.最小栈[栈][设计]</title>
+    <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
+<p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
+<pre><code>push(x) —— 将元素 x 推入栈中。
+pop() —— 删除栈顶的元素。
+top() —— 获取栈顶元素。
+getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
+
+<p><strong>示例:</strong></p>
+<p><strong>输入：</strong><br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
+<p><strong>输出：</strong><br>[null,null,null,null,-3,null,0,-2]</p>
+<p><strong>解释：</strong><br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
+<p><strong>提示：</strong><br>pop、top 和 getMin 操作总是在 非空栈 上调用。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>本题是一道设计题，已经提前给出了模板，要求我们对其中给出的函数进行完善，以达到他的要求。</p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/model.jpg" class title="模板">
+
+<p>要求是能够实现栈最基本的push、pop和top操作的同时，还需要实现获取栈中最小值getMin的功能。</p>
+<p>相信上过数据结构课的各位做这题应该不难（doge），在C++中，我们使用动态数组来实现栈的各种功能，在Java中，我们依然使用动态数组ArrayList来实现。<br>题目不难，直接放代码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class MinStack &#123;</span><br><span class="line">	private ArrayList&lt;Integer&gt; array;</span><br><span class="line">	</span><br><span class="line">	public MinStack() &#123;</span><br><span class="line">		array&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">    	array.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void pop() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">    		array.remove(array.size()-1);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int top() &#123;</span><br><span class="line">    	if(!array.isEmpty())</span><br><span class="line">    		return array.get(array.size()-1);</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int getMin() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">	    	int min&#x3D;Integer.MAX_VALUE;</span><br><span class="line">	    	for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">	    		if(array.get(i)&lt;min)</span><br><span class="line">	    			min&#x3D;array.get(i);</span><br><span class="line">	    	&#125;</span><br><span class="line">			return min;</span><br><span class="line">    	&#125;</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		MinStack minStack&#x3D;new MinStack();</span><br><span class="line">		minStack.push(-2);</span><br><span class="line">		minStack.push(0);</span><br><span class="line">		minStack.push(-3);</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">		minStack.pop();</span><br><span class="line">		System.out.println(minStack.top());</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：</p>
+<pre><code>操作：[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]
+输入：[[],[-2],[0],[-3],[],[],[],[]]</code></pre><p>输出：</p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/run.jpg" class title="运行">
+
+<p>可以看到我们向栈中push了三个数字-2,0,-3，然后输出栈中最小值为-3，然后删除了栈顶元素，输出了现在的栈顶元素0，然后输出了现在的最小值为-2，结果正确。</p>
+<p><strong>LeetCode提交结果：</strong></p>
+<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/result1.jpg" class title="提交结果">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>设计</tag>
+        <tag>栈</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 169.多数元素[数组]</title>
+    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
+<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
+<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
+<a id="more"></a>
+
+
+<p><strong>示例 1:</strong></p>
+<p>输入: [3,2,3]<br>输出: 3</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
+<p><strong>###2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
+<p><strong>###2.3. LeetCode提交记录</strong></p>
+<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 174.地下城游戏[动态规划]</title>
     <url>/2020/07/12/LeetCode-174-%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
@@ -814,37 +887,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 169.多数元素[数组]</title>
-    <url>/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
-<p>给定一个大小为 n 的数组，找到其中的多数元素。多数元素是指在数组中出现次数大于 ⌊ n/2 ⌋ 的元素。</p>
-<p>你可以假设数组是非空的，并且给定的数组总是存在多数元素。</p>
-<a id="more"></a>
-
-
-<p><strong>示例 1:</strong></p>
-<p>输入: [3,2,3]<br>输出: 3</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: [2,2,1,1,1,2,2]<br>输出: 2</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 思路</strong><br>要求一个大小为n的数组中，出现次数大于n/2的元素，我们可以直接把数组进行排序，因为要求的数出现次数大于数组长度的一半，所以我们可以直接认为排序后的数组的中间那个数就是我们要求的数。</p>
-<p><strong>###2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class MajorityElement &#123;</span><br><span class="line">	public static int majorityElement(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)&#x2F;&#x2F;如果数组只有一个元素，返回他</span><br><span class="line">			return nums[0];</span><br><span class="line">		</span><br><span class="line">		Arrays.sort(nums);&#x2F;&#x2F;排序</span><br><span class="line">		return nums[nums.length&#x2F;2];&#x2F;&#x2F;直接返回中位数</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,2,1,1,1,2,2&#125;;</span><br><span class="line">		int ans&#x3D;majorityElement(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：数组nums={2,2,1,1,1,2,2}<br>测试结果：2<br>结果正确</p>
-<p><strong>###2.3. LeetCode提交记录</strong></p>
-<img src="/2020/07/06/LeetCode-169-%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>LeetCode 2.两数相加[链表]</title>
     <url>/2020/07/03/LeetCode-2-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0-%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][数学]</em></p>
@@ -882,48 +924,6 @@ HashMap是Map的具体实现类。</code></pre><hr>
       <tags>
         <tag>链表</tag>
         <tag>数学</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 155.最小栈[栈][设计]</title>
-    <url>/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][设计]</em></p>
-<p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
-<pre><code>push(x) —— 将元素 x 推入栈中。
-pop() —— 删除栈顶的元素。
-top() —— 获取栈顶元素。
-getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
-
-<p><strong>示例:</strong></p>
-<p><strong>输入：</strong><br>[“MinStack”,”push”,”push”,”push”,”getMin”,”pop”,”top”,”getMin”]<br>[[],[-2],[0],[-3],[],[],[],[]]</p>
-<p><strong>输出：</strong><br>[null,null,null,null,-3,null,0,-2]</p>
-<p><strong>解释：</strong><br>MinStack minStack = new MinStack();<br>minStack.push(-2);<br>minStack.push(0);<br>minStack.push(-3);<br>minStack.getMin();   –&gt; 返回 -3.<br>minStack.pop();<br>minStack.top();      –&gt; 返回 0.<br>minStack.getMin();   –&gt; 返回 -2.</p>
-<p><strong>提示：</strong><br>pop、top 和 getMin 操作总是在 非空栈 上调用。</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>本题是一道设计题，已经提前给出了模板，要求我们对其中给出的函数进行完善，以达到他的要求。</p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/model.jpg" class title="模板">
-
-<p>要求是能够实现栈最基本的push、pop和top操作的同时，还需要实现获取栈中最小值getMin的功能。</p>
-<p>相信上过数据结构课的各位做这题应该不难（doge），在C++中，我们使用动态数组来实现栈的各种功能，在Java中，我们依然使用动态数组ArrayList来实现。<br>题目不难，直接放代码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class MinStack &#123;</span><br><span class="line">	private ArrayList&lt;Integer&gt; array;</span><br><span class="line">	</span><br><span class="line">	public MinStack() &#123;</span><br><span class="line">		array&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void push(int x) &#123;</span><br><span class="line">    	array.add(x);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public void pop() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">    		array.remove(array.size()-1);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int top() &#123;</span><br><span class="line">    	if(!array.isEmpty())</span><br><span class="line">    		return array.get(array.size()-1);</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public int getMin() &#123;</span><br><span class="line">    	if(!array.isEmpty()) &#123;</span><br><span class="line">	    	int min&#x3D;Integer.MAX_VALUE;</span><br><span class="line">	    	for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">	    		if(array.get(i)&lt;min)</span><br><span class="line">	    			min&#x3D;array.get(i);</span><br><span class="line">	    	&#125;</span><br><span class="line">			return min;</span><br><span class="line">    	&#125;</span><br><span class="line">    	else</span><br><span class="line">    		return 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例</span><br><span class="line">		MinStack minStack&#x3D;new MinStack();</span><br><span class="line">		minStack.push(-2);</span><br><span class="line">		minStack.push(0);</span><br><span class="line">		minStack.push(-3);</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">		minStack.pop();</span><br><span class="line">		System.out.println(minStack.top());</span><br><span class="line">		System.out.println(minStack.getMin());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：</p>
-<pre><code>操作：[&quot;MinStack&quot;,&quot;push&quot;,&quot;push&quot;,&quot;push&quot;,&quot;getMin&quot;,&quot;pop&quot;,&quot;top&quot;,&quot;getMin&quot;]
-输入：[[],[-2],[0],[-3],[],[],[],[]]</code></pre><p>输出：</p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/run.jpg" class title="运行">
-
-<p>可以看到我们向栈中push了三个数字-2,0,-3，然后输出栈中最小值为-3，然后删除了栈顶元素，输出了现在的栈顶元素0，然后输出了现在的最小值为-2，结果正确。</p>
-<p><strong>LeetCode提交结果：</strong></p>
-<img src="/2020/07/05/LeetCode-155-%E6%9C%80%E5%B0%8F%E6%A0%88-%E6%A0%88-%E8%AE%BE%E8%AE%A1/result1.jpg" class title="提交结果">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>设计</tag>
-        <tag>栈</tag>
       </tags>
   </entry>
   <entry>
@@ -993,28 +993,34 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 200.岛屿数量[深度优先搜索]</title>
-    <url>/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[深度优先搜索]</em></p>
-<p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
-<p>岛屿总是被水包围，并且每座岛屿只能由水平方向或竖直方向上相邻的陆地连接形成。</p>
-<p>此外，你可以假设该网格的四条边均被水包围。</p>
+    <title>LeetCode 20.有效的括号[栈]</title>
+    <url>/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][字符串]</em><br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
+<p>有效字符串需满足：</p>
+<pre><code>左括号必须用相同类型的右括号闭合。
+左括号必须以正确的顺序闭合。</code></pre><p>注意空字符串可被认为是有效字符串。</p>
 <a id="more"></a>
 
 <p><strong>示例 1:</strong></p>
-<p><strong>输入:</strong><br>[<br>[‘1’,’1’,’1’,’1’,’0’],<br>[‘1’,’1’,’0’,’1’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’0’,’0’,’0’]<br>]<br><strong>输出:</strong> 1</p>
+<p>输入: “()”<br>输出: true</p>
 <p><strong>示例 2:</strong></p>
-<p><strong>输入:</strong><br>[<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’1’,’0’,’0’],<br>[‘0’,’0’,’0’,’1’,’1’]<br>]<br>*<em>输出: *</em>3<br>*<em>解释: *</em>每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。</p>
+<p>输入: “()[]{}”<br>输出: true</p>
+<p><strong>示例 3:</strong></p>
+<p>输入: “(]”<br>输出: false</p>
+<p><strong>示例 4:</strong></p>
+<p>输入: “([)]”<br>输出: false</p>
+<p><strong>示例 5:</strong></p>
+<p>输入: “{[]}”<br>输出: true</p>
 <hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 思路</strong><br>本题可以将数组看做一张图，对图进行遍历。</p>
-<p><strong>当遍历到一个位置值为’1’的时候，即代表该点是岛屿的一个点，从该点开始，对图进行深度优先搜索，将所有搜索到的点都置为’0’，代表这些是属于同一个岛屿的点，搜索完毕时，计数器count+1；</strong><br>继续遍历，由于上次搜索，属于同一岛屿的点全部被置为’0’了，所以以后只会搜索到其他岛屿了，遍历结束，返回计数count。</p>
-<p>我们也可以理解为<strong>“感染”</strong>的方式，即找到一个点为’1’时，对其周围的点递归进行<strong>“感染”</strong>，<strong>该点附近值同样为’1’的点被感染，值发生改变（可以置为不为’1’的任意值）</strong>，递归结束后，计数器count+1.</p>
-<p><strong>2.2. 代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int numIslands(char[][] grid) &#123;</span><br><span class="line">        int count &#x3D; 0;&#x2F;&#x2F;计数器</span><br><span class="line">        for(int i &#x3D; 0;i &lt; grid.length;i++)&#123;</span><br><span class="line">            for(int j &#x3D; 0;j &lt; grid[0].length;j++)&#123;&#x2F;&#x2F;遍历</span><br><span class="line">                if(grid[i][j] &#x3D;&#x3D; &#39;1&#39;)&#123;&#x2F;&#x2F;如果一个点是岛屿点</span><br><span class="line">                    infect(grid,i,j);&#x2F;&#x2F;从该点开始，进行感染</span><br><span class="line">                    count++;&#x2F;&#x2F;感染完一整个岛屿后，计数器+1</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return count;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void infect(char[][] grid,int i ,int j)&#123;</span><br><span class="line">        if(i &lt; 0 || i &gt;&#x3D; grid.length || j &lt; 0 || j &gt;&#x3D;grid[0].length || grid[i][j] !&#x3D; &#39;1&#39;)&#123;</span><br><span class="line">            return;&#x2F;&#x2F;如果被感染的点超出边界或其值不为&#39;1&#39;，即代表该点不是岛屿了，不能感染，直接返回</span><br><span class="line">        &#125;</span><br><span class="line">        grid[i][j] &#x3D; &#39;2&#39;;&#x2F;&#x2F;将被感染的点置为非&#39;1&#39;值</span><br><span class="line">        infect(grid,i - 1,j);&#x2F;&#x2F;递归对该点周围四个点进行感染</span><br><span class="line">        infect(grid,i + 1,j);</span><br><span class="line">        infect(grid,i,j + 1);</span><br><span class="line">        infect(grid,i,j - 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>测试用例：</strong><br>[<br>[‘1’,’1’,’1’,’1’,’0’],<br>[‘1’,’1’,’0’,’1’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’0’,’0’,’0’]<br>]</p>
-<p><strong>测试结果：</strong>岛屿数量 = 1<br>结果正确。</p>
-<p><strong>2.3. LeetCode提交记录</strong></p>
-<img src="/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/result.jpg" class title="提交记录">
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>###2.1. 介绍<br>本题是一道简单题，但是如果单纯地使用字符串方法做，很难做出来，因为本题对字符串挨个研究时，还需要考虑整个字符串的结构，这是难以做到的，比如输入s=“([)]”，显然小括号和中括号在这里是可以被匹配到的，即每个左括号都对应一个右括号，但这个的结果是false，因为他整体不满足正确的闭合顺序。<br>针对这种情况，使用“栈”这种数据结构就能帮助我们掌握字符串的整体结构，从而容易地解决问题。</p>
+<pre><code>在表示问题的递归结构时，栈数据结构可以派上用场。
+我们无法真正地从内到外处理这个问题，因为我们对整体结构一无所知。
+但是，栈可以帮助我们递归地处理这种情况，即从外部到内部。</code></pre><p>###2.2. 算法<br>①. 创建一个字符类型的栈stack，置为空；<br>②. 对于输入字符串s，挨个字符判断入栈；<br>③. 如果栈为空，则s的当前字符入栈，不进行任何判断；<br>④. 如果s的当前字符是右括号（右括号指 “)”,”]”或”}”），且栈不为空，则判断栈顶元素，如果是与当前字符匹配的左括号，这对匹配成功的括号抵消，表示为向栈中插入该字符，再把栈顶的两个元素删除，实际操作时可简化为不插入元素，只删除栈顶一个元素即可达到同样效果。<br>⑤. 如果插入的不是右括号，则直接入栈即可。<br>⑥. 最后判断栈是否为空，为空则表示所有括号全部匹配成功，都被抵消了，返回true；不为空则表示该字符串不符合题目要求，返回false。</p>
+<p>###2.3. 完整程序</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Stack;</span><br><span class="line">public class IsValid &#123;</span><br><span class="line">	public boolean isValid(String s) &#123;</span><br><span class="line">        if(s.equals(&quot;&quot;))</span><br><span class="line">            return true;</span><br><span class="line">        else&#123;</span><br><span class="line">            Stack&lt;Character&gt; stack&#x3D;new Stack&lt;Character&gt;();&#x2F;&#x2F;字符类型的栈</span><br><span class="line">        	for(int i&#x3D;0;i&lt;s.length();i++) &#123;</span><br><span class="line">        		if(stack.isEmpty()) &#123;&#x2F;&#x2F;如果当前栈为空，直接插入，不执行下面的判断了</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        			continue;</span><br><span class="line">        		&#125;</span><br><span class="line">        		if(s.charAt(i)&#x3D;&#x3D;&#39;)&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;(&#39;)&#123;&#x2F;&#x2F;如果匹配成功，则这对括号同时抵消，即取出栈顶元素</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;]&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;[&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;&#125;&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;&#123;&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else &#123;&#x2F;&#x2F;如匹配失败，直接在栈中插入元素</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        		&#125;</span><br><span class="line">        	&#125;</span><br><span class="line">        	if(stack.isEmpty())&#x2F;&#x2F;如果最后栈为空，表示括号全部匹配成功，抵消成功</span><br><span class="line">        		return true;</span><br><span class="line">        &#125;</span><br><span class="line">		return false;&#x2F;&#x2F;不然就返回false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s&#x3D;&quot;[])&quot;;</span><br><span class="line">		IsValid i&#x3D;new IsValid();</span><br><span class="line">		System.out.println(i.isValid(s));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：s=”[])”<br>测试结果：false</p>
+<p>###2.4. LeetCode提交结果</p>
+<img src="/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/result.jpg" class title="提交记录">
 
 <hr>
 <p>如有错误，欢迎联系本人QQ：965299766</p>
@@ -1023,7 +1029,8 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>深度优先搜索</tag>
+        <tag>栈</tag>
+        <tag>字符串</tag>
       </tags>
   </entry>
   <entry>
@@ -1096,6 +1103,40 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 198.打家劫舍[动态规划]</title>
+    <url>/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
+<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
+<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
+<a id="more"></a>
+
+
+<p><strong>示例 1：</strong></p>
+<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>     偷窃到的最高金额 = 1 + 3 = 4 。</p>
+<p><strong>示例 2：</strong></p>
+<p>输入：[2,7,9,3,1]<br>输出：12<br>解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。<br>     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</p>
+<p><strong>提示：</strong></p>
+<pre><code>0 &lt;= nums.length &lt;= 100
+0 &lt;= nums[i] &lt;= 400</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题显然可以使用动态规划来解决，是动态规划的经典题型。<br>①. 当房屋数组元素个数为0时，显然无房屋可偷，直接返回0；<br>②. 当有1个房屋时，该房屋的价值显然就是最大价值，返回他即可；<br>③. 当有2个房屋时，由题意可得，我们不能同时偷窃两个相邻的房屋，显然，我们只能偷这两个房屋中价值较大的那个，所以应返回两房屋价值的较大者；<br>④. 当偷到2个以上房屋时，我们就要考虑两种情况了，假设目前正准备偷第k间房屋（k&gt;2），我们会面临两个选择：<br>    1）偷第k间房屋，因为和第k-1间房间相邻，我们就不能偷第k-1间房屋，那此时我们可获得的总价值为前面已经做过选择的k-2间房屋的最大价值加上第k间房屋的价值；<br>    2）不偷第k间房屋，那第k-1间房屋就是可以偷窃的，那此时我们获得的总价值就是前面已做过选择的k-1间房屋的最大价值。<br>从2个选择中选择能获得价值较大的一项，将该价值作为处理这间房屋所获得的最大价值。<br>⑤. 对于每间房屋，都按照④的方法进行选择，对每间房屋都可以求出偷窃到该房屋时能获得的最大价值，放在dp数组中的对应位置；<br>⑥. 最后返回dp数组的最后一项，因为执行以上算法后，即对最后一间房屋做出选择后，获得的价值就是你能获得的最大价值了。</p>
+<p><strong>代码如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Rob &#123;</span><br><span class="line">	public static int rob(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;0)</span><br><span class="line">			return 0;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)</span><br><span class="line">			return nums[0];</span><br><span class="line">		if(nums.length&#x3D;&#x3D;2)</span><br><span class="line">			return nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		</span><br><span class="line">		int[] dp&#x3D;new int[nums.length];</span><br><span class="line">		dp[0]&#x3D;nums[0];</span><br><span class="line">		dp[1]&#x3D;nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		for(int i&#x3D;2;i&lt;nums.length;i++) &#123;</span><br><span class="line">			dp[i]&#x3D;dp[i-2]+nums[i]&gt;dp[i-1]?dp[i-2]+nums[i]:dp[i-1];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return dp[dp.length-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：各房子的价值&#x3D;&#123;2,7,9,3,1&#125;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,7,9,3,1&#125;;</span><br><span class="line">		int ans&#x3D;rob(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：房子的价值数组={2,7,9,3,1}<br>测试结果：最大价值=12</p>
+<hr>
+<p><strong>LeetCode提交记录：</strong></p>
+<img src="/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>LeetCode 21.合并两个有序链表[链表]</title>
     <url>/2020/07/05/LeetCode-21-%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E9%93%BE%E8%A1%A8/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表]</em></p>
@@ -1143,71 +1184,36 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 20.有效的括号[栈]</title>
-    <url>/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[栈][字符串]</em><br>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串，判断字符串是否有效。</p>
-<p>有效字符串需满足：</p>
-<pre><code>左括号必须用相同类型的右括号闭合。
-左括号必须以正确的顺序闭合。</code></pre><p>注意空字符串可被认为是有效字符串。</p>
-<a id="more"></a>
-
-<p><strong>示例 1:</strong></p>
-<p>输入: “()”<br>输出: true</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: “()[]{}”<br>输出: true</p>
-<p><strong>示例 3:</strong></p>
-<p>输入: “(]”<br>输出: false</p>
-<p><strong>示例 4:</strong></p>
-<p>输入: “([)]”<br>输出: false</p>
-<p><strong>示例 5:</strong></p>
-<p>输入: “{[]}”<br>输出: true</p>
-<hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>###2.1. 介绍<br>本题是一道简单题，但是如果单纯地使用字符串方法做，很难做出来，因为本题对字符串挨个研究时，还需要考虑整个字符串的结构，这是难以做到的，比如输入s=“([)]”，显然小括号和中括号在这里是可以被匹配到的，即每个左括号都对应一个右括号，但这个的结果是false，因为他整体不满足正确的闭合顺序。<br>针对这种情况，使用“栈”这种数据结构就能帮助我们掌握字符串的整体结构，从而容易地解决问题。</p>
-<pre><code>在表示问题的递归结构时，栈数据结构可以派上用场。
-我们无法真正地从内到外处理这个问题，因为我们对整体结构一无所知。
-但是，栈可以帮助我们递归地处理这种情况，即从外部到内部。</code></pre><p>###2.2. 算法<br>①. 创建一个字符类型的栈stack，置为空；<br>②. 对于输入字符串s，挨个字符判断入栈；<br>③. 如果栈为空，则s的当前字符入栈，不进行任何判断；<br>④. 如果s的当前字符是右括号（右括号指 “)”,”]”或”}”），且栈不为空，则判断栈顶元素，如果是与当前字符匹配的左括号，这对匹配成功的括号抵消，表示为向栈中插入该字符，再把栈顶的两个元素删除，实际操作时可简化为不插入元素，只删除栈顶一个元素即可达到同样效果。<br>⑤. 如果插入的不是右括号，则直接入栈即可。<br>⑥. 最后判断栈是否为空，为空则表示所有括号全部匹配成功，都被抵消了，返回true；不为空则表示该字符串不符合题目要求，返回false。</p>
-<p>###2.3. 完整程序</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.Stack;</span><br><span class="line">public class IsValid &#123;</span><br><span class="line">	public boolean isValid(String s) &#123;</span><br><span class="line">        if(s.equals(&quot;&quot;))</span><br><span class="line">            return true;</span><br><span class="line">        else&#123;</span><br><span class="line">            Stack&lt;Character&gt; stack&#x3D;new Stack&lt;Character&gt;();&#x2F;&#x2F;字符类型的栈</span><br><span class="line">        	for(int i&#x3D;0;i&lt;s.length();i++) &#123;</span><br><span class="line">        		if(stack.isEmpty()) &#123;&#x2F;&#x2F;如果当前栈为空，直接插入，不执行下面的判断了</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        			continue;</span><br><span class="line">        		&#125;</span><br><span class="line">        		if(s.charAt(i)&#x3D;&#x3D;&#39;)&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;(&#39;)&#123;&#x2F;&#x2F;如果匹配成功，则这对括号同时抵消，即取出栈顶元素</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;]&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;[&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else if(s.charAt(i)&#x3D;&#x3D;&#39;&#125;&#39;&amp;&amp;stack.peek()&#x3D;&#x3D;&#39;&#123;&#39;) &#123;</span><br><span class="line">        			stack.pop();</span><br><span class="line">        		&#125;</span><br><span class="line">        		else &#123;&#x2F;&#x2F;如匹配失败，直接在栈中插入元素</span><br><span class="line">        			stack.push(s.charAt(i));</span><br><span class="line">        		&#125;</span><br><span class="line">        	&#125;</span><br><span class="line">        	if(stack.isEmpty())&#x2F;&#x2F;如果最后栈为空，表示括号全部匹配成功，抵消成功</span><br><span class="line">        		return true;</span><br><span class="line">        &#125;</span><br><span class="line">		return false;&#x2F;&#x2F;不然就返回false</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		String s&#x3D;&quot;[])&quot;;</span><br><span class="line">		IsValid i&#x3D;new IsValid();</span><br><span class="line">		System.out.println(i.isValid(s));</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：s=”[])”<br>测试结果：false</p>
-<p>###2.4. LeetCode提交结果</p>
-<img src="/2020/07/04/LeetCode-20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7-%E6%A0%88/result.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>栈</tag>
-        <tag>字符串</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 198.打家劫舍[动态规划]</title>
-    <url>/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <title>LeetCode 309.最佳买卖股票时机含冷冻期[动态规划]</title>
+    <url>/2020/07/10/LeetCode-309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
-<p>你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警。</p>
-<p>给定一个代表每个房屋存放金额的非负整数数组，计算你 不触动警报装置的情况下 ，一夜之内能够偷窃到的最高金额。</p>
-<a id="more"></a>
+<p>给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。​</p>
+<p>设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:</p>
+<pre><code>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。</code></pre><a id="more"></a>
 
-
-<p><strong>示例 1：</strong></p>
-<p>输入：[1,2,3,1]<br>输出：4<br>解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。<br>     偷窃到的最高金额 = 1 + 3 = 4 。</p>
-<p><strong>示例 2：</strong></p>
-<p>输入：[2,7,9,3,1]<br>输出：12<br>解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。<br>     偷窃到的最高金额 = 2 + 9 + 1 = 12 。</p>
-<p><strong>提示：</strong></p>
-<pre><code>0 &lt;= nums.length &lt;= 100
-0 &lt;= nums[i] &lt;= 400</code></pre><hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>这道题显然可以使用动态规划来解决，是动态规划的经典题型。<br>①. 当房屋数组元素个数为0时，显然无房屋可偷，直接返回0；<br>②. 当有1个房屋时，该房屋的价值显然就是最大价值，返回他即可；<br>③. 当有2个房屋时，由题意可得，我们不能同时偷窃两个相邻的房屋，显然，我们只能偷这两个房屋中价值较大的那个，所以应返回两房屋价值的较大者；<br>④. 当偷到2个以上房屋时，我们就要考虑两种情况了，假设目前正准备偷第k间房屋（k&gt;2），我们会面临两个选择：<br>    1）偷第k间房屋，因为和第k-1间房间相邻，我们就不能偷第k-1间房屋，那此时我们可获得的总价值为前面已经做过选择的k-2间房屋的最大价值加上第k间房屋的价值；<br>    2）不偷第k间房屋，那第k-1间房屋就是可以偷窃的，那此时我们获得的总价值就是前面已做过选择的k-1间房屋的最大价值。<br>从2个选择中选择能获得价值较大的一项，将该价值作为处理这间房屋所获得的最大价值。<br>⑤. 对于每间房屋，都按照④的方法进行选择，对每间房屋都可以求出偷窃到该房屋时能获得的最大价值，放在dp数组中的对应位置；<br>⑥. 最后返回dp数组的最后一项，因为执行以上算法后，即对最后一间房屋做出选择后，获得的价值就是你能获得的最大价值了。</p>
-<p><strong>代码如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class Rob &#123;</span><br><span class="line">	public static int rob(int[] nums) &#123;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;0)</span><br><span class="line">			return 0;</span><br><span class="line">		if(nums.length&#x3D;&#x3D;1)</span><br><span class="line">			return nums[0];</span><br><span class="line">		if(nums.length&#x3D;&#x3D;2)</span><br><span class="line">			return nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		</span><br><span class="line">		int[] dp&#x3D;new int[nums.length];</span><br><span class="line">		dp[0]&#x3D;nums[0];</span><br><span class="line">		dp[1]&#x3D;nums[0]&gt;nums[1]?nums[0]:nums[1];</span><br><span class="line">		for(int i&#x3D;2;i&lt;nums.length;i++) &#123;</span><br><span class="line">			dp[i]&#x3D;dp[i-2]+nums[i]&gt;dp[i-1]?dp[i-2]+nums[i]:dp[i-1];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		return dp[dp.length-1];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：各房子的价值&#x3D;&#123;2,7,9,3,1&#125;</span><br><span class="line">		int[] nums&#x3D;new int[] &#123;2,7,9,3,1&#125;;</span><br><span class="line">		int ans&#x3D;rob(nums);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：房子的价值数组={2,7,9,3,1}<br>测试结果：最大价值=12</p>
+<p><strong>示例:</strong></p>
+<p>输入: [1,2,3,0,2]<br>输出: 3<br>解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]</p>
 <hr>
-<p><strong>LeetCode提交记录：</strong></p>
-<img src="/2020/07/05/LeetCode-198-%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>我们由题目可以了解到：对于本题，我们每天的状态可分为三种：<br>①. 买入股票<br>②. 卖出股票<br>③. 冷冻期或不操作</p>
+<p><strong>1. 我们首先定义动态规划数组</strong><br>当最后一次操作分别是：买入、卖出、冷冻期或不操作时，当日可获得的最大收益分别保存在数组buy、sell、cold中。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int[] buy&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是买入的收益</span><br><span class="line">   int[] sell&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是卖出的收益</span><br><span class="line">   int[] cold&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是冷冻期的收益</span><br></pre></td></tr></table></figure>
+<p><strong>2. 初始化数组</strong><br>当第一天是买入时，当天收益就是第一天股票价值的负数；<br>当第一天是卖出或冷冻期（不操作）时，收益就是0。即：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">buy[0]&#x3D;-prices[0];&#x2F;&#x2F;第一天就买入的话，收益是当天股票价格的负数</span><br><span class="line">sell[0]&#x3D;cold[0]&#x3D;0;&#x2F;&#x2F;第一天不能卖出或进入冷冻期，默认为0</span><br></pre></td></tr></table></figure>
 
+<p>然后从第二天开始，获得递推公式：</p>
+<pre><code>buy[i]=max(cold[i-1]-prices[i],buy[i-1]);
+sell[i]=max(buy[i-1]+prices[i],sell[i-1]);
+cold[i]=max(sell[i-1],cold[i-1]);
+(i&gt;0时)</code></pre><p>解释：<br>①. 若最后一次操作是买入时，那只有两种情况：<br>    1）. 前一天是冷冻期，今天买入；<br>    2）. 前一天就是买入，今天就不操作。<br>②. 若最后一次操作是卖出时，那有两种情况：<br>    1）. 前一天是买入，今天卖出；<br>    2）. 前一天卖出，今天不操作（也就是冷冻期）。<br>③. 若最后一次操作是冷冻期，那有两种情况：<br>    1）. 前一天卖出，今天就是冷冻期；<br>    2）. 前一天就是冷冻期，今天不操作。</p>
+<p><strong>3. 答案获取</strong><br>我们容易看出，如果最后一次操作是买入的话，那显然是亏钱的，因为这样收益还不如直接不买，啥也不干来的多。<br>所以我们最后从卖出数组sell和冷冻数组cold中获取最大收益。</p>
 <hr>
+<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxProfit &#123;</span><br><span class="line">    public static int maxProfit (int[] prices) &#123;</span><br><span class="line">    	if(prices.length&#x3D;&#x3D;0||prices.length&#x3D;&#x3D;1)</span><br><span class="line">    		return 0;&#x2F;&#x2F;价格数组长度为0或1时，利润直接返回0</span><br><span class="line">    	</span><br><span class="line">    	int[] buy&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是买入的收益</span><br><span class="line">    	int[] sell&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是卖出的收益</span><br><span class="line">    	int[] cold&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是冷冻期的收益</span><br><span class="line">    	</span><br><span class="line">    	buy[0]&#x3D;-prices[0];&#x2F;&#x2F;第一天就买入的话，收益是当天股票价格的负数</span><br><span class="line">    	sell[0]&#x3D;cold[0]&#x3D;0;&#x2F;&#x2F;第一天不能卖出或进入冷冻期，默认为0</span><br><span class="line">    	</span><br><span class="line">    	for(int i&#x3D;1;i&lt;prices.length;i++) &#123;</span><br><span class="line">    		buy[i]&#x3D;Math.max(cold[i-1]-prices[i], buy[i-1]);&#x2F;&#x2F;只有两种情况：①.前一天是冷冻期，那今天买入；②.前一天已经买入，今天不操作</span><br><span class="line">    		sell[i]&#x3D;Math.max(buy[i-1]+prices[i], sell[i-1]);&#x2F;&#x2F;只有两种情况：①.前一天买入，今天卖出；②.前一天已经卖出，今天不操作（冷冻期）</span><br><span class="line">    		cold[i]&#x3D;Math.max(sell[i-1], cold[i-1]);	&#x2F;&#x2F;有两种情况：①.前一天卖出，今天就是冷冻期；②.前一天是冷冻期，今天不操作</span><br><span class="line">    	&#125;</span><br><span class="line">    	&#x2F;&#x2F;因为最后一次操作是买入的话必定亏钱，所以只要获得最后操作是卖出或冷冻期的最大收益即可</span><br><span class="line">		return Math.max(sell[prices.length-1], cold[prices.length-1]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：股票价格为：&#123;1,2,3,0,2&#125;</span><br><span class="line">		int[] test &#x3D; new int[] &#123;1,2,3,0,2&#125;;</span><br><span class="line">		int ans&#x3D;maxProfit(test);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：价格数组为：{1,2,3,0,2}<br>测试结果：最大收益：3<br>结果正确。</p>
+<hr>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/10/LeetCode-309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
+
 <p>如有错误，欢迎联系本人QQ：965299766</p>
 ]]></content>
       <categories>
@@ -1215,6 +1221,40 @@ getMin() —— 检索栈中的最小元素。</code></pre><a id="more"></a>
       </categories>
       <tags>
         <tag>动态规划</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LeetCode 200.岛屿数量[深度优先搜索]</title>
+    <url>/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[深度优先搜索]</em></p>
+<p>给你一个由 ‘1’（陆地）和 ‘0’（水）组成的的二维网格，请你计算网格中岛屿的数量。</p>
+<p>岛屿总是被水包围，并且每座岛屿只能由水平方向或竖直方向上相邻的陆地连接形成。</p>
+<p>此外，你可以假设该网格的四条边均被水包围。</p>
+<a id="more"></a>
+
+<p><strong>示例 1:</strong></p>
+<p><strong>输入:</strong><br>[<br>[‘1’,’1’,’1’,’1’,’0’],<br>[‘1’,’1’,’0’,’1’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’0’,’0’,’0’]<br>]<br><strong>输出:</strong> 1</p>
+<p><strong>示例 2:</strong></p>
+<p><strong>输入:</strong><br>[<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’1’,’0’,’0’],<br>[‘0’,’0’,’0’,’1’,’1’]<br>]<br>*<em>输出: *</em>3<br>*<em>解释: *</em>每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。</p>
+<hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>2.1. 思路</strong><br>本题可以将数组看做一张图，对图进行遍历。</p>
+<p><strong>当遍历到一个位置值为’1’的时候，即代表该点是岛屿的一个点，从该点开始，对图进行深度优先搜索，将所有搜索到的点都置为’0’，代表这些是属于同一个岛屿的点，搜索完毕时，计数器count+1；</strong><br>继续遍历，由于上次搜索，属于同一岛屿的点全部被置为’0’了，所以以后只会搜索到其他岛屿了，遍历结束，返回计数count。</p>
+<p>我们也可以理解为<strong>“感染”</strong>的方式，即找到一个点为’1’时，对其周围的点递归进行<strong>“感染”</strong>，<strong>该点附近值同样为’1’的点被感染，值发生改变（可以置为不为’1’的任意值）</strong>，递归结束后，计数器count+1.</p>
+<p><strong>2.2. 代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int numIslands(char[][] grid) &#123;</span><br><span class="line">        int count &#x3D; 0;&#x2F;&#x2F;计数器</span><br><span class="line">        for(int i &#x3D; 0;i &lt; grid.length;i++)&#123;</span><br><span class="line">            for(int j &#x3D; 0;j &lt; grid[0].length;j++)&#123;&#x2F;&#x2F;遍历</span><br><span class="line">                if(grid[i][j] &#x3D;&#x3D; &#39;1&#39;)&#123;&#x2F;&#x2F;如果一个点是岛屿点</span><br><span class="line">                    infect(grid,i,j);&#x2F;&#x2F;从该点开始，进行感染</span><br><span class="line">                    count++;&#x2F;&#x2F;感染完一整个岛屿后，计数器+1</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return count;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void infect(char[][] grid,int i ,int j)&#123;</span><br><span class="line">        if(i &lt; 0 || i &gt;&#x3D; grid.length || j &lt; 0 || j &gt;&#x3D;grid[0].length || grid[i][j] !&#x3D; &#39;1&#39;)&#123;</span><br><span class="line">            return;&#x2F;&#x2F;如果被感染的点超出边界或其值不为&#39;1&#39;，即代表该点不是岛屿了，不能感染，直接返回</span><br><span class="line">        &#125;</span><br><span class="line">        grid[i][j] &#x3D; &#39;2&#39;;&#x2F;&#x2F;将被感染的点置为非&#39;1&#39;值</span><br><span class="line">        infect(grid,i - 1,j);&#x2F;&#x2F;递归对该点周围四个点进行感染</span><br><span class="line">        infect(grid,i + 1,j);</span><br><span class="line">        infect(grid,i,j + 1);</span><br><span class="line">        infect(grid,i,j - 1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>测试用例：</strong><br>[<br>[‘1’,’1’,’1’,’1’,’0’],<br>[‘1’,’1’,’0’,’1’,’0’],<br>[‘1’,’1’,’0’,’0’,’0’],<br>[‘0’,’0’,’0’,’0’,’0’]<br>]</p>
+<p><strong>测试结果：</strong>岛屿数量 = 1<br>结果正确。</p>
+<p><strong>2.3. LeetCode提交记录</strong></p>
+<img src="/2020/07/26/LeetCode-200-%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2/result.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>深度优先搜索</tag>
       </tags>
   </entry>
   <entry>
@@ -1387,6 +1427,85 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       </tags>
   </entry>
   <entry>
+    <title>LeetCode 350.两个数组的交集II[排序][哈希表]</title>
+    <url>/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/</url>
+    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[排序][哈希表]</em></p>
+<p>给定两个数组，编写一个函数来计算它们的交集。</p>
+<a id="more"></a>
+
+<p><strong>示例 1:</strong></p>
+<p>输入: nums1 = [1,2,2,1], nums2 = [2,2]<br>输出: [2,2]</p>
+<p><strong>示例 2:</strong></p>
+<p>输入: nums1 = [4,9,5], nums2 = [9,4,9,8,4]<br>输出: [4,9]</p>
+<p><strong>说明：</strong></p>
+<pre><code>输出结果中每个元素出现的次数，应与元素在两个数组中出现的次数一致。
+我们可以不考虑输出结果的顺序。</code></pre><hr>
+<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 解法一：挨个元素匹配法</strong><br>题目给定两数组nums1和nums2，我们选择nums1数组进行挨个元素匹配。<br>例如：nums1={1,2,2,1}，nums2={2,2}。<br>我们还需要一个答案数组ans来保存答案。</p>
+<p>①. 先看nums1第一个元素，为1，在nums2中进行匹配，显然nums2中不存在1这个元素，匹配失败；</p>
+<p>②. 再看nums1第二个元素，为2，在nums2中匹配成功，nums2中有2这个元素。匹配成功后，我们将2保存到ans数组，然后在nums2中删除2这个元素（nums2中有两个2，只要删除第一个2）；</p>
+<p>③. 接着匹配nums1的第三个元素，为2，在nums1中进行匹配，此时的nums1由于删除了一个2，变成了{2}而非一开始的{2,2}。<br>我们进行匹配，2在nums2中依然存在，保存到ans数组，并在nums2中删掉这个2。此时的nums2变为{}，是空集；</p>
+<p>④. 接着匹配nums1的第四个元素，而nums2已经为空，匹配必定失败。</p>
+<p>⑤. nums1指针指到末尾了，匹配结束，此时ans数组就是我们要的答案，是这两个数组nums1和nums2的交集，返回他就行了。</p>
+<p><strong>解法一的完整代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class Intersect &#123;</span><br><span class="line">	public static int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">		&#x2F;&#x2F;将int[]数组转换为ArrayList方便增删</span><br><span class="line">		ArrayList&lt;Integer&gt; array1&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		ArrayList&lt;Integer&gt; array2&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		ArrayList&lt;Integer&gt; ans&#x3D;new ArrayList&lt;Integer&gt;();&#x2F;&#x2F;保存答案的数组</span><br><span class="line">		for(int k:nums1)</span><br><span class="line">			array1.add(k);</span><br><span class="line">		for(int k:nums2)</span><br><span class="line">			array2.add(k);</span><br><span class="line">		</span><br><span class="line">		for(int k:array2) &#123;</span><br><span class="line">			if(array1.contains(k)) &#123;&#x2F;&#x2F;如果一个元素k在两数组中同时存在</span><br><span class="line">				ans.add(k);&#x2F;&#x2F;把该元素加到答案数组中去</span><br><span class="line">				array1.remove(getIndex(array1, k));&#x2F;&#x2F;从array1中删除该元素，防止重复匹配</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;将答案数组转化为题目要求输出的形式，即ArrayList转化为int[]</span><br><span class="line">		int[] answer&#x3D;new int[ans.size()];</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.size();i++)</span><br><span class="line">			answer[i]&#x3D;ans.get(i);</span><br><span class="line">		return answer;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	public static int getIndex(ArrayList&lt;Integer&gt; array,int goal) &#123;</span><br><span class="line">		&#x2F;&#x2F;获取目标值在array数组中的下标，如未找到返回-1</span><br><span class="line">		for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">			if(array.get(i)&#x3D;&#x3D;goal)</span><br><span class="line">				return i;</span><br><span class="line">		&#125;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;</span><br><span class="line">		int[] nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;;</span><br><span class="line">		int[] ans&#x3D;intersect(nums1, nums2);</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.length;i++)</span><br><span class="line">			System.out.println(ans[i]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：nums1= {1,2,2,1},nums2= {2,2}<br>测试结果：{2,2}<br>结果正确。</p>
+<hr>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/result1.jpg" class title="提交记录">
+
+<hr>
+<p><strong>###2.2. 解法二：排序法</strong><br>我们换一个例子：nums1={1,2,4,2}，nums2={5,2,2}。<br>这次我们在一开始就将两数组按升序排序：</p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/1.jpg" class title="图一">
+<p>两箭头代表对应的数组指针，从0开始。</p>
+<p>①. 我们将两数组指针指向的值进行比较，比较结果与指针移动规则如下：<br><strong>1）两指针比较后，值较小的一方指针向后移一位；</strong><br><strong>2）如果值相等，将该值填入答案数组，两指针同时后移一位；</strong><br><strong>3）当至少一个指针到达末尾时结束。</strong><br>用该方法可以保证比较结束后，答案数组保存的就是两数组的交集。</p>
+<p>②. 看本例，指针起始位置的两个值比较，nums1指针对应的值是1，小于nums2指针对应的值2，将nums1的指针后移一位：</p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/2.jpg" class title="图二">
+
+<p>③. 再次比较，比较结果2=2，所以将2计入答案数组，两指针同时后移：</p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/3.jpg" class title="图三">
+
+<p>④. 再次比较，发现结果2=2，再计入答案数组，两指针后移：</p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/4.jpg" class title="图四">
+
+<p>⑤. 再次比较，发现4&lt;5，nums1指针向后移一位，发现移动后到达末尾，结束循环，输出答案数组作为答案即可。</p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/5.jpg" class title="图五">
+
+<p><strong>解法二的完整代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Intersect2 &#123;</span><br><span class="line">	public static int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">		&#x2F;&#x2F;将两数组先升序排序</span><br><span class="line">		Arrays.sort(nums1);</span><br><span class="line">		Arrays.sort(nums2);</span><br><span class="line">		ArrayList&lt;Integer&gt; ans&#x3D;new ArrayList&lt;Integer&gt;();&#x2F;&#x2F;答案数组</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0,j&#x3D;0;i&lt;nums1.length&amp;&amp;j&lt;nums2.length;) &#123;</span><br><span class="line">			&#x2F;&#x2F;两个指针都从0开始，比较两指针的值，小的那一个数组指针+1，如果相等，保存答案的同时两指针均+1</span><br><span class="line">			if(nums1[i]&gt;nums2[j]) &#123;</span><br><span class="line">				j++;</span><br><span class="line">			&#125;</span><br><span class="line">			else if(nums1[i]&#x3D;&#x3D;nums2[j]) &#123;</span><br><span class="line">				ans.add(nums1[i]);</span><br><span class="line">				i++;j++;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				i++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;答案数组转化</span><br><span class="line">		int[] answer&#x3D;new int[ans.size()];</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.size();i++)</span><br><span class="line">			answer[i]&#x3D;ans.get(i);</span><br><span class="line">		return answer;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;</span><br><span class="line">			int[] nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;;</span><br><span class="line">			int[] ans&#x3D;intersect(nums1, nums2);</span><br><span class="line">			for(int i&#x3D;0;i&lt;ans.length;i++)</span><br><span class="line">				System.out.println(ans[i]);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：nums1= {1,2,2,1},nums2= {2,2}<br>测试结果：{2,2}<br>结果正确。</p>
+<hr>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/result2.jpg" class title="提交记录">
+
+<hr>
+<p><strong>###2.3. 解法三：哈希表法</strong><br>还是那个例子：nums1={1,2,2,1}，nums2={2,2}。<br>我们创建一个HashMap来保存nums1中，各数及他出现的次数：</p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/6.jpg" class title="图六">
+
+<p><strong>接下来很简单：比较nums2中的每个值是否在HashMap中作为key值存在，如果存在且对应的value（代表出现次数）大于0，我们就将该key值作为答案放入答案数组，同时该key对应的value值-1，代表已经成功匹配一次了，防止以后重复匹配。</strong></p>
+<p>本题中nums2={2,2}，HashMap如图所示：</p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/7.jpg" class title="图七">
+<p><strong>1）先匹配nums2中的第一个2，显然，在HashMap中作为key值存在，且目前value为2，大于0，所以，我们将2作为答案保存在答案数组，同时HashMap中2对应的value值-1变为1.</strong></p>
+<p><strong>2）再匹配nums2中的第二个2，显然作为key值存在于HashMap，且目前value值为1，大于0，所以，我们再把这个2作为答案保存在答案数组中，同时HashMap中2对应的value值-1变为0.</strong></p>
+<p><strong>3）重复以上步骤直到nums2匹配完成。返回答案数组即可。</strong></p>
+<p><strong>解法三的完整代码：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class Intersect3 &#123;</span><br><span class="line">	public static int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">		Map&lt;Integer, Integer&gt; hash&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">		ArrayList&lt;Integer&gt; ans&#x3D;new ArrayList&lt;Integer&gt;();&#x2F;&#x2F;答案数组</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;初始化哈希表，将nums1中的各个值作为key，出现次数作为value</span><br><span class="line">		for(int k:nums1) &#123;</span><br><span class="line">			hash.put(k, 0);&#x2F;&#x2F;初始化阶段，我们先将各数值出现次数记为0次</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;开始计数，nums1的各个数每出现一次，对应的哈希表value值+1</span><br><span class="line">		for(int k:nums1) &#123;</span><br><span class="line">			int ls&#x3D;hash.get(k)+1;</span><br><span class="line">			hash.put(k, ls);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;开始匹配nums2的各个值</span><br><span class="line">		for(int k:nums2) &#123;</span><br><span class="line">			if(hash.containsKey(k)&amp;&amp;hash.get(k)&gt;0) &#123;&#x2F;&#x2F;如果nums2中的值在nums1中出现且在hash表中对应的value值，即出现次数大于0</span><br><span class="line">				ans.add(k);&#x2F;&#x2F;将他保存到答案数组</span><br><span class="line">				int ls&#x3D;hash.get(k)-1;</span><br><span class="line">				hash.put(k, ls);&#x2F;&#x2F;保存后hash表中对应key的value值-1</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;答案数组转化</span><br><span class="line">		int[] answer&#x3D;new int[ans.size()];</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.size();i++) &#123;</span><br><span class="line">			answer[i]&#x3D;ans.get(i);</span><br><span class="line">		&#125;</span><br><span class="line">		return answer;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;</span><br><span class="line">		int[] nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;;</span><br><span class="line">		int[] ans&#x3D;intersect(nums1, nums2);</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.length;i++)</span><br><span class="line">			System.out.println(ans[i]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>测试用例：nums1= {1,2,2,1},nums2= {2,2}<br>测试结果：{2,2}<br>结果正确。</p>
+<hr>
+<p><strong>LeetCode提交记录</strong></p>
+<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/result3.jpg" class title="提交记录">
+
+<hr>
+<p>如有错误，欢迎联系本人QQ：965299766</p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>哈希表</tag>
+        <tag>排序</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>剑指 Offer 03. 数组中重复的数字[数组]</title>
     <url>/2020/07/29/%E5%89%91%E6%8C%87-Offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97-%E6%95%B0%E7%BB%84/</url>
     <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[数组]</em></p>
@@ -1439,7 +1558,7 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
 <img src="/2020/07/29/%E5%89%91%E6%8C%87-Offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97-%E6%95%B0%E7%BB%84/9.jpg" class title="二者值相等">
 <p><strong>显然二者值相等，即m == nums[m] == 2，意味着找到了重复的元素，</strong>直接返回他作为答案即可。</p>
 <p><strong>具体代码</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int findRepeatNumber(int[] nums) &#123;</span><br><span class="line">       int len &#x3D; nums.length;</span><br><span class="line">       if(len &#x3D;&#x3D; 0)&#x2F;&#x2F;数组为空</span><br><span class="line">            return -1;</span><br><span class="line">        </span><br><span class="line">        for(int i &#x3D; 0;i &lt; len ;i++)&#123;&#x2F;&#x2F;遍历数组</span><br><span class="line">            if(nums[i] &#x3D;&#x3D; i)&#123;&#x2F;&#x2F;如果元素值等于下标值</span><br><span class="line">                continue;&#x2F;&#x2F;直接遍历下一个元素</span><br><span class="line">            &#125;else&#123;&#x2F;&#x2F;如果不等</span><br><span class="line">                if(nums[i] &#x3D;&#x3D; nums[nums[i]])&#x2F;&#x2F;是否重复出现</span><br><span class="line">                    return nums[i];&#x2F;&#x2F;重复出现，返回答案</span><br><span class="line"></span><br><span class="line">                int temp &#x3D; nums[i];&#x2F;&#x2F;交换二者位置</span><br><span class="line">                nums[i] &#x3D; nums[nums[i]];</span><br><span class="line">                nums[temp] &#x3D; temp;</span><br><span class="line">                i--;&#x2F;&#x2F;继续对该下标进行判断</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">    public int findRepeatNumber(int[] nums) &#123;</span><br><span class="line">       int len &#x3D; nums.length;</span><br><span class="line">       if(len &#x3D;&#x3D; 0)&#x2F;&#x2F;数组为空</span><br><span class="line">            return -1;</span><br><span class="line">        </span><br><span class="line">        for(int i &#x3D; 0;i &lt; len ;i++)&#123;&#x2F;&#x2F;遍历数组</span><br><span class="line">            if(nums[i] &#x3D;&#x3D; i)&#123;&#x2F;&#x2F;如果元素值等于下标值</span><br><span class="line">                continue;&#x2F;&#x2F;直接遍历下一个元素</span><br><span class="line">            &#125;else&#123;&#x2F;&#x2F;如果不等</span><br><span class="line">                if(nums[i] &#x3D;&#x3D; nums[nums[i]])&#x2F;&#x2F;是否重复出现</span><br><span class="line">                    return nums[i];&#x2F;&#x2F;重复出现，返回答案</span><br><span class="line"></span><br><span class="line">                int temp &#x3D; nums[i];&#x2F;&#x2F;交换二者位置</span><br><span class="line">                nums[i] &#x3D; nums[nums[i]];</span><br><span class="line">                nums[temp] &#x3D; temp; &#x2F;&#x2F;由于此时nums[i]的值已经发生变化，所以应该也能够nums[temp] &#x3D; temp，而不是nums[nums[i]] &#x3D; temp；</span><br><span class="line">                i--;&#x2F;&#x2F;继续对该下标进行判断</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return 0;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>测试用例：[2,3,1,0,2,5,3]<br>测试结果：2<br>结果正确。</p>
 <p><strong>LeetCode提交记录</strong></p>
 <img src="/2020/07/29/%E5%89%91%E6%8C%87-Offer-03-%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97-%E6%95%B0%E7%BB%84/result.jpg" class title="提交记录">
@@ -1500,43 +1619,32 @@ f(n)=f(n-1)+f(n-2),n&gt;2</code></pre><p>我们将f(n)用数组表示，容易�
       </tags>
   </entry>
   <entry>
-    <title>LeetCode 309.最佳买卖股票时机含冷冻期[动态规划]</title>
-    <url>/2020/07/10/LeetCode-309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[动态规划]</em></p>
-<p>给定一个整数数组，其中第 i 个元素代表了第 i 天的股票价格 。​</p>
-<p>设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:</p>
-<pre><code>你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
-卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。</code></pre><a id="more"></a>
+    <title>编译原理[10.20]</title>
+    <url>/2020/10/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-20/</url>
+    <content><![CDATA[<p><strong>接上文 <a href="https://dulaogou.vip/2020/10/14/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-14/" target="_blank" rel="noopener">编译原理10.14</a></strong></p>
+<a id="more"></a>
 
-<p><strong>示例:</strong></p>
-<p>输入: [1,2,3,0,2]<br>输出: 3<br>解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]</p>
 <hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p>我们由题目可以了解到：对于本题，我们每天的状态可分为三种：<br>①. 买入股票<br>②. 卖出股票<br>③. 冷冻期或不操作</p>
-<p><strong>1. 我们首先定义动态规划数组</strong><br>当最后一次操作分别是：买入、卖出、冷冻期或不操作时，当日可获得的最大收益分别保存在数组buy、sell、cold中。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">int[] buy&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是买入的收益</span><br><span class="line">   int[] sell&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是卖出的收益</span><br><span class="line">   int[] cold&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是冷冻期的收益</span><br></pre></td></tr></table></figure>
-<p><strong>2. 初始化数组</strong><br>当第一天是买入时，当天收益就是第一天股票价值的负数；<br>当第一天是卖出或冷冻期（不操作）时，收益就是0。即：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">buy[0]&#x3D;-prices[0];&#x2F;&#x2F;第一天就买入的话，收益是当天股票价格的负数</span><br><span class="line">sell[0]&#x3D;cold[0]&#x3D;0;&#x2F;&#x2F;第一天不能卖出或进入冷冻期，默认为0</span><br></pre></td></tr></table></figure>
-
-<p>然后从第二天开始，获得递推公式：</p>
-<pre><code>buy[i]=max(cold[i-1]-prices[i],buy[i-1]);
-sell[i]=max(buy[i-1]+prices[i],sell[i-1]);
-cold[i]=max(sell[i-1],cold[i-1]);
-(i&gt;0时)</code></pre><p>解释：<br>①. 若最后一次操作是买入时，那只有两种情况：<br>    1）. 前一天是冷冻期，今天买入；<br>    2）. 前一天就是买入，今天就不操作。<br>②. 若最后一次操作是卖出时，那有两种情况：<br>    1）. 前一天是买入，今天卖出；<br>    2）. 前一天卖出，今天不操作（也就是冷冻期）。<br>③. 若最后一次操作是冷冻期，那有两种情况：<br>    1）. 前一天卖出，今天就是冷冻期；<br>    2）. 前一天就是冷冻期，今天不操作。</p>
-<p><strong>3. 答案获取</strong><br>我们容易看出，如果最后一次操作是买入的话，那显然是亏钱的，因为这样收益还不如直接不买，啥也不干来的多。<br>所以我们最后从卖出数组sell和冷冻数组cold中获取最大收益。</p>
+<h2 id="1-求First集和Follow集"><a href="#1-求First集和Follow集" class="headerlink" title="##1. 求First集和Follow集"></a>##1. 求First集和Follow集</h2><p><strong>例1</strong><br>有如下文法：<br>① E -&gt; TE’<br>② E’ -&gt; +TE’ | ε<br>③ T -&gt; FT’<br>④ T’ -&gt; *FT’ | ε<br>⑤ F -&gt; ( E ) | <strong>id</strong><br>求各个文法符号的First集和Follow集。</p>
 <hr>
-<h2 id="3-完整代码"><a href="#3-完整代码" class="headerlink" title="##3. 完整代码"></a>##3. 完整代码</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public class MaxProfit &#123;</span><br><span class="line">    public static int maxProfit (int[] prices) &#123;</span><br><span class="line">    	if(prices.length&#x3D;&#x3D;0||prices.length&#x3D;&#x3D;1)</span><br><span class="line">    		return 0;&#x2F;&#x2F;价格数组长度为0或1时，利润直接返回0</span><br><span class="line">    	</span><br><span class="line">    	int[] buy&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是买入的收益</span><br><span class="line">    	int[] sell&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是卖出的收益</span><br><span class="line">    	int[] cold&#x3D;new int[prices.length];	&#x2F;&#x2F;用以保存最后一次操作是冷冻期的收益</span><br><span class="line">    	</span><br><span class="line">    	buy[0]&#x3D;-prices[0];&#x2F;&#x2F;第一天就买入的话，收益是当天股票价格的负数</span><br><span class="line">    	sell[0]&#x3D;cold[0]&#x3D;0;&#x2F;&#x2F;第一天不能卖出或进入冷冻期，默认为0</span><br><span class="line">    	</span><br><span class="line">    	for(int i&#x3D;1;i&lt;prices.length;i++) &#123;</span><br><span class="line">    		buy[i]&#x3D;Math.max(cold[i-1]-prices[i], buy[i-1]);&#x2F;&#x2F;只有两种情况：①.前一天是冷冻期，那今天买入；②.前一天已经买入，今天不操作</span><br><span class="line">    		sell[i]&#x3D;Math.max(buy[i-1]+prices[i], sell[i-1]);&#x2F;&#x2F;只有两种情况：①.前一天买入，今天卖出；②.前一天已经卖出，今天不操作（冷冻期）</span><br><span class="line">    		cold[i]&#x3D;Math.max(sell[i-1], cold[i-1]);	&#x2F;&#x2F;有两种情况：①.前一天卖出，今天就是冷冻期；②.前一天是冷冻期，今天不操作</span><br><span class="line">    	&#125;</span><br><span class="line">    	&#x2F;&#x2F;因为最后一次操作是买入的话必定亏钱，所以只要获得最后操作是卖出或冷冻期的最大收益即可</span><br><span class="line">		return Math.max(sell[prices.length-1], cold[prices.length-1]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：股票价格为：&#123;1,2,3,0,2&#125;</span><br><span class="line">		int[] test &#x3D; new int[] &#123;1,2,3,0,2&#125;;</span><br><span class="line">		int ans&#x3D;maxProfit(test);</span><br><span class="line">		System.out.println(ans);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：价格数组为：{1,2,3,0,2}<br>测试结果：最大收益：3<br>结果正确。</p>
+<p><strong>1）First集</strong><br>First(E) = First(T) = First(F) = {‘(‘, <strong>id</strong>}<br>First(E’) = {+, ε}<br>First(T’) = {*, ε}</p>
 <hr>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/10/LeetCode-309-%E6%9C%80%E4%BD%B3%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E6%97%B6%E6%9C%BA%E5%90%AB%E5%86%B7%E5%86%BB%E6%9C%9F-%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/result.jpg" class title="提交记录">
-
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
+<p><strong>2）Follow集</strong><br>计算所有非终结符号A的Follow(A)时，不断应用如下规则，直到再没有新的终结符号可以被加入到任意的Follow集合中为止。<br><strong>1. 将$放到Follow(S)中，其中S是开始符号，$是输入右端的结束标记；</strong><br>    即Follow(S)包含{$}，其中，S是开始符号。<br><strong>2. 如果存在一个产生式A -&gt; αBβ，那么First(β)中除ε之外的所有符号都在Follow(B)中；</strong><br>    即Follow(B)包含First(β) - {ε}。<br><strong>3. 如果存在一个产生式 A -&gt; αB，或存在产生式 A -&gt; αBβ且FIRST(β)包含ε，那么Follow(A)中的所有符号都在Follow(B)中。</strong><br>    即Follow(B)包含Follow(A)。</p>
+<p>2.0）由于E是起始符号，所以<font color="#FF0000">Follow(E)包含{$}</font>；<br>2.1）求Follow(E)，看E出现在哪些产生式的右侧，发现出现在⑤式的右侧，观察发现此处E的下一个符号为终结符’)’，得出Follow(E)包含First(‘ ) ‘)，直接得出<font color="#FF0000">Follow(E)包含{‘ ) ‘}</font>；再次观察发现E没有出现在其他式子的右侧，可以得出<font color="#FF0000">Follow(E) = {‘ ) ‘, $}</font>;<br>2.2）求Follow(E’)，E‘出现在①式和②式的右侧，先看①式，E’后面没有下一个符号了，可以得出Follow(E’)包含Follow(E)，即<font color="#FF0000">Follow(E’)包含{‘ ) ‘, $}</font>；再看②式，E‘后面也没有下一个符号，则Follow(E’)包含Follow(E’)，这是废话，不管。此时没有其他式子右侧有E‘了，则<font color="#FF0000">Follow(E’) = {‘ ) ‘, $}</font>；<br>2.3）求Follow(T)，观察T出现在哪些式子的右侧，发现出现在①式和②式的右侧，先看①式，T后面跟着E‘，可得Follow(T)包含First(E’) - {ε}，即<font color="#FF0000">Follow(T)包含{+}</font>；再观察②式，发现E’还能推导出ε，那我们把产生式右侧的E‘用ε替代，产生式变为E’ -&gt; +T，可知Follow(T)包含Follow(E’)，即<font color="#FF0000">Follow(T)包含{‘ ) ‘, $}</font>。此外没有别的T出现在产生式右侧了，此时可以直接Follow(T) = {‘ ) ‘, $’} + First(E’) - {ε}，即<font color="#FF0000">Follow(T) = {‘ ) ‘, +, $}</font>；<br>2.4）求Follow(T’)，看哪些式子右侧包含T’，发现③式和④式右侧有T‘，先看③，T’后面不跟符号了，则Follow(T’)包含Follow(T)，即<font color="#FF0000">Follow(T’)包含{‘ ) ‘, +, $}</font>；再看④，可知Follow(T’)包含Follow(T‘)，废话，不管；得出<font color="#FF0000">Follow(T’) = Follow(T) = {‘ ) ‘, +, $}</font>；<br>2.5）求Follow(F)，发现③式，④式右侧包含F，先看③，F后面跟T’，则Follow(F)包含First(T’) - {ε}，即<font color="#FF0000">Follow(F)包含{*}</font>；再看④式，F后面跟着T‘，和上面一样处理；但是由④式还能得出，T’能推导出ε，此时产生式变为T‘ -&gt; *F，可得Follow(F)包含Follow(T’)，即<font color="#FF0000">Follow(F)包含{‘ ) ‘, +, $}</font>；此时没有别的产生式右侧有F了，即<font color="#FF0000">Follow(F) = {‘ ) ‘, + , *, $}</font>。<br>2.6）结果：<font color="#FF0000">Follow(E) = {‘ ) ‘, $}</font>；<br><font color="#FF0000">Follow(E’) = {‘ ) ‘, $}</font>；<br><font color="#FF0000">Follow(T) = {‘ ) ‘, +,  $}</font>；<br><font color="#FF0000">Follow(T’) = {‘ ) ‘, +,  $}</font>；<br><font color="#FF0000">Follow(F) = {‘ ) ‘, +, *,  $}</font>。</p>
+<hr>
+<p><strong>例2</strong><br>有如下文法：<br>① S -&gt; iEtSS’ | a<br>② S’ -&gt; eS | ε<br>③ E -&gt; b<br>求各个文法符号的First集和Follow集。</p>
+<hr>
+<p><strong>1）First集</strong><br>First(S) = {i, a}<br>First(S’) = {e, ε}<br>First(E) = {b}</p>
+<hr>
+<p><strong>2）Follow集</strong><br>计算所有非终结符号A的Follow(A)时，不断应用如下规则，直到再没有新的终结符号可以被加入到任意的Follow集合中为止。<br><strong>1. 将$放到Follow(S)中，其中S是开始符号，$是输入右端的结束标记；</strong><br>    即Follow(S)包含{$}，其中，S是开始符号。<br><strong>2. 如果存在一个产生式A -&gt; αBβ，那么First(β)中除ε之外的所有符号都在Follow(B)中；</strong><br>    即Follow(B)包含First(β) - {ε}。<br><strong>3. 如果存在一个产生式 A -&gt; αB，或存在产生式 A -&gt; αBβ且FIRST(β)包含ε，那么Follow(A)中的所有符号都在Follow(B)中。</strong><br>    即Follow(B)包含Follow(A)。</p>
+<p>2.0）由于S是起始符号，所以<font color="#FF0000">Follow(S)包含{$}；</font><br>2.1）求Follow(S)，观察哪些式子右侧有S，发现①式和②式右侧有S。先看①，S的后面跟着S’，可以得出Follow(S)包含First(S’) - {ε}，即<font color="#FF0000">Follow(S)包含{e}</font>；但此时通过②式可以得出S‘能推导出ε，此时①式可以改写为S -&gt; iEtS | a，此时得出Follow(S)包含Follow(S)，废话，不管；再看②式，S的后面不跟符号了，则得出<font color="#FF0000">Follow(S)包含Follow(S’)</font>；此时Follow(S) = Follow(S’) + {e, $}；<br>2.2）求Follow(S’)，观察得知只有①式右侧有S’，而且S‘后面不跟符号，得出Follow(S’)包含Follow(S)，再由2.1）得出的结论Follow(S)包含Follow(S’)，得出Follow(S) = Follow(S’)，所以<font color="#FF0000">Follow(S) = Follow(S’) = {e, $}；<br>2.3）求Follow(E)， E只在①式右侧出现，且后面跟的是终结符t，则Follow(E) = First(t) = {t}；<br>2.6）结果：<font color="#FF0000">Follow(S) = {e, $}</font>；<br><font color="#FF0000">Follow(S’) = {e, $}</font>；<br><font color="#FF0000">Follow(E) = {t}</font>；</font></p>
+<hr>
+<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2>]]></content>
       <categories>
-        <category>LeetCode</category>
+        <category>编译原理</category>
       </categories>
       <tags>
-        <tag>动态规划</tag>
+        <tag>编译原理</tag>
       </tags>
   </entry>
   <entry>
@@ -1712,111 +1820,50 @@ cold[i]=max(sell[i-1],cold[i-1]);
       </tags>
   </entry>
   <entry>
-    <title>编译原理[10.20]</title>
-    <url>/2020/10/20/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-20/</url>
-    <content><![CDATA[<p><strong>接上文 <a href="https://dulaogou.vip/2020/10/14/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-10-14/" target="_blank" rel="noopener">编译原理10.14</a></strong></p>
+    <title>编译原理[9.17]</title>
+    <url>/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/</url>
+    <content><![CDATA[<p><strong>接上文 <a href="https://dulaogou.vip/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/" target="_blank" rel="noopener">编译原理9.1-9.15</a></strong></p>
 <a id="more"></a>
 
 <hr>
-<h2 id="1-求First集和Follow集"><a href="#1-求First集和Follow集" class="headerlink" title="##1. 求First集和Follow集"></a>##1. 求First集和Follow集</h2><p><strong>例1</strong><br>有如下文法：<br>① E -&gt; TE’<br>② E’ -&gt; +TE’ | ε<br>③ T -&gt; FT’<br>④ T’ -&gt; *FT’ | ε<br>⑤ F -&gt; ( E ) | <strong>id</strong><br>求各个文法符号的First集和Follow集。</p>
+<h2 id="1-不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题"><a href="#1-不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题" class="headerlink" title="##1. 不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题"></a>##1. 不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题</h2><img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/1.jpg" class title="图1">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/2.jpg" class title="图2">
+
 <hr>
-<p><strong>1）First集</strong><br>First(E) = First(T) = First(F) = {‘(‘, <strong>id</strong>}<br>First(E’) = {+, ε}<br>First(T’) = {*, ε}</p>
+<h2 id="2-最小化一个DFA的状态数"><a href="#2-最小化一个DFA的状态数" class="headerlink" title="##2. 最小化一个DFA的状态数"></a>##2. 最小化一个DFA的状态数</h2><p>通过上面的算法，我们成功地将一个不确定的有穷自动机（NFA）转化为一个确定的有穷自动机（DFA），但这样的DFA是可能存在<strong>冗余</strong>的，即<br><strong>有两个或两个以上的状态，他们经过相同标号的弧到达的结点是相同的，即他们两个或多个状态结点，在功能上是完全相同的。</strong><br>这时，我们应该删除若干冗余结点，使得DFA的结点数尽可能的少，达到简化的效果。</p>
+<p>如结点A通过字符1的弧，能够到达结点C，<br>结点B通过字符1的弧，也能够到达结点C，<br>此外，结点A和B没有其他的弧能到达其他结点，这时，我们认为结点A和B在功能上是一样的，我们应该删除其中一个，保留另一个。</p>
 <hr>
-<p><strong>2）Follow集</strong><br>计算所有非终结符号A的Follow(A)时，不断应用如下规则，直到再没有新的终结符号可以被加入到任意的Follow集合中为止。<br><strong>1. 将$放到Follow(S)中，其中S是开始符号，$是输入右端的结束标记；</strong><br>    即Follow(S)包含{$}，其中，S是开始符号。<br><strong>2. 如果存在一个产生式A -&gt; αBβ，那么First(β)中除ε之外的所有符号都在Follow(B)中；</strong><br>    即Follow(B)包含First(β) - {ε}。<br><strong>3. 如果存在一个产生式 A -&gt; αB，或存在产生式 A -&gt; αBβ且FIRST(β)包含ε，那么Follow(A)中的所有符号都在Follow(B)中。</strong><br>    即Follow(B)包含Follow(A)。</p>
-<p>2.0）由于E是起始符号，所以<font color="#FF0000">Follow(E)包含{$}</font>；<br>2.1）求Follow(E)，看E出现在哪些产生式的右侧，发现出现在⑤式的右侧，观察发现此处E的下一个符号为终结符’)’，得出Follow(E)包含First(‘ ) ‘)，直接得出<font color="#FF0000">Follow(E)包含{‘ ) ‘}</font>；再次观察发现E没有出现在其他式子的右侧，可以得出<font color="#FF0000">Follow(E) = {‘ ) ‘, $}</font>;<br>2.2）求Follow(E’)，E‘出现在①式和②式的右侧，先看①式，E’后面没有下一个符号了，可以得出Follow(E’)包含Follow(E)，即<font color="#FF0000">Follow(E’)包含{‘ ) ‘, $}</font>；再看②式，E‘后面也没有下一个符号，则Follow(E’)包含Follow(E’)，这是废话，不管。此时没有其他式子右侧有E‘了，则<font color="#FF0000">Follow(E’) = {‘ ) ‘, $}</font>；<br>2.3）求Follow(T)，观察T出现在哪些式子的右侧，发现出现在①式和②式的右侧，先看①式，T后面跟着E‘，可得Follow(T)包含First(E’) - {ε}，即<font color="#FF0000">Follow(T)包含{+}</font>；再观察②式，发现E’还能推导出ε，那我们把产生式右侧的E‘用ε替代，产生式变为E’ -&gt; +T，可知Follow(T)包含Follow(E’)，即<font color="#FF0000">Follow(T)包含{‘ ) ‘, $}</font>。此外没有别的T出现在产生式右侧了，此时可以直接Follow(T) = {‘ ) ‘, $’} + First(E’) - {ε}，即<font color="#FF0000">Follow(T) = {‘ ) ‘, +, $}</font>；<br>2.4）求Follow(T’)，看哪些式子右侧包含T’，发现③式和④式右侧有T‘，先看③，T’后面不跟符号了，则Follow(T’)包含Follow(T)，即<font color="#FF0000">Follow(T’)包含{‘ ) ‘, +, $}</font>；再看④，可知Follow(T’)包含Follow(T‘)，废话，不管；得出<font color="#FF0000">Follow(T’) = Follow(T) = {‘ ) ‘, +, $}</font>；<br>2.5）求Follow(F)，发现③式，④式右侧包含F，先看③，F后面跟T’，则Follow(F)包含First(T’) - {ε}，即<font color="#FF0000">Follow(F)包含{*}</font>；再看④式，F后面跟着T‘，和上面一样处理；但是由④式还能得出，T’能推导出ε，此时产生式变为T‘ -&gt; *F，可得Follow(F)包含Follow(T’)，即<font color="#FF0000">Follow(F)包含{‘ ) ‘, +, $}</font>；此时没有别的产生式右侧有F了，即<font color="#FF0000">Follow(F) = {‘ ) ‘, + , *, $}</font>。<br>2.6）结果：<font color="#FF0000">Follow(E) = {‘ ) ‘, $}</font>；<br><font color="#FF0000">Follow(E’) = {‘ ) ‘, $}</font>；<br><font color="#FF0000">Follow(T) = {‘ ) ‘, +,  $}</font>；<br><font color="#FF0000">Follow(T’) = {‘ ) ‘, +,  $}</font>；<br><font color="#FF0000">Follow(F) = {‘ ) ‘, +, *,  $}</font>。</p>
+<p>###2.1. 算法描述</p>
+<p>算法的基本步骤是：<br>①. <strong>划分两个状态组：</strong>一组为<strong>终止态组成的集合</strong>（这里我们称为<strong>“接受状态组”</strong>），另一组为<strong>其他状态组成的集合</strong>（称为<strong>“非接受状态组”</strong>）。</p>
+<p>②. <strong>选取非接受状态组A，并选定某个输入符号a，检查a是否能区分A组中的某些状态。</strong>即若A状态组中有一部分状态A1经过标号为a的弧，能够到达一组集合B，而A中另一部分状态A2经过标号为a的弧，能到达另外一组集合C。<strong>此时，我们把A1和A2从A中分割开。</strong></p>
+<p>③. <strong>再选定某个输入符号b，重复②的分割过程，直到无法根据某个符号对一组状态进行分割为止。</strong>此时，原先的大状态组A被分割成了许多小的状态组A1,A2,A3……An，任意一个小的状态组中的所有状态，对于一个特定的输入符号，他们的行动都是一致的。</p>
+<p>④. <strong>对于每个小的状态组，选取其中一个状态作为代表，删除组内其他的状态。</strong></p>
+<p>⑤. <strong>如果有能够到达被删除状态的结点，将该结点连接至被删除状态结点的代表结点。</strong><br>如结点1通过字符a能到达结点3，结点2能通过字符a能到达结点4，经过上述算法，假设我们得出：结点3，4属于同一状态组，我们就要选出代表结点3，删除冗余结点4，那此时，结点2本来是指向4的，但是结点4被删除了，我们就把结点2指向结点4的代表结点3即可。</p>
+<p><strong>此时，完成了简化算法</strong>。</p>
 <hr>
-<p><strong>例2</strong><br>有如下文法：<br>① S -&gt; iEtSS’ | a<br>② S’ -&gt; eS | ε<br>③ E -&gt; b<br>求各个文法符号的First集和Follow集。</p>
+<p>###2.2. 一道例题</p>
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/3.jpg" class title="图1">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/4.jpg" class title="图2">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/5.jpg" class title="图3">
+
 <hr>
-<p><strong>1）First集</strong><br>First(S) = {i, a}<br>First(S’) = {e, ε}<br>First(E) = {b}</p>
+<h2 id="3-从正则表达式构造NFA"><a href="#3-从正则表达式构造NFA" class="headerlink" title="##3. 从正则表达式构造NFA"></a>##3. 从正则表达式构造NFA</h2><p>给出一个正则表达式，如何画出对应的状态图？</p>
+<p>正则表达式的三种运算分别是<strong>连接运算A×B</strong>， <strong>或运算A|B</strong>， 闭包运算<strong>A*</strong>，分别转化为状态图为：</p>
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/6.jpg" class title="正则表达式转换为NFA">
+
 <hr>
-<p><strong>2）Follow集</strong><br>计算所有非终结符号A的Follow(A)时，不断应用如下规则，直到再没有新的终结符号可以被加入到任意的Follow集合中为止。<br><strong>1. 将$放到Follow(S)中，其中S是开始符号，$是输入右端的结束标记；</strong><br>    即Follow(S)包含{$}，其中，S是开始符号。<br><strong>2. 如果存在一个产生式A -&gt; αBβ，那么First(β)中除ε之外的所有符号都在Follow(B)中；</strong><br>    即Follow(B)包含First(β) - {ε}。<br><strong>3. 如果存在一个产生式 A -&gt; αB，或存在产生式 A -&gt; αBβ且FIRST(β)包含ε，那么Follow(A)中的所有符号都在Follow(B)中。</strong><br>    即Follow(B)包含Follow(A)。</p>
-<p>2.0）由于S是起始符号，所以<font color="#FF0000">Follow(S)包含{$}；</font><br>2.1）求Follow(S)，观察哪些式子右侧有S，发现①式和②式右侧有S。先看①，S的后面跟着S’，可以得出Follow(S)包含First(S’) - {ε}，即<font color="#FF0000">Follow(S)包含{e}</font>；但此时通过②式可以得出S‘能推导出ε，此时①式可以改写为S -&gt; iEtS | a，此时得出Follow(S)包含Follow(S)，废话，不管；再看②式，S的后面不跟符号了，则得出<font color="#FF0000">Follow(S)包含Follow(S’)</font>；此时Follow(S) = Follow(S’) + {e, $}；<br>2.2）求Follow(S’)，观察得知只有①式右侧有S’，而且S‘后面不跟符号，得出Follow(S’)包含Follow(S)，再由2.1）得出的结论Follow(S)包含Follow(S’)，得出Follow(S) = Follow(S’)，所以<font color="#FF0000">Follow(S) = Follow(S’) = {e, $}；<br>2.3）求Follow(E)， E只在①式右侧出现，且后面跟的是终结符t，则Follow(E) = First(t) = {t}；<br>2.6）结果：<font color="#FF0000">Follow(S) = {e, $}</font>；<br><font color="#FF0000">Follow(S’) = {e, $}</font>；<br><font color="#FF0000">Follow(E) = {t}</font>；</font></p>
+<h2 id="4-一道作业题"><a href="#4-一道作业题" class="headerlink" title="##4. 一道作业题"></a>##4. 一道作业题</h2><img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/7.jpg" class title="图1">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/8.jpg" class title="图2">
+<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/9.jpg" class title="图3">
+
 <hr>
-<h2 id="2-相关链接"><a href="#2-相关链接" class="headerlink" title="##2. 相关链接"></a>##2. 相关链接</h2>]]></content>
+<h2 id="5-相关链接"><a href="#5-相关链接" class="headerlink" title="##5. 相关链接"></a>##5. 相关链接</h2><p><strong><a href="https://dulaogou.vip/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/" target="_blank" rel="noopener">编译原理9.1-9.15</a></strong><br><strong><a href="https://dulaogou.vip/2020/10/01/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-24-9-29/" target="_blank" rel="noopener">编译原理9.24-9.29</a></strong></p>
+]]></content>
       <categories>
         <category>编译原理</category>
       </categories>
       <tags>
         <tag>编译原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>LeetCode 350.两个数组的交集II[排序][哈希表]</title>
-    <url>/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/</url>
-    <content><![CDATA[<h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[排序][哈希表]</em></p>
-<p>给定两个数组，编写一个函数来计算它们的交集。</p>
-<a id="more"></a>
-
-<p><strong>示例 1:</strong></p>
-<p>输入: nums1 = [1,2,2,1], nums2 = [2,2]<br>输出: [2,2]</p>
-<p><strong>示例 2:</strong></p>
-<p>输入: nums1 = [4,9,5], nums2 = [9,4,9,8,4]<br>输出: [4,9]</p>
-<p><strong>说明：</strong></p>
-<pre><code>输出结果中每个元素出现的次数，应与元素在两个数组中出现的次数一致。
-我们可以不考虑输出结果的顺序。</code></pre><hr>
-<h2 id="2-题解"><a href="#2-题解" class="headerlink" title="##2. 题解"></a>##2. 题解</h2><p><strong>###2.1. 解法一：挨个元素匹配法</strong><br>题目给定两数组nums1和nums2，我们选择nums1数组进行挨个元素匹配。<br>例如：nums1={1,2,2,1}，nums2={2,2}。<br>我们还需要一个答案数组ans来保存答案。</p>
-<p>①. 先看nums1第一个元素，为1，在nums2中进行匹配，显然nums2中不存在1这个元素，匹配失败；</p>
-<p>②. 再看nums1第二个元素，为2，在nums2中匹配成功，nums2中有2这个元素。匹配成功后，我们将2保存到ans数组，然后在nums2中删除2这个元素（nums2中有两个2，只要删除第一个2）；</p>
-<p>③. 接着匹配nums1的第三个元素，为2，在nums1中进行匹配，此时的nums1由于删除了一个2，变成了{2}而非一开始的{2,2}。<br>我们进行匹配，2在nums2中依然存在，保存到ans数组，并在nums2中删掉这个2。此时的nums2变为{}，是空集；</p>
-<p>④. 接着匹配nums1的第四个元素，而nums2已经为空，匹配必定失败。</p>
-<p>⑤. nums1指针指到末尾了，匹配结束，此时ans数组就是我们要的答案，是这两个数组nums1和nums2的交集，返回他就行了。</p>
-<p><strong>解法一的完整代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line">public class Intersect &#123;</span><br><span class="line">	public static int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">		&#x2F;&#x2F;将int[]数组转换为ArrayList方便增删</span><br><span class="line">		ArrayList&lt;Integer&gt; array1&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		ArrayList&lt;Integer&gt; array2&#x3D;new ArrayList&lt;Integer&gt;();</span><br><span class="line">		ArrayList&lt;Integer&gt; ans&#x3D;new ArrayList&lt;Integer&gt;();&#x2F;&#x2F;保存答案的数组</span><br><span class="line">		for(int k:nums1)</span><br><span class="line">			array1.add(k);</span><br><span class="line">		for(int k:nums2)</span><br><span class="line">			array2.add(k);</span><br><span class="line">		</span><br><span class="line">		for(int k:array2) &#123;</span><br><span class="line">			if(array1.contains(k)) &#123;&#x2F;&#x2F;如果一个元素k在两数组中同时存在</span><br><span class="line">				ans.add(k);&#x2F;&#x2F;把该元素加到答案数组中去</span><br><span class="line">				array1.remove(getIndex(array1, k));&#x2F;&#x2F;从array1中删除该元素，防止重复匹配</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;将答案数组转化为题目要求输出的形式，即ArrayList转化为int[]</span><br><span class="line">		int[] answer&#x3D;new int[ans.size()];</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.size();i++)</span><br><span class="line">			answer[i]&#x3D;ans.get(i);</span><br><span class="line">		return answer;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">	public static int getIndex(ArrayList&lt;Integer&gt; array,int goal) &#123;</span><br><span class="line">		&#x2F;&#x2F;获取目标值在array数组中的下标，如未找到返回-1</span><br><span class="line">		for(int i&#x3D;0;i&lt;array.size();i++) &#123;</span><br><span class="line">			if(array.get(i)&#x3D;&#x3D;goal)</span><br><span class="line">				return i;</span><br><span class="line">		&#125;</span><br><span class="line">		return -1;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;</span><br><span class="line">		int[] nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;;</span><br><span class="line">		int[] ans&#x3D;intersect(nums1, nums2);</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.length;i++)</span><br><span class="line">			System.out.println(ans[i]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：nums1= {1,2,2,1},nums2= {2,2}<br>测试结果：{2,2}<br>结果正确。</p>
-<hr>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/result1.jpg" class title="提交记录">
-
-<hr>
-<p><strong>###2.2. 解法二：排序法</strong><br>我们换一个例子：nums1={1,2,4,2}，nums2={5,2,2}。<br>这次我们在一开始就将两数组按升序排序：</p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/1.jpg" class title="图一">
-<p>两箭头代表对应的数组指针，从0开始。</p>
-<p>①. 我们将两数组指针指向的值进行比较，比较结果与指针移动规则如下：<br><strong>1）两指针比较后，值较小的一方指针向后移一位；</strong><br><strong>2）如果值相等，将该值填入答案数组，两指针同时后移一位；</strong><br><strong>3）当至少一个指针到达末尾时结束。</strong><br>用该方法可以保证比较结束后，答案数组保存的就是两数组的交集。</p>
-<p>②. 看本例，指针起始位置的两个值比较，nums1指针对应的值是1，小于nums2指针对应的值2，将nums1的指针后移一位：</p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/2.jpg" class title="图二">
-
-<p>③. 再次比较，比较结果2=2，所以将2计入答案数组，两指针同时后移：</p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/3.jpg" class title="图三">
-
-<p>④. 再次比较，发现结果2=2，再计入答案数组，两指针后移：</p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/4.jpg" class title="图四">
-
-<p>⑤. 再次比较，发现4&lt;5，nums1指针向后移一位，发现移动后到达末尾，结束循环，输出答案数组作为答案即可。</p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/5.jpg" class title="图五">
-
-<p><strong>解法二的完整代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line"></span><br><span class="line">public class Intersect2 &#123;</span><br><span class="line">	public static int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">		&#x2F;&#x2F;将两数组先升序排序</span><br><span class="line">		Arrays.sort(nums1);</span><br><span class="line">		Arrays.sort(nums2);</span><br><span class="line">		ArrayList&lt;Integer&gt; ans&#x3D;new ArrayList&lt;Integer&gt;();&#x2F;&#x2F;答案数组</span><br><span class="line">		</span><br><span class="line">		for(int i&#x3D;0,j&#x3D;0;i&lt;nums1.length&amp;&amp;j&lt;nums2.length;) &#123;</span><br><span class="line">			&#x2F;&#x2F;两个指针都从0开始，比较两指针的值，小的那一个数组指针+1，如果相等，保存答案的同时两指针均+1</span><br><span class="line">			if(nums1[i]&gt;nums2[j]) &#123;</span><br><span class="line">				j++;</span><br><span class="line">			&#125;</span><br><span class="line">			else if(nums1[i]&#x3D;&#x3D;nums2[j]) &#123;</span><br><span class="line">				ans.add(nums1[i]);</span><br><span class="line">				i++;j++;</span><br><span class="line">			&#125;</span><br><span class="line">			else &#123;</span><br><span class="line">				i++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;答案数组转化</span><br><span class="line">		int[] answer&#x3D;new int[ans.size()];</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.size();i++)</span><br><span class="line">			answer[i]&#x3D;ans.get(i);</span><br><span class="line">		return answer;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;</span><br><span class="line">			int[] nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;;</span><br><span class="line">			int[] ans&#x3D;intersect(nums1, nums2);</span><br><span class="line">			for(int i&#x3D;0;i&lt;ans.length;i++)</span><br><span class="line">				System.out.println(ans[i]);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：nums1= {1,2,2,1},nums2= {2,2}<br>测试结果：{2,2}<br>结果正确。</p>
-<hr>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/result2.jpg" class title="提交记录">
-
-<hr>
-<p><strong>###2.3. 解法三：哈希表法</strong><br>还是那个例子：nums1={1,2,2,1}，nums2={2,2}。<br>我们创建一个HashMap来保存nums1中，各数及他出现的次数：</p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/6.jpg" class title="图六">
-
-<p><strong>接下来很简单：比较nums2中的每个值是否在HashMap中作为key值存在，如果存在且对应的value（代表出现次数）大于0，我们就将该key值作为答案放入答案数组，同时该key对应的value值-1，代表已经成功匹配一次了，防止以后重复匹配。</strong></p>
-<p>本题中nums2={2,2}，HashMap如图所示：</p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/7.jpg" class title="图七">
-<p><strong>1）先匹配nums2中的第一个2，显然，在HashMap中作为key值存在，且目前value为2，大于0，所以，我们将2作为答案保存在答案数组，同时HashMap中2对应的value值-1变为1.</strong></p>
-<p><strong>2）再匹配nums2中的第二个2，显然作为key值存在于HashMap，且目前value值为1，大于0，所以，我们再把这个2作为答案保存在答案数组中，同时HashMap中2对应的value值-1变为0.</strong></p>
-<p><strong>3）重复以上步骤直到nums2匹配完成。返回答案数组即可。</strong></p>
-<p><strong>解法三的完整代码：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.HashMap;</span><br><span class="line">import java.util.Map;</span><br><span class="line"></span><br><span class="line">public class Intersect3 &#123;</span><br><span class="line">	public static int[] intersect(int[] nums1, int[] nums2) &#123;</span><br><span class="line">		Map&lt;Integer, Integer&gt; hash&#x3D;new HashMap&lt;Integer, Integer&gt;();</span><br><span class="line">		ArrayList&lt;Integer&gt; ans&#x3D;new ArrayList&lt;Integer&gt;();&#x2F;&#x2F;答案数组</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;初始化哈希表，将nums1中的各个值作为key，出现次数作为value</span><br><span class="line">		for(int k:nums1) &#123;</span><br><span class="line">			hash.put(k, 0);&#x2F;&#x2F;初始化阶段，我们先将各数值出现次数记为0次</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;开始计数，nums1的各个数每出现一次，对应的哈希表value值+1</span><br><span class="line">		for(int k:nums1) &#123;</span><br><span class="line">			int ls&#x3D;hash.get(k)+1;</span><br><span class="line">			hash.put(k, ls);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;开始匹配nums2的各个值</span><br><span class="line">		for(int k:nums2) &#123;</span><br><span class="line">			if(hash.containsKey(k)&amp;&amp;hash.get(k)&gt;0) &#123;&#x2F;&#x2F;如果nums2中的值在nums1中出现且在hash表中对应的value值，即出现次数大于0</span><br><span class="line">				ans.add(k);&#x2F;&#x2F;将他保存到答案数组</span><br><span class="line">				int ls&#x3D;hash.get(k)-1;</span><br><span class="line">				hash.put(k, ls);&#x2F;&#x2F;保存后hash表中对应key的value值-1</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		&#x2F;&#x2F;答案数组转化</span><br><span class="line">		int[] answer&#x3D;new int[ans.size()];</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.size();i++) &#123;</span><br><span class="line">			answer[i]&#x3D;ans.get(i);</span><br><span class="line">		&#125;</span><br><span class="line">		return answer;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		&#x2F;&#x2F;测试用例：nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;</span><br><span class="line">		int[] nums1&#x3D; &#123;1,2,2,1&#125;,nums2&#x3D; &#123;2,2&#125;;</span><br><span class="line">		int[] ans&#x3D;intersect(nums1, nums2);</span><br><span class="line">		for(int i&#x3D;0;i&lt;ans.length;i++)</span><br><span class="line">			System.out.println(ans[i]);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试用例：nums1= {1,2,2,1},nums2= {2,2}<br>测试结果：{2,2}<br>结果正确。</p>
-<hr>
-<p><strong>LeetCode提交记录</strong></p>
-<img src="/2020/07/13/LeetCode-350-%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E7%9A%84%E4%BA%A4%E9%9B%86II-%E6%8E%92%E5%BA%8F-%E5%93%88%E5%B8%8C%E8%A1%A8/result3.jpg" class title="提交记录">
-
-<hr>
-<p>如有错误，欢迎联系本人QQ：965299766</p>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>哈希表</tag>
-        <tag>排序</tag>
       </tags>
   </entry>
   <entry>
@@ -1870,53 +1917,6 @@ cold[i]=max(sell[i-1],cold[i-1]);
 <p>将右侧的A提取公因式：<br>A -&gt; A(α1 | α2 | … | αm) | (β1 | β2 | … | βn)<br>就转化成了 A -&gt; AX | Y 的形式。</p>
 <hr>
 <h2 id="6-相关链接"><a href="#6-相关链接" class="headerlink" title="##6. 相关链接"></a>##6. 相关链接</h2><p><strong><a href="https://dulaogou.vip/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/" target="_blank" rel="noopener">编译原理9.1-9.15</a></strong><br><strong><a href="https://dulaogou.vip/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/" target="_blank" rel="noopener">编译原理9.17</a></strong></p>
-]]></content>
-      <categories>
-        <category>编译原理</category>
-      </categories>
-      <tags>
-        <tag>编译原理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>编译原理[9.17]</title>
-    <url>/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/</url>
-    <content><![CDATA[<p><strong>接上文 <a href="https://dulaogou.vip/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/" target="_blank" rel="noopener">编译原理9.1-9.15</a></strong></p>
-<a id="more"></a>
-
-<hr>
-<h2 id="1-不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题"><a href="#1-不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题" class="headerlink" title="##1. 不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题"></a>##1. 不确定有穷自动机（NFA）转化为确定有穷自动机（DFA）的一道例题</h2><img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/1.jpg" class title="图1">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/2.jpg" class title="图2">
-
-<hr>
-<h2 id="2-最小化一个DFA的状态数"><a href="#2-最小化一个DFA的状态数" class="headerlink" title="##2. 最小化一个DFA的状态数"></a>##2. 最小化一个DFA的状态数</h2><p>通过上面的算法，我们成功地将一个不确定的有穷自动机（NFA）转化为一个确定的有穷自动机（DFA），但这样的DFA是可能存在<strong>冗余</strong>的，即<br><strong>有两个或两个以上的状态，他们经过相同标号的弧到达的结点是相同的，即他们两个或多个状态结点，在功能上是完全相同的。</strong><br>这时，我们应该删除若干冗余结点，使得DFA的结点数尽可能的少，达到简化的效果。</p>
-<p>如结点A通过字符1的弧，能够到达结点C，<br>结点B通过字符1的弧，也能够到达结点C，<br>此外，结点A和B没有其他的弧能到达其他结点，这时，我们认为结点A和B在功能上是一样的，我们应该删除其中一个，保留另一个。</p>
-<hr>
-<p>###2.1. 算法描述</p>
-<p>算法的基本步骤是：<br>①. <strong>划分两个状态组：</strong>一组为<strong>终止态组成的集合</strong>（这里我们称为<strong>“接受状态组”</strong>），另一组为<strong>其他状态组成的集合</strong>（称为<strong>“非接受状态组”</strong>）。</p>
-<p>②. <strong>选取非接受状态组A，并选定某个输入符号a，检查a是否能区分A组中的某些状态。</strong>即若A状态组中有一部分状态A1经过标号为a的弧，能够到达一组集合B，而A中另一部分状态A2经过标号为a的弧，能到达另外一组集合C。<strong>此时，我们把A1和A2从A中分割开。</strong></p>
-<p>③. <strong>再选定某个输入符号b，重复②的分割过程，直到无法根据某个符号对一组状态进行分割为止。</strong>此时，原先的大状态组A被分割成了许多小的状态组A1,A2,A3……An，任意一个小的状态组中的所有状态，对于一个特定的输入符号，他们的行动都是一致的。</p>
-<p>④. <strong>对于每个小的状态组，选取其中一个状态作为代表，删除组内其他的状态。</strong></p>
-<p>⑤. <strong>如果有能够到达被删除状态的结点，将该结点连接至被删除状态结点的代表结点。</strong><br>如结点1通过字符a能到达结点3，结点2能通过字符a能到达结点4，经过上述算法，假设我们得出：结点3，4属于同一状态组，我们就要选出代表结点3，删除冗余结点4，那此时，结点2本来是指向4的，但是结点4被删除了，我们就把结点2指向结点4的代表结点3即可。</p>
-<p><strong>此时，完成了简化算法</strong>。</p>
-<hr>
-<p>###2.2. 一道例题</p>
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/3.jpg" class title="图1">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/4.jpg" class title="图2">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/5.jpg" class title="图3">
-
-<hr>
-<h2 id="3-从正则表达式构造NFA"><a href="#3-从正则表达式构造NFA" class="headerlink" title="##3. 从正则表达式构造NFA"></a>##3. 从正则表达式构造NFA</h2><p>给出一个正则表达式，如何画出对应的状态图？</p>
-<p>正则表达式的三种运算分别是<strong>连接运算A×B</strong>， <strong>或运算A|B</strong>， 闭包运算<strong>A*</strong>，分别转化为状态图为：</p>
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/6.jpg" class title="正则表达式转换为NFA">
-
-<hr>
-<h2 id="4-一道作业题"><a href="#4-一道作业题" class="headerlink" title="##4. 一道作业题"></a>##4. 一道作业题</h2><img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/7.jpg" class title="图1">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/8.jpg" class title="图2">
-<img src="/2020/09/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-17/9.jpg" class title="图3">
-
-<hr>
-<h2 id="5-相关链接"><a href="#5-相关链接" class="headerlink" title="##5. 相关链接"></a>##5. 相关链接</h2><p><strong><a href="https://dulaogou.vip/2020/09/15/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-1-9-15/" target="_blank" rel="noopener">编译原理9.1-9.15</a></strong><br><strong><a href="https://dulaogou.vip/2020/10/01/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86-9-24-9-29/" target="_blank" rel="noopener">编译原理9.24-9.29</a></strong></p>
 ]]></content>
       <categories>
         <category>编译原理</category>
