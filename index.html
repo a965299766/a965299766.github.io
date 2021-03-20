@@ -281,6 +281,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/20/%E8%87%AA%E5%88%B6%E7%AE%80%E5%8D%95%E7%9A%84java%E6%95%B0%E6%8D%AE%E5%88%86%E9%A1%B5%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿伟就这">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/03/20/%E8%87%AA%E5%88%B6%E7%AE%80%E5%8D%95%E7%9A%84java%E6%95%B0%E6%8D%AE%E5%88%86%E9%A1%B5%E5%B7%A5%E5%85%B7/" itemprop="url">自制简单的java数据分页工具</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-03-20T22:47:14+08:00">
+                2021-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java%E7%9F%A5%E8%AF%86%E7%82%B9/" itemprop="url" rel="index">
+                    <span itemprop="name">Java知识点</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/03/20/%E8%87%AA%E5%88%B6%E7%AE%80%E5%8D%95%E7%9A%84java%E6%95%B0%E6%8D%AE%E5%88%86%E9%A1%B5%E5%B7%A5%E5%85%B7/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/03/20/%E8%87%AA%E5%88%B6%E7%AE%80%E5%8D%95%E7%9A%84java%E6%95%B0%E6%8D%AE%E5%88%86%E9%A1%B5%E5%B7%A5%E5%85%B7/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#Github地址：<br><a href="https://github.com/a965299766/MyPageHelper" target="_blank" rel="noopener">https://github.com/a965299766/MyPageHelper</a></p>
+<hr>
+<p>#源码：<br>##MyPageHelper.java:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">package vip.dulaogou.utils;</span><br><span class="line"></span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class MyPageHelper &#123;</span><br><span class="line">    private List originalList;</span><br><span class="line">    private int totalPage;</span><br><span class="line">    private int totalRecord;</span><br><span class="line">    private int recordPerPage;</span><br><span class="line">    private List dividedList;</span><br><span class="line"></span><br><span class="line">    public List getOriginalList() &#123;</span><br><span class="line">        return originalList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getTotalPage() &#123;</span><br><span class="line">        return totalPage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getTotalRecord() &#123;</span><br><span class="line">        return totalRecord;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getRecordPerPage() &#123;</span><br><span class="line">        return recordPerPage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public MyPageHelper(List originalList, int recordPerPage)&#123;</span><br><span class="line">        this.originalList &#x3D; originalList;</span><br><span class="line">        this.recordPerPage &#x3D; recordPerPage;</span><br><span class="line">        if(recordPerPage &lt;&#x3D; 0)&#123;</span><br><span class="line">            recordPerPage &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(recordPerPage &gt; originalList.size())&#123;</span><br><span class="line">            recordPerPage &#x3D; originalList.size();</span><br><span class="line">        &#125;</span><br><span class="line">        this.totalRecord &#x3D; originalList.size();</span><br><span class="line">        this.totalPage &#x3D; totalRecord &#x2F; recordPerPage +</span><br><span class="line">                (totalRecord % recordPerPage &#x3D;&#x3D; 0 ? 0 : 1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public List getDividedList()&#123;</span><br><span class="line">        dividedList &#x3D; new ArrayList();</span><br><span class="line">        for(int i &#x3D; 0; i &lt; totalPage; i++)&#123;</span><br><span class="line">            List temp &#x3D; new ArrayList();</span><br><span class="line">            int start &#x3D; i * recordPerPage;</span><br><span class="line">            int end &#x3D; 0;</span><br><span class="line">            if(i !&#x3D; totalPage - 1)&#123;</span><br><span class="line">                end &#x3D; start + recordPerPage;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                end &#x3D; originalList.size();</span><br><span class="line">            &#125;</span><br><span class="line">            for(int j &#x3D; start; j &lt; end; j++)&#123;</span><br><span class="line">                temp.add(originalList.get(j));</span><br><span class="line">            &#125;</span><br><span class="line">            dividedList.add(temp);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        return dividedList;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>##MyPageInfo.java:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">package vip.dulaogou.utils;</span><br><span class="line"></span><br><span class="line">import java.util.List;</span><br><span class="line"></span><br><span class="line">public class MyPageInfo &#123;</span><br><span class="line">    private MyPageHelper myPageHelper;</span><br><span class="line">    private int index;</span><br><span class="line">    private List list;</span><br><span class="line">    private int totalPage;</span><br><span class="line">    private int totalRecord;</span><br><span class="line">    private boolean hasNext &#x3D; true;</span><br><span class="line">    private boolean hasPrevious &#x3D; true;</span><br><span class="line">    private int nextPage;</span><br><span class="line">    private int previousPage;</span><br><span class="line"></span><br><span class="line">    public MyPageInfo(MyPageHelper myPageHelper, int index)&#123;</span><br><span class="line">        this.myPageHelper &#x3D; myPageHelper;</span><br><span class="line">        this.index &#x3D; index;</span><br><span class="line">        if(index &lt;&#x3D; 0)&#123;</span><br><span class="line">            index &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(index &gt; myPageHelper.getTotalPage())&#123;</span><br><span class="line">            index &#x3D; myPageHelper.getTotalPage();</span><br><span class="line">        &#125;</span><br><span class="line">        this.totalPage &#x3D; myPageHelper.getTotalPage();</span><br><span class="line">        this.totalRecord &#x3D; myPageHelper.getTotalRecord();</span><br><span class="line">        this.previousPage &#x3D; index - 1;</span><br><span class="line">        this.nextPage &#x3D; index + 1;</span><br><span class="line">        if(index &lt;&#x3D; 1)&#123;</span><br><span class="line">            hasPrevious &#x3D; false;</span><br><span class="line">            previousPage &#x3D; 1;</span><br><span class="line">        &#125;</span><br><span class="line">        if(index &gt;&#x3D; totalPage)&#123;</span><br><span class="line">            hasNext &#x3D; false;</span><br><span class="line">            nextPage &#x3D; totalPage;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public List getList()&#123;</span><br><span class="line">        return (List) this.myPageHelper.getDividedList().get(this.index - 1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getIndex() &#123;</span><br><span class="line">        return index;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public MyPageHelper getMyPageHelper() &#123;</span><br><span class="line">        return myPageHelper;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getTotalPage() &#123;</span><br><span class="line">        return totalPage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getTotalRecord() &#123;</span><br><span class="line">        return totalRecord;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean isHasNext() &#123;</span><br><span class="line">        return hasNext;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public boolean isHasPrevious() &#123;</span><br><span class="line">        return hasPrevious;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getNextPage() &#123;</span><br><span class="line">        return nextPage;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public int getPreviousPage() &#123;</span><br><span class="line">        return previousPage;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>#测试类<br>##MyTest.java：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package org.example;</span><br><span class="line">import org.junit.Test;</span><br><span class="line">import vip.dulaogou.utils.MyPageHelper;</span><br><span class="line">import vip.dulaogou.utils.MyPageInfo;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import java.util.List;</span><br><span class="line">public class MyTest &#123;</span><br><span class="line">    @Test</span><br><span class="line">    public void test01()&#123;</span><br><span class="line">        List&lt;Integer&gt; list &#x3D; new ArrayList&lt;&gt;();</span><br><span class="line">        for(int i &#x3D; 0; i &lt; 17; i++)&#123;</span><br><span class="line">            list.add(i);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        MyPageHelper myPageHelper &#x3D; new MyPageHelper(list, 3);</span><br><span class="line">        System.out.println(&quot;originalList &#x3D; &quot; + myPageHelper.getOriginalList());</span><br><span class="line">        System.out.println(&quot;totalRecord &#x3D; &quot; + myPageHelper.getTotalRecord());</span><br><span class="line">        System.out.println(&quot;totalPage &#x3D; &quot; + myPageHelper.getTotalPage());</span><br><span class="line">        System.out.println(&quot;recordPerPage &#x3D; &quot; + myPageHelper.getRecordPerPage());</span><br><span class="line">        System.out.println(&quot;devidedList &#x3D; &quot; + myPageHelper.getDividedList());</span><br><span class="line">        System.out.println(&quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;);</span><br><span class="line"></span><br><span class="line">        MyPageInfo myPageInfo &#x3D; new MyPageInfo(myPageHelper, 6);</span><br><span class="line">        System.out.println(&quot;list &#x3D; &quot; + myPageInfo.getList());</span><br><span class="line">        System.out.println(&quot;index &#x3D; &quot; + myPageInfo.getIndex());</span><br><span class="line">        System.out.println(&quot;myPageHelper &#x3D; &quot; + myPageInfo.getMyPageHelper());</span><br><span class="line">        System.out.println(&quot;totalPage &#x3D; &quot; + myPageInfo.getTotalPage());</span><br><span class="line">        System.out.println(&quot;totalRecord &#x3D; &quot; + myPageInfo.getTotalRecord());</span><br><span class="line">        System.out.println(&quot;isHasNext &#x3D; &quot; + myPageInfo.isHasNext());</span><br><span class="line">        System.out.println(&quot;nextPage &#x3D; &quot; + myPageInfo.getNextPage());</span><br><span class="line">        System.out.println(&quot;isHasPrevious &#x3D; &quot; + myPageInfo.isHasPrevious());</span><br><span class="line">        System.out.println(&quot;previousPage &#x3D; &quot; + myPageInfo.getPreviousPage());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/01/%E6%8A%8Apython%E9%A1%B9%E7%9B%AE%E6%89%93%E5%8C%85%E6%88%90exe%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1678,168 +1838,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="阿伟就这">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/" itemprop="url">LeetCode 19.删除链表的倒数第N个节点[链表][双指针]</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-23T13:33:30+08:00">
-                2020-07-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="1-题目描述"><a href="#1-题目描述" class="headerlink" title="##1. 题目描述"></a>##1. 题目描述</h2><p><em>标签：[链表][双指针]</em></p>
-<p>给定一个链表，删除链表的倒数第 n 个节点，并且返回链表的头结点。</p>
-<p><strong>示例：</strong></p>
-<p>给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 n = 2.</p>
-<p>当删除了倒数第二个节点后，链表变为 1-&gt;2-&gt;3-&gt;5.</p>
-<p><strong>说明：</strong></p>
-<p>给定的 n 保证是有效的。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/07/23/LeetCode-19-%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E5%80%92%E6%95%B0%E7%AC%ACN%E4%B8%AA%E8%8A%82%E7%82%B9-%E9%93%BE%E8%A1%A8-%E5%8F%8C%E6%8C%87%E9%92%88/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1890,7 +1888,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">38</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1912,7 +1910,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
